@@ -11,9 +11,8 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* 本科 工业设计, 中国农业大学, 2017
+* 硕士 设计学, 东南大学, 2021
 
 Work experience
 ======
@@ -29,12 +28,12 @@ Work experience
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* 三维建模（solidworks、blender、c4d）
+* 编程（python、R、C、C#）
+  * 数据分析（python、R）
+  - XR开发（Unity、Unreal，Quest2、Hololens2）
+  - 硬件编程（Arduino、OpenMV）
+* 图像编辑、视频剪辑（ps、ai、pr）
 
 Publications
 ======
@@ -56,4 +55,7 @@ Teaching
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+-  国家级大学生创新创业项目
+- VR Moon 项目
+- 海上装备模拟
+- 手眼口多通道项目

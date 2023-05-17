@@ -8,10 +8,11 @@ redirect_from:
   - /about.html
 ---
 
-I'm a third year undergraduate student from [School of EECS](https://eecs.pku.edu.cn/), [Peking University](https://www.pku.edu.cn/). My research interest includes computer vision, computer graphics, machine learning, and computational photography.
 
-I am very fortunate to be advised by [Prof. XXX](https://www.XXX.com/) of XXX Lab from [School of Computer Science](https://cs.pku.edu.cn/), Peking University. I was advised by [Prof. XX](https://XXX.pku.edu.cn/) from [School of Computer Science](https://cs.pku.edu.cn/), Peking University.
+我是[东南大学](https://www.seu.edu.cn)[机械工程学院](https://me.seu.edu.cn/qywzwlh.cn/domain.psp)设计学的研二学生。我的研究兴趣包括 眼触控交互、增强现实、虚拟现实、人机交互、机器学习。
 
-You can find my CV here: [XX's Curriculum Vitae](../assets/Curriculum_Vitae.pdf).
+我现在的导师是 [东南大学产品设计与人机交互研究所](https://me.seu.edu.cn/2017/0721/c1298a193075/page.htm) 的[牛亚峰老师](https://me.seu.edu.cn/nyf_31777/list.htm)。
 
-[Email](mailto:XX@stu.pku.edu.cn) / [Github](https://github.com/QiuDi233) / [Wechat](../images/wechat.jpg) / [CSDN](https://blog.csdn.net/qd1813100174?spm=1000.2115.3001.5343)
+可以在这里找到我的CV：[王以俨的简历](../assets/Curriculum_Vitae.pdf).
+
+[Email](wangyiyan@seu.edu.cn) / [Github](https://github.com/george-wyy) / [Wechat](../images/wechat.jpg) / [ResearchGate](https://www.researchgate.net/profile/Yiyan-Wang-7)

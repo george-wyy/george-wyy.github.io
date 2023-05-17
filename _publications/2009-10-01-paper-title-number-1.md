@@ -1,15 +1,15 @@
 ---
-title: "Paper Title Number 1"
+title: "Survey Design in Supporting of Product Design and Development: A Case Study"
 collection: publications
-permalink: /publication/2009-10-01-paper-title-number-1
-excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
-date: 2009-10-01
-venue: 'Journal 1'
-paperurl: 'http://academicpages.github.io/files/paper1.pdf'
-citation: 'Your Name, You. (2009). &quot;Paper Title Number 1.&quot; <i>Journal 1</i>. 1(1).'
+permalink: /publication/2019-10-02-Survey Design in Supporting of Product Design and Development
+excerpt: 'Survey design plays a key role for investors to identify proper market opportunities in early stage of business plan, and then to motivate subsequent technical activities in product design and development (PD&D) process. Product design and development (PD&D) process includes a series of stages, such as business plan, concept generation, detail design, prototype & test, production, after-sale service, etc. This paper introduced both product design and development (PD&D) processes and survey methodology in Background section. This research introduced a case study product design and development project that was aiming to developing non-destructive testing robots employed for on-site inspecting flaws in wind turbine blades. With focus on the case study project, the author designed a survey and questionnaire, that was afterwards conducted by 34 year-2 undergraduate students in the College of Engineering, China Agricultural University, under a summer vacation social survey program. The survey investigated 28 wind farms in 12 provinces around north and south part of China. This paper reported full cycle of the survey process, including survey purpose, survey design, conducting survey, analyzing data & information, report & suggestions, etc. Research results showed that high quality of survey design significantly supports early stage of business plan in product design and development processes.'
+date: 2019-10-02
+venue: 'November 02'
+paperurl: 'http://george-wyy.github.io/files/paper1.pdf'
+citation: 'Yin, C., Wang, Y., & Wang, H. (2019). Survey Design in Supporting of Product Design and Development: A Case Study. In _2019 ASABE Annual International Meeting_ (p. 1). American Society of Agricultural and Biological Engineers.'
 ---
-This paper is about the number 1. The number 2 is left for future work.
+Survey design plays a key role for investors to identify proper market opportunities in early stage of business plan, and then to motivate subsequent technical activities in product design and development (PD&D) process. Product design and development (PD&D) process includes a series of stages, such as business plan, concept generation, detail design, prototype & test, production, after-sale service, etc. This paper introduced both product design and development (PD&D) processes and survey methodology in Background section. This research introduced a case study product design and development project that was aiming to developing non-destructive testing robots employed for on-site inspecting flaws in wind turbine blades. With focus on the case study project, the author designed a survey and questionnaire, that was afterwards conducted by 34 year-2 undergraduate students in the College of Engineering, China Agricultural University, under a summer vacation social survey program. The survey investigated 28 wind farms in 12 provinces around north and south part of China. This paper reported full cycle of the survey process, including survey purpose, survey design, conducting survey, analyzing data & information, report & suggestions, etc. Research results showed that high quality of survey design significantly supports early stage of business plan in product design and development processes.
 
-[Download paper here](http://academicpages.github.io/files/paper1.pdf)
+[Download paper here](http://george-wyy.github.io/files/paper1.pdf)
 
-Recommended citation: Your Name, You. (2009). "Paper Title Number 1." <i>Journal 1</i>. 1(1).
+Recommended citation: Yin, C., Wang, Y., & Wang, H. (2019). Survey Design in Supporting of Product Design and Development: A Case Study. In _2019 ASABE Annual International Meeting_ (p. 1). American Society of Agricultural and Biological Engineers.

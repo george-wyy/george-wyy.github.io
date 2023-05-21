@@ -6,6 +6,5 @@ collection: portfolio
 
 这是一个月球探索的展示性VR项目
 
-![](../images/3953273590_704e3899d5_m.jpg)
+![](/images/3953273590_704e3899d5_m.jpg)
 
-![](portfolio-VR Moon-image/bio-photo-2.jpg)

@@ -6,4 +6,3 @@ collection: portfolio
 
 这是一个月球探索的展示性VR项目
 
-![Editing a markdown file for a talk](/images/editing-talk.png)

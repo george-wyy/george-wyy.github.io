@@ -73,12 +73,20 @@ redirect_from:
 
 能力
 ======
-* 三维建模（solidworks、blender、c4d）
-* 编程（python、R、C、C#）
-  * 数据分析（python、R）
-  - XR开发（Unity、Unreal，Quest2、Hololens2）
-  - 硬件编程（Arduino、OpenMV）
-* 图像编辑、视频剪辑（ps、ai、pr）
+* XR开发（Unity、Unreal4，Quest2、Hololens2）
+  * 眼控（Tobii 5、Hololens2、D-lab）
+  * 手势（Quest2、Hololens2）
+  * 交互（VRIF、XR Interaction Toolkit、Final IK）
+
+* 编程语言（Python、R、C、C#）
+* 数据分析（Python、R）
+* 数据库技术（Mysql）
+* 机器学习（Pytorch）
+* 硬件编程（Arduino、OpenMV）
+* 图像编辑、视频剪辑（Ps、Ai、Pr）
+* 三维建模（Solidworks、Blender、C4d）
+* 界面设计（Figma、Sketch）
+* 界面开发（Html、Css、Javascript、微信小程序开发）
 
 出版物
 ======

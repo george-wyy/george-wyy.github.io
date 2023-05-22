@@ -12,7 +12,7 @@ redirect_from:
 教育经历
 ======
 - 本科 工业设计, 中国农业大学, 2017-2021
-  - GPA：3.9 / 4.0（专业前3%, 1/36）
+  - GPA:3.9 / 4.0 (专业前3%，1/36)
 - 本科 数据科学与大数据技术（双学位）, 中国农业大学, 2018-2021
 - 硕士 设计学, 东南大学, 2021-2024
 
@@ -85,6 +85,7 @@ redirect_from:
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
+
 
 <!-- Talks
 ======

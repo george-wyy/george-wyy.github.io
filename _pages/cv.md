@@ -86,6 +86,12 @@ redirect_from:
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
+作品集
+======
+  <ul>{% for post in site.portfolio %}
+    {% include archive-single-cv.html %}
+  {% endfor %}</ul>
+
 
 <!-- Talks
 ======

@@ -10,3 +10,5 @@ collection: portfolio
   - 导师：柳沙
 
 ![黄桃罐头包装设计](https://raw.githubusercontent.com/george-wyy/MyPic/img/img/202305222213975.png)
+
+![黄桃罐头包装设计](https://cdn.jsdelivr.net/gh/george-wyy/MyPic/img/202305222232226.png)

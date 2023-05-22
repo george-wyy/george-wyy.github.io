@@ -65,7 +65,7 @@ redirect_from:
   - 导师：柳沙
 
 - 2018.07 - 2018.10：核心设计人
-  - “西游记”主题黄桃罐头包装设计
+  - [“西游记”主题黄桃罐头包装设计](https://george-wyy.github.io/portfolio/portfolio-201807-Journey%20to%20the%20West%20theme%20yellow%20peach%20canned%20packaging%20design/)
   - 暑期课程设计的项目，给北京平谷地区互联农业公司设计黄桃罐头包装
   - 职责：负责“西游记”主题的规划、人物形象的设计，包装设计制作任务，后期老师帮助修改人物形象
   - 单位：互联农业公司

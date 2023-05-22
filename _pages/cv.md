@@ -89,7 +89,7 @@ redirect_from:
 作品集
 ======
   <ul>{% for post in site.portfolio %}
-    {% include archive-single-cv.html %}
+    {% include archive-single-talk-cv.html %}
   {% endfor %}</ul>
 
 

@@ -1,6 +1,7 @@
 ---
 title: "“西游记”主题黄桃罐头包装设计"
 excerpt: "暑期课程设计的项目，给北京平谷地区互联农业公司设计黄桃罐头包装<br/><img src='/images/500x300.png'>"
+date: 2018-07
 collection: portfolio
 ---
 - 2018.07 - 2018.10：核心设计人

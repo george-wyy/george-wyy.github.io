@@ -80,7 +80,7 @@ redirect_from:
   - 硬件编程（Arduino、OpenMV）
 * 图像编辑、视频剪辑（ps、ai、pr）
 
-论文
+出版物
 ======
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}

@@ -1,6 +1,6 @@
 ---
 title: "海上装备数字资产设计制作"
-excerpt: "这是一个UE4制作海上装备数字资产的设计项目<br/><img src='https://raw.githubusercontent.com/george-wyy/MyPic/img/img/202305221845523.png'>"
+excerpt: "这是一个UE4制作海上装备数字资产的设计项目<br/><img src='https://raw.githubusercontent.com/george-wyy/MyPic/img/img/202305222216112.png'>"
 collection: portfolio
 ---
 - 2023.01 - 2023.05：负责人
@@ -9,4 +9,4 @@ collection: portfolio
   - 单位：涉密单位
   - 导师：牛亚峰
 
-![海上装备数字资产_直升机](https://raw.githubusercontent.com/george-wyy/MyPic/img/img/202305221845523.png)
+![海上装备数字资产_直升机](https://raw.githubusercontent.com/george-wyy/MyPic/img/img/202305222216112.png)

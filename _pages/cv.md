@@ -21,19 +21,27 @@ redirect_from:
 
 - [Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System](https://george-wyy.github.io/publication/2023-05-24-Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System)
 
-
+研究平滑追踪眼控界面的控件尺寸和速度权衡的问题，使用Python、R、Spss等分析工效学实验的数据，提出界面控件参数的设计建议。撰写论文并投稿到IJHCI（审稿中）。
 
 - 硕士课题
 
 
 
-- 发明专利。。。
+- 眼动密码输入方法、系统及设备
+  - 发明专利
+  - 田景泽, 牛亚峰, 王以俨, 何家新, 黄炜驰. **眼动密码输入方法、系统及设备**, 中国, 2023, 申请号2023103654660.
+
+构思、讨论、头脑风暴。。。
+
+为解决密码输入的肩窥问题，提出基于平滑追踪的眼动密码输入方法，设计输入流程、系统。
 
 
 
-- xxx论文 在投
+**Optimization of Blink-Based Eye-Tracking System's Lock-on Stage: Exploring the Temporal and Spatial Dimensions**
 
+2023.02 - 至今 期刊论文 南京
 
+为解决眼控交互视线漂移的问题，提出了基于凝视加眨眼的复合交互动作的眼控系统中控件的锁定时间最优参数，以及空间维度的眨眼视线漂移范围和方向。设计眨眼锁定交互方式，实验得到最佳锁定时长、最佳锁定范围，提升系统的性能和准确性。（投稿中）
 
 
 
@@ -89,6 +97,35 @@ redirect_from:
 * 三维建模（Solidworks、Blender、C4d）
 * 界面设计（Figma、Sketch）
 * 界面开发（Html、Css、Javascript、微信小程序开发）
+
+
+
+1. 编程能力：
+   - 熟练Python，C#
+   - 熟悉R， C，SQL，PyTorch
+2. 动手能力：
+
+熟练
+
+XR开发（Unity、Unreal Engine 4、Oculus Quest 2、Hololens 2）
+
+图像编辑、视频剪辑（Photoshop、Illustrator、Premiere）
+
+三维建模（Solidworks、Blender、Cinema 4D）
+
+熟悉
+
+眼控技术（Tobii 5、Hololens 2、D-lab）
+
+手势技术（Oculus Quest 2、Hololens 2）
+
+硬件编程（Arduino、OpenMV）
+
+3. 开发能力：
+   - 熟悉VR框架（VRIF、XR Interaction Toolkit、Final IK）
+   - 熟练
+     - 界面设计（Figma、Sketch）
+     - 界面开发（HTML、CSS、JavaScript、微信小程序开发）
 
 出版物
 ======

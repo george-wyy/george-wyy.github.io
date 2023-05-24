@@ -29,6 +29,8 @@ redirect_from:
 
 - 相关课程：数据库原理与实验、数据结构、大数据分析与可视化技术与实验、人工智能技术 
 
+---
+
 研究经历
 ======
 
@@ -63,6 +65,8 @@ redirect_from:
 2020.11 - 2021.06 本科毕业设计
 
 - 通过文献、专家访谈、实地调研，设计自闭症注意力训练方法；使用凝视触发、平滑追踪的眼控方法，设计开发一款自闭症儿童注意力训练游戏[（视频）](https://pan.baidu.com/s/1D_pWqpbMFIi0dD2Wcor5gA?pwd=6daf)；在北京市海淀区雨露嘉禾儿童康复训练中心测试软件，软件可用性较高
+
+---
 
 项目经历
 ======
@@ -134,6 +138,8 @@ redirect_from:
 
 - 提出创建项目组件库，以适配5个平台的界面，累积制作31个页面；小组中协调同学共同完成任务
 
+---
+
 能力
 ======
 ## **编程能力**
@@ -153,11 +159,15 @@ redirect_from:
   - 硬件编程（Arduino、OpenMV）
   - VR框架（VRIF、XR Interaction Toolkit、Final IK）
 
+---
+
 出版物
 ======
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
+---
+
 
 作品集
 ======
@@ -171,13 +181,15 @@ redirect_from:
   <ul>{% for post in site.talks %}
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ul> -->
-
+---
 
 社团和组织经历
 ======
 ##### 2017.09 - 2021.06 设计171班长
 
 - 组织过班级的3次春秋游、运动会、心理剧等活动；促进班级体积极向上的氛围，在2018秋学期，获得学院”优秀班集体“荣誉
+
+---
 
 荣誉/奖项
 ======

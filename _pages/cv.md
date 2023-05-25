@@ -147,22 +147,15 @@ redirect_from:
 ======
 - ## **编程能力**
 
-  - 熟练Python，C#；熟悉R， C，SQL，PyTorch
+  - 熟练使用Python进行数据分析和Web开发（Pandas、Seaborn、SciPy、Django等）以及R配合进行数据分析与可视化（bruceR、ggplot2等）、基于Unity使用C#脚本进行软件开发、Git进行版本管理
+  - 熟悉 C，SQL，PyTorch、软件开发方法（UML、软件设计模式）、数据结构
 
 
 - ## **动手能力**
 
-  - 熟练
-    - XR开发（Unity、Unreal Engine 4、Oculus Quest 2、Hololens 2）
-    - 三维建模（Solidworks、Blender、Cinema 4D）
-    - 界面设计开发（Figma、Sketch、H5、微信小程序开发）
-    - 图像编辑、视频剪辑（Photoshop、Illustrator、Premiere）
+  - 熟练掌握XR开发工具（Unity、Unreal Engine 4、Oculus Quest 2、Hololens 2）、三维建模软件（Solidworks、Blender、Cinema 4D）、界面设计开发工具（Figma、Sketch、H5、微信小程序开发）、图像编辑视频剪辑工具（Photoshop、Illustrator、Premiere）
 
-  - 熟悉
-    - 眼控技术（Tobii 5、Hololens 2、D-lab）
-      - 手势技术（Oculus Quest 2、Hololens 2）
-      - 硬件编程（Arduino、OpenMV）
-      - VR框架（VRIF、XR Interaction Toolkit、Final IK）
+  - 熟悉眼控技术和工具（Tobii 5、Hololens 2、D-lab）、手势交互工具（Oculus Quest 2、Hololens 2、Leap Motion）、VR框架（VRIF、XR Interaction Toolkit、Final IK）、可编程硬件（Arduino、OpenMV）
 
 
 ---

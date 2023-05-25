@@ -11,13 +11,13 @@ redirect_from:
 
 教育经历
 ======
-## **东南大学** 985 211 双一流
+### **东南大学** 985 211 双一流
 
 2021.09 - 2024.06 **设计学 硕士** 机械工程学院
 
 - 相关课程：人工智能与机器学习、数学模型、软件开发方法与技术、高级心理学研究方法、试验设计、模式分析与模式识别
 
-## **中国农业大学** 985 211 双一流
+### **中国农业大学** 985 211 双一流
 
 2017.08 - 2021.06 **工业设计 本科** 工学院
 
@@ -34,7 +34,7 @@ redirect_from:
 研究经历
 ======
 
-## **Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System**
+### **Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System**
 
 2021.08 - 2022.11 期刊论文 国家自然科学基金青年基金项目 71801037
 

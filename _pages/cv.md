@@ -149,9 +149,15 @@ redirect_from:
 
 出版物
 ======
-  <ul>{% for post in site.publications %}
+  <ul>
+  {% assign sorted_posts = site.publications | sort: 'date' | reverse %}
+  {% for post in sorted_posts %}
     {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+  {% endfor %}
+  <!-- {% for post in site.publications %}
+    {% include archive-single-cv.html %}
+  {% endfor %} -->
+  </ul>
 
 ---
 

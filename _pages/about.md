@@ -15,7 +15,7 @@ redirect_from:
 - **编程动手能力突出**，熟练使用Python、Unity、Hololens 2、Quest 2、Aduino
 - **科研习惯良好**，每周撰写科研周记，累积完成[**44余篇**](https://cdn.jsdelivr.net/gh/george-wyy/george-wyy.github.io/assets/科研日志合集.pdf)**[（文档🔗）](https://cdn.jsdelivr.net/gh/george-wyy/george-wyy.github.io/assets/科研日志合集.pdf)**
 - **做项目踏实负责**，研究生期间负责3个项目
-- 您可以在这里找到我的CV：[王以俨的简历](../assets/Curriculum_Vitae.pdf)
+- 您可以在这里找到我的CV：[王以俨的简历](https://cdn.jsdelivr.net/gh/george-wyy/george-wyy.github.io/assets/Curriculum_Vitae.pdf)
 
 
 [Email](wangyiyan@seu.edu.cn) / [Github](https://github.com/george-wyy) / [Wechat](../images/wechat.jpg) / [ResearchGate](https://www.researchgate.net/profile/Yiyan-Wang-7)

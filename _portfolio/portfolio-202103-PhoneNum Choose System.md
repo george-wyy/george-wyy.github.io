@@ -3,7 +3,7 @@ title: "手机选号广告系统的设计与实现【本科双学位毕业设计
 excerpt: "针对联通大王卡的手机选号广告，将用户输入数据传给运营商服务器并保存，并定期获取订单状态。包括前后端的开发<br/><img src='https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202305222252968.png'>"
 collection: portfolio
 ---
-# **手机选号广告系统的设计与实现**
+
 
 2021.03 - 2021.05 本科双学位毕业设计
 

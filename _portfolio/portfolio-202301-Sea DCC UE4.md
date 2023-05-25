@@ -1,9 +1,9 @@
 ---
-title: "海上装备数字资产设计制作"
+title: "基于UE4的xxxx三维建模与交互设计"
 excerpt: "这是一个UE4制作海上装备数字资产的设计项目<br/><img src='https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202305222254859.png'>"
 collection: portfolio
 ---
-# **基于UE4的xxxx三维建模与交互设计**
+
 
 2023.01 - 至今 负责人
 

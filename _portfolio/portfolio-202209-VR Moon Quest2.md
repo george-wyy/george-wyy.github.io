@@ -1,10 +1,10 @@
 ---
-title: "VR Moon"
+title: "基于VR的月球基地任务仿真与交互研究"
 excerpt: "这是一个月球探索的展示性VR项目<br/><img src='https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202305222253301.png'>"
 collection: portfolio
 ---
 
-# **基于VR的月球基地任务仿真与交互研究**
+
 
 2022.09 - 2023.01 负责人
 

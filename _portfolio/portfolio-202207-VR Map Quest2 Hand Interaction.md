@@ -1,9 +1,9 @@
 ---
-title: "VR 指控沙盘"
+title: "基于VR手势的指控沙盘交互研究"
 excerpt: "基于Quest2 的手势交互开发，包括点&线标绘、场景移动缩放、手掌菜单等功能<br/><img src='https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202305222253910.png'>"
 collection: portfolio
 ---
-# **基于VR手势的指控沙盘交互研究**
+
 
 2022.07 - 2022.09 VR开发
 

@@ -9,4 +9,3 @@ paperurl: ''
 citation: 'Niu, Y., Wang, Y., Cheng, W., Tian, J., Yang, W., Xue, C. (2023). Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System. International Journal of Human–Computer Interaction【审稿中】'
 ---
 
-

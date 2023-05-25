@@ -129,7 +129,7 @@ redirect_from:
 出版物
 ======
   <ul>
-  {% assign sorted_posts = site.publications | sort: 'date'  %}
+  {% assign sorted_posts = site.publications | sort: 'date' | reverse %}
   {% for post in sorted_posts %}
     {% include archive-single-cv.html %}
   {% endfor %}

@@ -3,8 +3,7 @@ main:
   - title: "简历"
     url: /cv/
 
-  - title: "论文专利软著"
-    url: /publications/
+
 
   # - title: "Talks"
   #   url: /talks/    
@@ -14,6 +13,9 @@ main:
     
   - title: "作品展示"
     url: /portfolio/
+
+  - title: "论文专利软著"
+    url: /publications/
         
   # - title: "Blog Posts"
   #   url: /year-archive/

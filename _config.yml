@@ -10,7 +10,7 @@ locale                   : "zh-cn"
 title                    : "王以俨 / 个人主页"
 title_separator          : "-"
 name                     : &name "王以俨"
-description              : &description "XR 眼控交互<br/>东大设计学研二"
+description              : &description "XR 眼控交互<br/>东南大学"
 url                      : https://george-wyy.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "george-wyy/george-wyy.github.io"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "王以俨"
   avatar           : "myPhoto.png"
-  bio              : "XR 眼控交互<br/>东大设计学研二"
+  bio              : "XR 眼控交互<br/>东南大学"
   location         : "南京"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"

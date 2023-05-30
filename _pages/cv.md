@@ -13,7 +13,7 @@ redirect_from:
 ======
 - ## **东南大学** 985 211 双一流
 
-  - 2021.09 - 2024.06 设计学 硕士 机械工程学院
+  - 2021.09 - 至今 设计学 硕士 机械工程学院
     - 相关课程：人工智能与机器学习、数学模型、软件开发方法与技术、高级心理学研究方法、试验设计、模式分析与模式识别
 
 
@@ -33,10 +33,10 @@ redirect_from:
 
 ## **面向眼控系统交互式界面元素的视觉表征与评价机制研究**
 
-*2021.08 - 2022.11 参与 国家自然科学基金青年基金项目 71801037*
+*2021.08 - 2021.12 参与 国家自然科学基金青年基金项目 71801037*
 
 - 研究平滑追踪眼控界面的控件尺寸和速度权衡的问题，使用Python、R、Spss等分析工效学实验的数据，提出界面控件参数的设计建议。撰写论文 "Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System" 并投稿到 International Journal of Human–Computer Interaction（审稿中）
-- 为解决眼控交互视线漂移的问题，提出了基于凝视加眨眼的复合交互动作的眼控系统中控件的锁定时间最优参数，以及空间维度的眨眼视线漂移范围和方向。设计眨眼锁定交互方式，实验得到最佳锁定时长、最佳锁定范围，提升系统的性能和准确性。撰写论文“Optimization of Blink-Based Eye-Tracking System's Lock-on Stage: Exploring the Temporal and Spatial Dimensions”（投稿中）
+
 
 ## **融合实体控制器的眼控系统视触觉交互机制研究：以手功能障碍人群为例**
 
@@ -44,16 +44,18 @@ redirect_from:
 *2021.01 - 至今 参与 国家自然科学基金面上项目 72171044*
 
 参与基金申请书文献综述的撰写、技术路线图和研究示意图的绘制，并成功申请该基金
-
 - ### 混合数字纸文本标绘眼触控交互研究
 
   - *2022.11 - 至今 硕士课题*
   - 使用文献分析法、启发式方法，设计混合数字纸文本标绘任务的眼触控结合的新型交互方式。使用Artoolkit、MRTK3，开发基于Hololens2 的具有标绘信息显示、物理纸空间定位、眼触控交互等功能的系统。使用工效学实验方法进行系统评价
-  - 目前正在进行手眼协调交互方式的设计和对应的眼触控光标的开发
+  - 目前正在进行手眼协调交互方式的设计 和 对应的眼触控光标的开发
+
 - ### **眼动密码输入方法、系统及设备**
 
   - *2022.12 - 2023.04 发明专利*
   - 为解决密码输入的肩窥问题，提出基于平滑追踪的眼动密码输入方法，设计输入流程、系统。（初审中）
+
+- 为解决眼控交互视线漂移的问题，提出了基于凝视加眨眼的复合交互动作的眼控系统中控件的锁定时间最优参数，以及空间维度的眨眼视线漂移范围和方向。设计眨眼锁定交互方式，实验得到最佳锁定时长、最佳锁定范围，提升系统的性能和准确性。撰写论文“Optimization of Blink-Based Eye-Tracking System's Lock-on Stage: Exploring the Temporal and Spatial Dimensions”（投稿中）
 
 
 ## **基于眼控的自闭症儿童注意力训练软件设计研究**
@@ -64,7 +66,7 @@ redirect_from:
 ## **xxxx眼控**
 *2022.06 - 至今 参与 173计划技术领域基金项目*
 
-- 研究震动晃动环境下的眼控交互界面设计，参与项目申请书撰写、实验设计
+- 研究震动晃动环境下的眼控交互界面设计，参与项目申请书撰写并成功申请该基金，参与实验设计
 
 ## **xxxx眼控**
 *2023 - 至今 参与 共用信息系统装备预研项目（基础类项目）*
@@ -137,17 +139,17 @@ redirect_from:
 
 能力
 ======
-- ## **编程能力**
+## ## **编程能力**
 
   - 熟练使用Python进行数据分析和Web开发（Pandas、Seaborn、SciPy、Django等）以及R配合进行数据分析与可视化（bruceR、ggplot2等）、基于Unity使用C#脚本进行软件开发、Git进行版本管理
   - 熟悉 C，SQL，PyTorch、软件开发方法（UML、软件设计模式）、数据结构
 
-- ## **动手能力**
+## ## **动手能力**
 
   - 熟练掌握XR开发工具（Unity、Unreal Engine 4、Oculus Quest 2、Hololens 2）、三维建模软件（Solidworks、Blender、Cinema 4D）、界面设计开发工具（Figma、Sketch、H5、微信小程序开发）、图像编辑视频剪辑工具（Photoshop、Illustrator、Premiere）
   - 熟悉眼控技术和工具（Tobii 5、Hololens 2、D-lab）、手势交互工具（Oculus Quest 2、Hololens 2、Leap Motion）、VR框架（VRIF、XR Interaction Toolkit、Final IK）、可编程硬件（Arduino、OpenMV）
 
-- ## 写作能力
+## ## 写作能力
 
   - 熟练掌握高质量论文写作技巧，能够清晰、准确地表达思想，熟练使用ChatGPT等AI工具提升工作效率。具备文献管理和分析技巧，能够精准搜索、追踪文献。以熟练和专业水准完成各类写作任务。
   - 熟悉LaTeX排版，确保文档专业规范。深入调研、分析文献，撰写论文和申请书。
@@ -170,18 +172,18 @@ redirect_from:
   </ul>
 -->
 
-**论文**
+## **论文**
 
 - Niu, Y., **<u>Wang, Y.</u>**, Cheng, W., Tian, J., Yang, W., Xue, C. (2023). [Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System](https://george-wyy.github.io/publication/2023-05-24-Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System). International Journal of Human–Computer Interaction【审稿中】
 - Yin, C., **<u>Wang, Y.</u>**, & Wang, H. (2019). [Survey Design in Supporting of Product Design and Development: A Case Study ](https://george-wyy.github.io/publication/2019-10-02-Survey Design in Supporting of Product Design and Development-number-1). In _2019 ASABE Annual International Meeting_ (p. 1). American Society of Agricultural and Biological Engineers.
 - Li, Z., Zhou, Z., **<u>Wang, Y.</u>**, Tian, J., Yang, W., Niu, Y. (2023). [Enhancement Characteristics of Visual Stimulus Elements in SSVEP-BCI System ](https://george-wyy.github.io/publication/2023-01-01-Enhancement Characteristics of Visual Stimulus Elements in SSVEP-BCI System-number-2). Integrating People and Intelligent Systems. AHFE (2023) International Conference. 
 
-**专利**
+## **专利**
 
 - 柳沙, **<u>王以俨</u>**, 李琳, 李鸿盛, & 谭宇. (2021). [一种自动化芦苇笋剥笋装置 ](https://george-wyy.github.io/publication/2021-02-一种自动化芦苇笋剥笋机). CN212520711U.【实用新型，已授权】
 - 田景泽, 牛亚峰, **<u>王以俨</u>**, 何家新, 黄炜驰.(2023). 眼动密码输入方法、系统及设备, 中国, 申请号2023103654660.【发明专利】
 
-**软著**
+## **软著**
 
 - 殷成刚, **<u>王以俨</u>** (2020). [基于Python的工程信息交互仿真软件 ](https://george-wyy.github.io/publication/2020-10-基于Python的工程信息交互仿真软件) (V 1.0) [软件]. 北京,  中国农业大学
 - 殷成刚, **<u>王以俨</u>** (2020). [基于Python语言多项目并行开发时间管理软件 ](https://george-wyy.github.io/publication/2020-05-基于Python语言多项目并行开发时间管理软件) (V 1.0) [软件]. 北京,  中国农业大学

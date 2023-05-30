@@ -36,7 +36,7 @@ redirect_from:
 *2021.08 - 2022.11 参与 国家自然科学基金青年基金项目 71801037*
 
 - 研究平滑追踪眼控界面的控件尺寸和速度权衡的问题，使用Python、R、Spss等分析工效学实验的数据，提出界面控件参数的设计建议。撰写论文 "Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System" 并投稿到 International Journal of Human–Computer Interaction（审稿中）
-- 为解决眼控交互视线漂移的问题，提出了基于凝视加眨眼的复合交互动作的眼控系统中控件的锁定时间最优参数，以及空间维度的眨眼视线漂移范围和方向。设计眨眼锁定交互方式，实验得到最佳锁定时长、最佳锁定范围，提升系统的性能和准确性（投稿中）
+- 为解决眼控交互视线漂移的问题，提出了基于凝视加眨眼的复合交互动作的眼控系统中控件的锁定时间最优参数，以及空间维度的眨眼视线漂移范围和方向。设计眨眼锁定交互方式，实验得到最佳锁定时长、最佳锁定范围，提升系统的性能和准确性。撰写论文“Optimization of Blink-Based Eye-Tracking System's Lock-on Stage: Exploring the Temporal and Spatial Dimensions”（投稿中）
 
 ## **融合实体控制器的眼控系统视触觉交互机制研究：以手功能障碍人群为例**
 
@@ -170,14 +170,14 @@ redirect_from:
 ---
 
 
-作品集
+<!--作品集
 ======
   <ul>{% for post in site.portfolio %}
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ul>
 
 
-<!-- Talks
+ Talks
 ======
   <ul>{% for post in site.talks %}
     {% include archive-single-talk-cv.html %}

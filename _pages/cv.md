@@ -55,7 +55,10 @@ redirect_from:
   - *2022.12 - 2023.04 发明专利*
   - 为解决密码输入的肩窥问题，提出基于平滑追踪的眼动密码输入方法，设计输入流程、系统。（初审中）
 
-- 为解决眼控交互视线漂移的问题，提出了基于凝视加眨眼的复合交互动作的眼控系统中控件的锁定时间最优参数，以及空间维度的眨眼视线漂移范围和方向。设计眨眼锁定交互方式，实验得到最佳锁定时长、最佳锁定范围，提升系统的性能和准确性。撰写论文“Optimization of Blink-Based Eye-Tracking System's Lock-on Stage: Exploring the Temporal and Spatial Dimensions”（投稿中）
+- ### 凝视眨眼复合交互动作的眼控系统研究
+
+  - *2023.2 - 至今*
+  - 为解决眼控交互视线漂移的问题，提出了基于凝视加眨眼的复合交互动作的眼控系统中控件的锁定时间最优参数，以及空间维度的眨眼视线漂移范围和方向。设计眨眼锁定交互方式，实验得到最佳锁定时长、最佳锁定范围，提升系统的性能和准确性。撰写论文“Optimization of Blink-Based Eye-Tracking System's Lock-on Stage: Exploring the Temporal and Spatial Dimensions”（投稿中）
 
 
 ## **基于眼控的自闭症儿童注意力训练软件设计研究**

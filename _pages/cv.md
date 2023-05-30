@@ -168,35 +168,22 @@ redirect_from:
   {% endfor %} -->
   </ul>-->
 
-- ### [Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System ](https://george-wyy.github.io/publication/2023-05-24-Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System)
+**论文**
 
-  Niu, Y., Wang, Y., Cheng, W., Tian, J., Yang, W., Xue, C. (2023). Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System. International Journal of Human–Computer Interaction【审稿中】
+- Niu, Y., <u>**Wang, Y.**</u>, Cheng, W., Tian, J., Yang, W., Xue, C. (2023). [Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System](https://george-wyy.github.io/publication/2023-05-24-Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System). International Journal of Human–Computer Interaction【审稿中】
+- Yin, C., <u>**Wang, Y.**</u>, & Wang, H. (2019). [Survey Design in Supporting of Product Design and Development: A Case Study ](https://george-wyy.github.io/publication/2019-10-02-Survey Design in Supporting of Product Design and Development-number-1). In _2019 ASABE Annual International Meeting_ (p. 1). American Society of Agricultural and Biological Engineers.
+- Li, Z., Zhou, Z., <u>**Wang, Y.**</u>, Tian, J., Yang, W., Niu, Y. (2023). [Enhancement Characteristics of Visual Stimulus Elements in SSVEP-BCI System ](https://george-wyy.github.io/publication/2023-01-01-Enhancement Characteristics of Visual Stimulus Elements in SSVEP-BCI System-number-2). Integrating People and Intelligent Systems. AHFE (2023) International Conference. 
 
-- ### [Enhancement Characteristics of Visual Stimulus Elements in SSVEP-BCI System ](https://george-wyy.github.io/publication/2023-01-01-Enhancement Characteristics of Visual Stimulus Elements in SSVEP-BCI System-number-2)
+**专利**
 
-  Li, Z., Zhou, Z., Wang, Y., Tian, J., Yang, W., Niu, Y. (2023). Enhancement Characteristics of Visual Stimulus Elements in SSVEP-BCI System. In: Tareq Ahram, Waldemar Karwowski, Pepetto Di Bucchianico, Redha Taiar, Luca Casarotto and Pietro Costa (eds) Intelligent Human Systems Integration (IHSI 2023): Integrating People and Intelligent Systems. AHFE (2023) International Conference. AHFE Open Access, vol 69. AHFE International, USA. http://doi.org/10.54941/ahfe1002921
+- 柳沙, <u>**王以俨**</u>, 李琳, 李鸿盛, & 谭宇. (2021). [一种自动化芦苇笋剥笋装置 ](https://george-wyy.github.io/publication/2021-02-一种自动化芦苇笋剥笋机). CN212520711U.【实用新型】
+- 田景泽, 牛亚峰, <u>**王以俨**,</u> 何家新, 黄炜驰.(2023). 眼动密码输入方法、系统及设备, 中国, 申请号2023103654660.【发明专利】
 
-- ### [一种自动化芦苇笋剥笋装置 ](https://george-wyy.github.io/publication/2021-02-一种自动化芦苇笋剥笋机)
+**软著**
 
-  柳沙, 王以俨, 李琳, 李鸿盛, & 谭宇. (2021). 一种自动化芦苇笋剥笋装置. CN212520711U.
-
-- ### [基于Python的工程信息交互仿真软件 ](https://george-wyy.github.io/publication/2020-10-基于Python的工程信息交互仿真软件)
-
-  Yin, C., Wang, Y. (2020). Python-Based Engineering Information Communication Simulation Software (Version 1.0) [Computer software]. Beijing, China Agricultural University.
-
-- ### [基于Python语言多项目并行开发时间管理软件 ](https://george-wyy.github.io/publication/2020-05-基于Python语言多项目并行开发时间管理软件)
-
-  Yin, C., Wang, Y. (2020). Python-Based MPCD Time Management Software (Version 1.0) [Computer software]. Beijing, China Agricultural University.
-
-- ### [基于Python语言的新产品开发流程动画仿真软件 ](https://george-wyy.github.io/publication/2020-05-基于Python语言的新产品开发流程动画仿真软件)
-
-  Yin, C., Wang, Y. (2020). Python-based New Product Development Process Animation Simulation Software (Version 1.0) [Computer software]. Beijing, China Agricultural University.
-
-- ### [Survey Design in Supporting of Product Design and Development: A Case Study ](https://george-wyy.github.io/publication/2019-10-02-Survey Design in Supporting of Product Design and Development-number-1)
-
-  Yin, C., Wang, Y., & Wang, H. (2019). Survey Design in Supporting of Product Design and Development: A Case Study. In _2019 ASABE Annual International Meeting_ (p. 1). American Society of Agricultural and Biological Engineers.
-
-
+- 殷成刚, <u>**王以俨**</u> (2020). [基于Python的工程信息交互仿真软件 ](https://george-wyy.github.io/publication/2020-10-基于Python的工程信息交互仿真软件) (V 1.0) [软件]. 北京,  中国农业大学
+- 殷成刚, <u>**王以俨**</u> (2020). [基于Python语言多项目并行开发时间管理软件 ](https://george-wyy.github.io/publication/2020-05-基于Python语言多项目并行开发时间管理软件) (V 1.0) [软件]. 北京,  中国农业大学
+- 殷成刚, <u>**王以俨**</u> (2020). [基于Python语言的新产品开发流程动画仿真软件 ](https://george-wyy.github.io/publication/2020-05-基于Python语言的新产品开发流程动画仿真软件) (V 1.0) [软件]. 北京,  中国农业大学
 
 
 

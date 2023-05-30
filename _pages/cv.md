@@ -149,7 +149,8 @@ redirect_from:
 
 - ## 写作能力
 
-  - 熟练掌握高质量写作技巧，能够清晰、准确地表达思想。熟悉LaTeX排版，确保文档专业规范。深入调研、分析文献，撰写论文和申请书。具备文献管理和分析技巧，能够精准搜索、追踪文献。以熟练和专业水准完成各类写作任务。
+  - 熟练掌握高质量论文写作技巧，能够清晰、准确地表达思想，熟练使用ChatGPT等AI工具提升工作效率。具备文献管理和分析技巧，能够精准搜索、追踪文献。以熟练和专业水准完成各类写作任务。
+  - 熟悉LaTeX排版，确保文档专业规范。深入调研、分析文献，撰写论文和申请书。
 
 
 
@@ -157,7 +158,7 @@ redirect_from:
 
 出版物
 ======
-  <ul>
+  <!-- <ul>
   {% assign sorted_posts = site.publications | sort: 'date' | reverse %}
   {% for post in sorted_posts %}
     {% include archive-single-cv.html %}
@@ -165,7 +166,40 @@ redirect_from:
   <!-- {% for post in site.publications %}
     {% include archive-single-cv.html %}
   {% endfor %} -->
-  </ul>
+  </ul>-->
+
+- ### [Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System ](https://george-wyy.github.io/publication/2023-05-24-Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System)
+
+  Niu, Y., Wang, Y., Cheng, W., Tian, J., Yang, W., Xue, C. (2023). Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System. International Journal of Human–Computer Interaction【审稿中】
+
+- ### [Enhancement Characteristics of Visual Stimulus Elements in SSVEP-BCI System ](https://george-wyy.github.io/publication/2023-01-01-Enhancement Characteristics of Visual Stimulus Elements in SSVEP-BCI System-number-2)
+
+  Li, Z., Zhou, Z., Wang, Y., Tian, J., Yang, W., Niu, Y. (2023). Enhancement Characteristics of Visual Stimulus Elements in SSVEP-BCI System. In: Tareq Ahram, Waldemar Karwowski, Pepetto Di Bucchianico, Redha Taiar, Luca Casarotto and Pietro Costa (eds) Intelligent Human Systems Integration (IHSI 2023): Integrating People and Intelligent Systems. AHFE (2023) International Conference. AHFE Open Access, vol 69. AHFE International, USA. http://doi.org/10.54941/ahfe1002921
+
+- ### [一种自动化芦苇笋剥笋装置 ](https://george-wyy.github.io/publication/2021-02-一种自动化芦苇笋剥笋机)
+
+  柳沙, 王以俨, 李琳, 李鸿盛, & 谭宇. (2021). 一种自动化芦苇笋剥笋装置. CN212520711U.
+
+- ### [基于Python的工程信息交互仿真软件 ](https://george-wyy.github.io/publication/2020-10-基于Python的工程信息交互仿真软件)
+
+  Yin, C., Wang, Y. (2020). Python-Based Engineering Information Communication Simulation Software (Version 1.0) [Computer software]. Beijing, China Agricultural University.
+
+- ### [基于Python语言多项目并行开发时间管理软件 ](https://george-wyy.github.io/publication/2020-05-基于Python语言多项目并行开发时间管理软件)
+
+  Yin, C., Wang, Y. (2020). Python-Based MPCD Time Management Software (Version 1.0) [Computer software]. Beijing, China Agricultural University.
+
+- ### [基于Python语言的新产品开发流程动画仿真软件 ](https://george-wyy.github.io/publication/2020-05-基于Python语言的新产品开发流程动画仿真软件)
+
+  Yin, C., Wang, Y. (2020). Python-based New Product Development Process Animation Simulation Software (Version 1.0) [Computer software]. Beijing, China Agricultural University.
+
+- ### [Survey Design in Supporting of Product Design and Development: A Case Study ](https://george-wyy.github.io/publication/2019-10-02-Survey Design in Supporting of Product Design and Development-number-1)
+
+  Yin, C., Wang, Y., & Wang, H. (2019). Survey Design in Supporting of Product Design and Development: A Case Study. In _2019 ASABE Annual International Meeting_ (p. 1). American Society of Agricultural and Biological Engineers.
+
+
+
+
+
 
 ---
 

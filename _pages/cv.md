@@ -139,17 +139,17 @@ redirect_from:
 
 能力
 ======
-## ## **编程能力**
+## **编程能力**
 
   - 熟练使用Python进行数据分析和Web开发（Pandas、Seaborn、SciPy、Django等）以及R配合进行数据分析与可视化（bruceR、ggplot2等）、基于Unity使用C#脚本进行软件开发、Git进行版本管理
   - 熟悉 C，SQL，PyTorch、软件开发方法（UML、软件设计模式）、数据结构
 
-## ## **动手能力**
+## **动手能力**
 
   - 熟练掌握XR开发工具（Unity、Unreal Engine 4、Oculus Quest 2、Hololens 2）、三维建模软件（Solidworks、Blender、Cinema 4D）、界面设计开发工具（Figma、Sketch、H5、微信小程序开发）、图像编辑视频剪辑工具（Photoshop、Illustrator、Premiere）
   - 熟悉眼控技术和工具（Tobii 5、Hololens 2、D-lab）、手势交互工具（Oculus Quest 2、Hololens 2、Leap Motion）、VR框架（VRIF、XR Interaction Toolkit、Final IK）、可编程硬件（Arduino、OpenMV）
 
-## ## 写作能力
+## 写作能力
 
   - 熟练掌握高质量论文写作技巧，能够清晰、准确地表达思想，熟练使用ChatGPT等AI工具提升工作效率。具备文献管理和分析技巧，能够精准搜索、追踪文献。以熟练和专业水准完成各类写作任务。
   - 熟悉LaTeX排版，确保文档专业规范。深入调研、分析文献，撰写论文和申请书。

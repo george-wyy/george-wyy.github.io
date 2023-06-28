@@ -3,7 +3,8 @@ main:
   - title: "简历"
     url: /cv/
 
-
+  - title: "研究规划"
+    url: /researchPlan/
 
   # - title: "Talks"
   #   url: /talks/    

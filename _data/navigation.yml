@@ -6,6 +6,9 @@ main:
   - title: "研究规划"
     url: /researchPlan/
 
+  - title: "职业规划"
+    url: /careerPlan/
+
   # - title: "Talks"
   #   url: /talks/    
 

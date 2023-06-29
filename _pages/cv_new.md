@@ -204,6 +204,8 @@ redirect_from:
 - 殷成刚, **<u>王以俨</u>** (2020). [基于Python语言多项目并行开发时间管理软件 ](https://george-wyy.github.io/publication/2020-05-基于Python语言多项目并行开发时间管理软件) (V 1.0) [软件]. 北京,  中国农业大学
 - 殷成刚, **<u>王以俨</u>** (2020). [基于Python语言的新产品开发流程动画仿真软件 ](https://george-wyy.github.io/publication/2020-05-基于Python语言的新产品开发流程动画仿真软件) (V 1.0) [软件]. 北京,  中国农业大学
 
+![Group 5](https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202306291616087.png)
+
 
 
 

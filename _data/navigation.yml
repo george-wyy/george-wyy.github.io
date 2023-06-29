@@ -3,11 +3,11 @@ main:
   - title: "简历"
     url: /cv_new/
 
-  - title: "研究规划"
+  - title: "研究&职业规划"
     url: /researchPlan/
 
-  - title: "职业规划"
-    url: /careerPlan/
+  # - title: "职业规划"
+  #   url: /careerPlan/
 
   # - title: "Talks"
   #   url: /talks/    

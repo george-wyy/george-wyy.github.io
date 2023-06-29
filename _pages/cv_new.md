@@ -69,6 +69,8 @@ redirect_from:
 
 - 通过文献、专家访谈、实地调研，设计自闭症注意力训练方法；使用凝视触发、平滑追踪的眼控方法，设计开发一款自闭症儿童注意力训练游戏[（视频）](https://pan.baidu.com/s/1D_pWqpbMFIi0dD2Wcor5gA?pwd=6daf)；在北京市海淀区雨露嘉禾儿童康复训练中心测试软件，软件可用性较高
 
+![Group 4](https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202306291602638.png)
+
 ## **xxxx眼控**
 
 *2022.06 - 至今 参与 173计划技术领域基金项目*
@@ -104,7 +106,7 @@ redirect_from:
 
 *2023.04 - 至今 技术负责人*
 
-- 开发基于Tobii 5 的眼控交互，提供凝视点坐标、头动状态等信息；设计开发基于Unity的软硬件系统，使工控机和装备控制系统进行UDP通信
+- 开发基于Tobii 5 的眼控交互，提供凝视点坐标、头动状态等信息 [（视频）](https://pan.baidu.com/s/1xgId7Go1EzQZ7Tnw3vI6CA?pwd=gpvr) ；设计开发基于Unity的软硬件系统，使工控机和装备控制系统进行UDP通信
 - 负责协调项目各组进度，使用WBS任务分解、甘特图等进行项目管理
 
 ![Group 2](https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202306291541953.png)

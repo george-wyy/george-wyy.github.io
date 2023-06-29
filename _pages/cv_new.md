@@ -118,11 +118,15 @@ redirect_from:
 - 使用Blender、3DMax等，创建装备、地形等美术资产，调整相应材质；使用UE4的蓝图编程，制作导弹追踪打击目标、直升机往返侦查目标地点的动画模拟
 - 负责协调团队开发进度，管理技术文档；项目在中期阶段，甲方对目前效果很满意[（视频）](https://pan.baidu.com/s/1othdxdY9jlw55r5BsFzDpg?pwd=6gen)
 
+![Group 6](https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202306291726365.png)
+
 ## **基于VR手势的指控沙盘交互研究**
 
 *2022.07 - 2022.09 VR开发*
 
 - 负责VR手势交互的设计开发，基于Quest2 开发3种标绘功能，包括点、直线、曲线标绘，及场景移动缩放、手掌菜单等功能[（视频）](https://pan.baidu.com/s/1TUL_Qsh3jC7ixuKzWUp_RA?pwd=563j)
+
+![Group 7](https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202306291727203.png)
 
 ## **手机选号广告系统的设计与实现**
 
@@ -136,12 +140,16 @@ redirect_from:
 
 - 独立负责设计模块化军用运输车，使用Solidworks和C4d建模，C4d制作动画。方案获得甲方认可[（视频）](https://pan.baidu.com/s/17w12vb1j8-7dBCkVp3albw?pwd=daqq)
 
+![image 15](https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202306291727966.png)
+
 ## **立式芦苇笋剥皮机设计**
 
 *2018.12 - 2020.03 组长 国家级大学生创新创业项目*
 
 - 获得4项省部级比赛奖项，一项实用新型受理。负责项目管理、机械电子设计、样机制作、专利申请
 - 实验：进行剥皮方式研究，设计了完整的剥皮流程需要的结构和外观；原型：设计搭建基于机器视觉的芦苇笋大小头分拣试验台，使用Arduino和OpenMV等模块，识别和调整芦苇笋模型的方向；设计搭建三自由度的芦苇笋剥皮装置，模拟剥笋动作[（视频）](https://pan.baidu.com/s/1l1hWhmCs72FJTGgFhzqCYw?pwd=sx6h)；工业设计：根据功能结构两次迭代外观设计、制作1：5的模型手板，在湖南大学组织的比赛中展出；专利申请：负责文件撰写和联系代理机构，获得实用新型专利授权
+
+
 
 ## **企业综合能源智慧调度控制平台界面原型和交互设计**
 

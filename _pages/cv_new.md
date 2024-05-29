@@ -38,7 +38,7 @@ redirect_from:
 
 *2021.01 - 2021.12 参与 国家自然科学基金青年基金项目 71801037*
 
-- 研究平滑追踪眼控界面的控件尺寸和速度权衡的问题，使用Python、R、Spss等分析工效学实验的数据，提出界面控件参数的设计建议。撰写论文 "Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System" 并投稿到 ADVANCED ENGINEERING INFORMATICS（审稿中）
+- 研究平滑追踪眼控界面的控件尺寸和速度权衡的问题，使用Python、R、Spss等分析工效学实验的数据，提出界面控件参数的设计建议。撰写论文 "Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System" 并被 Displays(JCR Q1) 接收
 
 ![Group 3](https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202306291539583.png)
 
@@ -51,7 +51,6 @@ redirect_from:
 
   - *2022.11 - 至今 硕士课题*
   - 使用文献分析法、启发式方法，设计混合数字纸文本标绘任务的眼触控结合的新型交互方式。使用Artoolkit、MRTK3，开发基于Hololens2 的具有标绘信息显示、物理纸空间定位、眼触控交互等功能的系统。使用工效学实验方法进行系统评价
-  - 目前正在进行手眼协调交互方式的设计 和 对应的眼触控光标的开发
 
 - ### **眼动密码输入方法、系统及设备**
 
@@ -61,7 +60,7 @@ redirect_from:
 - ### 凝视眨眼复合交互动作的眼控系统研究
 
   - *2023.2 - 至今*
-  - 为解决眼控交互视线漂移的问题，提出了基于凝视加眨眼的复合交互动作的眼控系统中控件的锁定时间最优参数，以及空间维度的眨眼视线漂移范围和方向。设计眨眼锁定交互方式，实验得到最佳锁定时长、最佳锁定范围，提升系统的性能和准确性。撰写论文“Optimization of Blink-Based Eye-Tracking System's Lock-on Stage: Exploring the Temporal and Spatial Dimensions”（投稿中）
+  - 为解决眼控交互视线漂移的问题，提出了基于凝视加眨眼的复合交互动作的眼控系统中控件的锁定时间最优参数，以及空间维度的眨眼视线漂移范围和方向。设计眨眼锁定交互方式，实验得到最佳锁定时长、最佳锁定范围，提升系统的性能和准确性。撰写论文“Optimization of Blink-Based Eye-Tracking System's Lock-on Stage: Exploring the Temporal and Spatial Dimensions” 并被 ADVANCED ENGINEERING INFORMATICS(中科院top一区，IF 8.8)接收
 
 
 ## **基于眼控的自闭症儿童注意力训练软件设计研究**
@@ -104,7 +103,7 @@ redirect_from:
 
 ## **手眼口多通道交互项目**
 
-*2023.04 - 至今 技术负责人*
+*2023.04 - 2023.07 技术负责人*
 
 - 开发基于Tobii 5 的眼控交互，提供凝视点坐标、头动状态等信息 [（视频）](https://pan.baidu.com/s/1xgId7Go1EzQZ7Tnw3vI6CA?pwd=gpvr) ；设计开发基于Unity的软硬件系统，使工控机和装备控制系统进行UDP通信
 - 负责协调项目各组进度，使用WBS任务分解、甘特图等进行项目管理
@@ -113,7 +112,7 @@ redirect_from:
 
 ## **基于UE4的xxxx三维建模与交互设计**
 
-*2023.01 - 至今 技术负责人*
+*2023.01 - 2023.06 技术负责人*
 
 - 使用Blender、3DMax等，创建装备、地形等美术资产，调整相应材质；使用UE4的蓝图编程，制作导弹追踪打击目标、直升机往返侦查目标地点的动画模拟
 - 负责协调团队开发进度，管理技术文档；项目在中期阶段，甲方对目前效果很满意[（视频）](https://pan.baidu.com/s/1othdxdY9jlw55r5BsFzDpg?pwd=6gen)
@@ -197,7 +196,8 @@ redirect_from:
 
 ## **论文**
 
-- Niu, Y., **<u>Wang, Y.</u>**, Cheng, W., Tian, J., Yang, W., Xue, C. (2023). [Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System](https://george-wyy.github.io/publication/2023-05-24-Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System). International Journal of Human–Computer Interaction【审稿中】
+- **<u>Wang, Y.</u>**, Tian, J., Xiao, L., He, J., Niu, Y. (2023). Research on a spatial-temporal characterisation of blink-triggered eye control interactions. ADVANCED ENGINEERING INFORMATICS(中科院top一区，IF 8.8)
+- **<u>Wang, Y.</u>**, Cheng, W., Tian, J., Huang, W., Niu, Y., Yang, W., Xue, C. (2023). Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System. Displays(JCR Q1)
 - Yin, C., **<u>Wang, Y.</u>**, & Wang, H. (2019). [Survey Design in Supporting of Product Design and Development: A Case Study ](https://george-wyy.github.io/publication/2019-10-02-Survey Design in Supporting of Product Design and Development-number-1). In _2019 ASABE Annual International Meeting_ (p. 1). American Society of Agricultural and Biological Engineers.
 - Li, Z., Zhou, Z., **<u>Wang, Y.</u>**, Tian, J., Yang, W., Niu, Y. (2023). [Enhancement Characteristics of Visual Stimulus Elements in SSVEP-BCI System ](https://george-wyy.github.io/publication/2023-01-01-Enhancement Characteristics of Visual Stimulus Elements in SSVEP-BCI System-number-2). Integrating People and Intelligent Systems. AHFE (2023) International Conference. 
 

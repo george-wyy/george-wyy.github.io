@@ -1,11 +1,9 @@
 # main links links
 main:
-  - title_zh: "简历"
-    title_en: "CV"
+  - title: "简历"
     url: /cv_new/
 
-  - title_zh: "研究规划"
-    title_en: "Research Plan"
+  - title: "研究&职业规划"
     url: /researchPlan/
 
   # - title: "职业规划"
@@ -17,13 +15,11 @@ main:
   # - title: "Teaching"
   #   url: /teaching/    
     
-  - title_zh: "作品展示"
-    title_en: "Portfolio"
+  - title: "作品展示"
     url: /portfolio/
 
-  - title_zh: "论文成果"
-    title_en: "Publications"
-    url: /publications/
+  # - title: "论文专利"
+  #   url: /publications/
         
   # - title: "Blog Posts"
   #   url: /year-archive/

@@ -1,33 +1,46 @@
 ---
 layout: archive
-title: ""
+title: "研究与职业规划"
+title_en: "Research & Career Plan"
 permalink: /researchPlan/
 author_profile: true
 ---
 
-## 研究规划
+## <span data-i18n-zh="研究规划" data-i18n-en="Research Plan">研究规划</span>
 
-- 感兴趣的主题
-  - 对人机交互、混合现实、通用人工智能（AGI）感兴趣
-  - 3D 信息增强、人智交互/协作
-- 想研究的问题
-  - 希望提出并验证 **复杂系统**中，**人智协作**的 交互策略、心理模型和交互体验模型
-  - 自动驾驶车的 拟人化交互机制 **<u>如何减少</u>** 自动驾驶失效带来的负面影响
-    - 拟人化交互机制 的设计空间
-    - 增强信息（ARHUD的路面信息 / 导航的全息人像等）方式
-    - 基于眼动等的行为、意图的 人智交互
-- 研究方法技能
-  - 已经掌握了实验研究、文献综述和文献回顾的方法，以及数据分析和XR开发等技能
-  - 计划进一步学习 结构方程、人机交互以及认知心理学、行为学的建模方法，并将这些模型转化为用户体验相关的模型
+<ul class="lang-zh">
+  <li><strong>兴趣方向</strong>：眼动交互、人机交互、混合现实与注意力系统。</li>
+  <li><strong>问题聚焦</strong>：复杂系统中的人机协作交互策略、心理模型与体验模型。</li>
+  <li><strong>方法路径</strong>：实验研究、文献综述、数据分析与 XR 系统原型开发结合。</li>
+  <li><strong>近期目标</strong>：持续推进眼控交互方向论文与系统验证工作。</li>
+</ul>
 
-## 职业发展规划
+<ul class="lang-en">
+  <li><strong>Research interests</strong>: eye-tracking interaction, HCI, mixed reality, and attention-aware systems.</li>
+  <li><strong>Problem focus</strong>: interaction strategy, mental models, and UX models for human-machine collaboration in complex systems.</li>
+  <li><strong>Methods</strong>: integrating empirical studies, literature review, data analysis, and XR prototyping.</li>
+  <li><strong>Near-term objective</strong>: continue publication and system validation in gaze interaction.</li>
+</ul>
 
-- 职业道路的设想
-  - 希望进入工业界，实现经济和商业上的成功，并开发对社会有帮助的产品
-  - 如果后期有合适的机会，希望去海外读博士后，也考虑留在高校
-- 技能和领域兴趣
-  - 对**<u>用户建模</u>**非常感兴趣，希望了解人的行为和思维过程，并改进处理**<u>复杂问题</u>**的模型。同时，对XR开发能力很感兴趣，想继续提升自己的编程思维、算法理解，并运用人工智能模型和工具
-  - 为了培养这些技能和积累相关经验，我计划深入学习统计学、认知心理学和复杂问题处理模型，并设计实验来检验我的模型
-- 学术活动的计划
-  - 希望能在 IEEE VR、CHI、IJHCI、IJHCS、HCI 等会议、期刊上发表论文
-  - 希望在博士期间，有海外联培（访学）机会
+## <span data-i18n-zh="职业规划" data-i18n-en="Career Plan">职业规划</span>
+
+<ul class="lang-zh">
+  <li>优先面向工业界高价值场景开展研究与转化，开发有社会价值的交互产品。</li>
+  <li>持续积累用户建模、认知心理与复杂问题建模能力。</li>
+  <li>保持国际学术交流，目标会议/期刊包括 IEEE VR、CHI、IJHCI、IJHCS 等。</li>
+</ul>
+
+<ul class="lang-en">
+  <li>Prioritize high-impact industry scenarios and translate research into socially useful interaction products.</li>
+  <li>Continue building expertise in user modeling, cognitive psychology, and complex-problem modeling.</li>
+  <li>Maintain international academic exchange with target venues such as IEEE VR, CHI, IJHCI, and IJHCS.</li>
+</ul>
+
+## <span data-i18n-zh="公开边界说明" data-i18n-en="Public Disclosure Boundary">公开边界说明</span>
+
+<p class="lang-zh">
+本页面仅展示可公开信息。未发表、未公开或内部讨论中的研究细节不在网站披露范围内。
+</p>
+<p class="lang-en">
+Only publicly shareable information is presented here. Unpublished or internal research details are intentionally excluded.
+</p>

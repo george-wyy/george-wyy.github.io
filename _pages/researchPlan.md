@@ -1,12 +1,10 @@
 ---
 layout: archive
-title: "研究规划"
-title_en: "Research Plan"
+title: ""
 permalink: /researchPlan/
 author_profile: true
 ---
 
-<div class="lang-zh">
 ## 研究规划
 
 - 感兴趣的主题
@@ -33,30 +31,3 @@ author_profile: true
 - 学术活动的计划
   - 希望能在 IEEE VR、CHI、IJHCI、IJHCS、HCI 等会议、期刊上发表论文
   - 希望在博士期间，有海外联培（访学）机会
-</div>
-
-<div class="lang-en">
-## Research Plan
-
-- Research interests
-  - Human-computer interaction, mixed reality, and AGI-related interaction methods
-  - 3D information augmentation and human-AI collaboration
-- Core questions
-  - Propose and validate interaction strategies, mental models, and UX models for human-AI collaboration in complex systems
-  - Investigate how anthropomorphic interaction mechanisms can reduce the negative impact of autonomous-driving failures
-- Methods and skills
-  - I have experience in experimental studies, literature review, data analysis, and XR development
-  - I plan to further strengthen structural equation modeling, cognitive psychology, and behavioral modeling for HCI
-
-## Career Plan
-
-- Career direction
-  - I plan to work in industry to build impactful products with practical value
-  - I am also open to postdoctoral opportunities abroad or an academic path in the future
-- Capability development
-  - I am particularly interested in user modeling, complex problem solving, and XR engineering
-  - I will continue systematic training in statistics, cognition, and model-driven experimentation
-- Academic goals
-  - Target conferences/journals include IEEE VR, CHI, IJHCI, IJHCS, and related HCI venues
-  - I hope to pursue international collaborative research during my PhD
-</div>

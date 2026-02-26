@@ -1,7 +1,6 @@
 ---
 permalink: /
 title: "王以俨"
-title_en: "Yiyan Wang"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -11,10 +10,6 @@ redirect_from:
 
 <div class="profile-hero">
   <span class="profile-tagline">PhD Student · XR + Eye Tracking</span>
-  <div class="lang-toggle" role="tablist" aria-label="Language switch">
-    <button class="lang-btn is-active" type="button" data-lang-switch="zh">中文</button>
-    <button class="lang-btn" type="button" data-lang-switch="en">English</button>
-  </div>
   <p class="lang-zh">我目前就读于 <a class="hero-link" href="https://www.seu.edu.cn">东南大学</a> 机械工程学院设计科学系，导师为
   <a class="hero-link" href="https://me.seu.edu.cn/nyf_31777/list.htm">牛亚峰老师</a>。研究方向聚焦于眼控交互、增强现实、虚拟现实与人机交互系统。</p>
   <p class="lang-en">I am a PhD student in Design Science at the School of Mechanical Engineering, <a class="hero-link" href="https://www.seu.edu.cn">Southeast University</a>, supervised by
@@ -63,43 +58,6 @@ redirect_from:
   <a href="/images/wechat.jpeg" data-i18n-zh="微信" data-i18n-en="WeChat">微信</a>
   <a href="mailto:wangyiyan@seu.edu.cn">Email</a>
 </div>
-
-<h2 data-i18n-zh="空间关系图（轻三维）" data-i18n-en="Spatial Research Map (Lite 3D)">空间关系图（轻三维）</h2>
-<p class="lang-zh">用分层卡片展示页面关系：鼠标移动时会有轻微倾斜，滚动时形成前后景视差。</p>
-<p class="lang-en">A layered card composition that visualizes page relationships with subtle tilt and scroll-based parallax depth.</p>
-
-<section class="depth-stage reveal-on-scroll" id="depth-stage">
-  <div class="parallax-layer layer-back" data-depth="0.14">
-    <a class="depth-card tilt-card" href="/researchPlan/">
-      <span class="depth-card__tag">Core</span>
-      <h3 data-i18n-zh="研究规划" data-i18n-en="Research Plan">研究规划</h3>
-      <p class="lang-zh">问题定义、方法框架、长期方向。</p>
-      <p class="lang-en">Questions, methods, and long-term trajectory.</p>
-    </a>
-  </div>
-  <div class="parallax-layer layer-mid" data-depth="0.3">
-    <a class="depth-card tilt-card" href="/publications/">
-      <span class="depth-card__tag">Output</span>
-      <h3 data-i18n-zh="论文成果" data-i18n-en="Publications">论文成果</h3>
-      <p class="lang-zh">研究假设验证后的学术沉淀。</p>
-      <p class="lang-en">Academic outputs validated through experiments.</p>
-    </a>
-    <a class="depth-card tilt-card" href="/portfolio/">
-      <span class="depth-card__tag">Practice</span>
-      <h3 data-i18n-zh="项目作品" data-i18n-en="Portfolio">项目作品</h3>
-      <p class="lang-zh">将研究方法落到真实交互系统。</p>
-      <p class="lang-en">From methods to deployed interaction systems.</p>
-    </a>
-  </div>
-  <div class="parallax-layer layer-front" data-depth="0.48">
-    <a class="depth-card tilt-card" href="/cv_new/">
-      <span class="depth-card__tag">Profile</span>
-      <h3 data-i18n-zh="个人简历" data-i18n-en="Curriculum Vitae">个人简历</h3>
-      <p class="lang-zh">教育、能力、经历与成果总览。</p>
-      <p class="lang-en">Education, skills, experience, and achievements.</p>
-    </a>
-  </div>
-</section>
 
 <h2 data-i18n-zh="研究时间轴" data-i18n-en="Research Timeline">研究时间轴</h2>
 

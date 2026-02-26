@@ -1,7 +1,6 @@
 ---
 layout: archive
 title: "CV"
-title_en: "Curriculum Vitae"
 permalink: /cv_new/
 author_profile: true
 redirect_from:
@@ -10,31 +9,6 @@ redirect_from:
 
 {% include base_path %}
 
-<div class="lang-en">
-## Education
-- Southeast University, PhD in Mechanical Engineering (2024-present), MDes (2021-2024)
-- China Agricultural University, BEng in Industrial Design (2017-2021), with a second degree in Data Science and Big Data Technology
-
-## Research
-- Eye-controlled interaction, smooth pursuit, blink-triggered interaction, and XR-based multimodal interfaces
-- Experience in NSFC projects, aviation-human factors studies, and multiple applied HCI projects
-
-## Selected Projects
-- VR lunar-base mission simulation and interaction design
-- Hand-eye-voice multimodal interaction system (Tobii + Unity + UDP integration)
-- UE4-based 3D asset and interaction simulation project
-
-## Skills
-- Programming: Python, C#, Unity, data analysis (R/Python), Git
-- XR and tools: Unity, UE4, Quest 2, HoloLens 2, Tobii, Leap Motion, Blender, SolidWorks, C4D
-- Research: experiment design, statistical analysis, HCI usability evaluation, academic writing
-
-## Publications and IP
-- Journal and conference papers in Advanced Engineering Informatics, Displays, and HCI-related venues
-- Invention patent applications and software copyrights
-</div>
-
-<div class="lang-zh">
 教育经历
 ======
 ## **东南大学** *985 211 双一流*
@@ -294,4 +268,3 @@ redirect_from:
 - 第五届全国大学生智能农业装备创新大赛 二等奖(2019)
 - 首届中国(怀化)乡村振兴设计创新大赛 最佳绿色设计奖(2019)
 - 北京市大学生工程设计表达竞赛 二等奖(2018)
-</div>

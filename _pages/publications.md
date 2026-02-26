@@ -1,11 +1,7 @@
 ---
 layout: archive
-<<<<<<< HEAD
 title: "论文成果"
 title_en: "Publications"
-=======
-title: "Publications"
->>>>>>> parent of 4e6aa04 (修改)
 permalink: /publications/
 author_profile: true
 ---

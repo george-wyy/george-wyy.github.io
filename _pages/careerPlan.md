@@ -1,12 +1,10 @@
 ---
 layout: archive
 title: "职业规划"
-title_en: "Career Plan"
 permalink: /careerPlan/
 author_profile: true
 ---
 
-<div class="lang-zh">
 - 职业道路的设想
   - 希望将来能进入工业界，实现经济和商业上的成功，并开发对社会有帮助的产品
   - 如果后期有合适的机会，也考虑留在高校
@@ -16,16 +14,3 @@ author_profile: true
 - 学术活动的计划
   - IEEE VR、CHI、IJHCI、IJHCS、HCI等组织与我研究的领域相契合，希望能在这些会议、期刊上发表论文
   - 打算通过参加会议、邮件等方式寻找合适的合作伙伴。计划参与学术社区，发表论文并参加学术会议，这些活动将有助于我的职业发展
-</div>
-
-<div class="lang-en">
-- Career vision
-  - I aim to join industry to build products with real social and commercial impact
-  - I am also open to an academic track when suitable opportunities arise
-- Skills and interests
-  - I am strongly interested in user modeling and cognitive psychology for complex problem solving
-  - I plan to keep improving XR engineering, algorithmic thinking, and AI-enabled design
-- Academic activities
-  - I target publications in venues such as IEEE VR, CHI, IJHCI, and IJHCS
-  - I plan to grow international collaborations through conferences and active academic networking
-</div>

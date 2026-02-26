@@ -2,15 +2,13 @@
 <a href="/sitemap/">Sitemap</a>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-<<<<<<< HEAD
     var root = document.documentElement;
     var themeButton = document.querySelector("[data-theme-toggle]");
     var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    var currentTheme = "light";
 
     function updateThemeButton(theme) {
       if (!themeButton) return;
-      themeButton.textContent = theme === "dark" ? "Dark" : "Light";
+      themeButton.textContent = theme === "dark" ? "🌙" : "☀️";
       themeButton.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
       themeButton.setAttribute("title", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
     }
@@ -23,7 +21,6 @@
     function setTheme(pref, persist) {
       var nextTheme = resolveTheme(pref);
       root.setAttribute("data-theme", nextTheme);
-      currentTheme = nextTheme;
       updateThemeButton(nextTheme);
       if (persist) localStorage.setItem("site-theme", nextTheme);
     }
@@ -46,53 +43,6 @@
       });
     }
 
-    var depthStage = document.getElementById("depth-stage");
-    var tiltCards = document.querySelectorAll(".tilt-card");
-    var parallaxLayers = document.querySelectorAll(".parallax-layer");
-
-    if (depthStage && parallaxLayers.length) {
-      function updateParallax() {
-        var rect = depthStage.getBoundingClientRect();
-        var centerOffset = (window.innerHeight * 0.5 - (rect.top + rect.height * 0.5)) / window.innerHeight;
-        parallaxLayers.forEach(function (layer) {
-          var depth = parseFloat(layer.getAttribute("data-depth") || "0");
-          var moveY = centerOffset * 90 * depth;
-          layer.style.transform = "translate3d(0," + moveY.toFixed(2) + "px,0)";
-        });
-      }
-
-      updateParallax();
-      window.addEventListener("scroll", updateParallax, { passive: true });
-      window.addEventListener("resize", updateParallax);
-    }
-
-    tiltCards.forEach(function (card) {
-      card.addEventListener("pointermove", function (event) {
-        var rect = card.getBoundingClientRect();
-        var x = (event.clientX - rect.left) / rect.width;
-        var y = (event.clientY - rect.top) / rect.height;
-        var rotateY = (x - 0.5) * 10;
-        var rotateX = (0.5 - y) * 8;
-        card.style.transform = "rotateX(" + rotateX.toFixed(2) + "deg) rotateY(" + rotateY.toFixed(2) + "deg) translateZ(8px)";
-      });
-      card.addEventListener("pointerleave", function () {
-        card.style.transform = "";
-      });
-      card.addEventListener("blur", function () {
-        card.style.transform = "";
-      });
-      card.addEventListener("focus", function () {
-        card.style.transform = "translateZ(8px)";
-      });
-    });
-    if (window.matchMedia("(max-width: 600px)").matches) {
-      tiltCards.forEach(function (card) {
-        card.style.transform = "";
-      });
-    }
-
-=======
->>>>>>> parent of 4e6aa04 (修改)
     var langButtons = document.querySelectorAll("[data-lang-switch]");
     var i18nNodes = document.querySelectorAll("[data-i18n-zh][data-i18n-en]");
     var zhNodes = document.querySelectorAll(".lang-zh");

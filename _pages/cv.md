@@ -1,7 +1,6 @@
 ---
 layout: archive
 title: "CV"
-title_en: "Curriculum Vitae"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -10,26 +9,6 @@ redirect_from:
 
 {% include base_path %}
 
-<div class="lang-en">
-## Education
-- Southeast University: Master in Design Science (2021-present)
-- China Agricultural University: BEng in Industrial Design, with a second degree in Data Science
-
-## Research and Projects
-- Eye-control interaction, blink-based interaction, XR interfaces, and multimodal HCI
-- Experience in national research projects, VR system development, and engineering prototyping
-
-## Skills
-- Programming and analysis: Python, R, C#, Django, data analysis and visualization
-- XR and design tools: Unity, UE4, Quest 2, HoloLens 2, Tobii, Blender, SolidWorks, C4D
-- Research: experiment design, usability evaluation, academic writing, and literature analysis
-
-## Publications and Awards
-- Publications in HCI-related journals/conferences and multiple patent/software outputs
-- National scholarship, excellent graduate honors, and design/engineering competition awards
-</div>
-
-<div class="lang-zh">
 教育经历
 ======
 ## **东南大学** *985 211 双一流*
@@ -259,4 +238,3 @@ redirect_from:
 - 第五届全国大学生智能农业装备创新大赛 二等奖(2019)
 - 首届中国(怀化)乡村振兴设计创新大赛 最佳绿色设计奖(2019)
 - 北京市大学生工程设计表达竞赛 二等奖(2018)
-</div>

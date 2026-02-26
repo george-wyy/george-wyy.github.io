@@ -8,9 +8,41 @@ redirect_from:
   - /about.html
 ---
 
-- 我是 [东南大学](https://www.seu.edu.cn) [机械工程学院](https://me.seu.edu.cn/qywzwlh.cn/domain.psp) 设计科学系的博一学生。我现在的导师是 [东南大学产品设计与人机交互研究所](https://me.seu.edu.cn/2017/0721/c1298a193075/page.htm) 的 [牛亚峰老师](https://me.seu.edu.cn/nyf_31777/list.htm)。我的研究兴趣包括：眼控交互、增强现实、虚拟现实、人机交互、机器学习。您可以在这里找到我的CV：[王以俨的简历](../assets/Curriculum_Vitae.pdf)
-- **编程动手能力突出**，熟练使用Python、Unity、Hololens 2、Quest 2、Aduino
-- **科研习惯良好**，每周撰写科研周记，累积完成**44余篇**[（文档🔗）](https://pan.baidu.com/s/19FohmR2SxU9_3zatfrTa5g?pwd=1556)
-- **做项目踏实负责**，研究生期间负责4个项目，当前正在推进 3 个项目
+<div class="profile-hero">
+  <span class="profile-tagline">PhD Student · XR + Eye Tracking</span>
+  <p>我目前就读于 <a class="hero-link" href="https://www.seu.edu.cn">东南大学</a> 机械工程学院设计科学系，导师为
+  <a class="hero-link" href="https://me.seu.edu.cn/nyf_31777/list.htm">牛亚峰老师</a>。研究方向聚焦于眼控交互、增强现实、虚拟现实与人机交互系统。</p>
+</div>
 
-[Email](wangyiyan@seu.edu.cn) / [Github](https://github.com/george-wyy) / [Wechat](../images/wechat.jpg) / [ResearchGate](https://www.researchgate.net/profile/Yiyan-Wang-7)
+## 研究兴趣
+
+- 眼控交互（Eye-Control Interaction）
+- AR/VR 场景中的可用性与交互效率优化
+- 人机交互中的机器学习方法
+
+## 学术与项目亮点
+
+<div class="highlight-grid">
+  <div class="highlight-card">
+    <strong>工程实现</strong>
+    熟练使用 Python、Unity、HoloLens 2、Quest 2、Arduino 进行原型开发与实验验证。
+  </div>
+  <div class="highlight-card">
+    <strong>科研习惯</strong>
+    保持每周科研周记，累计完成 44+ 篇研究日志。
+  </div>
+  <div class="highlight-card">
+    <strong>项目经验</strong>
+    研究生阶段负责 4 个项目，目前持续推进 3 个项目。
+  </div>
+</div>
+
+## 快速访问
+
+<div class="quick-links">
+  <a href="/assets/Curriculum_Vitae.pdf">简历（CV）</a>
+  <a href="https://github.com/george-wyy">GitHub</a>
+  <a href="https://www.researchgate.net/profile/Yiyan-Wang-7">ResearchGate</a>
+  <a href="/images/wechat.jpeg">微信</a>
+  <a href="mailto:wangyiyan@seu.edu.cn">Email</a>
+</div>

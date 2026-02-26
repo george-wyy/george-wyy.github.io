@@ -24,6 +24,12 @@ See more info at https://academicpages.github.io/
 1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
 1. Run `bundle exec jekyll liveserve` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
 
+## Deploy on GitHub Pages (recommended)
+
+1. Go to repository `Settings` -> `Pages`.
+1. In `Build and deployment`, set `Source` to `GitHub Actions`.
+1. Push to `master` or `main`. The workflow at `.github/workflows/pages.yml` will build and deploy automatically.
+
 # Changelog -- bugfixes and enhancements
 
 There is one logistical issue with a ready-to-fork template theme like academic pages that makes it a little tricky to get bug fixes and updates to the core theme. If you fork this repository, customize it, then pull again, you'll probably get merge conflicts. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch. 

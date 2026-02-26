@@ -1,0 +1,162 @@
+/* ==========================================================================
+   Custom polish for personal academic homepage
+   ========================================================================== */
+
+:root {
+  --brand-900: #0f3556;
+  --brand-700: #1c4f7f;
+  --brand-500: #2f6d9e;
+  --accent-500: #0f8a8d;
+  --surface-1: #ffffff;
+  --surface-2: #f4f8fc;
+  --text-1: #1e2c3a;
+  --text-2: #44586e;
+  --line: #d6e2ed;
+}
+
+body {
+  color: var(--text-1);
+  background:
+    radial-gradient(1000px 500px at 95% -10%, rgba(47, 109, 158, 0.12), transparent),
+    radial-gradient(900px 520px at -10% 10%, rgba(15, 138, 141, 0.1), transparent),
+    var(--surface-2);
+  font-family: "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+}
+
+h1, h2, h3, h4, .masthead__menu-item {
+  font-family: "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", "STSong", serif;
+}
+
+.masthead {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 16px rgba(15, 53, 86, 0.08);
+}
+
+.masthead__menu-item--lg a {
+  letter-spacing: 0.04em;
+}
+
+.sidebar .author__avatar img {
+  border: 2px solid #fff;
+  box-shadow: 0 6px 20px rgba(15, 53, 86, 0.15);
+}
+
+.sidebar .author__content,
+.sidebar .author__urls-wrapper {
+  background: var(--surface-1);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.sidebar .author__content {
+  margin-bottom: 10px;
+}
+
+.page {
+  background: var(--surface-1);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(15, 53, 86, 0.08);
+}
+
+.page .page__inner-wrap {
+  padding: 20px 22px;
+
+  @include breakpoint($small) {
+    padding: 26px 30px;
+  }
+}
+
+.page__title {
+  color: var(--brand-900);
+  font-size: clamp(1.8rem, 2.1vw, 2.5rem);
+}
+
+.page__content a {
+  color: var(--brand-700);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+}
+
+.profile-hero {
+  background: linear-gradient(135deg, #0f3556 0%, #1f5888 45%, #2f6d9e 100%);
+  border-radius: 16px;
+  color: #fff;
+  padding: 20px;
+  margin: 8px 0 24px;
+  box-shadow: 0 12px 28px rgba(15, 53, 86, 0.24);
+}
+
+.profile-hero p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.profile-hero .hero-link {
+  color: #fff;
+  text-decoration-color: rgba(255, 255, 255, 0.7);
+}
+
+.profile-hero .hero-link:hover {
+  color: #e8f3ff;
+}
+
+.profile-tagline {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+}
+
+.highlight-grid {
+  display: grid;
+  gap: 12px;
+  margin: 10px 0 18px;
+  grid-template-columns: 1fr;
+
+  @include breakpoint($small) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.highlight-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  background: #fafcff;
+}
+
+.highlight-card strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--brand-900);
+}
+
+.quick-links {
+  margin-top: 10px;
+}
+
+.quick-links a {
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #fff;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-links a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(15, 53, 86, 0.12);
+}

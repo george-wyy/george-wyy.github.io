@@ -1,7 +1,10 @@
 ---
 title: "基于VR手势的指控沙盘交互研究"
+title_en: "VR Gesture-Based Command-Sandbox Interaction (Quest 2)"
 excerpt: "基于Quest2 的手势交互开发，包括点&线标绘、场景移动缩放、手掌菜单等功能<br/><img src='https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202305222253910.png'>"
+excerpt_en: "Quest 2 gesture interaction development including point/line annotation, scene navigation, and palm menu controls.<br/><img src='https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202305222253910.png'>"
 collection: portfolio
+summary_en: "Implemented gesture-based VR interaction features on Quest 2 for command-sandbox tasks, including annotation and scene manipulation."
 ---
 
 

@@ -1,7 +1,10 @@
 ---
 title: "基于眼控的自闭症儿童注意力训练软件设计研究【本科毕业设计】"
+title_en: "Eye-Controlled Attention Training Software for Children with ASD (Undergraduate Thesis)"
 excerpt: "设计开发一款给自闭症儿童进行眼控注意力训练等游戏，并实地测试软件<br/><img src='https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202305222252852.png'>"
+excerpt_en: "Designed and developed eye-controlled attention-training games for children with ASD and conducted field testing.<br/><img src='https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202305222252852.png'>"
 collection: portfolio
+summary_en: "Graduation project focusing on eye-controlled serious games for ASD attention training, validated through field usability testing."
 ---
 
 

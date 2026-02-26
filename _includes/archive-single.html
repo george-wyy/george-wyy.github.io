@@ -7,9 +7,11 @@
 {% endif %}
 
 {% if post.id %}
-  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+  {% assign title_zh = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+  {% assign title_en = post.title_en | default: post.title | markdownify | remove: "<p>" | remove: "</p>" %}
 {% else %}
-  {% assign title = post.title %}
+  {% assign title_zh = post.title %}
+  {% assign title_en = post.title_en | default: post.title %}
 {% endif %}
 
 <div class="{{ include.type | default: "list" }}__item">
@@ -28,9 +30,9 @@
 
     <h2 class="archive__item-title" itemprop="headline">
       {% if post.link %}
-        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+        <a href="{{ post.link }}"><span class="lang-zh">{{ title_zh }}</span><span class="lang-en">{{ title_en }}</span></a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
       {% else %}
-        <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
+        <a href="{{ base_path }}{{ post.url }}" rel="permalink"><span class="lang-zh">{{ title_zh }}</span><span class="lang-en">{{ title_en }}</span></a>
       {% endif %}
     </h2>
     
@@ -48,17 +50,20 @@
         {% endif %}
 
     {% if post.excerpt and site.read_more != 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
+    <p class="archive__item-excerpt" itemprop="description">
+      <span class="lang-zh">{{ post.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</span>
+      <span class="lang-en">{{ post.excerpt_en | default: post.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</span>
+    </p>
     {% elsif post.excerpt and site.read_more == 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
+    <p class="archive__item-excerpt" itemprop="description"><p><span class="lang-zh">{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}</span><span class="lang-en">{{ post.excerpt_en | default: post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}</span><strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"><span class="lang-zh"> 阅读更多</span><span class="lang-en"> Read more</span></a></strong></p></p>
     {% endif %}
     
     {% if post.citation and post.paperurl %}
-      <p>Recommended citation: {{ post.citation }} <a href="{{ post.paperurl }}"><u>{{ post.paperurl }}</u></a></p>
+      <p><span class="lang-zh">推荐引用：</span><span class="lang-en">Recommended citation:</span> {{ post.citation }} <a href="{{ post.paperurl }}"><u>{{ post.paperurl }}</u></a></p>
     {% elsif post.citation %}
-      <p>Recommended citation: {{ post.citation }} </p>
+      <p><span class="lang-zh">推荐引用：</span><span class="lang-en">Recommended citation:</span> {{ post.citation }} </p>
     {% elsif post.paperurl %}
-      <p>Download <a href=" {{ post.paperurl }} "><u>here</u></a></p>
+      <p><span class="lang-zh">下载</span><span class="lang-en">Download</span> <a href=" {{ post.paperurl }} "><u><span class="lang-zh">这里</span><span class="lang-en">here</span></u></a></p>
     {% endif %}
 
   </article>

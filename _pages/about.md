@@ -1,6 +1,7 @@
 ---
 permalink: /
 title: "王以俨"
+title_en: "Yiyan Wang"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -58,6 +59,23 @@ redirect_from:
   <a href="/images/wechat.jpeg" data-i18n-zh="微信" data-i18n-en="WeChat">微信</a>
   <a href="mailto:wangyiyan@seu.edu.cn">Email</a>
 </div>
+
+<h2 data-i18n-zh="研究宇宙（3D MVP）" data-i18n-en="Research Universe (3D MVP)">研究宇宙（3D MVP）</h2>
+<p class="lang-zh">这个三维场景把主页核心页面组织成一个可探索网络：旋转查看节点，点击进入对应页面。</p>
+<p class="lang-en">This interactive 3D scene organizes core pages into an explorable knowledge network. Rotate and click nodes to navigate.</p>
+
+<section class="research-universe-panel reveal-on-scroll">
+  <div id="research-universe" aria-label="3D research universe">
+    <canvas id="research-universe-canvas"></canvas>
+    <div id="research-universe-tooltip" class="universe-tooltip" hidden></div>
+  </div>
+  <div class="universe-legend">
+    <a href="/researchPlan/" data-i18n-zh="研究规划" data-i18n-en="Research Plan">研究规划</a>
+    <a href="/publications/" data-i18n-zh="论文成果" data-i18n-en="Publications">论文成果</a>
+    <a href="/portfolio/" data-i18n-zh="项目作品" data-i18n-en="Portfolio">项目作品</a>
+    <a href="/cv_new/" data-i18n-zh="简历" data-i18n-en="CV">简历</a>
+  </div>
+</section>
 
 <h2 data-i18n-zh="研究时间轴" data-i18n-en="Research Timeline">研究时间轴</h2>
 

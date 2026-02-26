@@ -1,7 +1,10 @@
 ---
 title: "立式芦苇笋剥皮机设计"
+title_en: "Vertical Reed Bamboo Shoot Peeling Machine Design"
 excerpt: "这是一个本科期间的国家级大学生创新创业项目，获得4项省部级比赛奖项，一项实用新型受理。负责项目管理、机械电子设计、样机制作、专利申请<br/><img src='https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202305222251843.png'>"
+excerpt_en: "A national-level undergraduate innovation project with multiple awards. I led project management, mechatronic design, prototyping, and patent application.<br/><img src='https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202305222251843.png'>"
 collection: portfolio
+summary_en: "National innovation project on reed bamboo shoot peeling automation. I led mechanism design, machine-vision-assisted prototyping, and patent implementation."
 ---
 2018.12 - 2020.03 组长 国家级大学生创新创业项目
 

@@ -65,6 +65,15 @@ body {
   font-family: "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
 }
 
+html:not([data-lang]) .lang-en,
+html[data-lang="zh"] .lang-en {
+  display: none;
+}
+
+html[data-lang="en"] .lang-zh {
+  display: none;
+}
+
 h1, h2, h3, h4, .masthead__menu-item {
   font-family: "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", "STSong", serif;
 }
@@ -251,6 +260,63 @@ html[data-theme="dark"] body {
 .quick-links a:hover {
   transform: translateY(-1px);
   box-shadow: 0 8px 20px rgba(15, 53, 86, 0.12);
+}
+
+.research-universe-panel {
+  margin: 10px 0 24px;
+}
+
+#research-universe {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(103, 166, 216, 0.22), transparent 34%),
+    radial-gradient(circle at 84% 80%, rgba(79, 197, 200, 0.16), transparent 36%),
+    linear-gradient(145deg, var(--surface-1), var(--surface-2));
+}
+
+#research-universe-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.universe-tooltip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -140%);
+  background: rgba(11, 18, 25, 0.9);
+  color: #fff;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 0.78rem;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.universe-legend {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.universe-legend a {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 11px;
+  text-decoration: none;
+  background: var(--surface-1);
+}
+
+.universe-legend a:hover {
+  background: var(--brand-700);
+  color: #fff;
 }
 
 .timeline {

@@ -1,12 +1,15 @@
 ---
 title: "Design recommendations of target size and tracking speed under circular and square trajectories for smooth pursuit with Euclidean algorithm in eye-control system"
+title_en: "Design recommendations of target size and tracking speed under circular and square trajectories for smooth pursuit with Euclidean algorithm in eye-control system"
 collection: publications
 permalink: /publication/2024-design-recommendations-target-size-tracking-speed-smooth-pursuit
 excerpt: ''
+excerpt_en: 'Design recommendations for target size and motion speed in smooth-pursuit eye-control interfaces under different trajectory geometries.'
 date: 2024-01-01
 venue: 'Displays'
 paperurl: ''
 citation: 'Wang, Y., Wen, C., Tian, J., Huang, W.-C., Niu, Y., Yang, W., & Xue, C. (2024). Design recommendations of target size and tracking speed under circular and square trajectories for smooth pursuit with Euclidean algorithm in eye-control system. Displays, 81, 102608.'
+summary_en: 'This study investigates size-speed trade-offs in smooth-pursuit eye-control tasks and reports practical design recommendations for circular and square trajectories.'
 ---
 
 

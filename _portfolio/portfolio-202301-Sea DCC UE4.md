@@ -1,7 +1,10 @@
 ---
 title: "基于UE4的xxxx三维建模与交互设计"
+title_en: "UE4-Based 3D Modeling and Interaction Design Project"
 excerpt: "这是一个UE4制作海上装备数字资产的设计项目<br/><img src='https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202305222254859.png'>"
+excerpt_en: "A UE4-based design project for maritime-equipment digital assets and interaction simulation.<br/><img src='https://cdn.jsdelivr.net/gh/george-wyy/MyPic/202305222254859.png'>"
 collection: portfolio
+summary_en: "Built 3D assets and interaction sequences for maritime scenarios using Blender/3ds Max and UE4 blueprint workflows."
 ---
 
 

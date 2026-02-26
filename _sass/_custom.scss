@@ -30,6 +30,32 @@
   }
 }
 
+html[data-theme="light"] {
+  --brand-900: #0f3556;
+  --brand-700: #1c4f7f;
+  --brand-500: #2f6d9e;
+  --accent-500: #0f8a8d;
+  --surface-1: #ffffff;
+  --surface-2: #f4f8fc;
+  --text-1: #1e2c3a;
+  --text-2: #44586e;
+  --line: #d6e2ed;
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --brand-900: #b7d8f5;
+  --brand-700: #8cc0eb;
+  --brand-500: #67a6d8;
+  --accent-500: #4fc5c8;
+  --surface-1: #0f1720;
+  --surface-2: #0b1219;
+  --text-1: #e5edf6;
+  --text-2: #a8bccf;
+  --line: #2a3a49;
+  color-scheme: dark;
+}
+
 body {
   color: var(--text-1);
   background:
@@ -52,8 +78,58 @@ h1, h2, h3, h4, .masthead__menu-item {
   box-shadow: 0 2px 16px rgba(15, 53, 86, 0.08);
 }
 
+html[data-theme="dark"] .masthead {
+  background: rgba(15, 23, 32, 0.92);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.32);
+}
+
+html[data-theme="dark"] body {
+  background:
+    radial-gradient(1000px 500px at 95% -10%, rgba(95, 165, 223, 0.15), transparent),
+    radial-gradient(900px 520px at -10% 10%, rgba(79, 197, 200, 0.12), transparent),
+    var(--surface-2);
+}
+
 .masthead__menu-item--lg a {
   letter-spacing: 0.04em;
+}
+
+.masthead__menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.masthead__menu #site-nav {
+  flex: 1;
+  min-width: 0;
+}
+
+.site-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.site-control-btn {
+  border: 1px solid var(--line);
+  background: var(--surface-1);
+  color: var(--text-1);
+  border-radius: 999px;
+  min-width: 34px;
+  height: 30px;
+  padding: 0 10px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.site-control-btn.is-active,
+.site-control-btn:hover {
+  background: var(--brand-700);
+  border-color: var(--brand-700);
+  color: #fff;
 }
 
 .sidebar .author__avatar img {
@@ -130,30 +206,6 @@ h1, h2, h3, h4, .masthead__menu-item {
   background: rgba(255, 255, 255, 0.16);
   font-size: 0.88rem;
   letter-spacing: 0.06em;
-}
-
-.lang-toggle {
-  display: inline-flex;
-  margin: 0 0 12px;
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  padding: 3px;
-  gap: 2px;
-}
-
-.lang-btn {
-  border: 0;
-  border-radius: 999px;
-  padding: 4px 10px;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.9);
-  cursor: pointer;
-  font-size: 0.82rem;
-}
-
-.lang-btn.is-active {
-  background: rgba(255, 255, 255, 0.25);
-  color: #fff;
 }
 
 .highlight-grid {

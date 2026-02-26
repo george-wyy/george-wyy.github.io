@@ -10,10 +10,6 @@ redirect_from:
 
 <div class="profile-hero">
   <span class="profile-tagline">PhD Student · XR + Eye Tracking</span>
-  <div class="lang-toggle" role="tablist" aria-label="Language switch">
-    <button class="lang-btn is-active" type="button" data-lang-switch="zh">中文</button>
-    <button class="lang-btn" type="button" data-lang-switch="en">English</button>
-  </div>
   <p class="lang-zh">我目前就读于 <a class="hero-link" href="https://www.seu.edu.cn">东南大学</a> 机械工程学院设计科学系，导师为
   <a class="hero-link" href="https://me.seu.edu.cn/nyf_31777/list.htm">牛亚峰老师</a>。研究方向聚焦于眼控交互、增强现实、虚拟现实与人机交互系统。</p>
   <p class="lang-en">I am a PhD student in Design Science at the School of Mechanical Engineering, <a class="hero-link" href="https://www.seu.edu.cn">Southeast University</a>, supervised by

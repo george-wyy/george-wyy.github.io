@@ -2,6 +2,47 @@
 <a href="/sitemap/">Sitemap</a>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    var root = document.documentElement;
+    var themeButton = document.querySelector("[data-theme-toggle]");
+    var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function updateThemeButton(theme) {
+      if (!themeButton) return;
+      themeButton.textContent = theme === "dark" ? "🌙" : "☀️";
+      themeButton.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+      themeButton.setAttribute("title", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+    }
+
+    function resolveTheme(pref) {
+      if (pref === "dark" || pref === "light") return pref;
+      return darkQuery.matches ? "dark" : "light";
+    }
+
+    function setTheme(pref, persist) {
+      var nextTheme = resolveTheme(pref);
+      root.setAttribute("data-theme", nextTheme);
+      updateThemeButton(nextTheme);
+      if (persist) localStorage.setItem("site-theme", nextTheme);
+    }
+
+    var savedTheme = localStorage.getItem("site-theme");
+    setTheme(savedTheme || "system", false);
+
+    if (!savedTheme) {
+      if (darkQuery.addEventListener) {
+        darkQuery.addEventListener("change", function () { setTheme("system", false); });
+      } else if (darkQuery.addListener) {
+        darkQuery.addListener(function () { setTheme("system", false); });
+      }
+    }
+
+    if (themeButton) {
+      themeButton.addEventListener("click", function () {
+        var current = root.getAttribute("data-theme") || resolveTheme("system");
+        setTheme(current === "dark" ? "light" : "dark", true);
+      });
+    }
+
     var langButtons = document.querySelectorAll("[data-lang-switch]");
     var i18nNodes = document.querySelectorAll("[data-i18n-zh][data-i18n-en]");
     var zhNodes = document.querySelectorAll(".lang-zh");

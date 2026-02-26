@@ -1,3 +1,52 @@
 <!-- start custom footer snippets -->
 <a href="/sitemap/">Sitemap</a>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var nodes = document.querySelectorAll(".reveal-on-scroll");
+    if (nodes.length) {
+      if (!("IntersectionObserver" in window)) {
+        nodes.forEach(function (node) { node.classList.add("is-visible"); });
+      } else {
+        var observer = new IntersectionObserver(function (entries, ob) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              ob.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        nodes.forEach(function (node) { observer.observe(node); });
+      }
+    }
+
+    var filterButtons = document.querySelectorAll(".project-filter-btn");
+    var cards = document.querySelectorAll(".project-card[data-tags]");
+    var emptyHint = document.getElementById("project-empty");
+
+    if (!filterButtons.length || !cards.length) return;
+
+    function applyFilter(filterKey) {
+      var shown = 0;
+      cards.forEach(function (card) {
+        var tags = card.getAttribute("data-tags") || "";
+        var matched = filterKey === "all" || tags.indexOf(filterKey) !== -1;
+        card.classList.toggle("is-filter-hidden", !matched);
+        if (matched) shown += 1;
+      });
+      if (emptyHint) emptyHint.hidden = shown > 0;
+    }
+
+    filterButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var filterKey = button.getAttribute("data-project-filter");
+        filterButtons.forEach(function (btn) {
+          btn.classList.toggle("is-active", btn === button);
+        });
+        applyFilter(filterKey);
+      });
+    });
+
+    applyFilter("all");
+  });
+</script>
 <!-- end custom footer snippets -->

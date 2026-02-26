@@ -12,6 +12,22 @@
   --text-1: #1e2c3a;
   --text-2: #44586e;
   --line: #d6e2ed;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand-900: #b7d8f5;
+    --brand-700: #8cc0eb;
+    --brand-500: #67a6d8;
+    --accent-500: #4fc5c8;
+    --surface-1: #0f1720;
+    --surface-2: #0b1219;
+    --text-1: #e5edf6;
+    --text-2: #a8bccf;
+    --line: #2a3a49;
+    color-scheme: dark;
+  }
 }
 
 body {
@@ -116,6 +132,30 @@ h1, h2, h3, h4, .masthead__menu-item {
   letter-spacing: 0.06em;
 }
 
+.lang-toggle {
+  display: inline-flex;
+  margin: 0 0 12px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.lang-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 4px 10px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  font-size: 0.82rem;
+}
+
+.lang-btn.is-active {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
 .highlight-grid {
   display: grid;
   gap: 12px;
@@ -131,7 +171,7 @@ h1, h2, h3, h4, .masthead__menu-item {
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 14px;
-  background: #fafcff;
+  background: var(--surface-1);
 }
 
 .highlight-card strong {
@@ -151,7 +191,7 @@ h1, h2, h3, h4, .masthead__menu-item {
   padding: 7px 12px;
   border-radius: 999px;
   border: 1px solid var(--line);
-  background: #fff;
+  background: var(--surface-1);
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -245,7 +285,7 @@ h1, h2, h3, h4, .masthead__menu-item {
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 14px;
-  background: linear-gradient(180deg, #ffffff, #f8fbff);
+  background: linear-gradient(180deg, var(--surface-1), var(--surface-2));
 }
 
 .paper-card h4 {
@@ -289,7 +329,7 @@ h1, h2, h3, h4, .masthead__menu-item {
 }
 
 .paper-tag--journal {
-  background: #ebf2f8;
+  background: var(--surface-2);
   color: var(--brand-700);
 }
 
@@ -318,7 +358,7 @@ h1, h2, h3, h4, .masthead__menu-item {
 
 .project-filter-btn {
   border: 1px solid var(--line);
-  background: #fff;
+  background: var(--surface-1);
   color: var(--text-1);
   padding: 6px 12px;
   border-radius: 999px;
@@ -348,7 +388,7 @@ h1, h2, h3, h4, .masthead__menu-item {
   border: 1px solid var(--line);
   border-radius: 14px;
   overflow: hidden;
-  background: #fff;
+  background: var(--surface-1);
   box-shadow: 0 8px 22px rgba(15, 53, 86, 0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.2s ease;
 }
@@ -405,7 +445,7 @@ h1, h2, h3, h4, .masthead__menu-item {
   font-size: 0.72rem;
   border-radius: 999px;
   padding: 2px 8px;
-  background: #edf4fb;
+  background: var(--surface-2);
   color: var(--brand-700);
 }
 

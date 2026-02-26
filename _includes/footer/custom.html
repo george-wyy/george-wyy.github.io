@@ -2,6 +2,44 @@
 <a href="/sitemap/">Sitemap</a>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    var langButtons = document.querySelectorAll("[data-lang-switch]");
+    var i18nNodes = document.querySelectorAll("[data-i18n-zh][data-i18n-en]");
+    var zhNodes = document.querySelectorAll(".lang-zh");
+    var enNodes = document.querySelectorAll(".lang-en");
+
+    function setLanguage(lang) {
+      var nextLang = lang === "en" ? "en" : "zh";
+      document.documentElement.setAttribute("data-lang", nextLang);
+      localStorage.setItem("site-lang", nextLang);
+
+      langButtons.forEach(function (btn) {
+        btn.classList.toggle("is-active", btn.getAttribute("data-lang-switch") === nextLang);
+      });
+
+      i18nNodes.forEach(function (node) {
+        var text = node.getAttribute(nextLang === "en" ? "data-i18n-en" : "data-i18n-zh");
+        if (text) node.textContent = text;
+      });
+
+      zhNodes.forEach(function (node) { node.hidden = nextLang !== "zh"; });
+      enNodes.forEach(function (node) { node.hidden = nextLang !== "en"; });
+    }
+
+    if (langButtons.length) {
+      var savedLang = localStorage.getItem("site-lang");
+      var browserLang = (navigator.language || "").toLowerCase();
+      var initialLang = savedLang || (browserLang.indexOf("zh") === 0 ? "zh" : "en");
+      setLanguage(initialLang);
+
+      langButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          setLanguage(button.getAttribute("data-lang-switch"));
+        });
+      });
+    } else {
+      document.documentElement.setAttribute("data-lang", "zh");
+    }
+
     var nodes = document.querySelectorAll(".reveal-on-scroll");
     if (nodes.length) {
       if (!("IntersectionObserver" in window)) {

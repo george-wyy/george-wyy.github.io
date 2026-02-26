@@ -60,20 +60,40 @@ redirect_from:
   <a href="mailto:wangyiyan@seu.edu.cn">Email</a>
 </div>
 
-<h2 data-i18n-zh="研究宇宙（3D MVP）" data-i18n-en="Research Universe (3D MVP)">研究宇宙（3D MVP）</h2>
-<p class="lang-zh">这个三维场景把主页核心页面组织成一个可探索网络：旋转查看节点，点击进入对应页面。</p>
-<p class="lang-en">This interactive 3D scene organizes core pages into an explorable knowledge network. Rotate and click nodes to navigate.</p>
+<h2 data-i18n-zh="空间关系图（轻三维）" data-i18n-en="Spatial Research Map (Lite 3D)">空间关系图（轻三维）</h2>
+<p class="lang-zh">用分层卡片展示页面关系：鼠标移动时会有轻微倾斜，滚动时形成前后景视差。</p>
+<p class="lang-en">A layered card composition that visualizes page relationships with subtle tilt and scroll-based parallax depth.</p>
 
-<section class="research-universe-panel reveal-on-scroll">
-  <div id="research-universe" aria-label="3D research universe">
-    <canvas id="research-universe-canvas"></canvas>
-    <div id="research-universe-tooltip" class="universe-tooltip" hidden></div>
+<section class="depth-stage reveal-on-scroll" id="depth-stage">
+  <div class="parallax-layer layer-back" data-depth="0.14">
+    <a class="depth-card tilt-card" href="/researchPlan/">
+      <span class="depth-card__tag">Core</span>
+      <h3 data-i18n-zh="研究规划" data-i18n-en="Research Plan">研究规划</h3>
+      <p class="lang-zh">问题定义、方法框架、长期方向。</p>
+      <p class="lang-en">Questions, methods, and long-term trajectory.</p>
+    </a>
   </div>
-  <div class="universe-legend">
-    <a href="/researchPlan/" data-i18n-zh="研究规划" data-i18n-en="Research Plan">研究规划</a>
-    <a href="/publications/" data-i18n-zh="论文成果" data-i18n-en="Publications">论文成果</a>
-    <a href="/portfolio/" data-i18n-zh="项目作品" data-i18n-en="Portfolio">项目作品</a>
-    <a href="/cv_new/" data-i18n-zh="简历" data-i18n-en="CV">简历</a>
+  <div class="parallax-layer layer-mid" data-depth="0.3">
+    <a class="depth-card tilt-card" href="/publications/">
+      <span class="depth-card__tag">Output</span>
+      <h3 data-i18n-zh="论文成果" data-i18n-en="Publications">论文成果</h3>
+      <p class="lang-zh">研究假设验证后的学术沉淀。</p>
+      <p class="lang-en">Academic outputs validated through experiments.</p>
+    </a>
+    <a class="depth-card tilt-card" href="/portfolio/">
+      <span class="depth-card__tag">Practice</span>
+      <h3 data-i18n-zh="项目作品" data-i18n-en="Portfolio">项目作品</h3>
+      <p class="lang-zh">将研究方法落到真实交互系统。</p>
+      <p class="lang-en">From methods to deployed interaction systems.</p>
+    </a>
+  </div>
+  <div class="parallax-layer layer-front" data-depth="0.48">
+    <a class="depth-card tilt-card" href="/cv_new/">
+      <span class="depth-card__tag">Profile</span>
+      <h3 data-i18n-zh="个人简历" data-i18n-en="Curriculum Vitae">个人简历</h3>
+      <p class="lang-zh">教育、能力、经历与成果总览。</p>
+      <p class="lang-en">Education, skills, experience, and achievements.</p>
+    </a>
   </div>
 </section>
 

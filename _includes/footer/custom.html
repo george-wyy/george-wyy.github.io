@@ -25,7 +25,6 @@
       currentTheme = nextTheme;
       updateThemeButton(nextTheme);
       if (persist) localStorage.setItem("site-theme", nextTheme);
-      if (window.__updateUniverseTheme) window.__updateUniverseTheme(nextTheme);
     }
 
     var savedTheme = localStorage.getItem("site-theme");
@@ -46,203 +45,48 @@
       });
     }
 
-    function loadScript(src) {
-      return new Promise(function (resolve, reject) {
-        var script = document.createElement("script");
-        script.src = src;
-        script.async = true;
-        script.onload = resolve;
-        script.onerror = reject;
-        document.head.appendChild(script);
-      });
+    var depthStage = document.getElementById("depth-stage");
+    var tiltCards = document.querySelectorAll(".tilt-card");
+    var parallaxLayers = document.querySelectorAll(".parallax-layer");
+
+    if (depthStage && parallaxLayers.length) {
+      function updateParallax() {
+        var rect = depthStage.getBoundingClientRect();
+        var centerOffset = (window.innerHeight * 0.5 - (rect.top + rect.height * 0.5)) / window.innerHeight;
+        parallaxLayers.forEach(function (layer) {
+          var depth = parseFloat(layer.getAttribute("data-depth") || "0");
+          var moveY = centerOffset * 90 * depth;
+          layer.style.transform = "translate3d(0," + moveY.toFixed(2) + "px,0)";
+        });
+      }
+
+      updateParallax();
+      window.addEventListener("scroll", updateParallax, { passive: true });
+      window.addEventListener("resize", updateParallax);
     }
 
-    function initResearchUniverse() {
-      var mount = document.getElementById("research-universe");
-      var canvas = document.getElementById("research-universe-canvas");
-      var tooltip = document.getElementById("research-universe-tooltip");
-      if (!mount || !canvas || !window.THREE) return;
-
-      var THREE = window.THREE;
-      var scene = new THREE.Scene();
-      var camera = new THREE.PerspectiveCamera(52, mount.clientWidth / mount.clientHeight, 0.1, 100);
-      camera.position.set(0, 0.5, 8);
-
-      var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-      renderer.setSize(mount.clientWidth, mount.clientHeight, false);
-
-      var controls = new THREE.OrbitControls(camera, renderer.domElement);
-      controls.enablePan = false;
-      controls.enableZoom = false;
-      controls.enableDamping = true;
-      controls.dampingFactor = 0.045;
-      controls.minPolarAngle = Math.PI * 0.35;
-      controls.maxPolarAngle = Math.PI * 0.7;
-
-      var ambient = new THREE.AmbientLight(0xffffff, 0.9);
-      scene.add(ambient);
-      var point = new THREE.PointLight(0x8cc0eb, 2.2, 40);
-      point.position.set(5, 6, 8);
-      scene.add(point);
-
-      var universeGroup = new THREE.Group();
-      scene.add(universeGroup);
-
-      var nodes = [
-        { key: "about", zh: "主页", en: "Home", url: "/", position: [-2.4, 1.2, 0.3] },
-        { key: "research", zh: "研究规划", en: "Research Plan", url: "/researchPlan/", position: [2.2, 1.4, -0.2] },
-        { key: "pubs", zh: "论文成果", en: "Publications", url: "/publications/", position: [2.8, -1.1, 1.2] },
-        { key: "portfolio", zh: "项目作品", en: "Portfolio", url: "/portfolio/", position: [-2.6, -1.4, 1.1] },
-        { key: "cv", zh: "简历", en: "CV", url: "/cv_new/", position: [0.0, -0.4, -1.8] }
-      ];
-
-      var nodeMeshes = [];
-      var sphereGeo = new THREE.IcosahedronGeometry(0.36, 1);
-
-      nodes.forEach(function (node) {
-        var mesh = new THREE.Mesh(
-          sphereGeo,
-          new THREE.MeshStandardMaterial({ color: 0x2f6d9e, metalness: 0.25, roughness: 0.3 })
-        );
-        mesh.position.set(node.position[0], node.position[1], node.position[2]);
-        mesh.userData = node;
-        universeGroup.add(mesh);
-        nodeMeshes.push(mesh);
+    tiltCards.forEach(function (card) {
+      card.addEventListener("pointermove", function (event) {
+        var rect = card.getBoundingClientRect();
+        var x = (event.clientX - rect.left) / rect.width;
+        var y = (event.clientY - rect.top) / rect.height;
+        var rotateY = (x - 0.5) * 10;
+        var rotateX = (0.5 - y) * 8;
+        card.style.transform = "rotateX(" + rotateX.toFixed(2) + "deg) rotateY(" + rotateY.toFixed(2) + "deg) translateZ(8px)";
       });
-
-      var edges = [
-        ["about", "research"], ["research", "pubs"], ["research", "portfolio"],
-        ["cv", "research"], ["cv", "portfolio"], ["portfolio", "pubs"]
-      ];
-      var byKey = {};
-      nodeMeshes.forEach(function (m) { byKey[m.userData.key] = m; });
-      edges.forEach(function (pair) {
-        var a = byKey[pair[0]], b = byKey[pair[1]];
-        if (!a || !b) return;
-        var geometry = new THREE.BufferGeometry().setFromPoints([a.position, b.position]);
-        var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: 0x5d87ad, transparent: true, opacity: 0.45 }));
-        universeGroup.add(line);
+      card.addEventListener("pointerleave", function () {
+        card.style.transform = "";
       });
-
-      var starsGeometry = new THREE.BufferGeometry();
-      var starCount = 380;
-      var starPos = new Float32Array(starCount * 3);
-      for (var i = 0; i < starCount; i += 1) {
-        starPos[i * 3] = (Math.random() - 0.5) * 18;
-        starPos[i * 3 + 1] = (Math.random() - 0.5) * 12;
-        starPos[i * 3 + 2] = (Math.random() - 0.5) * 16;
-      }
-      starsGeometry.setAttribute("position", new THREE.BufferAttribute(starPos, 3));
-      var stars = new THREE.Points(
-        starsGeometry,
-        new THREE.PointsMaterial({ color: 0x8cc0eb, size: 0.03, transparent: true, opacity: 0.75 })
-      );
-      scene.add(stars);
-
-      var raycaster = new THREE.Raycaster();
-      var pointer = new THREE.Vector2(2, 2);
-      var hovered = null;
-
-      function labelFor(node) {
-        return root.getAttribute("data-lang") === "en" ? node.en : node.zh;
-      }
-
-      function applyTheme(theme) {
-        var dark = theme === "dark";
-        nodeMeshes.forEach(function (m) {
-          m.userData.baseColor = dark ? 0x67a6d8 : 0x2f6d9e;
-          m.userData.baseEmissive = dark ? 0x0f3556 : 0x102640;
-          m.userData.baseEmissiveIntensity = dark ? 0.55 : 0.2;
-          m.material.color.setHex(m.userData.baseColor);
-          m.material.emissive.setHex(dark ? 0x0f3556 : 0x102640);
-          m.material.emissiveIntensity = m.userData.baseEmissiveIntensity;
-        });
-        stars.material.color.setHex(dark ? 0xb7d8f5 : 0x8cc0eb);
-      }
-      window.__updateUniverseTheme = applyTheme;
-      applyTheme(currentTheme);
-
-      function pointerToNDC(event) {
-        var rect = canvas.getBoundingClientRect();
-        pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-        pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-      }
-
-      canvas.addEventListener("pointermove", function (event) {
-        pointerToNDC(event);
+      card.addEventListener("blur", function () {
+        card.style.transform = "";
       });
-
-      canvas.addEventListener("pointerleave", function () {
-        pointer.set(2, 2);
-        hovered = null;
-        tooltip.hidden = true;
-        canvas.style.cursor = "grab";
+      card.addEventListener("focus", function () {
+        card.style.transform = "translateZ(8px)";
       });
-
-      canvas.addEventListener("click", function () {
-        if (!hovered) return;
-        window.location.href = hovered.userData.url;
-      });
-
-      canvas.style.cursor = "grab";
-
-      function animate() {
-        requestAnimationFrame(animate);
-        controls.update();
-
-        universeGroup.rotation.y += 0.0022;
-        stars.rotation.y -= 0.0005;
-
-        raycaster.setFromCamera(pointer, camera);
-        var hit = raycaster.intersectObjects(nodeMeshes, false);
-        nodeMeshes.forEach(function (m) {
-          m.scale.setScalar(1);
-          m.material.color.setHex(m.userData.baseColor || 0x2f6d9e);
-          m.material.emissive.setHex(m.userData.baseEmissive || 0x102640);
-          m.material.emissiveIntensity = m.userData.baseEmissiveIntensity || 0.2;
-        });
-
-        if (hit.length > 0) {
-          hovered = hit[0].object;
-          hovered.scale.setScalar(1.18);
-          hovered.material.color.setHex(0x4fc5c8);
-          hovered.material.emissive.setHex(0x1b6d74);
-          hovered.material.emissiveIntensity = 0.7;
-          var projected = hovered.position.clone().project(camera);
-          var x = (projected.x * 0.5 + 0.5) * mount.clientWidth;
-          var y = (-projected.y * 0.5 + 0.5) * mount.clientHeight;
-          tooltip.textContent = labelFor(hovered.userData);
-          tooltip.style.left = x + "px";
-          tooltip.style.top = y + "px";
-          tooltip.hidden = false;
-          canvas.style.cursor = "pointer";
-        } else {
-          hovered = null;
-          tooltip.hidden = true;
-          canvas.style.cursor = "grab";
-        }
-
-        renderer.render(scene, camera);
-      }
-      animate();
-
-      window.addEventListener("resize", function () {
-        if (!mount.clientWidth || !mount.clientHeight) return;
-        camera.aspect = mount.clientWidth / mount.clientHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(mount.clientWidth, mount.clientHeight, false);
-      });
-    }
-
-    if (document.getElementById("research-universe")) {
-      loadScript("https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.min.js")
-      .then(function () {
-        return loadScript("https://cdn.jsdelivr.net/npm/three@0.162.0/examples/js/controls/OrbitControls.js");
-      })
-      .then(function () {
-        initResearchUniverse();
-      }).catch(function () {
+    });
+    if (window.matchMedia("(max-width: 600px)").matches) {
+      tiltCards.forEach(function (card) {
+        card.style.transform = "";
       });
     }
 

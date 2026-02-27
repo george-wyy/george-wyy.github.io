@@ -56,6 +56,8 @@ This page summarizes published papers and public research outputs. Unpublished c
 
 {% include base_path %}
 
+<div class="wide-grid publication-entries">
 {% for post in site.publications reversed %}
-  {% include archive-single.html %}
+  {% include archive-single.html type="grid" %}
 {% endfor %}
+</div>

@@ -108,6 +108,60 @@ h1, h2, h3, h4, .masthead__menu-item {
   box-shadow: 0 6px 18px rgba(15, 53, 86, 0.06);
 }
 
+.wide-grid {
+  display: grid;
+  gap: 14px;
+  margin: 10px 0 12px;
+  grid-template-columns: 1fr;
+}
+
+.wide-grid .grid__item {
+  float: none !important;
+  width: auto !important;
+  margin: 0 !important;
+}
+
+.wide-grid .grid__item .archive__item {
+  height: 100%;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface-1);
+  padding: 14px 16px;
+  box-shadow: 0 8px 22px rgba(15, 53, 86, 0.08);
+}
+
+.wide-grid .grid__item .archive__item-title {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.wide-grid .grid__item .archive__item-excerpt {
+  display: block;
+  margin-top: 0;
+}
+
+.wide-grid .grid__item .archive__item-teaser {
+  max-height: none;
+}
+
+@include breakpoint($small) {
+  .wide-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@include breakpoint($large) {
+  .wide-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@include breakpoint($x-large) {
+  .portfolio-entries.wide-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 @include breakpoint($large) {
   #main.main-shell--with-sidebar {
     display: grid;

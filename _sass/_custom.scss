@@ -96,6 +96,18 @@ h1, h2, h3, h4, .masthead__menu-item {
   margin: 0;
 }
 
+#main.main-shell .archive .list__item {
+  padding-right: 0 !important;
+}
+
+#main.main-shell .archive .list__item .archive__item {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface-1);
+  padding: 14px 16px;
+  box-shadow: 0 6px 18px rgba(15, 53, 86, 0.06);
+}
+
 @include breakpoint($large) {
   #main.main-shell--with-sidebar {
     display: grid;
@@ -231,6 +243,13 @@ html[data-theme="dark"] body {
   text-underline-offset: 2px;
 }
 
+.page__content > p,
+.page__content > ul,
+.page__content > ol,
+.page__content > blockquote {
+  max-width: 100ch;
+}
+
 .profile-hero {
   background: linear-gradient(135deg, #0f3556 0%, #1f5888 45%, #2f6d9e 100%);
   border-radius: 16px;
@@ -279,6 +298,19 @@ html[data-theme="dark"] body {
   }
 }
 
+.interest-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@include breakpoint($large) {
+  .interest-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
 .highlight-card {
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -294,12 +326,13 @@ html[data-theme="dark"] body {
 
 .quick-links {
   margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .quick-links a {
   display: inline-block;
-  margin-right: 8px;
-  margin-bottom: 8px;
   padding: 7px 12px;
   border-radius: 999px;
   border: 1px solid var(--line);
@@ -323,7 +356,11 @@ html[data-theme="dark"] body {
 .timeline-item {
   position: relative;
   margin-bottom: 18px;
-  padding-left: 12px;
+  padding: 12px 12px 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface-1);
+  box-shadow: 0 6px 16px rgba(15, 53, 86, 0.05);
 }
 
 .timeline-item::before {

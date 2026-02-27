@@ -18,16 +18,18 @@ redirect_from:
 
 <h2 data-i18n-zh="研究兴趣" data-i18n-en="Research Interests">研究兴趣</h2>
 
-<ul class="lang-zh">
-  <li>眼控交互（Eye-Control Interaction）</li>
-  <li>AR/VR 场景中的可用性与交互效率优化</li>
-  <li>人机交互中的机器学习方法</li>
-</ul>
-<ul class="lang-en">
-  <li>Eye-controlled interaction</li>
-  <li>Usability and interaction-efficiency optimization in AR/VR</li>
-  <li>Machine learning methods in HCI</li>
-</ul>
+<div class="interest-grid">
+  <ul class="lang-zh">
+    <li>眼控交互（Eye-Control Interaction）</li>
+    <li>AR/VR 场景中的可用性与交互效率优化</li>
+    <li>人机交互中的机器学习方法</li>
+  </ul>
+  <ul class="lang-en">
+    <li>Eye-controlled interaction</li>
+    <li>Usability and interaction-efficiency optimization in AR/VR</li>
+    <li>Machine learning methods in HCI</li>
+  </ul>
+</div>
 
 <h2 data-i18n-zh="学术与项目亮点" data-i18n-en="Highlights">学术与项目亮点</h2>
 

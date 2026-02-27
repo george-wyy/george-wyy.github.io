@@ -69,6 +69,62 @@ h1, h2, h3, h4, .masthead__menu-item {
   font-family: "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", "STSong", serif;
 }
 
+.masthead__inner-wrap,
+#main,
+.page__footer footer {
+  width: min(94vw, 1680px);
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#main {
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+
+  @include breakpoint($small) {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+  }
+}
+
+#main.main-shell > .page,
+#main.main-shell > .archive,
+#main.main-shell > .sidebar {
+  float: none !important;
+  width: auto !important;
+  margin: 0;
+}
+
+@include breakpoint($large) {
+  #main.main-shell--with-sidebar {
+    display: grid;
+    grid-template-columns: minmax(230px, 290px) minmax(0, 1fr);
+    gap: 1.1rem 1.4rem;
+    align-items: start;
+  }
+
+  #main.main-shell--with-sidebar > .sidebar {
+    position: sticky;
+    top: 92px;
+    margin-bottom: 0;
+    align-self: start;
+  }
+}
+
+@include breakpoint($x-large) {
+  .masthead__inner-wrap,
+  #main,
+  .page__footer footer {
+    width: min(92vw, 1780px);
+  }
+
+  #main.main-shell--with-sidebar {
+    grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+    gap: 1.2rem 1.8rem;
+  }
+}
+
 .masthead {
   position: sticky;
   top: 0;
@@ -214,8 +270,12 @@ html[data-theme="dark"] body {
   margin: 10px 0 18px;
   grid-template-columns: 1fr;
 
-  @include breakpoint($small) {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  @include breakpoint($medium) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include breakpoint($large) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -331,6 +391,10 @@ html[data-theme="dark"] body {
   @include breakpoint($small) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  @include breakpoint($large) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .paper-card {
@@ -433,6 +497,14 @@ html[data-theme="dark"] body {
 
   @include breakpoint($small) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include breakpoint($large) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @include breakpoint($x-large) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 

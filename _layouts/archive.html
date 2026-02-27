@@ -12,7 +12,8 @@ layout: default
   {% endunless %}
 {% endif %}
 
-<div id="main" role="main">
+{% assign has_sidebar = page.author_profile or layout.author_profile or page.sidebar %}
+<div id="main" role="main" class="main-shell{% if has_sidebar %} main-shell--with-sidebar{% endif %}">
   {% include sidebar.html %}
 
   <div class="archive">

@@ -12,6 +12,9 @@
   --text-1: #2f2c28;
   --text-2: #5b554d;
   --line: #d8d1c5;
+  --glass-bg: rgba(248, 246, 241, 0.58);
+  --glass-line: rgba(255, 255, 255, 0.42);
+  --glass-shadow: rgba(41, 36, 30, 0.12);
   color-scheme: light;
 }
 
@@ -26,6 +29,9 @@
     --text-1: #ede7dc;
     --text-2: #b9b1a4;
     --line: #3a332c;
+    --glass-bg: rgba(33, 29, 25, 0.52);
+    --glass-line: rgba(255, 255, 255, 0.08);
+    --glass-shadow: rgba(0, 0, 0, 0.4);
     color-scheme: dark;
   }
 }
@@ -40,6 +46,9 @@ html[data-theme="light"] {
   --text-1: #2f2c28;
   --text-2: #5b554d;
   --line: #d8d1c5;
+  --glass-bg: rgba(248, 246, 241, 0.58);
+  --glass-line: rgba(255, 255, 255, 0.42);
+  --glass-shadow: rgba(41, 36, 30, 0.12);
   color-scheme: light;
 }
 
@@ -53,6 +62,9 @@ html[data-theme="dark"] {
   --text-1: #ede7dc;
   --text-2: #b9b1a4;
   --line: #3a332c;
+  --glass-bg: rgba(33, 29, 25, 0.52);
+  --glass-line: rgba(255, 255, 255, 0.08);
+  --glass-shadow: rgba(0, 0, 0, 0.4);
   color-scheme: dark;
 }
 
@@ -194,14 +206,15 @@ h1, h2, h3, h4, .masthead__menu-item {
 .masthead {
   position: sticky;
   top: 0;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  background: var(--glass-bg);
   border-bottom: 1px solid var(--line);
   box-shadow: 0 2px 16px rgba(41, 36, 30, 0.08);
 }
 
 html[data-theme="dark"] .masthead {
-  background: rgba(33, 29, 25, 0.92);
+  background: var(--glass-bg);
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.32);
 }
 
@@ -236,7 +249,7 @@ html[data-theme="dark"] body {
 
 .site-control-btn {
   border: 1px solid var(--line);
-  background: var(--surface-1);
+  background: var(--glass-bg);
   color: var(--text-1);
   border-radius: 999px;
   min-width: 34px;
@@ -261,8 +274,10 @@ html[data-theme="dark"] body {
 
 .sidebar .author__content,
 .sidebar .author__urls-wrapper {
-  background: var(--surface-1);
-  border: 1px solid var(--line);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-line);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
   border-radius: 14px;
   padding: 14px;
 }
@@ -272,10 +287,14 @@ html[data-theme="dark"] body {
 }
 
 .page {
-  background: var(--surface-1);
-  border: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.02)),
+    var(--glass-bg);
+  border: 1px solid var(--glass-line);
+  backdrop-filter: blur(18px) saturate(120%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
   border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(41, 36, 30, 0.1);
+  box-shadow: 0 10px 30px var(--glass-shadow);
 }
 
 .page .page__inner-wrap {
@@ -366,10 +385,15 @@ html[data-theme="dark"] body {
 }
 
 .highlight-card {
-  border: 1px solid var(--line);
+  border: 1px solid var(--glass-line);
   border-radius: 12px;
   padding: 14px;
-  background: var(--surface-1);
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.04)),
+    var(--glass-bg);
+  backdrop-filter: blur(12px) saturate(118%);
+  -webkit-backdrop-filter: blur(12px) saturate(118%);
+  box-shadow: 0 6px 20px var(--glass-shadow);
 }
 
 .highlight-card strong {
@@ -489,10 +513,14 @@ html[data-theme="dark"] body {
 }
 
 .paper-card {
-  border: 1px solid var(--line);
+  border: 1px solid var(--glass-line);
   border-radius: 12px;
   padding: 14px;
-  background: linear-gradient(180deg, var(--surface-1), var(--surface-2));
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.02)),
+    var(--glass-bg);
+  backdrop-filter: blur(12px) saturate(118%);
+  -webkit-backdrop-filter: blur(12px) saturate(118%);
 }
 
 .paper-card h4 {
@@ -600,17 +628,33 @@ html[data-theme="dark"] body {
 }
 
 .project-card {
-  border: 1px solid var(--line);
+  border: 1px solid var(--glass-line);
   border-radius: 14px;
   overflow: hidden;
-  background: var(--surface-1);
-  box-shadow: 0 8px 22px rgba(41, 36, 30, 0.1);
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.02)),
+    var(--glass-bg);
+  backdrop-filter: blur(12px) saturate(118%);
+  -webkit-backdrop-filter: blur(12px) saturate(118%);
+  box-shadow: 0 8px 22px var(--glass-shadow);
   transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.2s ease;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 16px 34px rgba(41, 36, 30, 0.18);
+  box-shadow: 0 16px 34px rgba(41, 36, 30, 0.22);
+}
+
+@supports not ((backdrop-filter: blur(1px))) {
+  .masthead,
+  .page,
+  .highlight-card,
+  .paper-card,
+  .project-card,
+  .sidebar .author__content,
+  .sidebar .author__urls-wrapper {
+    background: var(--surface-1);
+  }
 }
 
 .project-card.is-filter-hidden {

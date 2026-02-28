@@ -102,6 +102,28 @@
     var cards = document.querySelectorAll(".project-card[data-tags]");
     var emptyHint = document.getElementById("project-empty");
 
+    var liquidTargets = document.querySelectorAll(
+      ".page, .highlight-card, .paper-card, .project-card, .site-control-btn, .sidebar .author__content, .sidebar .author__urls-wrapper"
+    );
+
+    liquidTargets.forEach(function (node) {
+      node.addEventListener("pointerenter", function () {
+        node.classList.add("is-liquid-hover");
+      });
+
+      node.addEventListener("pointerleave", function () {
+        node.classList.remove("is-liquid-hover");
+      });
+
+      node.addEventListener("pointermove", function (event) {
+        var rect = node.getBoundingClientRect();
+        var x = ((event.clientX - rect.left) / rect.width) * 100;
+        var y = ((event.clientY - rect.top) / rect.height) * 100;
+        node.style.setProperty("--lx", x.toFixed(2) + "%");
+        node.style.setProperty("--ly", y.toFixed(2) + "%");
+      });
+    });
+
     if (!filterButtons.length || !cards.length) return;
 
     function applyFilter(filterKey) {

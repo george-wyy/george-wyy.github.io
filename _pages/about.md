@@ -27,7 +27,45 @@ redirect_from:
   </div>
 </section>
 
-<div class="homepage-slot homepage-slot--future" data-homepage-slot="research-demo" aria-hidden="true"></div>
+<section class="homepage-section research-demo research-demo--placeholder reveal-on-scroll" data-homepage-slot="research-demo">
+  <div class="research-demo__copy">
+    <p class="research-demo__eyebrow" data-i18n-zh="研究演示模块" data-i18n-en="Research Demo">Research Demo</p>
+    <h2 data-i18n-zh="眼动交互如何被快速理解" data-i18n-en="How Gaze Interaction Becomes Legible Fast">眼动交互如何被快速理解</h2>
+    <p class="lang-zh">这个模块为后续交互式研究可视化预留位置。正式版将用可解释的注视点、扫视路径和目标获取区域，帮助首次访问者在 10 秒内理解我的研究重点。</p>
+    <p class="lang-en">This block reserves space for a future interactive research visualization. The production module will explain my work in under ten seconds using interpretable fixation points, scanpaths, and target-acquisition zones.</p>
+    <div class="research-demo__legend">
+      <span class="research-demo__legend-item">
+        <span class="research-demo__legend-dot research-demo__legend-dot--focus" aria-hidden="true"></span>
+        <span data-i18n-zh="注视点" data-i18n-en="Fixation">注视点</span>
+      </span>
+      <span class="research-demo__legend-item">
+        <span class="research-demo__legend-line" aria-hidden="true"></span>
+        <span data-i18n-zh="扫视路径" data-i18n-en="Scanpath">扫视路径</span>
+      </span>
+      <span class="research-demo__legend-item">
+        <span class="research-demo__legend-dot research-demo__legend-dot--target" aria-hidden="true"></span>
+        <span data-i18n-zh="目标区域" data-i18n-en="Target Zone">目标区域</span>
+      </span>
+    </div>
+  </div>
+  <div class="research-demo__stage" aria-hidden="true">
+    <div class="research-demo__panel research-demo__panel--primary">
+      <span class="research-demo__point research-demo__point--p1"></span>
+      <span class="research-demo__point research-demo__point--p2"></span>
+      <span class="research-demo__point research-demo__point--p3"></span>
+      <span class="research-demo__scanpath"></span>
+      <span class="research-demo__target"></span>
+      <span class="research-demo__annotation research-demo__annotation--focus" data-i18n-zh="用户注视停留" data-i18n-en="User Fixation">用户注视停留</span>
+      <span class="research-demo__annotation research-demo__annotation--target" data-i18n-zh="系统响应区域" data-i18n-en="System Target">系统响应区域</span>
+    </div>
+    <div class="research-demo__panel research-demo__panel--secondary">
+      <span class="research-demo__mini-bar"></span>
+      <span class="research-demo__mini-bar"></span>
+      <span class="research-demo__mini-bar"></span>
+      <p data-i18n-zh="静态版先解释概念，后续版本再加入交互。" data-i18n-en="Static mode explains the concept first; interaction comes later.">Static mode explains the concept first; interaction comes later.</p>
+    </div>
+  </div>
+</section>
 
 <section class="homepage-section homepage-section--interests">
   <h2 data-i18n-zh="研究兴趣" data-i18n-en="Research Interests">研究兴趣</h2>

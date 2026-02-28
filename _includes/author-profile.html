@@ -4,30 +4,37 @@
   {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.author %}
 {% endif %}
 
-<div itemscope itemtype="http://schema.org/Person">
+<div class="author-card" itemscope itemtype="http://schema.org/Person">
 
-  <div class="author__avatar">
-    {% if author.avatar contains "://" %}
-    	<img src="{{ author.avatar }}" alt="{{ author.name }}">
-    {% else %}
-    	<img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" class="author__avatar" alt="{{ author.name }}">
-    {% endif %}
+  <div class="author-card__identity">
+    <div class="author__avatar">
+      {% if author.avatar contains "://" %}
+        <img src="{{ author.avatar }}" alt="{{ author.name }}">
+      {% else %}
+        <img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" class="author__avatar" alt="{{ author.name }}">
+      {% endif %}
+    </div>
+
+    <div class="author__content author-card__content">
+      <h3 class="author__name">{{ author.name }}</h3>
+      {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
+    </div>
   </div>
 
-  <div class="author__content">
-    <h3 class="author__name">{{ author.name }}</h3>
-    {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
-  </div>
-
-  <div class="author__urls-wrapper">
-    <button class="btn btn--inverse">Follow</button>
-    <ul class="author__urls social-icons">
+  {% if author.location or author.employer %}
+    <div class="author-card__meta">
       {% if author.location %}
-        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.location }}</li>
+        <p class="author-card__meta-item"><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.location }}</p>
       {% endif %}
       {% if author.employer %}
-        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.employer }}</li>
+        <p class="author-card__meta-item"><i class="fa fa-fw fa-building" aria-hidden="true"></i> {{ author.employer }}</p>
       {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="author__urls-wrapper author-card__links">
+    <p class="author-card__links-label" data-i18n-zh="联系入口" data-i18n-en="Connect">Connect</p>
+    <ul class="author__urls social-icons">
       {% if author.uri %}
         <li><a href="{{ author.uri }}"><i class="fas fa-fw fa-link" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].website_label | default: "Website" }}</a></li>
       {% endif %}
@@ -117,7 +124,7 @@
       {% endif %}
       {% if author.wikipedia %}
         <li><a href="https://en.wikipedia.org/wiki/User:{{ author.wikipedia }}"><i class="fab fa-fw fa-wikipedia-w" aria-hidden="true"></i> Wikipedia</a></li>
-{% endif %}
+      {% endif %}
     </ul>
   </div>
 </div>

@@ -8,32 +8,48 @@ redirect_from:
   - /about.html
 ---
 
-<div class="profile-hero">
-  <span class="profile-tagline">PhD Student · XR + Eye Tracking</span>
-  <p class="lang-zh">我目前就读于 <a class="hero-link" href="https://www.seu.edu.cn">东南大学</a> 机械工程学院设计科学系，导师为
-  <a class="hero-link" href="https://me.seu.edu.cn/nyf_31777/list.htm">牛亚峰老师</a>。研究方向聚焦于眼控交互、增强现实、虚拟现实与人机交互系统。</p>
-  <p class="lang-en">I am a PhD student in Design Science at the School of Mechanical Engineering, <a class="hero-link" href="https://www.seu.edu.cn">Southeast University</a>, supervised by
-  <a class="hero-link" href="https://me.seu.edu.cn/nyf_31777/list.htm">Prof. Yafeng Niu</a>. My research focuses on eye-controlled interaction, AR/VR, and human-computer interaction systems.</p>
-</div>
+<section class="profile-hero profile-hero--immersive reveal-on-scroll">
+  <div class="profile-hero__content">
+    <span class="profile-tagline">PhD Student · XR + Eye Tracking</span>
+    <div class="profile-hero__lede">
+      <p class="lang-zh">我目前就读于 <a class="hero-link" href="https://www.seu.edu.cn">东南大学</a> 机械工程学院设计科学系，导师为
+      <a class="hero-link" href="https://me.seu.edu.cn/nyf_31777/list.htm">牛亚峰老师</a>。研究方向聚焦于眼控交互、增强现实、虚拟现实与人机交互系统。</p>
+      <p class="lang-en">I am a PhD student in Design Science at the School of Mechanical Engineering, <a class="hero-link" href="https://www.seu.edu.cn">Southeast University</a>, supervised by
+      <a class="hero-link" href="https://me.seu.edu.cn/nyf_31777/list.htm">Prof. Yafeng Niu</a>. My research focuses on eye-controlled interaction, AR/VR, and human-computer interaction systems.</p>
+    </div>
+  </div>
+  <div class="profile-hero__actions quick-links quick-links--hero" role="group" aria-label="Quick links">
+    <a class="quick-links__primary" href="/assets/Curriculum_Vitae.pdf" data-i18n-zh="简历（CV）" data-i18n-en="Curriculum Vitae">简历（CV）</a>
+    <a href="mailto:wangyiyan@seu.edu.cn">Email</a>
+    <a href="https://github.com/george-wyy">GitHub</a>
+    <a href="https://www.researchgate.net/profile/Yiyan-Wang-7">ResearchGate</a>
+    <a href="/images/wechat.jpeg" data-i18n-zh="微信" data-i18n-en="WeChat">微信</a>
+  </div>
+</section>
 
-<h2 data-i18n-zh="研究兴趣" data-i18n-en="Research Interests">研究兴趣</h2>
+<div class="homepage-slot homepage-slot--future" data-homepage-slot="research-demo" aria-hidden="true"></div>
 
-<div class="interest-grid">
-  <ul class="lang-zh">
-    <li>眼控交互（Eye-Control Interaction）</li>
-    <li>AR/VR 场景中的可用性与交互效率优化</li>
-    <li>人机交互中的机器学习方法</li>
-  </ul>
-  <ul class="lang-en">
-    <li>Eye-controlled interaction</li>
-    <li>Usability and interaction-efficiency optimization in AR/VR</li>
-    <li>Machine learning methods in HCI</li>
-  </ul>
-</div>
+<section class="homepage-section homepage-section--interests">
+  <h2 data-i18n-zh="研究兴趣" data-i18n-en="Research Interests">研究兴趣</h2>
 
-<h2 data-i18n-zh="学术与项目亮点" data-i18n-en="Highlights">学术与项目亮点</h2>
+  <div class="interest-grid">
+    <ul class="lang-zh">
+      <li>眼控交互（Eye-Control Interaction）</li>
+      <li>AR/VR 场景中的可用性与交互效率优化</li>
+      <li>人机交互中的机器学习方法</li>
+    </ul>
+    <ul class="lang-en">
+      <li>Eye-controlled interaction</li>
+      <li>Usability and interaction-efficiency optimization in AR/VR</li>
+      <li>Machine learning methods in HCI</li>
+    </ul>
+  </div>
+</section>
 
-<div class="highlight-grid">
+<section class="homepage-section homepage-section--highlights">
+  <h2 data-i18n-zh="学术与项目亮点" data-i18n-en="Highlights">学术与项目亮点</h2>
+
+  <div class="highlight-grid">
   <div class="highlight-card">
     <strong data-i18n-zh="工程实现" data-i18n-en="Engineering">工程实现</strong>
     <span class="lang-zh">熟练使用 Python、Unity、HoloLens 2、Quest 2、Arduino 进行原型开发与实验验证。</span>
@@ -49,18 +65,10 @@ redirect_from:
     <span class="lang-zh">研究生阶段负责 4 个项目，目前持续推进 3 个项目。</span>
     <span class="lang-en">Led 4 graduate-level projects and currently progressing 3 ongoing projects.</span>
   </div>
-</div>
+  </div>
+</section>
 
-<h2 data-i18n-zh="快速访问" data-i18n-en="Quick Links">快速访问</h2>
-
-<div class="quick-links">
-  <a href="/assets/Curriculum_Vitae.pdf" data-i18n-zh="简历（CV）" data-i18n-en="Curriculum Vitae">简历（CV）</a>
-  <a href="https://github.com/george-wyy">GitHub</a>
-  <a href="https://www.researchgate.net/profile/Yiyan-Wang-7">ResearchGate</a>
-  <a href="/images/wechat.jpeg" data-i18n-zh="微信" data-i18n-en="WeChat">微信</a>
-  <a href="mailto:wangyiyan@seu.edu.cn">Email</a>
-</div>
-
+<section class="homepage-section homepage-section--timeline">
 <h2 data-i18n-zh="研究时间轴" data-i18n-en="Research Timeline">研究时间轴</h2>
 
 {% assign timeline_tokens = "" %}
@@ -116,7 +124,9 @@ redirect_from:
   {% endif %}
 {% endfor %}
 </div>
+</section>
 
+<section class="homepage-section homepage-section--papers">
 <h2 data-i18n-zh="最新论文" data-i18n-en="Recent Publications">最新论文</h2>
 
 <div class="paper-grid">
@@ -161,7 +171,9 @@ redirect_from:
   </article>
 {% endfor %}
 </div>
+</section>
 
+<section class="homepage-section homepage-section--projects">
 <h2 data-i18n-zh="精选项目" data-i18n-en="Featured Projects">精选项目</h2>
 
 <div class="project-filters" role="tablist" aria-label="项目筛选">
@@ -209,3 +221,4 @@ redirect_from:
 {% endfor %}
 </div>
 <p class="project-empty" id="project-empty" hidden data-i18n-zh="当前筛选下暂无匹配项目。" data-i18n-en="No projects found for this filter.">当前筛选下暂无匹配项目。</p>
+</section>

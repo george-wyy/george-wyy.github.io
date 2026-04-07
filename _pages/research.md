@@ -49,9 +49,9 @@ author_profile: true
 
 {% for post in site.portfolio reversed limit:3 %}
 <div class="highlight-card" style="margin-bottom:1rem;">
-  <strong><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></strong>
+  <strong><a href="{{ post.url | prepend: site.baseurl }}" data-i18n-zh="{{ post.title }}" data-i18n-en="{{ post.title_en | default: post.title }}">{{ post.title }}</a></strong>
   <span class="lang-zh">{{ post.excerpt | strip_html | truncate: 100 }}</span>
-  <span class="lang-en">{{ post.excerpt_en | default: post.excerpt | strip_html | truncate: 100 }}</span>
+  <span class="lang-en">{{ post.summary_en | default: post.excerpt_en | default: post.excerpt | strip_html | truncate: 100 }}</span>
 </div>
 {% endfor %}
 

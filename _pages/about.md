@@ -1,6 +1,7 @@
 ---
 permalink: /
 title: "王以俨"
+title_en: "Yiyan Wang"
 excerpt: "About me"
 author_profile: true
 redirect_from: 

@@ -136,25 +136,23 @@ See the [Publications](/publications/) page for details.
 <h2 data-i18n-zh="专利" data-i18n-en="Patents">专利</h2>
 
 <div class="lang-zh">
-
-(1) 牛亚峰, **<u>王以俨</u>** 等. (2024). 混合凝视平滑追踪的眼触控小目标对象选择方法及设备, 申请号2024111402473.【发明专利】  
-(2) 牛亚峰, **<u>王以俨</u>** 等. (2024). 基于平滑追踪的混合数字纸的文本标绘系统及标绘方法, 申请号2024111400228.【发明专利】  
-(3) 田景泽, 牛亚峰, **<u>王以俨</u>** 等. (2023). 眼动密码输入方法、系统及设备, 申请号2023103654660.【发明专利】  
-(4) 柳沙, **<u>王以俨</u>** 等. (2021). 一种自动化芦苇笋剥笋装置. CN212520711U.【实用新型，已授权】
-
-另有 4 项眼动追踪相关新发明专利正在代理申请流程中。
-
+<ol class="patent-list">
+  <li>牛亚峰, <u>王以俨</u> 等. (2024). 混合凝视平滑追踪的眼触控小目标对象选择方法及设备, 申请号2024111402473.【发明专利】</li>
+  <li>牛亚峰, <u>王以俨</u> 等. (2024). 基于平滑追踪的混合数字纸的文本标绘系统及标绘方法, 申请号2024111400228.【发明专利】</li>
+  <li>田景泽, 牛亚峰, <u>王以俨</u> 等. (2023). 眼动密码输入方法、系统及设备, 申请号2023103654660.【发明专利】</li>
+  <li>柳沙, <u>王以俨</u> 等. (2021). 一种自动化芦苇笋剥笋装置. CN212520711U.【实用新型，已授权】</li>
+</ol>
+<p>另有 4 项眼动追踪相关新发明专利正在代理申请流程中。</p>
 </div>
 
 <div class="lang-en">
-
-(1) Y. Niu, **<u>Y. Wang</u>** et al. (2024). Hybrid gaze-smooth-pursuit eye-touch small-target selection method and device, App. No. 2024111402473. [Invention Patent]  
-(2) Y. Niu, **<u>Y. Wang</u>** et al. (2024). Smooth-pursuit-based mixed digital-paper text annotation system and method, App. No. 2024111400228. [Invention Patent]  
-(3) J. Tian, Y. Niu, **<u>Y. Wang</u>** et al. (2023). Eye-tracking password input method, system, and device, App. No. 2023103654660. [Invention Patent]  
-(4) S. Liu, **<u>Y. Wang</u>** et al. (2021). Automatic reed-shoot peeling device. CN212520711U. [Utility Model Patent, Granted]
-
-4 additional eye-tracking-related invention patents are currently in the filing process.
-
+<ol class="patent-list">
+  <li>Y. Niu, <u>Y. Wang</u> et al. (2024). Hybrid gaze-smooth-pursuit eye-touch small-target selection method and device. App. No. 2024111402473. [Invention Patent]</li>
+  <li>Y. Niu, <u>Y. Wang</u> et al. (2024). Smooth-pursuit-based mixed digital-paper text annotation system and method. App. No. 2024111400228. [Invention Patent]</li>
+  <li>J. Tian, Y. Niu, <u>Y. Wang</u> et al. (2023). Eye-tracking password input method, system, and device. App. No. 2023103654660. [Invention Patent]</li>
+  <li>S. Liu, <u>Y. Wang</u> et al. (2021). Automatic reed-shoot peeling device. CN212520711U. [Utility Model, Granted]</li>
+</ol>
+<p>4 additional eye-tracking invention patents are currently in the filing process.</p>
 </div>
 
 ---

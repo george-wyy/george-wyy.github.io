@@ -281,16 +281,51 @@ h2 { font-size: clamp(1.6rem, 2.5vw, 2rem); font-weight: 600; }
 /* Masthead dark mode fix — override compiled Sass variables */
 .masthead {
   background-color: var(--glass-bg) !important;
-  border-bottom-color: var(--line) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-bottom: 1px solid var(--line) !important;
+  box-shadow: none !important;
 }
 
 .masthead a,
-.greedy-nav a {
+.greedy-nav a,
+.masthead__menu-item a,
+.masthead__menu-item--lg a {
   color: var(--text-1) !important;
   transition: color 0.3s ease;
 }
 
-.greedy-nav a:hover {
+.greedy-nav a:hover,
+.masthead__menu-item a:hover {
+  color: var(--accent-500) !important;
+}
+
+/* Sidebar cards dark mode */
+.sidebar .author__content,
+.sidebar .author__urls-wrapper,
+.sidebar .author-card__meta {
+  background: var(--surface-2) !important;
+  border-color: var(--line) !important;
+  backdrop-filter: none !important;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.sidebar .author__avatar img {
+  border-color: var(--line) !important;
+}
+
+.sidebar .author__name,
+.sidebar .author__bio,
+.sidebar .author-card__meta-item,
+.sidebar .author__urls a {
+  color: var(--text-1) !important;
+}
+
+.sidebar .author__bio {
+  color: var(--text-2) !important;
+}
+
+.sidebar .author-card__meta-item i {
   color: var(--accent-500) !important;
 }
 
@@ -618,6 +653,22 @@ html[data-theme="dark"] body {
 
 .highlight-card strong a:hover {
   color: var(--accent-500);
+}
+
+/* Patent list */
+.patent-list {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.patent-list li {
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+  font-size: 0.92rem;
+}
+
+.patent-list u {
+  font-weight: 600;
 }
 
 .research-demo {

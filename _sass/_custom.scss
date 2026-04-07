@@ -252,81 +252,72 @@ h2 { font-size: clamp(1.6rem, 2.5vw, 2rem); font-weight: 600; }
 }
 
 .page__footer {
-  background-color: var(--surface-2) !important;
-  color: var(--text-2) !important;
-  border-top: 1px solid var(--line) !important;
+  background-color: var(--surface-2);
+  color: var(--text-2);
+  border-top: 1px solid var(--line);
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .page__footer a {
-  color: var(--text-2) !important;
+  color: var(--text-2);
 }
 
 .page__footer a:hover {
-  color: var(--accent-500) !important;
+  color: var(--accent-500);
 }
 
 .page__footer-follow,
 .page__footer-copyright {
-  color: var(--text-2) !important;
+  color: var(--text-2);
 }
 
 .page__footer .fas,
 .page__footer .fab,
 .page__footer .far,
 .page__footer .fal {
-  color: var(--text-2) !important;
+  color: var(--text-2);
 }
 
-/* Masthead dark mode fix — override compiled Sass variables */
-.masthead {
-  background-color: var(--glass-bg) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border-bottom: 1px solid var(--line) !important;
-  box-shadow: none !important;
-}
-
+/* Masthead — glass nav */
 .masthead a,
 .greedy-nav a,
 .masthead__menu-item a,
 .masthead__menu-item--lg a {
-  color: var(--text-1) !important;
+  color: var(--text-1);
   transition: color 0.3s ease;
 }
 
 .greedy-nav a:hover,
 .masthead__menu-item a:hover {
-  color: var(--accent-500) !important;
+  color: var(--accent-500);
 }
 
-/* Sidebar cards dark mode */
+/* Sidebar cards — theme-aware */
 .sidebar .author__content,
 .sidebar .author__urls-wrapper,
 .sidebar .author-card__meta {
-  background: var(--surface-2) !important;
-  border-color: var(--line) !important;
-  backdrop-filter: none !important;
+  background: var(--surface-2);
+  border-color: var(--line);
+  backdrop-filter: none;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .sidebar .author__avatar img {
-  border-color: var(--line) !important;
+  border-color: var(--line);
 }
 
 .sidebar .author__name,
-.sidebar .author__bio,
 .sidebar .author-card__meta-item,
 .sidebar .author__urls a {
-  color: var(--text-1) !important;
+  color: var(--text-1);
 }
 
 .sidebar .author__bio {
-  color: var(--text-2) !important;
+  color: var(--text-2);
 }
 
 .sidebar .author-card__meta-item i {
-  color: var(--accent-500) !important;
+  color: var(--accent-500);
 }
 
 html[data-theme="dark"] body {

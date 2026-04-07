@@ -16,18 +16,23 @@
     </div>
 
     <div class="author__content author-card__content">
-      <h3 class="author__name">{{ author.name }}</h3>
-      {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
+      <h3 class="author__name" data-i18n-zh="{{ author.name }}" data-i18n-en="Yiyan Wang">{{ author.name }}</h3>
+      {% if author.bio %}
+        <p class="author__bio">
+          <span class="lang-zh">博士生 | 眼动交互研究者<br/>东南大学</span>
+          <span class="lang-en">PhD Student | Eye Tracking Researcher<br/>Southeast University</span>
+        </p>
+      {% endif %}
     </div>
   </div>
 
   {% if author.location or author.employer %}
     <div class="author-card__meta">
       {% if author.location %}
-        <p class="author-card__meta-item"><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.location }}</p>
+        <p class="author-card__meta-item"><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span data-i18n-zh="南京" data-i18n-en="Nanjing, China">{{ author.location }}</span></p>
       {% endif %}
       {% if author.employer %}
-        <p class="author-card__meta-item"><i class="fa fa-fw fa-building" aria-hidden="true"></i> {{ author.employer }}</p>
+        <p class="author-card__meta-item"><i class="fa fa-fw fa-building" aria-hidden="true"></i> <span data-i18n-zh="东南大学" data-i18n-en="Southeast University">{{ author.employer }}</span></p>
       {% endif %}
     </div>
   {% endif %}

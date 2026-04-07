@@ -1,9 +1,12 @@
 main:
   - title: "研究方向"
+    title_en: "Research"
     url: /research/
 
   - title: "论文成果"
+    title_en: "Publications"
     url: /publications/
 
   - title: "简历"
+    title_en: "CV"
     url: /cv/

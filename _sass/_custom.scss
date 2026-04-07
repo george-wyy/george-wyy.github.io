@@ -252,19 +252,46 @@ h2 { font-size: clamp(1.6rem, 2.5vw, 2rem); font-weight: 600; }
 }
 
 .page__footer {
-  background: var(--surface-2) !important;
+  background-color: var(--surface-2) !important;
   color: var(--text-2) !important;
-  border-top: 1px solid var(--line);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  border-top: 1px solid var(--line) !important;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .page__footer a {
+  color: var(--text-2) !important;
+}
+
+.page__footer a:hover {
   color: var(--accent-500) !important;
 }
 
 .page__footer-follow,
 .page__footer-copyright {
-  color: var(--text-2);
+  color: var(--text-2) !important;
+}
+
+.page__footer .fas,
+.page__footer .fab,
+.page__footer .far,
+.page__footer .fal {
+  color: var(--text-2) !important;
+}
+
+/* Masthead dark mode fix — override compiled Sass variables */
+.masthead {
+  background-color: var(--glass-bg) !important;
+  border-bottom-color: var(--line) !important;
+}
+
+.masthead a,
+.greedy-nav a {
+  color: var(--text-1) !important;
+  transition: color 0.3s ease;
+}
+
+.greedy-nav a:hover {
+  color: var(--accent-500) !important;
 }
 
 html[data-theme="dark"] body {
@@ -529,6 +556,68 @@ html[data-theme="dark"] body {
 .archive__item a {
   word-break: break-all;
   overflow-wrap: break-word;
+}
+
+/* CV / Archive page typography — tighter heading hierarchy */
+.archive h1 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.archive h2 {
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.archive h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.archive hr {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 2.5rem 0;
+}
+
+/* Sidebar vertical alignment with content */
+.sidebar .author__avatar img {
+  border: 3px solid var(--line);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Research page — selected projects cards */
+.highlight-card {
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.8rem;
+  border-radius: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+
+.highlight-card strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+}
+
+.highlight-card strong a {
+  color: var(--text-1);
+  text-decoration: none;
+}
+
+.highlight-card strong a:hover {
+  color: var(--accent-500);
 }
 
 .research-demo {

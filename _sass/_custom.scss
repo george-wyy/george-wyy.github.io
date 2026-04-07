@@ -98,6 +98,10 @@ html[data-theme="dark"] {
   color-scheme: dark;
 }
 
+html {
+  background-color: var(--surface-1);
+}
+
 body {
   color: var(--text-1);
   background: var(--surface-1);

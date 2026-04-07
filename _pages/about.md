@@ -48,11 +48,6 @@ redirect_from:
   <h2 data-i18n-zh="最新动态" data-i18n-en="News">最新动态</h2>
   <ul class="news-list">
     <li>
-      <span class="news-date">2026.03</span>
-      <span class="lang-zh">发布 <a href="/canvas-rw-tutorial/">Canvas 驱动的 Related Work 重写工作流</a> — AI 辅助学术写作方法论</span>
-      <span class="lang-en">Published <a href="/canvas-rw-tutorial/">Canvas-Driven Related Work Rewriting Workflow</a> — AI-assisted academic writing methodology</span>
-    </li>
-    <li>
       <span class="news-date">2025.02</span>
       <span class="lang-zh">综述论文"基于设计工效学的眼控交互范式设计研究现状与进展"被《包装工程》接收</span>
       <span class="lang-en">Review paper on eye-control interaction paradigm design accepted by Packaging Engineering</span>

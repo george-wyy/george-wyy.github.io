@@ -45,6 +45,21 @@ author_profile: true
   </div>
 </div>
 
+## <span data-i18n-zh="精选项目" data-i18n-en="Selected Projects">精选项目</span>
+
+{% for post in site.portfolio reversed limit:3 %}
+<div class="highlight-card" style="margin-bottom:1rem;">
+  <strong><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></strong>
+  <span class="lang-zh">{{ post.excerpt | strip_html | truncate: 100 }}</span>
+  <span class="lang-en">{{ post.excerpt_en | default: post.excerpt | strip_html | truncate: 100 }}</span>
+</div>
+{% endfor %}
+
+## <span data-i18n-zh="目标会议与期刊" data-i18n-en="Target Venues">目标会议与期刊</span>
+
+<p class="lang-zh">IEEE VR, CHI, IJHCI, IJHCS, Advanced Engineering Informatics</p>
+<p class="lang-en">IEEE VR, CHI, IJHCI, IJHCS, Advanced Engineering Informatics</p>
+
 ## <span data-i18n-zh="研究原则" data-i18n-en="Research Principles">研究原则</span>
 
 <ol class="lang-zh">

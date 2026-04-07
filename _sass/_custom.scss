@@ -434,6 +434,32 @@ html[data-theme="dark"] body {
   letter-spacing: 0.01em;
 }
 
+/* News list */
+.news-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.news-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.news-list li:last-child {
+  border-bottom: none;
+}
+
+.news-date {
+  display: inline-block;
+  min-width: 5em;
+  font-weight: 600;
+  color: var(--accent-500);
+  font-variant-numeric: tabular-nums;
+}
+
 .research-demo {
   display: grid;
   gap: 1rem;

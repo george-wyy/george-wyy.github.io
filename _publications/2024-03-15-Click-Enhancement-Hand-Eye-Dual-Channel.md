@@ -8,8 +8,8 @@ excerpt_en: 'This work studies click-enhancement strategies in hand-eye dual-cha
 date: 2024-03-01
 venue: 'Advanced Engineering Informatics'
 paperurl: ''
-citation: 'Niu, Y., Wang, Y., Tian, J., Xue, C., Yang, W., & Wang, Y.-Y. (2024). Research on click enhancement strategy of hand-eye dual-channel based eye movement interaction system. Advanced Engineering Informatics, 62, 102880.'
-summary_en: 'The paper evaluates sensing-area and cursor-area trade-offs for hand-eye dual-channel interaction and proposes practical click-enhancement strategies.'
+citation: 'Niu, Y., Chen, R., Wang, Y.-Y., Yao, X.-Y., Feng, Y. (2024). Research on click enhancement strategy of hand-eye dual-channel based eye movement interaction system. Advanced Engineering Informatics, 62, 102880.'
+summary_en: 'Evaluates sensing-area and cursor-area trade-offs for hand-eye dual-channel interaction and proposes practical click-enhancement strategies.'
 ---
 
 本文围绕手眼双通道的点击增强方法展开，评估不同策略对任务表现、操作负担与交互体验的影响。

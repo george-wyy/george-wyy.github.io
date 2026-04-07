@@ -14,8 +14,9 @@ This page summarizes published papers and public research outputs. Unpublished c
 </p>
 
 <p>
-  <a href="{{ author.googlescholar }}">Google Scholar</a> |
-  <a href="{{ author.researchgate }}">ResearchGate</a>
+  <a href="https://scholar.google.com/citations?user=Qu9RMQsAAAAJ">Google Scholar</a> |
+  <a href="https://www.researchgate.net/profile/Yiyan-Wang-7">ResearchGate</a> |
+  <a href="https://orcid.org/0009-0002-0787-0730">ORCID</a>
 </p>
 
 {% assign total_publications = site.publications | size %}
@@ -24,22 +25,38 @@ This page summarizes published papers and public research outputs. Unpublished c
 
 <ul class="lang-zh">
   <li>公开论文条目：{{ total_publications }}</li>
-  <li>审稿中（仅展示题目与期刊）：2</li>
+  <li>投稿中：4</li>
 </ul>
 <ul class="lang-en">
   <li>Public publication entries: {{ total_publications }}</li>
-  <li>Under review (title and venue only): 2</li>
+  <li>Under review / submitted: 4</li>
 </ul>
 
-## <span data-i18n-zh="审稿中" data-i18n-en="Under Review">审稿中</span>
+## <span data-i18n-zh="投稿中 / 审稿中" data-i18n-en="Under Review / Submitted">投稿中 / 审稿中</span>
 
 <div class="paper-grid">
+  <article class="paper-card">
+    <p class="paper-meta">ToCHI</p>
+    <h4>Gaze2Foot: Foot Primitives and Stabilization Mechanisms for Gaze-Foot Target Selection Across Postures</h4>
+    <div class="paper-tags">
+      <span class="paper-tag paper-tag--journal">ACM Transactions on Computer-Human Interaction</span>
+      <span class="paper-tag paper-tag--status paper-tag--reviewing" data-i18n-zh="投稿中" data-i18n-en="Submitted">投稿中</span>
+    </div>
+  </article>
+  <article class="paper-card">
+    <p class="paper-meta">Science Advances</p>
+    <h4>Eye-Actuated Cognitive Control of Programmable Metasurfaces</h4>
+    <div class="paper-tags">
+      <span class="paper-tag paper-tag--journal">Science Advances</span>
+      <span class="paper-tag paper-tag--status paper-tag--reviewing" data-i18n-zh="投稿中" data-i18n-en="Submitted">投稿中</span>
+    </div>
+  </article>
   <article class="paper-card">
     <p class="paper-meta">IJHCS</p>
     <h4>Eye-Head Interaction for Efficient Text Entry</h4>
     <div class="paper-tags">
       <span class="paper-tag paper-tag--journal">International Journal of Human-Computer Studies</span>
-      <span class="paper-tag paper-tag--status paper-tag--reviewing">审稿中 / Under Review</span>
+      <span class="paper-tag paper-tag--status paper-tag--reviewing" data-i18n-zh="同行评审中" data-i18n-en="Peer Review">同行评审中</span>
     </div>
   </article>
   <article class="paper-card">
@@ -47,7 +64,7 @@ This page summarizes published papers and public research outputs. Unpublished c
     <h4>Smooth Pursuit Text Entry via Gaze-Based Curve Tracing</h4>
     <div class="paper-tags">
       <span class="paper-tag paper-tag--journal">Virtual Reality</span>
-      <span class="paper-tag paper-tag--status paper-tag--reviewing">审稿中 / Under Review</span>
+      <span class="paper-tag paper-tag--status paper-tag--reviewing" data-i18n-zh="With Editor" data-i18n-en="With Editor">With Editor</span>
     </div>
   </article>
 </div>

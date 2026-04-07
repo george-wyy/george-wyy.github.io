@@ -65,6 +65,18 @@ redirect_from:
   - 为解决眼控交互视线漂移的问题，提出了基于凝视加眨眼的复合交互动作的眼控系统中控件的锁定时间最优参数，以及空间维度的眨眼视线漂移范围和方向。设计眨眼锁定交互方式，实验得到最佳锁定时长、最佳锁定范围，提升系统的性能和准确性。撰写论文“Optimization of Blink-Based Eye-Tracking System's Lock-on Stage: Exploring the Temporal and Spatial Dimensions” 并被 ADVANCED ENGINEERING INFORMATICS(中科院top一区，IF 8.8)接收
 
 
+## **眼控装备系统视触觉交互机制研究**
+
+*2023 - 2025 技术负责人 教育部联合基金*
+
+- 负责项目技术路线规划、实验设计与实施推进，带领团队完成项目实施与结题
+
+## **《眼控交互范式设计》专著编写**
+
+*2024 - 至今 参与编写 / 技术统稿 科学出版社*
+
+- 负责第一章撰写，参与全书技术统稿与审阅工作
+
 ## **基于眼控的自闭症儿童注意力训练软件设计研究**
 *2020.11 - 2021.06 本科毕业设计*
 
@@ -198,24 +210,27 @@ redirect_from:
 
 ## **论文**
 
-
-(1) **<u>Wang, Y.</u>**, Tian, J., Xiao, L., He, J., Niu, Y. (2023). [Research on a spatial-temporal characterisation of blink-triggered eye control interactions](https://www.sciencedirect.com/science/article/pii/S1474034623004251). ADVANCED ENGINEERING INFORMATICS(中科院top一区，IF 8.8)  
-(2) **<u>Wang, Y.</u>**, Cheng, W., Tian, J., Huang, W., Niu, Y., Yang, W., Xue, C. (2023). [Design Recommendations of Slider Size and Tracking Speed under Circular and Square Trajectories for Smooth Pursuit in Eye-Control System](https://www.sciencedirect.com/science/article/pii/S0141938223002421). Displays(JCR Q1)  
-(3) Niu, Y.-F., Chen, R., **<u>Wang, Y.-Y.</u>**, Yao, X.-Y., Feng, Y. (2024). Research on Click Enhancement Strategy of Hand-Eye Dual-channel Human-Computer Interaction System: Trade-off between Sensing Area and Area Cursor. ADVANCED ENGINEERING INFORMATICS (中科院top一区，IF 8.8) (accepted)  
-(4) Yin, C., **<u>Wang, Y.</u>**, & Wang, H. (2019). [Survey Design in Supporting of Product Design and Development: A Case Study](https://elibrary.asabe.org/abstract.asp?aid=50272). In _2019 ASABE Annual International Meeting_ (p. 1). American Society of Agricultural and Biological Engineers.  
-(5) Li, Z., Zhou, Z., **<u>Wang, Y.</u>**, Tian, J., Yang, W., Niu, Y. (2023). [Enhancement Characteristics of Visual Stimulus Elements in SSVEP-BCI System](https://www.researchgate.net/profile/Yiyan-Wang-7/publication/368284461_Enhancement_Characteristics_of_Visual_Stimulus_Elements_in_SSVEP-BCI_System/links/64db8513ad846e288293ff50/Enhancement-Characteristics-of-Visual-Stimulus-Elements-in-SSVEP-BCI-System.pdf). Integrating People and Intelligent Systems. AHFE (2023) International Conference.   
-(6) Yin, H., Du, X., **<u>Wang, Y.</u>**, Wang, H. (2023). [The Eye Movement Behavior of Goal-directed Intent and Exploratory Intention in Virtual Shopping](https://www.researchgate.net/publication/377208272_The_Eye_Movement_Behavior_of_Goal-directed_Intent_and_Exploratory_Intention_in_Virtual_Shopping). In Proceedings of The 50th International Conference on Computers and Industrial Engineering.  
-(7) Wu, M., Li, Y., **<u>Wang, Y.</u>**, Tian, J., Yang, W., Niu, Y. (2023). [The Effectiveness of Audible Alarm Types and Presentation Rates on Pilot Performance in Beyond Visual Range Combat Scenarios](https://www.researchgate.net/publication/377208142_The_Effectiveness_of_Audible_Alarm_Types_and_Presentation_Rates_on_Pilot_Performance_in_Beyond_Visual_Range_Combat_Scenarios). In Proceedings of the 2023 IEEE International Conference on Systems, Man, and Cybernetics (SMC)  
-(8) Zhu, K., Li, Y., **<u>Wang, Y.</u>**, Tian, J., Huang, J., Niu, Y. (2023). [The Effects of Spatially-Informed Alarm Types and Presentation Rates on Pilot Performance](https://www.researchgate.net/publication/377208258_The_Effects_of_Spatially-Informed_Alarm_Types_and_Presentation_Rates_on_Pilot_Performance). In Proceedings of the 2023 29th International Conference on Mechatronics and Machine Vision in Practice (M2VIP)  
-(9) Zhu, J., Qu, M., Tian, J., **<u>Wang, Y.</u>**, Huang, J., Niu, Y. (2023). [Research on the Effect of Visual Warming Information Presentation on Attention in Fighter Tracking Task](https://www.researchgate.net/publication/377208259_Research_on_the_Effect_of_Visual_Warming_Information_Presentation_on_Attention_in_Fighter_Tracking_Task). In Proceedings of the 2023 IEEE International Conference on Industrial Engineering and Engineering Management (IEEM)
+(1) **<u>Wang, Y.</u>**, Tian, J., Xiao, L., He, J., Niu, Y. (2024). [Research on a spatial-temporal characterisation of blink-triggered eye control interactions](https://www.sciencedirect.com/science/article/pii/S1474034623004251). Advanced Engineering Informatics, 59, 102297.（中科院top一区，IF 8.8）  
+(2) **<u>Wang, Y.</u>**, Cheng, W., Tian, J., Huang, W., Niu, Y., Yang, W., Xue, C. (2024). [Design Recommendations of target size and tracking speed under circular and square trajectories for smooth pursuit in eye-control system](https://www.sciencedirect.com/science/article/pii/S0141938223002421). Displays, 81, 102608.（JCR Q1）  
+(3) Niu, Y., Tian, J., Xue, C., **<u>Wang, Y.</u>**, Yang, W., Wang, Y.-Y. (2025). [Enhancing gaze interaction performance through fisheye expansion and dynamic trigger strategies](). Advanced Engineering Informatics, 65, 103122.（中科院top一区，IF 8.8）  
+(4) Niu, Y.-F., Chen, R., **<u>Wang, Y.-Y.</u>**, Yao, X.-Y., Feng, Y. (2024). Research on click enhancement strategy of hand-eye dual-channel based eye movement interaction system. Advanced Engineering Informatics, 62, 102880.（中科院top一区，IF 8.8）  
+(5) 牛亚峰, **<u>王以俨</u>**, 黄炜驰, 范林涵. (2025). 基于设计工效学的眼控交互范式设计研究现状与进展. 包装工程.（已接收）  
+(6) Yin, C., **<u>Wang, Y.</u>**, & Wang, H. (2019). [Survey Design in Supporting of Product Design and Development: A Case Study](https://elibrary.asabe.org/abstract.asp?aid=50272). In _2019 ASABE Annual International Meeting_ (p. 1). American Society of Agricultural and Biological Engineers.  
+(7) Li, Z., Zhou, Z., **<u>Wang, Y.</u>**, Tian, J., Yang, W., Niu, Y. (2023). [Enhancement Characteristics of Visual Stimulus Elements in SSVEP-BCI System](https://www.researchgate.net/profile/Yiyan-Wang-7/publication/368284461_Enhancement_Characteristics_of_Visual_Stimulus_Elements_in_SSVEP-BCI_System/links/64db8513ad846e288293ff50/Enhancement-Characteristics-of-Visual-Stimulus-Elements-in-SSVEP-BCI-System.pdf). AHFE (2023) International Conference.  
+(8) Yin, H., Du, X., **<u>Wang, Y.</u>**, Wang, H. (2023). [The Eye Movement Behavior of Goal-directed Intent and Exploratory Intention in Virtual Shopping](https://www.researchgate.net/publication/377208272_The_Eye_Movement_Behavior_of_Goal-directed_Intent_and_Exploratory_Intention_in_Virtual_Shopping). In Proceedings of The 50th International Conference on Computers and Industrial Engineering.  
+(9) Wu, M., Li, Y., **<u>Wang, Y.</u>**, Tian, J., Yang, W., Niu, Y. (2023). [The Effectiveness of Audible Alarm Types and Presentation Rates on Pilot Performance in Beyond Visual Range Combat Scenarios](https://www.researchgate.net/publication/377208142_The_Effectiveness_of_Audible_Alarm_Types_and_Presentation_Rates_on_Pilot_Performance_in_Beyond_Visual_Range_Combat_Scenarios). In Proceedings of the 2023 IEEE International Conference on Systems, Man, and Cybernetics (SMC).  
+(10) Zhu, K., Li, Y., **<u>Wang, Y.</u>**, Tian, J., Huang, J., Niu, Y. (2023). [The Effects of Spatially-Informed Alarm Types and Presentation Rates on Pilot Performance](https://www.researchgate.net/publication/377208258_The_Effects_of_Spatially-Informed_Alarm_Types_and_Presentation_Rates_on_Pilot_Performance). In Proceedings of the 2023 29th International Conference on Mechatronics and Machine Vision in Practice (M2VIP).  
+(11) Zhu, J., Qu, M., Tian, J., **<u>Wang, Y.</u>**, Huang, J., Niu, Y. (2023). [Research on the Effect of Visual Warming Information Presentation on Attention in Fighter Tracking Task](https://www.researchgate.net/publication/377208259_Research_on_the_Effect_of_Visual_Warming_Information_Presentation_on_Attention_in_Fighter_Tracking_Task). In Proceedings of the 2023 IEEE International Conference on Industrial Engineering and Engineering Management (IEEM).
 
 ## **专利**
 
 
-(1) 牛亚峰, **<u>王以俨</u>** 等. (2024). 混合凝视平滑追踪的眼触控小目标对象选择方法及设备, 中国, 申请号2024111402473.【发明专利】  
-(2) 牛亚峰, **<u>王以俨</u>** 等. (2024). 基于平滑追踪的混合数字纸的文本标绘系统及标绘方法, 中国, 申请号2024111400228.【发明专利】  
-(3) 田景泽, 牛亚峰, **<u>王以俨</u>**, 何家新, 黄炜驰.(2023). 眼动密码输入方法、系统及设备, 中国, 申请号2023103654660.【发明专利】  
-(4) 柳沙, **<u>王以俨</u>**, 李琳, 李鸿盛, & 谭宇. (2021). [一种自动化芦苇笋剥笋装置 ](https://george-wyy.github.io/publication/2021-02-一种自动化芦苇笋剥笋机). CN212520711U.【实用新型，已授权】
+(1) 牛亚峰, **<u>王以俨</u>** 等. (2024). [混合凝视平滑追踪的眼触控小目标对象选择方法及设备](/publication/2024-hybrid-gaze-smooth-pursuit-selection-patent), 中国, 申请号2024111402473.【发明专利】  
+(2) 牛亚峰, **<u>王以俨</u>** 等. (2024). [基于平滑追踪的混合数字纸的文本标绘系统及标绘方法](/publication/2024-smooth-pursuit-hybrid-paper-annotation-patent), 中国, 申请号2024111400228.【发明专利】  
+(3) 田景泽, 牛亚峰, **<u>王以俨</u>**, 何家新, 黄炜驰. (2023). [眼动密码输入方法、系统及设备](/publication/2023-eye-movement-password-patent), 中国, 申请号2023103654660.【发明专利】  
+(4) 柳沙, **<u>王以俨</u>**, 李琳, 李鸿盛, & 谭宇. (2021). [一种自动化芦苇笋剥笋装置](/publication/2021-02-一种自动化芦苇笋剥笋机). CN212520711U.【实用新型，已授权】
+
+另有 4 项眼动追踪相关新发明专利正在代理申请流程中。
 
 ## **软著**
 

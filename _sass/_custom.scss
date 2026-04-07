@@ -296,6 +296,19 @@ h2 { font-size: clamp(1.6rem, 2.5vw, 2rem); font-weight: 600; }
   color: var(--accent-500);
 }
 
+/* Fix: override compiled background so nav responds to dark mode */
+.greedy-nav {
+  background: var(--glass-bg) !important;
+  transition: background-color 0.3s ease;
+}
+
+.greedy-nav .hidden-links {
+  background: var(--surface-2) !important;
+  border-color: var(--line);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
 /* Sidebar cards — theme-aware */
 .sidebar .author__content,
 .sidebar .author__urls-wrapper,

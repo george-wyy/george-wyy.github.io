@@ -73,8 +73,15 @@ This page summarizes published papers and public research outputs. Unpublished c
 
 {% include base_path %}
 
-<div class="wide-grid publication-entries">
+<div class="publication-list">
 {% for post in site.publications reversed %}
-  {% include archive-single.html type="grid" %}
+  <div class="pub-item">
+    <span class="pub-year">{{ post.date | date: "%Y" }}</span>
+    <div class="pub-body">
+      <h4><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
+      {% if post.citation %}<p class="pub-citation">{{ post.citation | strip_html }}</p>{% endif %}
+      {% if post.venue and post.venue != "" %}<span class="paper-tag paper-tag--journal">{{ post.venue }}</span>{% endif %}
+    </div>
+  </div>
 {% endfor %}
 </div>

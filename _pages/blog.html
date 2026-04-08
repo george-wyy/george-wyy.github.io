@@ -1,0 +1,33 @@
+---
+layout: archive
+title: "博客"
+title_en: "Blog"
+permalink: /blog/
+author_profile: true
+---
+
+<p class="lang-zh">分享研究方法论、技术工具笔记和论文解读。</p>
+<p class="lang-en">Research methodology, technical notes, and paper reviews.</p>
+
+<div class="blog-list">
+{% assign sorted_posts = site.posts | sort: "date" | reverse %}
+{% for post in sorted_posts %}
+  <article class="blog-item">
+    <span class="blog-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+    <div class="blog-body">
+      <h3><a href="{{ post.url | prepend: site.baseurl }}" {% if post.title_en %}data-i18n-zh="{{ post.title }}" data-i18n-en="{{ post.title_en }}"{% endif %}>{{ post.title }}</a></h3>
+      {% if post.tags.size > 0 %}
+      <div class="blog-tags">
+        {% for tag in post.tags %}
+        <span class="blog-tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <p class="blog-excerpt">
+        <span class="lang-zh">{{ post.excerpt_zh | default: post.excerpt | strip_html | truncate: 120 }}</span>
+        <span class="lang-en">{{ post.excerpt_en | default: post.excerpt | strip_html | truncate: 120 }}</span>
+      </p>
+    </div>
+  </article>
+{% endfor %}
+</div>

@@ -7,6 +7,10 @@ main:
     title_en: "Publications"
     url: /publications/
 
+  - title: "博客"
+    title_en: "Blog"
+    url: /blog/
+
   - title: "简历"
     title_en: "CV"
     url: /cv/

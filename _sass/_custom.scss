@@ -679,6 +679,75 @@ html[data-theme="dark"] body {
   font-weight: 600;
 }
 
+/* Blog list */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.blog-item:last-child {
+  border-bottom: none;
+}
+
+.blog-date {
+  flex-shrink: 0;
+  width: 6em;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-2);
+  padding-top: 0.2rem;
+}
+
+.blog-body {
+  min-width: 0;
+}
+
+.blog-body h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.blog-body h3 a {
+  color: var(--text-1);
+  text-decoration: none;
+}
+
+.blog-body h3 a:hover {
+  color: var(--accent-500);
+}
+
+.blog-tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+
+.blog-tag {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 980px;
+  background: var(--surface-2);
+  color: var(--text-2);
+}
+
+.blog-excerpt {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
 .research-demo {
   display: grid;
   gap: 1rem;

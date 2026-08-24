@@ -119,7 +119,7 @@ redirect_from:
 
 详见 [论文成果](/publications/) 页面。
 
-已发表 11 篇论文（含 Advanced Engineering Informatics 2 篇），4 篇在投（ACM ToCHI, Science Advances, IJHCS, Virtual Reality）。
+已发表 11 篇论文（含 Advanced Engineering Informatics 2 篇），4 篇在投（ACM TOCHI, Opto-Electronic Advances, IJHCI, Virtual Reality）。
 
 </div>
 
@@ -127,7 +127,7 @@ redirect_from:
 
 See the [Publications](/publications/) page for details.
 
-11 papers published (including 2 in Advanced Engineering Informatics), 4 under review (ACM ToCHI, Science Advances, IJHCS, Virtual Reality).
+11 papers published (including 2 in Advanced Engineering Informatics), 4 under review (ACM TOCHI, Opto-Electronic Advances, IJHCI, Virtual Reality).
 
 </div>
 
@@ -137,22 +137,30 @@ See the [Publications](/publications/) page for details.
 
 <div class="lang-zh">
 <ol class="patent-list">
+  <li>牛亚峰, <u>王以俨</u> 等. (2026). 基于触觉运动幻觉诱发跨模态方向性响应的感知确认交互方法、系统、交互设备及存储介质, 申请号202610695594.5.【发明专利】</li>
+  <li>牛亚峰, <u>王以俨</u> 等. (2026). 基于眼动意图模式分类的多模态大模型交互消歧方法、系统、交互设备及存储介质, 申请号202610621745.2.【发明专利】</li>
+  <li>牛亚峰, <u>王以俨</u> 等. (2026). 基于手-眼协调行为先验的近眼AR设备注视隐式自适应校准系统及方法, 申请号202610582485.2.【发明专利】</li>
+  <li>牛亚峰, <u>王以俨</u> 等. (2026). 近眼AR设备凝视深度歧义消解方法、交互设备及存储介质, 申请号202610520767.X.【发明专利】</li>
   <li>牛亚峰, <u>王以俨</u> 等. (2024). 混合凝视平滑追踪的眼触控小目标对象选择方法及设备, 申请号2024111402473.【发明专利】</li>
   <li>牛亚峰, <u>王以俨</u> 等. (2024). 基于平滑追踪的混合数字纸的文本标绘系统及标绘方法, 申请号2024111400228.【发明专利】</li>
   <li>田景泽, 牛亚峰, <u>王以俨</u> 等. (2023). 眼动密码输入方法、系统及设备, 申请号2023103654660.【发明专利】</li>
   <li>柳沙, <u>王以俨</u> 等. (2021). 一种自动化芦苇笋剥笋装置. CN212520711U.【实用新型，已授权】</li>
 </ol>
-<p>另有 4 项眼动追踪相关新发明专利正在代理申请流程中。</p>
+<p>另有 2 项眼动追踪相关新发明专利代理修改稿已审核待确认，尚未取得受理号。</p>
 </div>
 
 <div class="lang-en">
 <ol class="patent-list">
+  <li>Y. Niu, <u>Y. Wang</u> et al. (2026). Perceptual-confirmation interaction method, system, interactive device, and storage medium based on tactile-motion-illusion-induced cross-modal directional response. App. No. 202610695594.5. [Invention Patent]</li>
+  <li>Y. Niu, <u>Y. Wang</u> et al. (2026). Multimodal LLM interaction disambiguation method, system, interactive device, and storage medium based on gaze-intent pattern classification. App. No. 202610621745.2. [Invention Patent]</li>
+  <li>Y. Niu, <u>Y. Wang</u> et al. (2026). Implicit adaptive gaze calibration system and method for near-eye AR devices based on hand-eye coordination priors. App. No. 202610582485.2. [Invention Patent]</li>
+  <li>Y. Niu, <u>Y. Wang</u> et al. (2026). Near-eye AR device gaze-depth ambiguity resolution method, interactive device, and storage medium. App. No. 202610520767.X. [Invention Patent]</li>
   <li>Y. Niu, <u>Y. Wang</u> et al. (2024). Hybrid gaze-smooth-pursuit eye-touch small-target selection method and device. App. No. 2024111402473. [Invention Patent]</li>
   <li>Y. Niu, <u>Y. Wang</u> et al. (2024). Smooth-pursuit-based mixed digital-paper text annotation system and method. App. No. 2024111400228. [Invention Patent]</li>
   <li>J. Tian, Y. Niu, <u>Y. Wang</u> et al. (2023). Eye-tracking password input method, system, and device. App. No. 2023103654660. [Invention Patent]</li>
   <li>S. Liu, <u>Y. Wang</u> et al. (2021). Automatic reed-shoot peeling device. CN212520711U. [Utility Model, Granted]</li>
 </ol>
-<p>4 additional eye-tracking invention patents are currently in the filing process.</p>
+<p>2 additional eye-tracking invention patents have agent-revised drafts reviewed and awaiting confirmation; application numbers not yet issued.</p>
 </div>
 
 ---

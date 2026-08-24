@@ -48,6 +48,26 @@ redirect_from:
   <h2 data-i18n-zh="最新动态" data-i18n-en="News">最新动态</h2>
   <ul class="news-list">
     <li>
+      <span class="news-date">2026.08</span>
+      <span class="lang-zh">眼动驱动超表面合作稿（Gaze-Driven Topological Phase-Transition Metasurfaces）转投 Opto-Electronic Advances，大修中</span>
+      <span class="lang-en">Collaborative metasurface paper (Gaze-Driven Topological Phase-Transition Metasurfaces) resubmitted to Opto-Electronic Advances, major revision</span>
+    </li>
+    <li>
+      <span class="news-date">2026.08</span>
+      <span class="lang-zh">SPMark 论文（Virtual Reality）一审修回后进入同行评审</span>
+      <span class="lang-en">SPMark paper (Virtual Reality) resubmitted after first-round revision, now under peer review</span>
+    </li>
+    <li>
+      <span class="news-date">2026.07</span>
+      <span class="lang-zh">眼-头级联选择论文转投 International Journal of Human–Computer Interaction (IJHCI)，审稿中</span>
+      <span class="lang-en">Eye-head cascaded selection paper resubmitted to the International Journal of Human–Computer Interaction (IJHCI), under review</span>
+    </li>
+    <li>
+      <span class="news-date">2026.05</span>
+      <span class="lang-zh">4 项眼动追踪相关发明专利（近眼AR注视深度消歧、隐式自适应校准、多模态大模型交互消歧、触觉运动幻觉感知确认）获国家知识产权局受理</span>
+      <span class="lang-en">4 eye-tracking invention patents (near-eye AR gaze-depth disambiguation, implicit adaptive calibration, multimodal-LLM interaction disambiguation, and tactile-motion-illusion perceptual confirmation) accepted by CNIPA</span>
+    </li>
+    <li>
       <span class="news-date">2025.02</span>
       <span class="lang-zh">综述论文"基于设计工效学的眼控交互范式设计研究现状与进展"被《包装工程》接收</span>
       <span class="lang-en">Review paper on eye-control interaction paradigm design accepted by Packaging Engineering</span>
@@ -56,16 +76,6 @@ redirect_from:
       <span class="news-date">2025.01</span>
       <span class="lang-zh">Fisheye expansion 论文发表于 Advanced Engineering Informatics</span>
       <span class="lang-en">Fisheye expansion paper published in Advanced Engineering Informatics</span>
-    </li>
-    <li>
-      <span class="news-date">2025.01</span>
-      <span class="lang-zh">论文投稿至 ACM ToCHI (Gaze2Foot) 和 Science Advances (ECSF)</span>
-      <span class="lang-en">Papers submitted to ACM ToCHI (Gaze2Foot) and Science Advances (ECSF)</span>
-    </li>
-    <li>
-      <span class="news-date">2024.10</span>
-      <span class="lang-zh">2 项眼动追踪相关发明专利申请提交</span>
-      <span class="lang-en">2 eye-tracking invention patents filed</span>
     </li>
   </ul>
 </section>

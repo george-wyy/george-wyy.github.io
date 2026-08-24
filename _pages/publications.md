@@ -36,7 +36,7 @@ This page summarizes published papers and public research outputs. Unpublished c
 
 <div class="paper-grid">
   <article class="paper-card">
-    <p class="paper-meta">ToCHI</p>
+    <p class="paper-meta">ACM TOCHI</p>
     <h4>Gaze2Foot: Foot Primitives and Stabilization Mechanisms for Gaze-Foot Target Selection Across Postures</h4>
     <div class="paper-tags">
       <span class="paper-tag paper-tag--journal">ACM Transactions on Computer-Human Interaction</span>
@@ -44,27 +44,27 @@ This page summarizes published papers and public research outputs. Unpublished c
     </div>
   </article>
   <article class="paper-card">
-    <p class="paper-meta">Science Advances</p>
-    <h4>Eye-Actuated Cognitive Control of Programmable Metasurfaces</h4>
+    <p class="paper-meta">Opto-Electronic Advances</p>
+    <h4>Gaze-Driven Topological Phase-Transition Metasurfaces</h4>
     <div class="paper-tags">
-      <span class="paper-tag paper-tag--journal">Science Advances</span>
-      <span class="paper-tag paper-tag--status paper-tag--reviewing" data-i18n-zh="投稿中" data-i18n-en="Submitted">投稿中</span>
+      <span class="paper-tag paper-tag--journal">Opto-Electronic Advances</span>
+      <span class="paper-tag paper-tag--status paper-tag--reviewing" data-i18n-zh="大修" data-i18n-en="Major Revision">大修</span>
     </div>
   </article>
   <article class="paper-card">
-    <p class="paper-meta">IJHCS</p>
-    <h4>Eye-Head Interaction for Efficient Text Entry</h4>
+    <p class="paper-meta">IJHCI</p>
+    <h4>Gaze Localizes, the Head Confirms: Staged Head&ndash;Eye Coordination for Hands-Free Selection in Dense AR</h4>
     <div class="paper-tags">
-      <span class="paper-tag paper-tag--journal">International Journal of Human-Computer Studies</span>
+      <span class="paper-tag paper-tag--journal">International Journal of Human&ndash;Computer Interaction</span>
       <span class="paper-tag paper-tag--status paper-tag--reviewing" data-i18n-zh="同行评审中" data-i18n-en="Peer Review">同行评审中</span>
     </div>
   </article>
   <article class="paper-card">
     <p class="paper-meta">Virtual Reality</p>
-    <h4>Smooth Pursuit Text Entry via Gaze-Based Curve Tracing</h4>
+    <h4>SPMark: Improving Small-Target Text Selection with Smooth-Pursuit Gaze Interaction in Hybrid Paper&ndash;Digital Environments</h4>
     <div class="paper-tags">
       <span class="paper-tag paper-tag--journal">Virtual Reality</span>
-      <span class="paper-tag paper-tag--status paper-tag--reviewing" data-i18n-zh="With Editor" data-i18n-en="With Editor">With Editor</span>
+      <span class="paper-tag paper-tag--status paper-tag--reviewing" data-i18n-zh="一审修回，评审中" data-i18n-en="Revised — Under Review">Revised — Under Review</span>
     </div>
   </article>
 </div>

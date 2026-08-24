@@ -23,8 +23,9 @@ redirect_from:
 <h3><strong>中国农业大学</strong> 工学院</h3>
 
 <em>2017.08 - 2021.06 工业设计 本科</em>
+- GPA 3.9 / 4.0（专业排名 1/36，前 3%）
 
-<em>2018.09 - 2021.06 数据科学与大数据技术 双学位</em>
+<em>2018.09 - 2021.06 数据科学与大数据技术 双学位</em>（信息与电气工程学院）
 
 </div>
 
@@ -40,8 +41,9 @@ redirect_from:
 <h3><strong>China Agricultural University</strong>, College of Engineering</h3>
 
 <em>2017.08 - 2021.06 &nbsp; BS in Industrial Design</em>
+- GPA 3.9 / 4.0 (ranked 1/36, top 3% of major)
 
-<em>2018.09 - 2021.06 &nbsp; Dual degree in Data Science & Big Data Technology</em>
+<em>2018.09 - 2021.06 &nbsp; Dual degree in Data Science & Big Data Technology</em> (College of Information and Electrical Engineering)
 
 </div>
 
@@ -71,6 +73,22 @@ redirect_from:
 <em>2021.01 - 2021.12 参与 国家自然科学基金青年基金项目 71801037</em>
 
 - 研究平滑追踪眼控界面的控件尺寸和速度权衡，论文被 Displays (JCR Q1) 接收
+
+<h3><strong>震动晃动环境下的眼控交互界面设计</strong></h3>
+
+<em>2022.01 - 2023.10 参与 173 计划技术领域基金项目</em>
+
+- 参与项目申请书撰写并成功申请，参与实验设计
+
+<h3><strong>眼动交互的隐式标定研究</strong></h3>
+
+<em>2023.01 - 2023.10 参与 共用信息系统装备预研项目（基础类）</em>
+
+<h3><strong>基于视听觉信息仿生认知的多模态人机交互技术</strong></h3>
+
+<em>2021.09 - 2023.10 参与 航空科学基金一般项目 2020058069002</em>
+
+- 研究不同视听告警信息对航空操作员操作能力的影响，参与项目论证与实验设计
 
 <h3><strong>《眼控交互范式设计》专著编写</strong></h3>
 
@@ -114,6 +132,22 @@ redirect_from:
 
 - Studied widget-size and speed trade-offs in smooth-pursuit eye-control interfaces; paper accepted by Displays (JCR Q1)
 
+<h3><strong>Eye-Control Interface Design under Vibration and Sway Conditions</strong></h3>
+
+<em>2022.01 - 2023.10 &nbsp; Participant &nbsp; 173 Program Technology Domain Fund</em>
+
+- Contributed to the successful grant proposal and to experiment design
+
+<h3><strong>Implicit Calibration for Gaze Interaction</strong></h3>
+
+<em>2023.01 - 2023.10 &nbsp; Participant &nbsp; Shared Information System Equipment Pre-research Project (fundamental)</em>
+
+<h3><strong>Multimodal HCI Based on Bionic Cognition of Audio-Visual Information</strong></h3>
+
+<em>2021.09 - 2023.10 &nbsp; Participant &nbsp; Aeronautical Science Foundation 2020058069002</em>
+
+- Studied how visual and auditory alarm information affects aviation operator performance; contributed to project analysis and experiment design
+
 <h3><strong>Book: "Eye-Control Interaction Paradigm Design"</strong></h3>
 
 <em>2024 - 2025 &nbsp; Contributing Author / Technical Editor &nbsp; Science Press (published)</em>
@@ -130,6 +164,34 @@ redirect_from:
 - Benchmarked pupil-detection models across LPW / TEyeD PitW / in-house NIR datasets; selected YOLO for real-time deployment (~93% detection rate, 68 FPS on in-house NIR)
 - Compared Linear / Poly2 / Poly3 / Vector gaze-calibration methods; Poly3 performed best (RMSE 9.36 px)
 - Built an ArUco screen-calibration MVP and a Streamlit toolchain covering configure–collect–process–results
+
+</div>
+
+---
+
+<h2 data-i18n-zh="项目经历" data-i18n-en="Project Experience">项目经历</h2>
+
+<div class="lang-zh">
+
+- **手眼口多通道交互项目**（技术负责人，2023.04–2023.08）：基于 Tobii 5 开发眼控交互，输出凝视点坐标与头动状态；基于 Unity 打通工控机与装备控制系统的 UDP 通信；用 WBS 与甘特图协调各组进度
+- **基于 UE4 的三维建模与交互设计**（技术负责人，2023.01–2023.06）：Blender / 3ds Max 制作装备与地形资产，UE4 蓝图实现导弹追踪与直升机侦查动画仿真
+- **基于 VR 的月球基地任务仿真与交互研究**（技术负责人，2022.09–2023.01）：设计月球探索任务脚本与需求文档，制作舱外太阳能板维修与月表采壤模块；建立知识库并培训 5 名成员的 VR 开发能力
+- **基于 VR 手势的指控沙盘交互研究**（VR 开发，2022.07–2022.09）：基于 Quest 2 开发点/直线/曲线三种标绘功能，以及场景移动缩放、手掌菜单
+- **企业综合能源智慧调度控制平台界面与交互设计**（小组长，2022.12–2023.02）：建立项目组件库适配 5 个平台，累计制作 31 个页面
+- **立式芦苇笋剥皮机设计**（负责人，国家级大学生创新创业项目，2018.12–2020.03）：负责项目管理、机械电子设计、样机制作与专利申请；搭建基于机器视觉的大小头分拣试验台（Arduino + OpenMV）与三自由度剥皮装置；获 4 项省部级竞赛奖项与专利授权
+- **基于眼控的自闭症儿童注意力训练软件设计**（本科毕业设计，2020.11–2021.06）：结合凝视触发与平滑追踪设计训练游戏，并在北京市海淀区雨露嘉禾儿童康复训练中心完成可用性测试
+
+</div>
+
+<div class="lang-en">
+
+- **Hand-Eye-Voice Multimodal Interaction** (Technical Lead, 2023.04–2023.08): built Tobii 5-based gaze interaction exposing gaze coordinates and head state; bridged an industrial PC and an equipment control system over UDP in Unity; coordinated sub-teams with WBS and Gantt planning
+- **UE4-Based 3D Modeling and Interaction Design** (Technical Lead, 2023.01–2023.06): produced equipment and terrain assets in Blender / 3ds Max; built missile-tracking and helicopter-reconnaissance animation simulations with UE4 Blueprints
+- **VR Lunar Base Mission Simulation** (Technical Lead, 2022.09–2023.01): authored mission scripts and requirements; built EVA solar-panel repair and regolith-sampling modules; set up a knowledge base and trained 5 team members in VR development
+- **VR Gesture-Based Command Sandtable Interaction** (VR Developer, 2022.07–2022.09): implemented point, line, and curve annotation on Quest 2, plus scene pan/zoom and a palm menu
+- **Integrated Energy Dispatch Platform UI/Interaction Design** (Team Lead, 2022.12–2023.02): created a shared component library covering 5 platforms; delivered 31 screens
+- **Vertical Reed-Shoot Peeling Machine** (Principal Investigator, National Undergraduate Innovation Program, 2018.12–2020.03): led project management, mechatronic design, prototyping, and patent filing; built a machine-vision orientation-sorting testbed (Arduino + OpenMV) and a 3-DOF peeling rig; won 4 provincial/ministerial competition awards and a granted patent
+- **Gaze-Based Attention Training Software for Children with Autism** (Undergraduate Thesis, 2020.11–2021.06): designed a training game using gaze triggering and smooth pursuit; usability-tested at the Yulu Jiahe Children's Rehabilitation Center, Haidian District, Beijing
 
 </div>
 
@@ -299,18 +361,42 @@ See the [Publications](/publications/) page for the full list.
 
 ---
 
-<h2 data-i18n-zh="荣誉" data-i18n-en="Awards">荣誉</h2>
+<h2 data-i18n-zh="荣誉与奖项" data-i18n-en="Awards and Honors">荣誉与奖项</h2>
 
 <div class="lang-zh">
 
-- 国家奖学金（2018-2019、2019-2020）
+**学术与荣誉称号**
+
+- 东南大学优秀硕士学位论文
 - 北京市优秀毕业生（2021）
+- 国家奖学金（两次：2018–2019、2019–2020）
+
+**学科竞赛**
+
+- 全国大学生工业设计大赛（北京分赛区）一等奖（2019）
+- 全国大学生广告艺术大赛 三等奖（2020）
+- 全国大学生广告艺术大赛（北京分赛区）二等奖（2019）
+- 第五届全国大学生智能农业装备创新大赛 二等奖（2019）
+- 首届中国（怀化）乡村振兴设计创新大赛 最佳绿色设计奖（2019）
+- 北京市大学生工程设计表达竞赛 二等奖（2018）
 
 </div>
 
 <div class="lang-en">
 
-- National Scholarship (2018-2019, 2019-2020)
-- Beijing Outstanding Graduate (2021)
+**Academic Honors**
+
+- Outstanding Master's Thesis, Southeast University
+- Outstanding Graduate of Beijing Municipality (2021)
+- National Scholarship (twice: 2018–2019, 2019–2020)
+
+**Student Competitions**
+
+- First Prize, National Industrial Design Competition for College Students (Beijing Division), 2019
+- Third Prize, National College Advertising Art Competition, 2020
+- Second Prize, National College Advertising Art Competition (Beijing Division), 2019
+- Second Prize, 5th National Intelligent Agricultural Equipment Innovation Competition, 2019
+- Best Green Design Award, 1st China (Huaihua) Rural Revitalization Design Innovation Competition, 2019
+- Second Prize, Beijing Collegiate Engineering Design Expression Competition, 2018
 
 </div>

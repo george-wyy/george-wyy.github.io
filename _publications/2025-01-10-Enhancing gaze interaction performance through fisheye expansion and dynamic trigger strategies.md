@@ -2,6 +2,7 @@
 title: "Enhancing gaze interaction performance through fisheye expansion and dynamic trigger strategies"
 title_en: "Enhancing gaze interaction performance through fisheye expansion and dynamic trigger strategies"
 collection: publications
+type: paper
 permalink: /publication/2025-enhancing-gaze-interaction-fisheye-dynamic-trigger
 excerpt: '该研究提出鱼眼扩展与动态触发策略，以提升凝视交互在复杂界面中的效率、准确率和可用性。'
 excerpt_en: 'This paper proposes fisheye expansion and dynamic triggering to improve gaze-interaction accuracy and usability.'

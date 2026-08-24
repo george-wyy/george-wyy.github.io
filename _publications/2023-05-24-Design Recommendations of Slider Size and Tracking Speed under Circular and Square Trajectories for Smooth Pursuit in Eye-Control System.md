@@ -2,6 +2,7 @@
 title: "Design recommendations of target size and tracking speed under circular and square trajectories for smooth pursuit with Euclidean algorithm in eye-control system"
 title_en: "Design recommendations of target size and tracking speed under circular and square trajectories for smooth pursuit with Euclidean algorithm in eye-control system"
 collection: publications
+type: paper
 permalink: /publication/2024-design-recommendations-target-size-tracking-speed-smooth-pursuit
 excerpt: ''
 excerpt_en: 'Design recommendations for target size and motion speed in smooth-pursuit eye-control interfaces under different trajectory geometries.'

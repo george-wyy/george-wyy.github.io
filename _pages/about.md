@@ -83,7 +83,7 @@ redirect_from:
 <section class="homepage-section homepage-section--papers">
   <h2 data-i18n-zh="近期论文" data-i18n-en="Recent Publications">近期论文</h2>
   <div class="paper-grid">
-  {% assign latest_papers = site.publications | sort: "date" | reverse %}
+  {% assign latest_papers = site.publications | where: "type", "paper" | sort: "date" | reverse %}
   {% for post in latest_papers limit:3 %}
     {% assign journal = post.venue | default: "" | strip %}
     {% if journal == "" and post.citation %}

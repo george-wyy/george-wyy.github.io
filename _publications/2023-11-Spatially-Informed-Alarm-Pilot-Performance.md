@@ -2,6 +2,7 @@
 title: "The Effects of Spatially-Informed Alarm Types and Presentation Rates on Pilot Performance"
 title_en: "The Effects of Spatially-Informed Alarm Types and Presentation Rates on Pilot Performance"
 collection: publications
+type: paper
 permalink: /publication/2023-spatially-informed-alarm-pilot
 excerpt: ''
 excerpt_en: 'This study investigates the effects of spatially-informed alarm designs and presentation rates on pilot task performance.'

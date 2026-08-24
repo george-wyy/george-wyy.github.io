@@ -2,11 +2,12 @@
 title: "Survey Design in Supporting of Product Design and Development: A Case Study"
 title_en: "Survey Design in Supporting of Product Design and Development: A Case Study"
 collection: publications
+type: paper
 permalink: /publication/2019-10-02-Survey Design in Supporting of Product Design and Development-number-1
 excerpt: '这篇论文研究了调查设计在投资者早期识别适当市场机会以及推动产品设计与开发（PD&D）过程中的重要作用。通过介绍产品设计与开发的流程和调查方法学，该研究以一个案例研究项目为例，旨在开发用于检测风力发电机叶片缺陷的非破坏性测试机器人。研究设计了一项调查问卷，并由中国农业大学工学院34名大二本科生在暑期社会调查项目中进行了调查，调查范围覆盖了中国南北部12个省份的28个风电场。研究结果表明，高质量的调查设计对产品设计与开发过程中的商业计划的早期阶段具有显著支持作用。'
 excerpt_en: 'This paper investigates how survey design supports early-stage market validation and product design/development through a wind-turbine inspection case.'
 date: 2019-10-02
-venue: 'November 02'
+venue: '2019 ASABE Annual International Meeting'
 paperurl: 'http://george-wyy.github.io/files/paper1.pdf'
 citation: 'Yin, C., Wang, Y., & Wang, H. (2019). Survey Design in Supporting of Product Design and Development: A Case Study. In _2019 ASABE Annual International Meeting_ (p. 1). American Society of Agricultural and Biological Engineers.'
 summary_en: 'This work studies the role of survey methodology in early-stage product planning and reports a complete case study workflow for wind-farm demand investigation.'

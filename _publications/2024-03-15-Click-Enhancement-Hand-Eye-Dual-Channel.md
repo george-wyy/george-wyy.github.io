@@ -2,6 +2,7 @@
 title: "Research on click enhancement strategy of hand-eye dual-channel based eye movement interaction system"
 title_en: "Research on click enhancement strategy of hand-eye dual-channel based eye movement interaction system"
 collection: publications
+type: paper
 permalink: /publication/2024-click-enhancement-hand-eye-dual-channel
 excerpt: '该研究探索手眼双通道眼动交互系统中的点击增强策略，以提升复杂任务中的交互稳定性和效率。'
 excerpt_en: 'This work studies click-enhancement strategies in hand-eye dual-channel interaction to improve stability and efficiency.'

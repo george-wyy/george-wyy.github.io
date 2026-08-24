@@ -261,9 +261,9 @@ See the [Publications](/publications/) page for the full list.
 
 <div class="lang-zh">
 <ol class="patent-list">
-  <li>尹超, <u>王以俨</u>. (2020). 基于Python的工程信息交互仿真软件（V1.0）. 中国农业大学.</li>
-  <li>尹超, <u>王以俨</u>. (2020). 基于Python语言的新产品开发流程动画仿真软件（V1.0）. 中国农业大学.</li>
-  <li>尹超, <u>王以俨</u>. (2020). 基于Python语言多项目并行开发时间管理软件（V1.0）. 中国农业大学.</li>
+  <li>殷成刚, <u>王以俨</u>. (2020). 基于Python的工程信息交互仿真软件（V1.0）. 中国农业大学.</li>
+  <li>殷成刚, <u>王以俨</u>. (2020). 基于Python语言的新产品开发流程动画仿真软件（V1.0）. 中国农业大学.</li>
+  <li>殷成刚, <u>王以俨</u>. (2020). 基于Python语言多项目并行开发时间管理软件（V1.0）. 中国农业大学.</li>
 </ol>
 </div>
 

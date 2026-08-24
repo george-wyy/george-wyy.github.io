@@ -11,7 +11,7 @@ redirect_from:
 
 <h2 data-i18n-zh="教育经历" data-i18n-en="Education">教育经历</h2>
 
-<div class="lang-zh">
+<div class="lang-zh" markdown="1">
 
 <h3><strong>东南大学</strong> 机械工程学院</h3>
 
@@ -29,7 +29,7 @@ redirect_from:
 
 </div>
 
-<div class="lang-en">
+<div class="lang-en" markdown="1">
 
 <h3><strong>Southeast University</strong>, School of Mechanical Engineering</h3>
 
@@ -51,7 +51,7 @@ redirect_from:
 
 <h2 data-i18n-zh="研究经历" data-i18n-en="Research Experience">研究经历</h2>
 
-<div class="lang-zh">
+<div class="lang-zh" markdown="1">
 
 <h3><strong>融合实体控制器的眼控系统视触觉交互机制研究</strong></h3>
 
@@ -109,7 +109,7 @@ redirect_from:
 
 </div>
 
-<div class="lang-en">
+<div class="lang-en" markdown="1">
 
 <h3><strong>Visual-Haptic Interaction Mechanisms in Eye-Control Systems with Physical Controllers</strong></h3>
 
@@ -171,7 +171,7 @@ redirect_from:
 
 <h2 data-i18n-zh="项目经历" data-i18n-en="Project Experience">项目经历</h2>
 
-<div class="lang-zh">
+<div class="lang-zh" markdown="1">
 
 - **手眼口多通道交互项目**（技术负责人，2023.04–2023.08）：基于 Tobii 5 开发眼控交互，输出凝视点坐标与头动状态；基于 Unity 打通工控机与装备控制系统的 UDP 通信；用 WBS 与甘特图协调各组进度
 - **基于 UE4 的三维建模与交互设计**（技术负责人，2023.01–2023.06）：Blender / 3ds Max 制作装备与地形资产，UE4 蓝图实现导弹追踪与直升机侦查动画仿真
@@ -183,7 +183,7 @@ redirect_from:
 
 </div>
 
-<div class="lang-en">
+<div class="lang-en" markdown="1">
 
 - **Hand-Eye-Voice Multimodal Interaction** (Technical Lead, 2023.04–2023.08): built Tobii 5-based gaze interaction exposing gaze coordinates and head state; bridged an industrial PC and an equipment control system over UDP in Unity; coordinated sub-teams with WBS and Gantt planning
 - **UE4-Based 3D Modeling and Interaction Design** (Technical Lead, 2023.01–2023.06): produced equipment and terrain assets in Blender / 3ds Max; built missile-tracking and helicopter-reconnaissance animation simulations with UE4 Blueprints
@@ -199,7 +199,7 @@ redirect_from:
 
 <h2 data-i18n-zh="论文与专著" data-i18n-en="Publications and Monograph">论文与专著</h2>
 
-<div class="lang-zh">
+<div class="lang-zh" markdown="1">
 
 完整列表详见 [论文成果](/publications/) 页面。
 
@@ -229,7 +229,7 @@ redirect_from:
 
 </div>
 
-<div class="lang-en">
+<div class="lang-en" markdown="1">
 
 See the [Publications](/publications/) page for the full list.
 
@@ -263,7 +263,7 @@ See the [Publications](/publications/) page for the full list.
 
 <h2 data-i18n-zh="专利" data-i18n-en="Patents">专利</h2>
 
-<div class="lang-zh">
+<div class="lang-zh" markdown="1">
 
 <h3><strong>眼控交互 / 眼动追踪（东南大学，8 项已公开）</strong></h3>
 
@@ -290,7 +290,7 @@ See the [Publications](/publications/) page for the full list.
 
 </div>
 
-<div class="lang-en">
+<div class="lang-en" markdown="1">
 
 <h3><strong>Eye-Control / Eye-Tracking (Southeast University, 8 published)</strong></h3>
 
@@ -321,7 +321,7 @@ See the [Publications](/publications/) page for the full list.
 
 <h2 data-i18n-zh="软件著作权" data-i18n-en="Registered Software">软件著作权</h2>
 
-<div class="lang-zh">
+<div class="lang-zh" markdown="1">
 <ol class="patent-list">
   <li>殷成刚, <u>王以俨</u>. (2020). 基于Python的工程信息交互仿真软件（V1.0）. 中国农业大学.</li>
   <li>殷成刚, <u>王以俨</u>. (2020). 基于Python语言的新产品开发流程动画仿真软件（V1.0）. 中国农业大学.</li>
@@ -329,7 +329,7 @@ See the [Publications](/publications/) page for the full list.
 </ol>
 </div>
 
-<div class="lang-en">
+<div class="lang-en" markdown="1">
 <ol class="patent-list">
   <li>C. Yin, <u>Y. Wang</u>. (2020). Python-Based Engineering Information Communication Simulation Software (v1.0). China Agricultural University.</li>
   <li>C. Yin, <u>Y. Wang</u>. (2020). Python-Based New Product Development Process Animation Simulation Software (v1.0). China Agricultural University.</li>
@@ -341,21 +341,33 @@ See the [Publications](/publications/) page for the full list.
 
 <h2 data-i18n-zh="技能" data-i18n-en="Skills">技能</h2>
 
-<div class="lang-zh">
+<div class="lang-zh" markdown="1">
 
-- **眼动与 XR**：Pupil Labs、Tobii、自研 NIR 眼动仪；HoloLens 2、Unity、MRTK3、Vuforia
-- **编程与算法**：Python（PyTorch、YOLO、OpenCV、PySide6）、C#、R
-- **实验与统计**：工效学实验设计、pandas / scipy / statsmodels、SPSS、质性研究
-- **语言**：中文（母语）、英语
+<dl>
+  <dt><strong>眼动与 XR</strong></dt>
+  <dd>Pupil Labs、Tobii、自研 NIR 眼动仪；HoloLens 2、Unity、MRTK3、Vuforia</dd>
+  <dt><strong>编程与算法</strong></dt>
+  <dd>Python（PyTorch、YOLO、OpenCV、PySide6）、C#、R</dd>
+  <dt><strong>实验与统计</strong></dt>
+  <dd>工效学实验设计、pandas / scipy / statsmodels、SPSS、质性研究</dd>
+  <dt><strong>语言</strong></dt>
+  <dd>中文（母语）、英语</dd>
+</dl>
 
 </div>
 
-<div class="lang-en">
+<div class="lang-en" markdown="1">
 
-- **Eye tracking & XR**: Pupil Labs, Tobii, in-house NIR eye tracker; HoloLens 2, Unity, MRTK3, Vuforia
-- **Programming & algorithms**: Python (PyTorch, YOLO, OpenCV, PySide6), C#, R
-- **Experiments & statistics**: ergonomic experiment design, pandas / scipy / statsmodels, SPSS, qualitative methods
-- **Languages**: Chinese (native), English
+<dl>
+  <dt><strong>Eye tracking &amp; XR</strong></dt>
+  <dd>Pupil Labs, Tobii, in-house NIR eye tracker; HoloLens 2, Unity, MRTK3, Vuforia</dd>
+  <dt><strong>Programming &amp; algorithms</strong></dt>
+  <dd>Python (PyTorch, YOLO, OpenCV, PySide6), C#, R</dd>
+  <dt><strong>Experiments &amp; statistics</strong></dt>
+  <dd>ergonomic experiment design, pandas / scipy / statsmodels, SPSS, qualitative methods</dd>
+  <dt><strong>Languages</strong></dt>
+  <dd>Chinese (native), English</dd>
+</dl>
 
 </div>
 
@@ -363,15 +375,15 @@ See the [Publications](/publications/) page for the full list.
 
 <h2 data-i18n-zh="荣誉与奖项" data-i18n-en="Awards and Honors">荣誉与奖项</h2>
 
-<div class="lang-zh">
+<div class="lang-zh" markdown="1">
 
-**学术与荣誉称号**
+<h3><strong>学术与荣誉称号</strong></h3>
 
 - 东南大学优秀硕士学位论文
 - 北京市优秀毕业生（2021）
 - 国家奖学金（两次：2018–2019、2019–2020）
 
-**学科竞赛**
+<h3><strong>学科竞赛</strong></h3>
 
 - 全国大学生工业设计大赛（北京分赛区）一等奖（2019）
 - 全国大学生广告艺术大赛 三等奖（2020）
@@ -382,15 +394,15 @@ See the [Publications](/publications/) page for the full list.
 
 </div>
 
-<div class="lang-en">
+<div class="lang-en" markdown="1">
 
-**Academic Honors**
+<h3><strong>Academic Honors</strong></h3>
 
 - Outstanding Master's Thesis, Southeast University
 - Outstanding Graduate of Beijing Municipality (2021)
 - National Scholarship (twice: 2018–2019, 2019–2020)
 
-**Student Competitions**
+<h3><strong>Student Competitions</strong></h3>
 
 - First Prize, National Industrial Design Competition for College Students (Beijing Division), 2019
 - Third Prize, National College Advertising Art Competition, 2020

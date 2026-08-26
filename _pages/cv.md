@@ -215,6 +215,7 @@ redirect_from:
 **代表性已发表论文**
 
 <ol class="patent-list">
+  <li>Tian, J.-Z., <u>Wang, Y.-Y.</u>, Wu, J.-C., Liu, C., &amp; Niu, Y.-F. (2026). Exploring coordination in Gaze-Hand cascaded Interaction: Designing robust solutions for Low-Precision eye tracking. <em>Advanced Engineering Informatics</em>, 74, 104766.（第二作者）</li>
   <li>Huang, W.-C., Song, Z.-H., <u>Wang, Y.-Y.</u>, Fan, L.-H., &amp; Niu, Y.-F. (2026). Take-A-Look: Enabling intuitive distant target interactions in industrial virtual reality applications via natural gestures. <em>Computers in Industry</em>, 181, 104545.（第三作者）</li>
   <li>牛亚峰, <u>王以俨</u>, 黄炜驰, 范林涵. (2025). 基于设计工效学的眼控交互范式设计研究现状与进展. 《包装工程》（中文核心），学生一作</li>
   <li>Huang, W.-C., <u>Wang, Y.-Y.</u>, Fan, L.-H., Yang, S.-T., &amp; Niu, Y.-F. (2025). Enhancing gaze interaction performance: Design and optimization of perspective-driven fisheye view. <em>Advanced Engineering Informatics</em>, 65, 103365.（第二作者）</li>
@@ -246,6 +247,7 @@ See the [Publications](/publications/) page for the full list.
 **Selected published papers**
 
 <ol class="patent-list">
+  <li>Tian, J.-Z., <u>Wang, Y.-Y.</u>, Wu, J.-C., Liu, C., &amp; Niu, Y.-F. (2026). Exploring coordination in Gaze-Hand cascaded Interaction: Designing robust solutions for Low-Precision eye tracking. <em>Advanced Engineering Informatics</em>, 74, 104766. (second author)</li>
   <li>Huang, W.-C., Song, Z.-H., <u>Wang, Y.-Y.</u>, Fan, L.-H., &amp; Niu, Y.-F. (2026). Take-A-Look: Enabling intuitive distant target interactions in industrial virtual reality applications via natural gestures. <em>Computers in Industry</em>, 181, 104545. (third author)</li>
   <li>Y. Niu, <u>Y. Wang</u>, W. Huang, L. Fan. (2025). Research status and progress of eye-control interaction paradigm design based on design ergonomics. <em>Packaging Engineering</em> (Chinese core journal), student first author</li>
   <li>Huang, W.-C., <u>Wang, Y.-Y.</u>, Fan, L.-H., Yang, S.-T., &amp; Niu, Y.-F. (2025). Enhancing gaze interaction performance: Design and optimization of perspective-driven fisheye view. <em>Advanced Engineering Informatics</em>, 65, 103365. (second author)</li>

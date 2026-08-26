@@ -8,8 +8,8 @@ excerpt: ''
 excerpt_en: 'Design recommendations for target size and motion speed in smooth-pursuit eye-control interfaces under different trajectory geometries.'
 date: 2024-01-01
 venue: 'Displays'
-paperurl: ''
-citation: 'Wang, Y., Wen, C., Tian, J., Huang, W.-C., Niu, Y., Yang, W., & Xue, C. (2024). Design recommendations of target size and tracking speed under circular and square trajectories for smooth pursuit with Euclidean algorithm in eye-control system. Displays, 81, 102608.'
+paperurl: 'https://doi.org/10.1016/j.displa.2023.102608'
+citation: 'Wang, Y.-Y., Cheng, W., Tian, J.-Z., Huang, W.-C., Niu, Y.-F., Yang, W.-J., & Xue, C.-Q. (2024). Design recommendations of target size and tracking speed under circular and square trajectories for smooth pursuit with Euclidean algorithm in eye-control system. Displays, 81, 102608. https://doi.org/10.1016/j.displa.2023.102608'
 summary_en: 'This study investigates size-speed trade-offs in smooth-pursuit eye-control tasks and reports practical design recommendations for circular and square trajectories.'
 ---
 

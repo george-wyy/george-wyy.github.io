@@ -49,6 +49,11 @@ redirect_from:
   <ul class="news-list">
     <li>
       <span class="news-date">2026.08</span>
+      <span class="lang-zh">合作论文 Take-A-Look（工业 VR 自然手势远距离目标交互）发表于 Computers in Industry</span>
+      <span class="lang-en">Collaborative paper Take-A-Look (natural-gesture distant-target interaction in industrial VR) published in Computers in Industry</span>
+    </li>
+    <li>
+      <span class="news-date">2026.08</span>
       <span class="lang-zh">眼动驱动超表面合作稿（Gaze-Driven Topological Phase-Transition Metasurfaces）转投 Opto-Electronic Advances，大修中</span>
       <span class="lang-en">Collaborative metasurface paper (Gaze-Driven Topological Phase-Transition Metasurfaces) resubmitted to Opto-Electronic Advances, major revision</span>
     </li>

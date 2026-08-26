@@ -215,6 +215,7 @@ redirect_from:
 **代表性已发表论文**
 
 <ol class="patent-list">
+  <li>Huang, W.-C., Song, Z.-H., <u>Wang, Y.-Y.</u>, Fan, L.-H., &amp; Niu, Y.-F. (2026). Take-A-Look: Enabling intuitive distant target interactions in industrial virtual reality applications via natural gestures. <em>Computers in Industry</em>, 181, 104545.（第三作者）</li>
   <li>牛亚峰, <u>王以俨</u>, 黄炜驰, 范林涵. (2025). 基于设计工效学的眼控交互范式设计研究现状与进展. 《包装工程》（中文核心），学生一作</li>
   <li>Niu, Y., Tian, J., Xue, C., Wang, Y., Yang, W., &amp; <u>Wang, Y.-Y.</u> (2025). Enhancing gaze interaction performance through fisheye expansion and dynamic trigger strategies. <em>Advanced Engineering Informatics</em>, 65, 103122.</li>
   <li><u>Wang, Y.</u>, Tian, J., Xue, C., Yang, W., &amp; Niu, Y. (2024). Research on a spatial-temporal characterisation of blink-triggered eye control interactions. <em>Advanced Engineering Informatics</em>, 59, 102297.（一作）</li>
@@ -245,6 +246,7 @@ See the [Publications](/publications/) page for the full list.
 **Selected published papers**
 
 <ol class="patent-list">
+  <li>Huang, W.-C., Song, Z.-H., <u>Wang, Y.-Y.</u>, Fan, L.-H., &amp; Niu, Y.-F. (2026). Take-A-Look: Enabling intuitive distant target interactions in industrial virtual reality applications via natural gestures. <em>Computers in Industry</em>, 181, 104545. (third author)</li>
   <li>Y. Niu, <u>Y. Wang</u>, W. Huang, L. Fan. (2025). Research status and progress of eye-control interaction paradigm design based on design ergonomics. <em>Packaging Engineering</em> (Chinese core journal), student first author</li>
   <li>Niu, Y., Tian, J., Xue, C., Wang, Y., Yang, W., &amp; <u>Wang, Y.-Y.</u> (2025). Enhancing gaze interaction performance through fisheye expansion and dynamic trigger strategies. <em>Advanced Engineering Informatics</em>, 65, 103122.</li>
   <li><u>Wang, Y.</u>, Tian, J., Xue, C., Yang, W., &amp; Niu, Y. (2024). Research on a spatial-temporal characterisation of blink-triggered eye control interactions. <em>Advanced Engineering Informatics</em>, 59, 102297. (first author)</li>

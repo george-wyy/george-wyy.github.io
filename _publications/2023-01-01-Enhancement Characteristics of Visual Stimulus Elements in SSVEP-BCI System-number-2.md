@@ -8,7 +8,7 @@ excerpt: '该论文研究了SSVEP-BCI系统在脑机接口领域的应用。该�
 excerpt_en: 'This study examines how auxiliary stimulus particle density affects recognition efficiency and usability in SSVEP-BCI interfaces.'
 date: 2023-01-01
 venue: 'Intelligent Human Systems Integration (IHSI 2023), AHFE International'
-paperurl: 'http://george-wyy.github.io/files/paper2.pdf'
+paperurl: 'https://doi.org/10.54941/ahfe1002921'
 citation: 'Li, Z., Zhou, Z., Wang, Y., Tian, J., Yang, W., Niu, Y.  (2023). Enhancement Characteristics of Visual Stimulus Elements in SSVEP-BCI System. In: Tareq Ahram, Waldemar Karwowski, Pepetto Di Bucchianico, Redha Taiar, Luca Casarotto and Pietro Costa (eds) Intelligent Human Systems Integration (IHSI 2023): Integrating People and Intelligent Systems. AHFE (2023) International Conference. AHFE Open Access, vol 69. AHFE International, USA.
 http://doi.org/10.54941/ahfe1002921'
 summary_en: 'The paper evaluates visual stimulus element configurations in SSVEP-BCI and provides ergonomic design recommendations for performance and user satisfaction.'

@@ -48,6 +48,11 @@ redirect_from:
   <h2 data-i18n-zh="最新动态" data-i18n-en="News">最新动态</h2>
   <ul class="news-list">
     <li>
+      <span class="news-date">2026.09</span>
+      <span class="lang-zh">SPMark 论文被 <em>Virtual Reality</em>（Springer）接收——混合纸-数字环境下的平滑追踪眼动小目标文本选择</span>
+      <span class="lang-en">SPMark accepted by <em>Virtual Reality</em> (Springer) &mdash; small-target text selection with smooth-pursuit gaze interaction in hybrid paper&ndash;digital environments</span>
+    </li>
+    <li>
       <span class="news-date">2026.08</span>
       <span class="lang-zh">合作论文 Take-A-Look（工业 VR 自然手势远距离目标交互）发表于 Computers in Industry</span>
       <span class="lang-en">Collaborative paper Take-A-Look (natural-gesture distant-target interaction in industrial VR) published in Computers in Industry</span>
@@ -56,11 +61,6 @@ redirect_from:
       <span class="news-date">2026.08</span>
       <span class="lang-zh">眼动驱动超表面合作稿（Gaze-Driven Topological Phase-Transition Metasurfaces）转投 Opto-Electronic Advances，大修中</span>
       <span class="lang-en">Collaborative metasurface paper (Gaze-Driven Topological Phase-Transition Metasurfaces) resubmitted to Opto-Electronic Advances, major revision</span>
-    </li>
-    <li>
-      <span class="news-date">2026.08</span>
-      <span class="lang-zh">SPMark 论文（Virtual Reality）一审修回后进入同行评审</span>
-      <span class="lang-en">SPMark paper (Virtual Reality) resubmitted after first-round revision, now under peer review</span>
     </li>
     <li>
       <span class="news-date">2026.07</span>

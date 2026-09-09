@@ -28,30 +28,30 @@ This page lists published papers, monographs, patents, and registered software. 
 
 <ul class="lang-zh">
   <li>已公开论文：{{ papers | size }}　|　专著：{{ books | size }}（参编）　|　专利：{{ patents | size }}　|　软件著作权：{{ software | size }}</li>
-  <li>在审 / 在投论文：4</li>
+  <li>已接收待刊：1（<em>Virtual Reality</em>, Springer）　|　在审 / 在投：3</li>
 </ul>
 <ul class="lang-en">
   <li>Published papers: {{ papers | size }}　|　Monograph: {{ books | size }} (contributing author)　|　Patents: {{ patents | size }}　|　Registered software: {{ software | size }}</li>
-  <li>Under review / submitted: 4</li>
+  <li>Accepted / in press: 1 (<em>Virtual Reality</em>, Springer)　|　Under review / submitted: 3</li>
 </ul>
 
-## <span data-i18n-zh="在审 / 在投论文" data-i18n-en="Under Review / Submitted">在审 / 在投论文</span>
+## <span data-i18n-zh="已接收 / 在审 / 在投" data-i18n-en="Accepted / Under Review / Submitted">已接收 / 在审 / 在投</span>
 
 <div class="paper-grid">
+  <article class="paper-card">
+    <p class="paper-meta">Virtual Reality</p>
+    <h4>SPMark: Improving Small-Target Text Selection with Smooth-Pursuit Gaze Interaction in Hybrid Paper&ndash;Digital Environments</h4>
+    <div class="paper-tags">
+      <span class="paper-tag paper-tag--journal">Virtual Reality (Springer)</span>
+      <span class="paper-tag paper-tag--status paper-tag--accepted" data-i18n-zh="一作 · 已接收（2026.09）" data-i18n-en="First author · Accepted (Sep 2026)">一作 · 已接收（2026.09）</span>
+    </div>
+  </article>
   <article class="paper-card">
     <p class="paper-meta">ACM TOCHI</p>
     <h4>Gaze2Foot: Foot Primitives and Stabilization Mechanisms for Gaze-Foot Target Selection Across Postures</h4>
     <div class="paper-tags">
       <span class="paper-tag paper-tag--journal">ACM Transactions on Computer-Human Interaction</span>
       <span class="paper-tag paper-tag--status paper-tag--reviewing" data-i18n-zh="一作 · 在审" data-i18n-en="First author · Under Review">一作 · 在审</span>
-    </div>
-  </article>
-  <article class="paper-card">
-    <p class="paper-meta">Virtual Reality</p>
-    <h4>SPMark: Improving Small-Target Text Selection with Smooth-Pursuit Gaze Interaction in Hybrid Paper&ndash;Digital Environments</h4>
-    <div class="paper-tags">
-      <span class="paper-tag paper-tag--journal">Virtual Reality (Springer)</span>
-      <span class="paper-tag paper-tag--status paper-tag--reviewing" data-i18n-zh="一作 · 一审修回，评审中" data-i18n-en="First author · Revised, under review">一作 · 一审修回，评审中</span>
     </div>
   </article>
   <article class="paper-card">

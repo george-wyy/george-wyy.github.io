@@ -7,6 +7,16 @@ excerpt_zh: "文献管理器擅长把论文存进去，却不擅长让你再回�
 excerpt_en: "Reference managers are good at filing papers and bad at bringing you back. MyLibrary-Plus rebuilds the library as a figure-first timeline with shared annotations."
 ---
 
+<div style="margin:20px 0 28px;padding:20px 22px;border:1px solid #dbe2f5;border-radius:14px;background:#f6f8ff">
+  <div style="font-size:17px;font-weight:800;color:#161b29;margin-bottom:4px">MyLibrary-Plus · 一个你真的会回头翻的本地论文库</div>
+  <div style="font-size:14px;line-height:1.7;color:#5c667c;margin-bottom:14px">Fork 自 <a href="https://github.com/liusida/MyLibrary" style="color:#4d6bfe">liusida/MyLibrary</a>，在其之上加了图优先时间线与整层阅读批注；MIT 开源，数据全部留在本地。</div>
+  <div>
+    <a href="https://george-wyy.github.io/MyLibrary-Plus/zh/" style="display:inline-block;margin:0 8px 8px 0;padding:10px 18px;border-radius:9px;background:#4d6bfe;color:#ffffff;font-weight:700;text-decoration:none">中文落地页</a>
+    <a href="https://george-wyy.github.io/MyLibrary-Plus/" style="display:inline-block;margin:0 8px 8px 0;padding:10px 18px;border-radius:9px;background:#ffffff;color:#4d6bfe;border:1px solid #b9c6ff;font-weight:700;text-decoration:none">English landing page</a>
+    <a href="https://github.com/george-wyy/MyLibrary-Plus" style="display:inline-block;margin:0 8px 8px 0;padding:10px 18px;border-radius:9px;background:#161b29;color:#ffffff;font-weight:700;text-decoration:none">GitHub 仓库</a>
+  </div>
+</div>
+
 <div class="lang-zh" markdown="1">
 
 ## 问题：库变成了墓地

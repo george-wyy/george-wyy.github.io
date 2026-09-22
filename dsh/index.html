@@ -1,0 +1,1128 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>动手用 dsh · DeepSeek Harness 配置与使用分享</title>
+<meta name="description" content="一份 DeepSeek Harness (dsh) 的配置与使用分享：心智模型、安装启动、patch 与插件、踩坑排查，附 agent 速查。">
+<style>
+:root{
+  --bg:#f5f7fc; --panel:#ffffff; --panel2:#fbfcff; --text:#161b29; --muted:#5c667c;
+  --line:#e3e8f2; --line2:#eef1f8; --accent:#4d6bfe; --accent2:#8b5cf6;
+  --ok:#0f9d58; --okbg:#e9f8f0; --warn:#c2740a; --warnbg:#fff6e6; --danger:#d23b3b; --dangerbg:#fdecec;
+  --code-bg:#0e1526; --code-text:#dbe4f5;
+  --radius:14px; --shadow:0 10px 30px rgba(22,32,64,.07); --shadow-sm:0 2px 10px rgba(22,32,64,.05);
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
+}
+html[data-theme="dark"]{
+  --bg:#080d1b; --panel:#101a30; --panel2:#0c1426; --text:#e9eefb; --muted:#98a4c0;
+  --line:#22304f; --line2:#1a2540; --okbg:#0d2b20; --warnbg:#302209; --dangerbg:#331416;
+  --code-bg:#050912; --code-text:#dbe4f5;
+  --shadow:0 12px 34px rgba(0,0,0,.4); --shadow-sm:0 2px 12px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code,kbd,pre{font-family:var(--mono)}
+:not(pre)>code{background:var(--line2);border:1px solid var(--line);border-radius:6px;padding:.08em .38em;font-size:.88em}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+.topbar{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.topbar .wrap{max-width:1220px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;white-space:nowrap}
+.logo{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#fff;font-size:14px;font-weight:900}
+.brand small{font-weight:600;color:var(--muted);font-size:11px;display:block;line-height:1.1}
+.topbar .grow{flex:1}
+.search{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:6px 10px;min-width:190px}
+.search input{border:0;outline:0;background:transparent;color:var(--text);font-size:13px;width:100%}
+.search kbd{font-size:10px;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:1px 5px;background:var(--panel2)}
+.btn{cursor:pointer;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:10px;padding:7px 11px;font-size:13px;display:inline-flex;align-items:center;gap:6px;transition:.15s}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:0}
+.btn.primary:hover{color:#fff;filter:brightness(1.06)}
+.hide-sm{display:inline-flex}
+.layout{max-width:1220px;margin:0 auto;padding:26px 20px 80px;display:grid;grid-template-columns:250px minmax(0,1fr);gap:30px;align-items:start}
+aside.toc{position:sticky;top:76px;max-height:calc(100vh - 96px);overflow:auto;padding-right:4px}
+aside.toc h4{margin:0 0 8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+aside.toc a{display:block;font-size:13.5px;color:var(--muted);padding:5px 9px;border-radius:8px;border-left:2px solid transparent;line-height:1.35}
+aside.toc a:hover{background:var(--panel);color:var(--text);text-decoration:none}
+aside.toc a.active{color:var(--accent);border-left-color:var(--accent);background:var(--panel);font-weight:700}
+.toc-extra{margin-top:18px;padding:12px;border:1px dashed var(--line);border-radius:12px;background:var(--panel2)}
+.toc-extra p{margin:0 0 8px;font-size:12px;color:var(--muted);line-height:1.5}
+.toc-toggle{display:none;width:100%;text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:9px;padding:8px 11px;font-weight:700;color:var(--text);margin-bottom:8px}
+main{min-width:0}
+section{margin-bottom:46px}
+section>h2{font-size:25px;margin:0 0 6px;scroll-margin-top:84px;display:flex;align-items:center;gap:10px}
+section>h2 .num{font-size:13px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:8px;padding:3px 8px}
+section>p.lead{color:var(--muted);margin:.2em 0 18px;font-size:15px}
+h3{font-size:18.5px;margin:28px 0 8px;scroll-margin-top:84px}
+h4{font-size:15.5px;margin:20px 0 6px}
+p{margin:.6em 0}
+.hero{position:relative;overflow:hidden;border-radius:22px;padding:34px 34px 30px;background:linear-gradient(135deg,#22306b,#4d6bfe 55%,#8b5cf6);color:#fff;box-shadow:var(--shadow)}
+.hero h1{margin:0 0 8px;font-size:35px;line-height:1.2;letter-spacing:-.5px}
+.hero .sub{font-size:16px;opacity:.94;max-width:840px;margin:0 0 18px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px;position:relative;z-index:1}
+.hero .tag{font-size:12px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);color:#fff;border-radius:999px;padding:4px 11px}
+.hero .cta{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:1}
+.hero .cta .btn{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.34);color:#fff}
+.hero .cta .btn:hover{background:rgba(255,255,255,.24);color:#fff}
+.hero .cta .btn.primary{background:#fff;color:#28337a;border:0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow-sm);margin:14px 0}
+.card>h3:first-child,.card>h4:first-child{margin-top:0}
+.grid{display:grid;gap:14px}
+.grid.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.callout{border-radius:var(--radius);padding:15px 18px;border:1px solid var(--line);background:var(--panel);margin:14px 0;border-left-width:5px}
+.callout p:first-child{margin-top:0}.callout p:last-child{margin-bottom:0}
+.callout .ttl{font-weight:800;display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.callout.info{border-left-color:var(--accent)}
+.callout.ok{border-left-color:var(--ok);background:var(--okbg)}
+.callout.warn{border-left-color:var(--warn);background:var(--warnbg)}
+.callout.danger{border-left-color:var(--danger);background:var(--dangerbg)}
+.callout.tip{border-left-color:var(--accent2)}
+.badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;border-radius:999px;padding:2px 8px;border:1px solid transparent;vertical-align:middle;white-space:nowrap;line-height:1.6}
+.b-verified{background:var(--okbg);color:var(--ok);border-color:#9bd6b6}
+.b-doc{background:#eef2ff;color:var(--accent);border-color:#c7d2fe}
+.b-exp{background:var(--warnbg);color:var(--warn);border-color:#f0cf95}
+.b-new{background:#f3eefe;color:var(--accent2);border-color:#ddd0fb}
+.b-plain{background:var(--line2);color:var(--muted);border-color:var(--line)}
+html[data-theme="dark"] .b-doc{background:#1a2450;border-color:#2b3a78}
+html[data-theme="dark"] .b-new{background:#261a4a;border-color:#46317a}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);box-shadow:var(--shadow-sm);margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:540px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{background:var(--panel2);font-size:12.5px;color:var(--muted);text-transform:uppercase}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--panel2)}
+td code{white-space:nowrap}
+.codeblock{position:relative;margin:14px 0;border-radius:var(--radius);overflow:hidden;background:var(--code-bg);box-shadow:var(--shadow-sm)}
+.codeblock .cb-head{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.07)}
+.codeblock .cb-title{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:#93a4c8;font-family:var(--mono)}
+.codeblock .copy{cursor:pointer;border:1px solid rgba(255,255,255,.16);background:transparent;color:#aebbd8;border-radius:7px;padding:3px 9px;font-size:11.5px;transition:.15s}
+.codeblock .copy:hover{background:rgba(255,255,255,.1);color:#fff}
+.codeblock pre{margin:0;padding:15px 16px;overflow-x:auto;color:var(--code-text);font-size:13px;line-height:1.65}
+.codeblock code{background:none;border:0;padding:0;color:inherit;font-size:inherit}
+.cmt{color:#6f7ea5}.str{color:#7ee2a8}.kw{color:#8ab4ff}
+.flow{display:flex;flex-direction:column;gap:8px;margin:16px 0}
+.flow .row{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:10px 14px}
+.flow .row .n{width:24px;height:24px;flex:0 0 24px;border-radius:7px;background:var(--line2);display:grid;place-items:center;font-size:12px;font-weight:800;color:var(--muted)}
+.flow .row.hot{border-color:#aab8ff;background:#f5f7ff}
+html[data-theme="dark"] .flow .row.hot{background:#151d3a;border-color:#3a4a8a}
+.flow .row .t{font-weight:700;font-size:14px}
+.flow .row .d{color:var(--muted);font-size:12.5px}
+.flow .arrow{text-align:center;color:var(--muted);font-size:12px;line-height:1}
+.steps{counter-reset:s;margin:14px 0}
+.step{position:relative;padding:0 0 0 46px;margin:0 0 20px}
+.step:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:31px;height:31px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
+.step h4{margin:2px 0 4px;font-size:16px}
+.step p{margin:.2em 0;color:var(--muted);font-size:14.5px}
+details.acc{border:1px solid var(--line);border-radius:12px;background:var(--panel);margin:10px 0;overflow:hidden}
+details.acc>summary{cursor:pointer;padding:12px 16px;font-weight:700;font-size:14.5px;list-style:none;display:flex;align-items:center;gap:10px}
+details.acc>summary::-webkit-details-marker{display:none}
+details.acc>summary:before{content:"\25B8";color:var(--accent);font-size:13px}
+details.acc[open]>summary:before{content:"\25BE"}
+details.acc .body{padding:2px 16px 16px;border-top:1px solid var(--line2)}
+details.acc .body p:first-child{margin-top:12px}
+.kbd{display:inline-block;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;background:var(--panel);padding:1px 7px;font-size:12px;font-family:var(--mono)}
+.chiprow{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+.chip{font-size:12px;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:3px 10px;color:var(--muted)}
+.muted{color:var(--muted)}.small{font-size:13px}.center{text-align:center}
+.note{font-size:13px;color:var(--muted);border-top:1px dashed var(--line);margin-top:14px;padding-top:10px}
+mark{background:#ffe6a3;color:inherit;padding:0 1px;border-radius:2px}
+footer{border-top:1px solid var(--line);padding:28px 20px 60px;color:var(--muted);font-size:13px}
+footer .wrap{max-width:1220px;margin:0 auto}
+#totop{position:fixed;right:22px;bottom:22px;z-index:60;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:999px;width:42px;height:42px;display:none;place-items:center;cursor:pointer;box-shadow:var(--shadow)}
+#totop.show{display:grid}
+#totop:hover{border-color:var(--accent);color:var(--accent)}
+@media (max-width:1000px){
+  .layout{grid-template-columns:1fr;gap:18px}
+  aside.toc{position:static;max-height:none;order:-1;border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--panel)}
+  aside.toc .tocbody{display:none}
+  aside.toc.open .tocbody{display:block}
+  .toc-toggle{display:block}
+  .grid.c3{grid-template-columns:1fr}
+  .hero h1{font-size:28px}
+}
+@media (max-width:760px){
+  .grid.c2{grid-template-columns:1fr}
+  .hide-sm{display:none}
+  .hero{padding:24px 20px}.layout{padding:18px 14px 60px}
+}
+@media print{
+  .topbar,aside.toc,#totop,.search,.hero .cta{display:none}
+  .layout{display:block;max-width:none}
+  .card,.tablewrap,.callout{box-shadow:none;break-inside:avoid}
+  body{background:#fff;font-size:12px}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="logo">DS</span><span>动手用 dsh<small>DeepSeek Harness 上手指南</small></span></div>
+    <div class="grow"></div>
+    <label class="search hide-sm"><span style="color:var(--muted);font-size:13px">搜索</span><input id="filter" type="search" placeholder="搜索本文（按 / 聚焦）"><kbd>/</kbd></label>
+    <button class="btn" id="themeBtn" title="切换深浅色">主题</button>
+    <button class="btn primary" id="printBtn">打印 / PDF</button>
+  </div>
+</div>
+<div class="layout">
+<aside class="toc" id="toc">
+  <button class="toc-toggle" id="tocToggle">目录</button>
+  <h4>目录</h4>
+  <div class="tocbody">
+    <a href="#top">封面</a>
+    <a href="#tldr">0 · 30 秒上手</a>
+    <a href="#what">1 · 先分清三条线</a>
+    <a href="#model">2 · 心智模型</a>
+    <a href="#install">3 · 安装与启动</a>
+    <a href="#cheatsheet">4 · 命令速查</a>
+    <a href="#labs">5 · 四个 Lab</a>
+    <a href="#migrate">6 · 从 CC / Codex 迁移</a>
+    <a href="#plugins">7 · patch 与插件</a>
+    <a href="#starter">8 · 推荐起步插件</a>
+    <a href="#usage">9 · 日常使用范式</a>
+    <a href="#pitfalls">10 · 踩坑与排查</a>
+    <a href="#agent">11 · 给 agent 用</a>
+    <a href="#glossary">12 · 术语与参考</a>
+  </div>
+  <div class="toc-extra">
+    <p>给 agent：直接读同目录的 <b>dsh.agent.md</b> 或 <b>dsh.agent.json</b>。</p>
+    <button class="btn" id="copyBrief" style="width:100%">复制 agent 开场提示词</button>
+  </div>
+</aside>
+<main>
+<section id="top">
+  <div class="hero">
+    <h1>动手用 dsh</h1>
+    <p class="sub">DeepSeek Harness 的配置与使用分享：从装上跑通，到写 patch、接自己的工具链。整理自 2026-09-18 ~ 09-22 的真实配置与踩坑记录，也给 agent 留了一份速查。</p>
+    <div class="meta">
+      <span class="tag">基线 dsh 0.1.5-rc.2</span>
+      <span class="tag">Node v22.22.2</span>
+      <span class="tag">macOS 实测</span>
+      <span class="tag">含 4 个可跑 Lab</span>
+      <span class="tag">附 agent 速查</span>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="#tldr">30 秒上手</a>
+      <a class="btn" href="#pitfalls">直接看踩坑</a>
+      <a class="btn" href="#agent">给 agent 用</a>
+    </div>
+  </div>
+</section>
+
+<section id="tldr">
+  <h2><span class="num">0</span>30 秒上手</h2>
+  <p class="lead">如果你只有三分钟，读这一节就够了。剩下的章节按需查。</p>
+  <div class="grid c3">
+    <div class="card">
+      <h4>一句话理解</h4>
+      <p>dsh 是 DeepSeek 官方的 <b>Agent 运行时框架</b>，不是普通 CLI。官方公式：</p>
+      <p class="center"><code>Model + Harness = Agent</code></p>
+      <p class="muted small">模型只是其中一个插件；工具、UI、沙箱、记忆全都可以替换。</p>
+    </div>
+    <div class="card">
+      <h4>最小上手三步</h4>
+      <div class="steps">
+        <div class="step"><h4>装</h4><p><code>npm i -g @deepseek-ai/dsh</code>，确认 Node 22。</p></div>
+        <div class="step"><h4>跑</h4><p>在项目目录里执行 <code>dsh web</code>，浏览器打开 3080。</p></div>
+        <div class="step"><h4>改</h4><p>要加功能就写 <code>patch</code> 或装 bundle，不改源码。</p></div>
+      </div>
+    </div>
+    <div class="card">
+      <h4>三条铁律</h4>
+      <ol>
+        <li><b>先跑通再改造</b>：先确认现有项目里 <code>AGENTS.md</code> / <code>CLAUDE.md</code> 被读到。</li>
+        <li><b>装功能 = 写 patch</b>：不是装插件、更不是改源码。</li>
+        <li><b>实验别碰真的 <code>~/.dsh</code></b>：用项目内 <code>DSH_HOME</code>。</li>
+      </ol>
+    </div>
+  </div>
+  <div class="callout info">
+    <div class="ttl">本页的证据分级</div>
+    <p><span class="badge b-verified">本机实测</span> 在 0.1.5-rc.2 上真跑过、看过输出。<span class="badge b-doc">官方文档</span> 来自 npm 包内随附的 README / 源码。 <span class="badge b-exp">经验判断</span> 从多轮排障里总结，不一定对所有版本成立。dsh 迭代很快，动手前用文末的自查命令核一遍版本。</p>
+  </div>
+</section>
+<section id="what">
+  <h2><span class="num">1</span>先分清三条线，别装错包</h2>
+  <p class="lead">市面上叫"DeepSeek 编程工具"的东西有三条完全不同的线，名字很像，血统不同。搞混了会浪费一整天。</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>名字</th><th>谁做的</th><th>形态</th><th>该不该用</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>Deep Code</b><br><code>deepcode-cli</code></td>
+        <td>第三方开源项目，被 DeepSeek 官方 API 文档收录推荐</td>
+        <td>终端 CLI + VS Code 插件，轻量、开箱即用</td>
+        <td>想 5 分钟跑起来，选它</td>
+      </tr>
+      <tr>
+        <td><b>DSH</b><br><code>@deepseek-ai/dsh</code></td>
+        <td><b>DeepSeek 官方</b></td>
+        <td>CLI + Web GUI + SDK，本体是 Agent 运行时</td>
+        <td>想当长期主力、接自己工具链，选它</td>
+      </tr>
+      <tr>
+        <td><b>社区魔改版</b><br><code>&lt;user&gt;/deepseek-harness</code></td>
+        <td>第三方 fork</td>
+        <td>跟随上游，修 bug / 加功能 / 去限制</td>
+        <td>上游有硬 blocker、你能读 diff 时再考虑</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout danger">
+    <div class="ttl">装之前核对 npm scope</div>
+    <p>官方包是 <code>@deepseek-ai/dsh</code>。社区里出现过 <code>@deepopen/cli</code>、<code>@opendeep/cli</code> 这类只差一两个字母的相近名，属于典型的高风险命名。不确定时先跑：</p>
+    <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · 核实官方包</span><button class="copy">复制</button></div><pre><code>npm view @deepseek-ai/dsh version
+npm view @deepseek-ai/dsh repository.url
+npm view @deepseek-ai/dsh dist.tarball</code></pre></div>
+  </div>
+  <div class="callout tip">
+    <div class="ttl">更稳的姿势：只写 patch，不 fork 整个 dsh</div>
+    <p>90% 的"我想改掉这个行为"都能用一份 YAML patch 解决。fork 之后每次上游更新你都要重新合并；patch 只需要重新验证一次。</p>
+  </div>
+</section>
+<section id="model">
+  <h2><span class="num">2</span>心智模型：一切皆是 patch</h2>
+  <p class="lead">这是全文最重要的一节。理解配置树之后，dsh 的行为就不再神秘。</p>
+  <div class="grid c3">
+    <div class="card">
+      <h4>Profile = 产品形态</h4>
+      <p><code>web</code> / <code>headless</code> / <code>acp</code> / <code>sdk</code> / <code>sdk-minimal</code>。换 profile 就是换一整套产品，不是换开关。</p>
+    </div>
+    <div class="card">
+      <h4>Bundle = 插件组合包</h4>
+      <p>一组插件的预设配置，比如 <code>@deepseek-ai/dsh-base</code> + <code>@deepseek-ai/dsh-web-app</code>。你在 <code>package.json</code> 的 <code>dsh.profile.bundles</code> 里按顺序列出。</p>
+    </div>
+    <div class="card">
+      <h4>Patch = 覆盖层</h4>
+      <p>一个 YAML 顶层数组，按插件 <code>id</code> 改配置、禁用插件、插入新插件。你日常真正动手的地方。</p>
+    </div>
+  </div>
+  <h3>配置树按这个顺序叠加（后者覆盖前者）</h3>
+  <div class="flow">
+    <div class="row"><span class="n">1</span><div><div class="t">bundle 层</div><div class="d"><code>dsh.profile.bundles</code> 里按顺序叠加，如 dsh-base → dsh-web-app</div></div></div>
+    <div class="arrow">+</div>
+    <div class="row"><span class="n">2</span><div><div class="t">profile 自己的 patch</div><div class="d"><code>~/.dsh/profiles/&lt;name&gt;/cordis.patch.yml</code>，日常改这里</div></div></div>
+    <div class="arrow">+</div>
+    <div class="row hot"><span class="n">3</span><div><div class="t">home 级 patch（优先级高于 profile 层）</div><div class="d"><code>~/.dsh/cordis.patch.yml</code>，对所有 profile 生效，适合放机器级偏好</div></div></div>
+    <div class="arrow">+</div>
+    <div class="row"><span class="n">4</span><div><div class="t">命令行 <code>--patch</code> 覆盖层</div><div class="d">临时实验用，可重复出现，按 argv 顺序叠加</div></div></div>
+    <div class="arrow">+</div>
+    <div class="row"><span class="n">5</span><div><div class="t">telemetry 开关</div><div class="d"><code>DSH_TELEMETRY_DISABLED</code> 非空即关闭遥测</div></div></div>
+  </div>
+  <div class="callout warn">
+    <div class="ttl">常见误解：home patch 不是"默认值"</div>
+    <p>最外层（home）patch 的优先级<b>高于</b> profile 层。也就是说，<code>~/.dsh/cordis.patch.yml</code> 里的配置会盖掉 <code>profiles/web/cordis.patch.yml</code> 里的同 id 配置。这是官方源码 <code>allPatches()</code> 的顺序，网上有些笔记写反了。</p>
+  </div>
+  <h3>启动器的参数规则</h3>
+  <p>启动器只解析自己的 flag；<b>遇到第一个不认识的 token 之后，全部原样交给 profile 里的 app</b>。所以：</p>
+  <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · 归属要分清</span><button class="copy">复制</button></div><pre><code>dsh --help                    <span class="cmt"># 启动器自己的 help</span>
+dsh --profile web --help      <span class="cmt"># web app 的 help（--port 在这里）</span>
+dsh web --port 8080           <span class="cmt"># --port 属于 web app，不属于启动器</span>
+dsh --profile headless "跑测试"  <span class="cmt"># 之后全是任务文本</span></code></pre></div>
+  <h3>不同 profile 的体量差别</h3>
+  <p>本机 0.1.5-rc.2 实测，<code>--dump-default-config</code> 里的插件条目数：</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Profile</th><th>插件条目</th><th>独有内容</th></tr></thead>
+    <tbody>
+      <tr><td><code>web</code></td><td><b>152</b></td><td><code>client-*</code> / <code>ui-*</code>、directory-picker、agent-presets</td></tr>
+      <tr><td><code>headless</code></td><td><b>87</b></td><td>headless-runner、headless-startup</td></tr>
+      <tr><td><code>acp</code></td><td><b>86</b></td><td>Agent Client Protocol stdio</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="muted small">数字会随版本变化，但"web 多出来的全是界面插件"这个结构不变。这就是"换 profile 换产品"的直观证据。</p>
+</section>
+<section id="install">
+  <h2><span class="num">3</span>安装与启动</h2>
+  <p class="lead">目标：让 <code>dsh</code> 在你的普通终端和 GUI 环境里都能跑起来，然后跑通一个真实项目。</p>
+  <h3>前置条件</h3>
+  <div class="callout danger">
+    <div class="ttl">用 Node 22，别用旧 Node</div>
+    <p>dsh 的启动 shim 是 <code>#!/usr/bin/env node</code>，会跑在 PATH 里第一个 <code>node</code> 上。老 Node（如 16）直接 ESM <code>SyntaxError</code>，而且 dsh 内部再调 pnpm / corepack 时会继续命中旧 Node。本机实测：Node <code>v22.22.2</code> 正常。</p>
+  </div>
+  <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · 安装</span><button class="copy">复制</button></div><pre><code>node -v                              <span class="cmt"># 期望 v22.x</span>
+npm i -g @deepseek-ai/dsh
+which -a dsh                         <span class="cmt"># 看会不会命中多个版本</span>
+dsh --version                        <span class="cmt"># 期望 0.1.5-rc.2 或更新</span>
+npm config get prefix                <span class="cmt"># 确认 &lt;prefix&gt;/bin 在 PATH 里</span></code></pre></div>
+  <h3>第一次启动</h3>
+  <div class="steps">
+    <div class="step">
+      <h4>先 cd 到你的项目目录</h4>
+      <p>dsh 把<b>启动时所在的目录</b>当作默认 workspace 根，沙箱的 <code>workspaceRoot = process.cwd()</code>。在哪个目录启动，哪里才是可写工作区。</p>
+    </div>
+    <div class="step">
+      <h4>启动 Web GUI</h4>
+      <p>默认监听 <code>127.0.0.1:3080</code>，启动后终端会打印带 token 的 URL，浏览器打开即可。用 <code>--no-open</code> 可以不自动开浏览器，用 <code>--port</code> 换端口。</p>
+      <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · 启动</span><button class="copy">复制</button></div><pre><code>cd ~/Projects/my-project
+dsh web
+dsh --profile web --port 8080 --no-open
+dsh --profile headless "这个仓库怎么跑测试"   <span class="cmt"># 一次性任务，答案打印后退出</span></code></pre></div>
+    </div>
+    <div class="step">
+      <h4>确认项目指令被读到</h4>
+      <p>在你现有项目里放 <code>AGENTS.md</code> 或 <code>CLAUDE.md</code>，然后问一句"你现在知道哪些项目规则"，确认它读到了再往下走。</p>
+    </div>
+  </div>
+  <h3>web app 的 flag（0.1.5-rc.2）</h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>flag</th><th>作用</th></tr></thead>
+    <tbody>
+      <tr><td><code>--host &lt;host&gt;</code></td><td>绑定地址</td></tr>
+      <tr><td><code>--port &lt;port&gt;</code></td><td>监听端口，默认 3080；<code>0</code> 表示让系统分配</td></tr>
+      <tr><td><code>--no-open</code></td><td>不自动打开浏览器</td></tr>
+      <tr><td><code>--trusted-host &lt;authority&gt;</code></td><td>额外允许的 host / host:port，可重复</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout warn">
+    <div class="ttl">web 没有 <code>--resume</code></div>
+    <p>恢复会话在 Web UI 的会话列表里点。<code>--resume</code> 是终端类 app（如社区 TUI）的参数，别写到 web 上。想看 web app 自己的 flag，用 <code>dsh --profile web --help</code>。</p>
+  </div>
+  <div class="callout danger">
+    <div class="ttl">"终端里能用、别的 App 里用不了"的经典原因</div>
+    <p>GUI / daemon 启动的进程拿到的是<b>精简 PATH</b>，可能先命中 <code>/usr/local/bin/node</code> 这种旧版本（本机实测有 2022 年 pkg 残留的 v16.13.2）。解法是给 dsh 写一个 launcher：exec 绝对路径的 Node 22，并<b>无条件</b>把该 Node 的 bin 目录 prepend 到 PATH（dsh 派生的 pnpm / corepack 也才跟着用对 Node）。详见第 10 节。</p>
+  </div>
+</section>
+<section id="cheatsheet">
+  <h2><span class="num">4</span>命令速查</h2>
+  <p class="lead">打印出来贴在屏幕边。所有命令都在本机 0.1.5-rc.2 上核过。</p>
+  <h3>启动 / 退出</h3>
+  <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · 启动</span><button class="copy">复制</button></div><pre><code>dsh web                                  <span class="cmt"># = dsh --profile web，默认 3080</span>
+dsh --profile web --port 8080 --no-open
+dsh --profile headless "任务"             <span class="cmt"># 一次性：答案走 stdout，推理走 stderr</span>
+dsh --profile acp                        <span class="cmt"># Agent Client Protocol stdio</span>
+dsh --profile sdk                        <span class="cmt"># SDK JSON-RPC stdio</span>
+
+<span class="cmt"># 彻底重启 web（只刷新浏览器不会加载新插件）</span>
+kill $(lsof -tiTCP:3080 -sTCP:LISTEN)
+dsh web</code></pre></div>
+  <h3>看配置（不启动也能看）</h3>
+  <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · 检查配置树</span><button class="copy">复制</button></div><pre><code>dsh --profile web --dump-default-config   <span class="cmt"># 只看 bundle 默认层</span>
+dsh --profile web --dump-config           <span class="cmt"># 叠加你的 patch 后的完整树</span>
+dsh --profile web --dump-config | grep -c '^- id:'   <span class="cmt"># 数插件条目，本机 web = 152</span>
+dsh --profile web --dump-config | grep -B2 -A6 'patched by'  <span class="cmt"># 看哪条 patch 生效了</span></code></pre></div>
+  <div class="callout warn">
+    <div class="ttl"><code>--dump-config</code> 有副作用</div>
+    <p>即使只是 dump，dsh 也会重写 <code>profiles/&lt;name&gt;/cordis.yml</code>（空根文件）。所以查看配置同样受 dsh 自己的文件沙箱限制；做实验用项目内 <code>DSH_HOME</code>。</p>
+  </div>
+  <h3>Profile 与插件</h3>
+  <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · profile / 插件</span><button class="copy">复制</button></div><pre><code>dsh --profile rescue --from-default-profile web   <span class="cmt"># 基于 web 模板建新 profile</span>
+dsh plugin --profile web add &lt;npm-pkg&gt;            <span class="cmt"># 转发给 profile 目录里的 pnpm</span>
+dsh plugin --profile web remove &lt;npm-pkg&gt;         <span class="cmt"># remove 会自动从 bundles 摘除</span>
+dsh --profile web --patch ./extra.yml             <span class="cmt"># 临时叠加一个覆盖层</span></code></pre></div>
+  <h3>找东西</h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>你想找</th><th>路径</th></tr></thead>
+    <tbody>
+      <tr><td>全局工作记忆</td><td><code>~/.dsh/AGENTS.md</code></td></tr>
+      <tr><td>home 级 patch</td><td><code>~/.dsh/cordis.patch.yml</code></td></tr>
+      <tr><td>某个 profile 的 patch</td><td><code>~/.dsh/profiles/&lt;name&gt;/cordis.patch.yml</code></td></tr>
+      <tr><td>profile 的插件清单 / 顺序</td><td><code>~/.dsh/profiles/&lt;name&gt;/package.json</code></td></tr>
+      <tr><td>插件安装策略</td><td><code>~/.dsh/profiles/&lt;name&gt;/pnpm-workspace.yaml</code></td></tr>
+      <tr><td>会话记录（zstd 压缩）</td><td><code>~/.dsh/sessions/&lt;workspace-slug&gt;/session-*/session.v3.jsonl.zstd</code></td></tr>
+      <tr><td>按天 token / 成本</td><td><code>~/.dsh/dsh-usage/usage-ledger.json</code></td></tr>
+      <tr><td>任务看板账本</td><td><code>~/.dsh/task-board/ledger-v2.json</code></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · 读会话记录</span><button class="copy">复制</button></div><pre><code><span class="cmt"># 会话是 zstd 压缩的 JSONL，逐行一个事件</span>
+zstd -dc ~/.dsh/sessions/*/session-*/session.v3.jsonl.zstd | head
+<span class="cmt"># 事件类型：user/message, assistant/message, tool/call, tool/result, turn/start ...</span></code></pre></div>
+</section>
+<section id="labs">
+  <h2><span class="num">5</span>四个 Lab：把配置树玩一遍</h2>
+  <p class="lead">下面四个实验可以在任意本地目录复现，设计原则是<b>绝不碰真实的 ~/.dsh</b>：在一个临时目录里建一个假的 <code>DSH_HOME</code>，跑完整个删掉。</p>
+  <div class="callout tip">
+    <div class="ttl">为什么必须用假 DSH_HOME</div>
+    <p>dsh 有自己的文件沙箱。真实 <code>~/.dsh</code> 在会话工作区之外，直接跑会报 <code>EPERM: operation not permitted, mkdir '.../.dsh/profiles/...'</code>。这不是 dsh 坏了，是策略在拦。实验用：</p>
+    <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · 假 DSH_HOME</span><button class="copy">复制</button></div><pre><code><span class="cmt"># 随便建一个实验目录，别在 ~/.dsh 里折腾</span>
+mkdir -p ~/dsh-lab &amp;&amp; cd ~/dsh-lab
+export DSH_HOME="$PWD/.dsh-home"
+
+<span class="cmt"># Lab 1：看 bundle 默认层</span>
+dsh --profile web --dump-default-config &gt; default.yml
+grep -c '^- id:' default.yml
+
+<span class="cmt"># Lab 2：写一个 patch 再叠加（见下面的写法）</span>
+dsh --profile web --patch ./disable-timer.yml --dump-config | grep -B2 -A4 'patched by'</code></pre></div>
+  </div>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Lab</th><th>做什么</th><th>你会学到</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>1</b></td>
+        <td>dump 默认配置树，数插件条目和分层标记</td>
+        <td>一个 profile 到底装了哪些插件、每个插件都有 <code>id</code></td>
+      </tr>
+      <tr>
+        <td><b>2</b></td>
+        <td>叠加 <code>patches/disable-timer.yml</code></td>
+        <td>patch 如何按 <code>id</code> 精确禁用插件，输出里的 <code>patched by</code> 长什么样</td>
+      </tr>
+      <tr>
+        <td><b>3</b></td>
+        <td>叠加 <code>patches/relax-approval.yml</code></td>
+        <td>插件配置怎么改；<code>config</code> 是合并而不是整体替换</td>
+      </tr>
+      <tr>
+        <td><b>4</b></td>
+        <td>对比 <code>web</code> / <code>headless</code> / <code>acp</code></td>
+        <td>profile 是"换一整套产品形态"，不是换开关</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>patch 长什么样</h3>
+  <div class="grid c2">
+    <div class="card">
+      <h4>禁用插件</h4>
+      <div class="codeblock"><div class="cb-head"><span class="cb-title">yml · disable-timer</span><button class="copy">复制</button></div><pre><code>- id: timer
+  disabled: true</code></pre></div>
+    </div>
+    <div class="card">
+      <h4>改插件配置（合并）</h4>
+      <div class="codeblock"><div class="cb-head"><span class="cb-title">yml · relax-approval</span><button class="copy">复制</button></div><pre><code>- id: approval
+  config:
+    policy: never</code></pre></div>
+      <p class="muted small">这里只为让 diff 明显。真实项目别关审批闸门，用官方入口 <code>DSH_PERMISSION_MODE</code>。</p>
+    </div>
+  </div>
+  <h3>生效后怎么确认</h3>
+  <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · 看 patched by</span><button class="copy">复制</button></div><pre><code>dsh --profile web --dump-config | grep -B2 -A6 'patched by'
+
+<span class="cmt"># 期望看到类似：</span>
+<span class="out"># == @deepseek-ai/dsh-base, patched by /path/to/disable-timer.yml</span>
+<span class="out">- id: timer</span>
+<span class="out">  name: '@deepseek-ai/cordis-plugin-timer'</span>
+<span class="out">  disabled: true</span></code></pre></div>
+  <div class="callout info">
+    <div class="ttl"><code>patchReload</code>：改完 patch 怎么生效</div>
+    <p><code>live</code>：监视 patch 文件，改完立即生效（本机 web profile 就是 live，会触发前端 HMR）。<code>startup</code>：只在启动时应用一次，改完要重启。插件装完则<b>必须重启后端进程</b>，只刷新浏览器不会加载新模块。</p>
+  </div>
+</section>
+<section id="migrate">
+  <h2><span class="num">6</span>从 Claude Code / Codex 迁移</h2>
+  <p class="lead">dsh 主动兼容 Claude Code 和 Codex 的 <b>hooks 与 MCP</b>，迁移成本比想象中低。你已经有的 skills、记忆、MCP 大多能复用。</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>你要做的事</th><th>Codex</th><th>Claude Code</th><th>DSH</th></tr></thead>
+    <tbody>
+      <tr><td>启动交互</td><td><code>codex</code></td><td><code>claude</code></td><td><code>dsh web</code> 或 <code>dsh --profile &lt;p&gt;</code></td></tr>
+      <tr><td>单次提问退出</td><td><code>codex exec</code></td><td><code>claude -p</code></td><td><code>dsh --profile headless "..."</code></td></tr>
+      <tr><td>继续上次会话</td><td><code>codex resume</code></td><td><code>claude -c</code></td><td>Web UI 会话列表</td></tr>
+      <tr><td>项目指令文件</td><td><code>AGENTS.md</code></td><td><code>CLAUDE.md</code></td><td>两者都支持</td></tr>
+      <tr><td>审批 / 权限</td><td>sandbox 模式</td><td>permissions</td><td><code>dsh-fs-sandbox</code> + permission presets</td></tr>
+      <tr><td>扩展能力</td><td>MCP</td><td>MCP / Skills / hooks</td><td>MCP / Skills / hooks 全能读 + patch</td></tr>
+      <tr><td>看最终配置</td><td>-</td><td>-</td><td><code>dsh --profile &lt;p&gt; --dump-config</code></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout ok">
+    <div class="ttl">最省事的迁移路径</div>
+    <p>先别改任何东西，直接用 dsh 跑你现有的项目，确认 <code>AGENTS.md</code> / <code>CLAUDE.md</code> / MCP 配置被正常读取，再考虑写 patch。</p>
+  </div>
+  <h3>三层修复：skills / 记忆 / hooks</h3>
+  <h4>1. skills：DSH 默认不扫 ~/.claude/skills</h4>
+  <p>DSH 的用户级 skill 根目录按 rank 扫描。两边目录会漂移，所以要把 <code>~/.claude/skills</code> 显式加进去：</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Rank</th><th>路径</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>300</td><td>自定义 <code>customSkillDirs</code></td><td>你手动插入的目录，排在旧副本之前</td></tr>
+      <tr><td>400</td><td><code>~/.dsh/skills</code></td><td>DSH_HOME 下的用户级 skill</td></tr>
+      <tr><td>500</td><td><code>~/.agents/skills</code></td><td>共享 agent 配置根</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="codeblock"><div class="cb-head"><span class="cb-title">yml · 让 DSH 读 Claude Code 的 skills</span><button class="copy">复制</button></div><pre><code>- id: skill-filesystem
+  config:
+    customSkillDirs:
+      - /Users/you/.claude/skills</code></pre></div>
+  <p class="muted small">注意：DSH 刻意不支持递归发现 <code>**/SKILL.md</code>，只扫目录本身，所以必须指到 <code>skills</code> 这一层。</p>
+  <h4>2. 记忆：AGENTS.md 才是入口</h4>
+  <p>DSH 的 <code>dsh-agent-instructions</code> 只认 <code>$DSH_HOME/AGENTS.md</code> 和项目里的 <code>AGENTS.md</code> / <code>CLAUDE.md</code>，不认 <code>~/.claude/projects/*/memory/</code>。把记忆索引生成/软链到 <code>~/.dsh/AGENTS.md</code>。</p>
+  <h4>3. hooks：桥接器只支持这些事件</h4>
+  <p><code>dsh-hooks-claude-code</code> 支持：<code>SessionStart</code> / <code>UserPromptSubmit</code> / <code>PreToolUse</code> / <code>PostToolUse</code> / <code>Stop</code> / <code>SubagentStop</code>。</p>
+  <div class="callout warn">
+    <div class="ttl">不要直接把 configPath 指向 ~/.claude/settings.json</div>
+    <p>如果你的 CC 配置里有 <code>Notification</code> / <code>PermissionRequest</code> / <code>SessionEnd</code>，桥接器不支持它们，可能抛错并拒绝整份配置。正确做法是筛一份子集到 <code>~/.dsh/hooks.json</code>，再指过去。另外 CC hook 默认 timeout 是 10 分钟，建议收紧到 15s，避免某个 hook 挂住整个会话。</p>
+  </div>
+  <div class="codeblock"><div class="cb-head"><span class="cb-title">yml · hooks 桥接</span><button class="copy">复制</button></div><pre><code>- id: hooks-claude-code
+  name: '@deepseek-ai/dsh-hooks-claude-code'
+  config:
+    configPath: /Users/you/.dsh/hooks.json
+    defaultTimeoutMs: 15000</code></pre></div>
+  <p class="muted small"><code>configPath</code> 是 process 级、加载时只读一次，改完必须重启 dsh。</p>
+  <h3>验证与回滚</h3>
+  <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · 验证 skill 是否被读到</span><button class="copy">复制</button></div><pre><code><span class="cmt"># 拿一个只存在于 ~/.claude/skills 的自建 skill 去问，把 your-skill-name 换成你的</span>
+dsh --profile headless "你的可用 skill 列表里有没有 your-skill-name。不要调用工具。"
+dsh --profile web --dump-config | grep -A5 'id: skill-filesystem'</code></pre></div>
+  <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · 回滚</span><button class="copy">复制</button></div><pre><code>rm -f ~/.dsh/cordis.patch.yml ~/.dsh/AGENTS.md ~/.dsh/hooks.json
+rm -rf ~/.dsh/skills          <span class="cmt"># 只删软链，不动 ~/.claude/skills 本体</span></code></pre></div>
+  <div class="callout tip">
+    <div class="ttl">从 cmux 迁过来的人注意</div>
+    <p>cmux 给的是多路复用工位；dsh 的 web 形态是"一次一个会话"。但 dsh 内置了 <code>dsh-tool-subagent</code>、<code>dsh-tool-workflow</code>、<code>dsh-tool-ralph</code>，可以在单个会话内部做并行 fan-out 和 fresh-agent 迭代。把 cmux 用法下沉成 workflow 脚本，可以少一层进程管理。</p>
+  </div>
+</section>
+<section id="plugins">
+  <h2><span class="num">7</span>patch 与插件系统</h2>
+  <p class="lead">在 dsh 里"装功能"不是装插件，是写 patch。理解这一句，你就理解了 dsh 和 Codex / Claude Code 最根本的区别。</p>
+  <h3>一个 profile 由什么组成</h3>
+  <div class="codeblock"><div class="cb-head"><span class="cb-title">json · ~/.dsh/profiles/web/package.json</span><button class="copy">复制</button></div><pre><code>{
+  "dependencies": { <span class="cmt">/* 树外插件装在这里 */</span> },
+  "dsh": {
+    "profile": {
+      "bundles": [
+        "@deepseek-ai/dsh-base",
+        "@deepseek-ai/dsh-web-app",
+        "@liustack/modsearch",
+        "dshmarket"
+      ],
+      "patchReload": "live"   <span class="cmt">// 或 "startup"</span>
+    }
+  }
+}</code></pre></div>
+  <p>组合包先从 dsh 安装目录解析（<code>@deepseek-ai/dsh-*</code>），再从 profile 自己的 <code>node_modules</code> 解析。pnpm 会把树外插件装进 <code>profiles/&lt;name&gt;/node_modules</code>。</p>
+  <h3>patch 的四种用法</h3>
+  <div class="grid c2">
+    <div class="card">
+      <h4>按 id 改配置（合并）</h4>
+      <div class="codeblock"><div class="cb-head"><span class="cb-title">yml</span><button class="copy">复制</button></div><pre><code>- id: approval
+  config:
+    policy: never</code></pre></div>
+    </div>
+    <div class="card">
+      <h4>禁用插件</h4>
+      <div class="codeblock"><div class="cb-head"><span class="cb-title">yml</span><button class="copy">复制</button></div><pre><code>- id: timer
+  disabled: true</code></pre></div>
+    </div>
+    <div class="card">
+      <h4>插入新插件（必须用 insert）</h4>
+      <div class="codeblock"><div class="cb-head"><span class="cb-title">yml</span><button class="copy">复制</button></div><pre><code>- insert:
+    - id: ui-shortcuts
+      name: dsh-client-ui-shortcuts</code></pre></div>
+      <p class="muted small">直接写 <code>id</code> + <code>name</code> 会被当成"按 id 覆盖"，报 not found。</p>
+    </div>
+    <div class="card">
+      <h4>命令行临时覆盖</h4>
+      <div class="codeblock"><div class="cb-head"><span class="cb-title">bash</span><button class="copy">复制</button></div><pre><code>dsh --profile web --patch ./extra.yml</code></pre></div>
+      <p class="muted small">优先级最高，适合实验，不适合长期。</p>
+    </div>
+  </div>
+  <h3>插件安装：pnpm 的真实脾气</h3>
+  <p><code>dsh plugin --profile web add &lt;pkg&gt;</code> 只是把参数转发给 profile 目录里的 pnpm。所以遇到的坑基本都是 pnpm 的坑。本机实测过的四类：</p>
+  <details class="acc"><summary>1 · pnpm 全局 store 在工作区外，被 dsh 沙箱拦住</summary><div class="body">
+    <p>症状：</p>
+    <div class="codeblock"><div class="cb-head"><span class="cb-title">text</span><button class="copy">复制</button></div><pre><code>Failed to write cafs: Failed to create the parent directory at
+"/Users/you/Library/pnpm/store/v11/files/..": Operation not permitted
+dsh: pnpm failed in profile directory /Users/you/.dsh/profiles/web</code></pre></div>
+    <p>根因：dsh 自己的文件沙箱只放行会话工作区，pnpm 全局 store 在工作区外。处理：让用户在自己的普通终端跑安装命令；或把 pnpm 的 store-dir 指到工作区内；不要反复重试。</p>
+  </div></details>
+  <details class="acc"><summary>2 · ERR_PNPM_IGNORED_BUILDS：构建脚本被拦</summary><div class="body">
+    <p>pnpm 10+ 默认不执行第三方依赖的 build / prepare 脚本。终端会打印需要放行的 key，把它们写进 profile 的 <code>pnpm-workspace.yaml</code> 的 <code>allowBuilds</code>，再重跑。</p>
+  </div></details>
+  <details class="acc"><summary>3 · isolated linker 导致子包找不到</summary><div class="body">
+    <p>症状：启动 <code>dsh web</code> 时报 <code>Cannot find package '@linxin666/dsh-...'</code>。根因是 pnpm 默认的 isolated 模式把部分子包嵌套收敛了。设 <code>nodeLinker: hoisted</code> 后重装。</p>
+  </div></details>
+  <details class="acc"><summary>4 · pnpm 11 的 minimumReleaseAge 门禁</summary><div class="body">
+    <p>包刚发布时会因安全策略回退到旧版本。把对应 scope 加进 <code>minimumReleaseAgeExclude</code>，确保拿到最新版。</p>
+  </div></details>
+  <h3>本机在用的 pnpm-workspace.yaml</h3>
+  <div class="codeblock"><div class="cb-head"><span class="cb-title">yml · ~/.dsh/profiles/web/pnpm-workspace.yaml</span><button class="copy">复制</button></div><pre><code>packages:
+  - .
+
+<span class="cmt"># pnpm 默认 isolated 模式会让部分子包嵌套收敛；hoisted 更稳</span>
+nodeLinker: hoisted
+autoInstallPeers: false
+
+<span class="cmt"># 第三方包的构建脚本默认被拦；false = 明确不执行（本项目不需要）</span>
+allowBuilds:
+  cloudflared: false
+  cpu-features: false
+  node-pty: false
+  ssh2: false
+
+<span class="cmt"># 绕过 pnpm 11 对新发布包的时间门禁</span>
+minimumReleaseAgeExclude:
+  - '@linxin666/*'</code></pre></div>
+  <div class="callout danger">
+    <div class="ttl">第三方插件有供应链风险</div>
+    <p>社区插件能访问你的文件、凭据和网络。帮人装之前先让它审代码；安装前核对 npm scope；优先选有仓库、有 README、能看懂 diff 的包。看到 <code>postinstall</code> 脚本要格外警惕。</p>
+  </div>
+  <div class="callout tip">
+    <div class="ttl">装 bundle 还是装单个子插件</div>
+    <p>聚合包（如 <code>@linxin666/dsh-web-all</code>）省事，但它会一次带进 task-board / git-graph / remote-web-ui 等多个插件和 SSE 长连接，是 web 卡死的主要嫌疑。按需装单个子包，代价是你要自己管依赖。</p>
+  </div>
+</section>
+<section id="starter">
+  <h2><span class="num">8</span>推荐起步插件</h2>
+  <p class="lead">按"先补能力缺口，再谈体验"的顺序装。版本号是本机 09-22 的快照，会过期，装之前看下 npm。</p>
+  <h3>第一梯队：补能力</h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>插件</th><th>它解决什么</th><th>注意</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><code>@liustack/modsearch</code><br><span class="muted small">5.10.3</span></td>
+        <td>给没有原生联网的模型补 <b>web 搜索 / X 搜索 / 抓网页</b>，免注册免 key</td>
+        <td>免费额度有限；抓取失败时看返回的 uncertainty</td>
+      </tr>
+      <tr>
+        <td><code>@liustack/modlens</code><br><span class="muted small">3.26.2</span></td>
+        <td>给纯文本模型补<b>看图能力</b>，基于免费的 Antigravity CLI</td>
+        <td>装完要确认 CLI 可用；图片路径要能被读取</td>
+      </tr>
+      <tr>
+        <td><code>dsh-context</code><br><span class="muted small">0.54.0</span></td>
+        <td><b>上下文面板</b>：看清 context 由什么组成、怎么膨胀</td>
+        <td>长会话必备；配合压缩策略用</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>第二梯队：补效率</h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>插件</th><th>它解决什么</th><th>注意</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><code>@changfenhuang/dsh-annotation</code><br><span class="muted small">1.4.10</span></td>
+        <td>选中回复文字<b>批注</b>，按回车带批注发送，模型逐条回应</td>
+        <td>讨论型任务很好用；注意批注块会进上下文</td>
+      </tr>
+      <tr>
+        <td><code>@linxin666/dsh-client-ui-task-board</code><br><span class="muted small">0.3.24</span></td>
+        <td><b>任务看板</b>：卡片 + 真实会话执行 + Host cron 调度 + 休眠保护</td>
+        <td>有权限门，写类任务默认可能被跳过，见第 9 节</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>第三梯队：体验与外观</h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>插件</th><th>它解决什么</th><th>注意</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><code>dshmarket</code><br><span class="muted small">1.50.0</span></td>
+        <td>Web 里的<b>可视化插件市场</b>，逛、搜、一键装</td>
+        <td>toggle 插件会改 patch，触发 HMR，可能让页面卡一下</td>
+      </tr>
+      <tr>
+        <td><code>dsh-setting-restart</code><br><span class="muted small">1.0.0</span></td>
+        <td>设置页里的<b>一键重启</b>后端</td>
+        <td>本机实测它只往 stdout 打日志、不落盘；启动失败时可能无声无息，别把它当唯一手段</td>
+      </tr>
+      <tr>
+        <td><code>dsh-plugin-whale-fenggu</code><br><span class="muted small">1.1.0</span></td>
+        <td>DeepSeek <b>峰谷提醒浮窗</b>，帮你把批量任务挪到谷段</td>
+        <td>纯前端；峰谷时段以官方价格页为准</td>
+      </tr>
+      <tr>
+        <td><code>@linxin666/dsh-client-ui-skin-center</code></td>
+        <td>图形化皮肤中心，管理 <code>~/.dsh/skins</code></td>
+        <td>外观插件不影响核心能力，但会增加前端体积</td>
+      </tr>
+      <tr>
+        <td><code>dsh-better-sidebar</code><br><span class="muted small">0.19.1</span></td>
+        <td>类 VS Code 右侧栏（explorer / editor / terminal / git / browser）</td>
+        <td><b>已知冲突</b>：它以 extension 优先级接管 <code>dsh-resource://file/**</code>，会盖掉内置图片 / PDF 预览。图片显示异常先停它</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout ok">
+    <div class="ttl">一条最小可用清单</div>
+    <p>如果你只想先跑顺，装 <code>modsearch</code> + <code>modlens</code> 就够用了。等真的觉得"上下文看不见"再上 <code>dsh-context</code>。<b>不要一上来装全家桶</b>，web 卡死的代价比少一个功能大得多。</p>
+  </div>
+  <h3>自己写一个插件：最短路径</h3>
+  <p>本机有一个真实的最小例子：Codex 风格快捷键插件 <code>dsh-client-ui-shortcuts</code>，浏览器侧插件本体只有一个 <code>lib/client.js</code>，用 <code>insert</code> 挂进 web profile。</p>
+  <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · 把自己写的插件挂进 web</span><button class="copy">复制</button></div><pre><code>dsh plugin --profile web add /path/to/your-plugin
+<span class="cmt"># 然后在 profiles/web/cordis.patch.yml 里 insert：</span>
+<span class="cmt"># - insert:</span>
+<span class="cmt">#     - id: your-plugin</span>
+<span class="cmt">#       name: your-plugin-name</span>
+<span class="cmt"># 重启 dsh web，刷新浏览器</span></code></pre></div>
+</section>
+<section id="usage">
+  <h2><span class="num">9</span>日常使用范式</h2>
+  <p class="lead">这部分不是命令，是习惯。从最近几天的真实 session 里总结出来的，能少走很多弯路。</p>
+  <h3>会话与工作区：一个项目一个会话</h3>
+  <ul>
+    <li>dsh 把<b>启动目录</b>当 workspace 根，沙箱也只放行这个目录。开新会话前先 cd 到正确的仓库。</li>
+    <li>跨项目的事不要塞进同一个会话；上下文会互相污染，权限也容易给错。</li>
+    <li>会话有磁盘持久化（<code>~/.dsh/sessions/.../session.v3.jsonl.zstd</code>），重启 dsh 后可以在 UI 里恢复。</li>
+  </ul>
+  <h3>权限：先想清楚这次要给多大</h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th><code>DSH_PERMISSION_MODE</code></th><th>sandbox</th><th>approval</th><th>适合</th></tr></thead>
+    <tbody>
+      <tr><td><code>read-only</code></td><td>read-only</td><td>ask</td><td>只读调研、代码审查</td></tr>
+      <tr><td><code>workspace-write</code>（默认）</td><td>workspace-write</td><td>ask</td><td>绝大多数开发任务</td></tr>
+      <tr><td><code>danger-full-access</code></td><td>danger-full-access</td><td>never</td><td>确实需要写工作区外，且你盯着</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout warn">
+    <div class="ttl">默认策略就够用，不要图省事写 patch 关审批</div>
+    <p>官方设计的入口是环境变量 <code>DSH_PERMISSION_MODE</code>，三档语义自洽。直接 patch <code>approval.policy: never</code> 等于关掉闸门，只在明确知道后果时用。</p>
+  </div>
+  <h3>峰谷批量：把"要跑很久但不急"的任务攒起来</h3>
+  <p>DeepSeek 有峰谷计价。一个很实用的工作流是：平时只做讨论和拆任务，把可无人值守的任务写成看板卡片，挂 cron 到谷段批量执行，第二天看结果。</p>
+  <div class="steps">
+    <div class="step"><h4>先讨论，再落卡</h4><p>复杂任务先对齐目标和验收标准，再写成卡片。卡片里放 prompt、workspace、期望产物。</p></div>
+    <div class="step"><h4>按"能不能无人值守"分类</h4><p>A 类纯核对 / 算力型可以全自动；B 类能出草稿但要人拍板；C 类只能本人做，别排进去。</p></div>
+    <div class="step"><h4>提前过权限门</h4><p>看板默认权限是 read-only，写文件的卡权限高于它时会被拒或跳过。谷段跑之前一张张确认。</p></div>
+    <div class="step"><h4>挂 cron，别守夜</h4><p>看板支持多段 cron，时区 <code>Asia/Shanghai</code>。跑完早上看 <code>~/.dsh/dsh-usage/usage-ledger.json</code> 的成本。</p></div>
+  </div>
+  <h3>交互习惯：分阶段，不要让它一路跑到底</h3>
+  <div class="callout danger">
+    <div class="ttl">真实教训</div>
+    <p>本机一次排障里，agent 一路查到底、没有阶段性汇报，用户中途完全不知道进展。默认约定应该是：<b>每个阶段先汇报再继续；涉及 kill / 重启 / 改配置 / 清缓存，先停下来问。</b></p>
+  </div>
+  <ul>
+    <li>让它<b>先给计划</b>再执行；计划里写清验收标准和回滚方式。</li>
+    <li>讨论型任务用批注插件（<code>dsh-annotation</code>），比来回打字快。</li>
+    <li>需要并行时用 <code>dsh-tool-subagent</code> / <code>dsh-tool-workflow</code>，给子代理显式指定模型，别默认继承主模型。</li>
+    <li>长任务中途用 <code>dsh-context</code> 看上下文占用，及时压缩或开新会话。</li>
+  </ul>
+  <h3>成本意识</h3>
+  <ul>
+    <li>默认模型 <code>deepseek-flash</code> + 高推理档，本机日常够用；重活再换更强模型。</li>
+    <li>每天看一次 <code>~/.dsh/dsh-usage/usage-ledger.json</code>，按 provider / model / 天统计 token 和成本。</li>
+    <li>把"搜索 + 抓取 + 批量核对"这类 token 密集型任务放到谷段。</li>
+    <li>缓存命中（cacheReadTokens）通常占大头，重复问同一个大上下文会明显更便宜。</li>
+  </ul>
+</section>
+<section id="pitfalls">
+  <h2><span class="num">10</span>踩坑与排查</h2>
+  <p class="lead">先看速查表，再展开细节。每条都标了是实测还是推断。</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>症状</th><th>根因</th><th>处理</th></tr></thead>
+    <tbody>
+      <tr><td><code>command not found: dsh</code></td><td>通过 npx 跑时 dsh 只存在于那一次的 npx 缓存 PATH</td><td>全局装：<code>npm i -g @deepseek-ai/dsh</code>，确认 <code>&lt;prefix&gt;/bin</code> 在 PATH</td></tr>
+      <tr><td><code>EPERM ... mkdir '~/.dsh/...'</code></td><td>dsh 自己的文件沙箱</td><td>用项目内 <code>DSH_HOME</code>；或在普通终端跑</td></tr>
+      <tr><td>终端能用，GUI / 别的 App 里 dsh 无输出</td><td>GUI 的 PATH 命中旧 Node（如 v16）</td><td>launcher 钉死 Node 22 + 无条件 prepend 其 bin</td></tr>
+      <tr><td><code>dsh plugin add</code> 失败</td><td>pnpm store 越界 / 构建脚本被拦 / isolated / 发布门禁</td><td>见第 7 节，按终端提示逐条处理</td></tr>
+      <tr><td>Web 用着用着卡死，几分钟又自己好</td><td>大量 client bundle + SSE 占满 Chrome 同源 6 连接</td><td>减 UI 插件、别开多标签、<code>Cmd+Shift+R</code>、考虑 startup 重载</td></tr>
+      <tr><td>右侧栏图片 / PDF 预览变代码</td><td><code>dsh-better-sidebar</code> 以 extension 优先级接管了文件预览</td><td>停用该插件，恢复内置 preview</td></tr>
+      <tr><td>开 TUN 后 dsh API 超时</td><td>Clash 全局模式把直连流量丢到海外节点</td><td>TUN + 规则模式，给 DeepSeek / Moonshot 域名加 DIRECT</td></tr>
+      <tr><td>TUN 下 <code>localhost:3080</code> 连不上，<code>127.0.0.1</code> 正常</td><td>fake-ip 把 localhost 解析成 <code>198.18.x.x</code></td><td>把 localhost 加进 <code>fake-ip-filter</code></td></tr>
+      <tr><td><code>--dump-config</code> 也报权限错</td><td>它同样会重写 <code>profiles/&lt;p&gt;/cordis.yml</code></td><td>用项目内 <code>DSH_HOME</code></td></tr>
+      <tr><td>装了社区包结果不是官方的</td><td>相近名抢注</td><td>认准 <code>@deepseek-ai/dsh</code>，装前 <code>npm view</code></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <details class="acc"><summary>A · dsh 不在 PATH：npx 的会话专属 PATH 陷阱</summary><div class="body">
+    <p>用 <code>npx @deepseek-ai/dsh</code> 时，<code>dsh</code> 只存在于 npx 缓存目录（<code>~/.npm/_npx/&lt;hash&gt;/node_modules/.bin/</code>），那是<b>那一次会话专属的 PATH</b>。你在自己的终端里敲 <code>dsh</code> 会 command not found。</p>
+    <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · 修法</span><button class="copy">复制</button></div><pre><code>npm i -g @deepseek-ai/dsh
+which dsh
+npm config get prefix     <span class="cmt"># 检查 &lt;prefix&gt;/bin 是否在 PATH</span></code></pre></div>
+    <p class="muted small">写自动化脚本时不要假定 dsh 在 PATH：按 <code>dsh</code> → <code>npx --no-install</code> → <code>npx -y</code> 的顺序探测，找不到再报错提示用户安装。</p>
+  </div></details>
+  <details class="acc"><summary>B · 沙箱挡住 ~/.dsh（<span class="badge b-verified">实测</span>）</summary><div class="body">
+    <p>在 dsh 会话里直接跑 <code>dsh --profile headless ...</code>，会报：</p>
+    <div class="codeblock"><div class="cb-head"><span class="cb-title">text</span><button class="copy">复制</button></div><pre><code>EPERM: operation not permitted, mkdir '/Users/you/.dsh/profiles/headless'</code></pre></div>
+    <p>不是 dsh 坏了，是 dsh 的文件沙箱策略在拦。做实验用项目内 DSH_HOME：</p>
+    <div class="codeblock"><div class="cb-head"><span class="cb-title">bash</span><button class="copy">复制</button></div><pre><code>export DSH_HOME="$PWD/.dsh-lab"
+dsh --profile web --dump-default-config | head -40</code></pre></div>
+  </div></details>
+  <details class="acc"><summary>C · GUI / daemon 环境命中旧 Node（<span class="badge b-verified">实测</span>）</summary><div class="body">
+    <p>一个真实案例：某个桌面 App 用 3 秒超时探测 <code>dsh --version</code>，报 "found, but could not verify its version"。根因是它的 daemon PATH 以 <code>/usr/local/bin</code> 开头，那里有 2022 年 pkg 装残留的 Node <code>v16.13.2</code>；dsh 的 shim 用 <code>#!/usr/bin/env node</code>，于是 ESM <code>SyntaxError</code>、exit 1、stdout 为空。</p>
+    <p>更隐蔽的是第二层：给 dsh 钉死 Node 22 还不够，dsh 内部 <code>spawnSync("pnpm")</code> 时，pnpm 是 corepack 的 node shim，会再次用 PATH 里的旧 Node，报 <code>TypeError: URL.canParse is not a function</code>。</p>
+    <div class="codeblock"><div class="cb-head"><span class="cb-title">sh · launcher 的核心逻辑</span><button class="copy">复制</button></div><pre><code>NODE_DIR="/path/to/node22/bin"
+NODE="$NODE_DIR/node"
+DSH_ENTRY="/path/to/node22/lib/node_modules/@deepseek-ai/dsh/lib/bin.js"
+
+PATH="$NODE_DIR:$PATH"      <span class="cmt"># 必须无条件 prepend，即使 PATH 末尾已有该目录</span>
+export PATH
+exec "$NODE" "$DSH_ENTRY" "$@"</code></pre></div>
+    <p class="muted small">注意那个"无条件"：如果写成"PATH 里已有该目录就跳过 prepend"，而 daemon 的 PATH 末尾本来就有该目录，就会跳过、问题依旧。</p>
+  </div></details>
+  <details class="acc"><summary>D · Web 卡死：16.6 MB 前端 bundle + Chrome 6 连接（<span class="badge b-verified">实测</span>）</summary><div class="body">
+    <p>症状：web 页面假死几分钟又自己恢复，反复出现，看起来像"重启插件有问题"。</p>
+    <p>实测证据（2026-09-21）：</p>
+    <ul>
+      <li>后端进程活着，事件循环空闲，调度正常——不是后端挂了。</li>
+      <li>首页一次加载 <b>62 个 client bundle，约 16.6 MB 未压缩</b>。</li>
+      <li>Chrome 到 <code>127.0.0.1:3080</code> 恰好 <b>6 条 ESTABLISHED</b>——Chrome 对同 host:port 的 HTTP/1.1 连接上限。</li>
+      <li>其中一条服务端 Send-Q 堆到约 <b>7.9 MB</b>，客户端 Recv-Q 约 <b>16.7 MB</b>；5 秒后再测归零——正是"卡住又自己恢复"的形状。</li>
+    </ul>
+    <p>机制：UI 插件多 + SSE 长连接（HMR、task-board、git-graph、remote-web-ui）占满 6 条连接，普通请求排队；浏览器解析 16.6 MB JS 时又停止读网络，服务端发送队列迅速堆积。重启 / HMR 会让所有连接同时断、同时重连，并把 bundle 重下一遍，所以必然再卡一次。</p>
+    <p>按性价比的处理顺序：</p>
+    <ol>
+      <li>减插件：优先停用/移除聚合包和 better-sidebar，目标 client bundle &lt; 5 MB、SSE ≤ 3 条。</li>
+      <li>不要开多个 dsh 标签页；卡住时先关掉其他标签，再 <code>Cmd+Shift+R</code>。</li>
+      <li>降低热重载频率：避免 agent 输出时去插件市场 toggle；可把 <code>patchReload</code> 改成 <code>startup</code>。</li>
+      <li>重启插件的健壮性有缺口：只看旧 PID、不检查端口释放、不确认新进程起来、日志不落盘。别把它当唯一重启手段。</li>
+    </ol>
+  </div></details>
+  <details class="acc"><summary>E · 右侧栏图片 / PDF 预览被顶掉（<span class="badge b-verified">实测</span>）</summary><div class="body">
+    <p><code>dsh-better-sidebar</code> 用 <code>priority: 'extension'</code> 注册了 <code>dsh-resource://file/**</code>，写得很直白：它比内置的 <code>text</code> preview（fallback）优先级高，所以每个文件都被它接管，图片走它自己的 viewer。</p>
+    <p>排查时先分两层：服务端媒体路由是否 200、文件是否正常；如果都正常，那就是前端被插件顶掉了。停用 better-sidebar 即可验证。</p>
+  </div></details>
+  <details class="acc"><summary>F · TUN 模式与 DSH 共存：别开全局（<span class="badge b-verified">实测</span>）</summary><div class="body">
+    <p>Node 默认不读系统代理，也不读 <code>HTTP_PROXY</code>，所以不开 TUN 时 DSH 是直连的，Clash 模式伤不到它。一开 TUN，TUN 在 L3 接管所有流量，Node 的"免代理豁免"消失，DSH 请求开始完全受 Clash 模式支配。</p>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>配置</th><th>DSH 请求走向</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>不开 TUN</td><td>直连</td><td>正常</td></tr>
+        <tr><td>TUN + 规则模式</td><td>按规则走 DIRECT</td><td>正常</td></tr>
+        <tr><td>TUN + 全局模式</td><td>忽略规则，丢到海外节点</td><td>延迟暴涨 / 超时 / 重置</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>正解：<b>TUN + 规则模式</b>，永远不要开全局；给 <code>api.deepseek.com</code> / <code>api.moonshot.cn</code> 明确加 DIRECT 规则。</p>
+    <h4>附带的隐藏 bug：localhost 被解析成假 IP</h4>
+    <p>如果 DNS 配置里 <code>use-system-hosts: false</code> 且 <code>fake-ip-filter</code> 没有 localhost，开 TUN 后 <code>localhost</code> 会被解析成 <code>198.18.x.x</code>。表现是 <code>curl 127.0.0.1:3080</code> 通，但 <code>curl localhost:3080</code> 不通——这种问题最难查。</p>
+    <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · 验证</span><button class="copy">复制</button></div><pre><code>curl -s -o /dev/null -w "%{http_code}\n" http://127.0.0.1:3080   <span class="cmt"># 401 = 服务活着</span>
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3080    <span class="cmt"># 哨兵：不能是 000</span>
+dscacheutil -q host -a name localhost                            <span class="cmt"># 不应出现 198.18.x.x</span></code></pre></div>
+  </div></details>
+  <details class="acc"><summary>G · 参数归属与 dump 副作用</summary><div class="body">
+    <p><code>dsh --profile web --help</code> 显示的是 web app 的 help；启动器自己的 help 用 <code>dsh --help</code>。<code>--port</code> / <code>--resume</code> 都属于 app 参数，启动器只解析到第一个不认识的 token 为止。</p>
+    <p><code>--dump-config</code> 即使只是查看，也会尝试写 <code>profiles/&lt;name&gt;/cordis.yml</code>，所以同样受沙箱限制。</p>
+  </div></details>
+</section>
+<section id="agent">
+  <h2><span class="num">11</span>给 agent 用</h2>
+  <p class="lead">这一节是给"要帮你配置 dsh"的 agent 看的。人类可以直接把整段提示词复制给你的 agent。</p>
+  <div class="callout info">
+    <div class="ttl">配套文件（同目录）</div>
+    <ul>
+      <li><code>dsh.agent.md</code>：精简机读版，包含路径、命令、patch、权限、踩坑表、开场提示词。</li>
+      <li><code>dsh.agent.json</code>：结构化机读版，包含 commands / configLayerOrder / pitfalls / verifyChecklist。</li>
+      <li>本页 <code>index.html</code>：人类可读的完整版。</li>
+    </ul>
+  </div>
+  <h3>开场提示词（复制给 agent）</h3>
+  <div class="codeblock prompt-box"><div class="cb-head"><span class="cb-title">text · dsh onboarding prompt</span><button class="copy">复制</button></div><pre><code>你是运行在 DeepSeek Harness (dsh) 里的 agent。
+先做三件事，再回答我：
+1. 读 ~/.dsh/AGENTS.md 和当前项目根的 AGENTS.md / CLAUDE.md；
+2. 跑 dsh --version，以及 dsh --profile web --dump-config | grep -c '^- id:'，确认版本与配置树规模；
+3. 用一段话复述 dsh 的配置分层顺序（bundle 层 → profile patch → home patch → --patch 覆盖层，后者覆盖前者）。
+
+之后所有涉及改 ~/.dsh、装插件、重启服务的操作，遵守：
+- 先给计划并等我确认；每个阶段先汇报再继续；
+- 先备份要改的文件（package.json / cordis.patch.yml / pnpm-workspace.yaml）；
+- 改完用 dsh --profile web --dump-config 验证 patch 是否挂上，再重启，再验证一次；
+- 明确区分「实测结论」和「推测」；
+- 不要盲目装第三方插件，先审代码并核对 npm scope。</code></pre></div>
+  <h3>让 agent 帮你配置 dsh（另一段提示词）</h3>
+  <div class="codeblock prompt-box"><div class="cb-head"><span class="cb-title">text · configure dsh</span><button class="copy">复制</button></div><pre><code>请帮我把 dsh 配置到可用状态，遵守以下约束：
+1. 先只读排查：node -v、which -a node dsh pnpm、dsh --version、dsh web --port 0 --no-open 起一次。
+2. 不要改 ~/.dsh 里的任何文件，除非我给你明确许可；需要实验时用项目内 DSH_HOME。
+3. 装插件用 dsh plugin --profile web add &lt;pkg&gt;。如果失败，把完整报错贴给我，并按顺序检查：
+   - pnpm store 是否在工作区外被沙箱拦（Operation not permitted）；
+   - 是否需要 allowBuilds；
+   - 是否需要 nodeLinker: hoisted；
+   - 是否撞上 pnpm 的 minimumReleaseAge。
+4. 每装完一个插件：备份 package.json 和 cordis.patch.yml，dump-config 验证，再重启后端。
+5. 最后给我一张「改了什么 / 怎么回滚 / 怎么验证」的清单。</code></pre></div>
+  <h3>Agent 十条纪律</h3>
+  <div class="grid c2">
+    <div class="card"><ol>
+      <li>先对齐目标再动手，不要拿别的项目的结论回答现在的问题。</li>
+      <li>分阶段汇报，长排查不要一路跑到底。</li>
+      <li>涉及 kill / 重启 / 改配置 / 清缓存，先停下问。</li>
+      <li>明确区分已验证与推测。</li>
+      <li>多步脚本类任务用 <code>~/Projects/&lt;name&gt;/</code>，不用临时目录。</li>
+    </ol></div>
+    <div class="card"><ol start="6">
+      <li>子代理显式指定模型，别默认继承主模型。</li>
+      <li>装第三方插件前审代码、核对 scope。</li>
+      <li>不要装全家桶，按需装子插件。</li>
+      <li>改任何配置前先备份，改完必须 dump-config 验证。</li>
+      <li>把"怎么回滚"和"怎么验证"一起交付。</li>
+    </ol></div>
+  </div>
+  <h3>Agent 环境自检清单</h3>
+  <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · 逐条跑</span><button class="copy">复制</button></div><pre><code>node -v                                  <span class="cmt"># 期望 v22.x</span>
+which -a node dsh pnpm                   <span class="cmt"># 看 PATH 顺序，GUI 环境尤其要查</span>
+dsh --version                            <span class="cmt"># 期望 0.1.5-rc.2 或更新</span>
+dsh web --port 0 --no-open               <span class="cmt"># 能起来说明后端正常，Ctrl+C 退出</span>
+curl -s -o /dev/null -w "%{http_code}\n" http://127.0.0.1:3080
+dscacheutil -q host -a name localhost    <span class="cmt"># 不应出现 198.18.x.x</span>
+dsh --profile web --dump-config | grep -c '^- id:'   <span class="cmt"># 本机实测 152</span></code></pre></div>
+  <div class="callout tip">
+    <div class="ttl">agent 最容易犯的错</div>
+    <p>把"dump-config 能读到某插件"当成"插件已经生效"。实际上要 <b>重启后端进程</b> 才会加载新模块；只刷新浏览器不够。另一个是把"后端活着"当成"web 没问题"——本机卡死案例里后端一直是活的，问题在前端连接。</p>
+  </div>
+</section>
+<section id="glossary">
+  <h2><span class="num">12</span>术语、自查与参考</h2>
+  <h3>术语表</h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>术语</th><th>一句话解释</th></tr></thead>
+    <tbody>
+      <tr><td>Harness</td><td>调度上下文、工具、任务状态、反馈和边界的运行时；dsh 的本体</td></tr>
+      <tr><td>Profile</td><td>产品形态，如 web / headless / acp / sdk</td></tr>
+      <tr><td>Bundle</td><td>一组插件的预设配置，是配置树的第一层</td></tr>
+      <tr><td>Patch</td><td>YAML 顶层数组的覆盖层，按 id 改配置 / 禁用 / 插入插件</td></tr>
+      <tr><td>cordis</td><td>dsh 底层用的插件框架；<code>cordis.patch.yml</code> 因此得名</td></tr>
+      <tr><td>Agent preset</td><td>改写首轮 prompt / 工具集 / 压缩行为的预设，社区可选装</td></tr>
+      <tr><td>Skill</td><td>可复用的任务说明，按目录 rank 扫描加载</td></tr>
+      <tr><td>Hook</td><td>会话 / 工具事件的拦截点，可桥接 Claude Code 的 hooks</td></tr>
+      <tr><td>ACP / SDK</td><td>给自动化客户端用的两种 stdio 协议 profile</td></tr>
+      <tr><td>SSE / HMR</td><td>服务端推送长连接 / 热模块重载，是 web 卡死的主要连接占用方</td></tr>
+      <tr><td>pnpm</td><td>dsh 用来管理 profile 插件的包管理器；很多安装坑来自它</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>信息时效性：自己核一遍</h3>
+  <div class="codeblock"><div class="cb-head"><span class="cb-title">bash · 核实版本与来源</span><button class="copy">复制</button></div><pre><code>npm view @deepseek-ai/dsh version
+npm view @deepseek-ai/dsh repository.url
+dsh --version
+dsh --profile web --dump-config | grep -c '^- id:'</code></pre></div>
+  <p class="muted small">本页基线是 0.1.5-rc.2，实测日期 2026-09-18 ~ 09-22。这个领域迭代很快，数字和 flag 都可能变；结论里"结构"比"数字"更耐用。</p>
+  <h3>参考与出处</h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>来源</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td>npm 包内 <code>README.zh.md</code></td><td>官方对 profile / bundle / patch / 命令语法 / 叠加顺序的定义</td></tr>
+      <tr><td>本机 dsh 实验笔记</td><td>4 个 Lab、迁移配置源、一页速查、踩坑记录</td></tr>
+      <tr><td>本机排障记录</td><td>GUI 环境旧 Node 问题的诊断思路与 launcher 写法</td></tr>
+      <tr><td>本机网络实测</td><td>TUN / 规则 / 全局模式与 DSH 共存</td></tr>
+      <tr><td><code>~/.dsh/cordis.patch.yml</code></td><td>home 级 patch 的真实例子（skills + hooks 桥接）</td></tr>
+      <tr><td><code>~/.dsh/AGENTS.md</code></td><td>全局工作记忆与约定</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout ok">
+    <div class="ttl">分享的最后一句</div>
+    <p>不要一上来就研究怎么改 dsh。先用它把一个真实的小项目跑通，确认你的 <code>AGENTS.md</code>、skills、MCP 都能用；等你遇到第一个真实的不顺手，再去写第一份 patch。那时候你才看得懂配置树。</p>
+  </div>
+</section>
+</main>
+</div>
+<footer>
+  <div class="wrap">
+    <p><b>动手用 dsh · DeepSeek Harness 配置与使用分享</b> ｜ 整理于 2026-09-22 ｜ 基线 dsh 0.1.5-rc.2 / Node v22.22.2 / macOS</p>
+    <p>内容来自本机实测、会话记录与项目笔记；标注了「本机实测 / 官方文档 / 经验判断」的证据等级。配套 agent 文件：<code>dsh.agent.md</code>、<code>dsh.agent.json</code>。</p>
+  </div>
+</footer>
+<button id="totop" title="回到顶部">↑</button>
+<script>
+(function(){
+  var root=document.documentElement;
+  var themeBtn=document.getElementById('themeBtn');
+  var stored=null;
+  try{ stored=localStorage.getItem('dsh-guide-theme'); }catch(e){ stored=null; }
+  if(stored){ root.setAttribute('data-theme',stored); }
+  else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){ root.setAttribute('data-theme','dark'); }
+  if(themeBtn){
+    themeBtn.addEventListener('click',function(){
+      var cur=root.getAttribute('data-theme');
+      var next=(cur==='dark')?'light':'dark';
+      root.setAttribute('data-theme',next);
+      try{ localStorage.setItem('dsh-guide-theme',next); }catch(e){}
+    });
+  }
+  var printBtn=document.getElementById('printBtn');
+  if(printBtn){ printBtn.addEventListener('click',function(){ window.print(); }); }
+
+  function copyText(text,btn){
+    function done(){ if(btn){ var old=btn.textContent; btn.textContent='已复制'; setTimeout(function(){ btn.textContent=old; },1200); } }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done,function(){ fallback(); });
+    } else { fallback(); }
+    function fallback(){
+      var ta=document.createElement('textarea');
+      ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); }catch(e){}
+      document.body.removeChild(ta); done();
+    }
+  }
+  var blocks=document.querySelectorAll('.codeblock');
+  for(var i=0;i<blocks.length;i++){
+    (function(b){
+      var btn=b.querySelector('.copy');
+      var pre=b.querySelector('pre');
+      if(btn && pre){ btn.addEventListener('click',function(){ copyText(pre.innerText,btn); }); }
+    })(blocks[i]);
+  }
+  var brief=document.getElementById('copyBrief');
+  if(brief){
+    brief.addEventListener('click',function(){
+      var box=document.querySelector('.prompt-box pre');
+      if(box){ copyText(box.innerText,brief); }
+    });
+  }
+
+  var toc=document.getElementById('toc');
+  var tocToggle=document.getElementById('tocToggle');
+  if(tocToggle){ tocToggle.addEventListener('click',function(){ toc.classList.toggle('open'); }); }
+
+  var links=document.querySelectorAll('aside.toc a');
+  var map={};
+  for(var j=0;j<links.length;j++){
+    var href=links[j].getAttribute('href');
+    if(href && href.charAt(0)==='#'){ map[href.slice(1)]=links[j]; }
+  }
+  var sections=document.querySelectorAll('main > section[id]');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      for(var k=0;k<entries.length;k++){
+        var en=entries[k];
+        if(en.isIntersecting){
+          for(var key in map){ map[key].classList.remove('active'); }
+          var link=map[en.target.id];
+          if(link){ link.classList.add('active'); }
+        }
+      }
+    },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+    for(var s=0;s<sections.length;s++){ io.observe(sections[s]); }
+  }
+
+  var filter=document.getElementById('filter');
+  if(filter){
+    filter.addEventListener('input',function(){
+      var q=filter.value.trim().toLowerCase();
+      var secs=document.querySelectorAll('main > section');
+      for(var x=0;x<secs.length;x++){
+        var sec=secs[x];
+        if(q===''){ sec.style.display=''; }
+        else{
+          var hit=sec.textContent.toLowerCase().indexOf(q)>-1;
+          sec.style.display=hit?'':'none';
+        }
+      }
+      if(q===''){ return; }
+      var first=null;
+      for(var y=0;y<secs.length;y++){
+        if(secs[y].style.display===''){ first=secs[y]; break; }
+      }
+      if(first){ first.scrollIntoView({behavior:'smooth',block:'start'}); }
+    });
+    document.addEventListener('keydown',function(e){
+      if(e.key==='/' && document.activeElement!==filter){
+        e.preventDefault(); filter.focus();
+      }
+    });
+  }
+
+  var top=document.getElementById('totop');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>600){ top.classList.add('show'); } else { top.classList.remove('show'); }
+  });
+  if(top){ top.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); }); }
+})();
+</script>
+</body>
+</html>

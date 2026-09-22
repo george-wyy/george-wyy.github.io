@@ -1,0 +1,200 @@
+{
+  "name": "dsh-onboarding-agent-brief",
+  "version": 1,
+  "humanPage": "./index.html",
+  "generatedAt": "2026-09-22",
+  "verifiedEnv": {
+    "dsh": "0.1.5-rc.2",
+    "node": "v22.22.2",
+    "npm": "10.9.7",
+    "pnpm": "12.5.1",
+    "os": "macOS",
+    "evidenceWindow": "2026-09-18..2026-09-22"
+  },
+  "identity": {
+    "officialPackage": "@deepseek-ai/dsh",
+    "officialRepo": "https://github.com/deepseek-ai/deepseek-harness",
+    "doNotConfuseWith": [
+      { "name": "Deep Code / deepseek code", "packageOrRepo": "lessweb/deepcode-cli", "note": "第三方开源 CLI，被官方 API 文档收录，不是 DSH" },
+      { "name": "community fork", "note": "各种 <user>/deepseek-harness 魔改发行版，跟随上游" },
+      { "name": "name-squat lookalikes", "examples": ["@deepopen/cli", "@opendeep/cli"], "note": "与 @deepseek-ai/dsh 只差一两个字母，安装前核对 scope" }
+    ]
+  },
+  "mentalModel": {
+    "formula": "Model + Harness = Agent",
+    "definitions": {
+      "profile": "产品形态：web / headless / acp / sdk / sdk-minimal",
+      "bundle": "一组插件的预设配置，如 @deepseek-ai/dsh-base + @deepseek-ai/dsh-web-app",
+      "patch": "YAML 顶层数组的覆盖层，按 id 改配置 / disabled / insert 新插件",
+      "rule": "在 dsh 里加功能 = 写 patch 或装 bundle，不是改源码"
+    },
+    "configLayerOrderLowToHigh": [
+      "bundle layers in dsh.profile.bundles order",
+      "profile cordis.patch.yml (~/.dsh/profiles/<name>/)",
+      "home cordis.patch.yml ($DSH_HOME/cordis.patch.yml, outranks profile layer)",
+      "--patch overlays",
+      "telemetry switch patch"
+    ],
+    "launcherArgRule": "launcher parses its own flags; after the first unrecognized token everything is forwarded to the profile app"
+  },
+  "paths": {
+    "DSH_HOME": "~/.dsh (override with env DSH_HOME)",
+    "globalMemory": "~/.dsh/AGENTS.md",
+    "homePatch": "~/.dsh/cordis.patch.yml",
+    "profileDir": "~/.dsh/profiles/<name>/",
+    "profileManifest": "~/.dsh/profiles/<name>/package.json",
+    "profilePatch": "~/.dsh/profiles/<name>/cordis.patch.yml",
+    "profileRoot": "~/.dsh/profiles/<name>/cordis.yml (rewritten on every boot; do not edit)",
+    "pnpmWorkspace": "~/.dsh/profiles/<name>/pnpm-workspace.yaml",
+    "skillsUser": "~/.dsh/skills (rank 400)",
+    "skillsShared": "~/.agents/skills (rank 500)",
+    "skillsClaudeCode": "~/.claude/skills (add via customSkillDirs, rank 300)",
+    "hooksBridge": "~/.dsh/hooks.json (filtered copy, loaded once at process start)",
+    "sessions": "~/.dsh/sessions/<workspace-slug>/session-*/session.v3.jsonl.zstd",
+    "taskBoard": "~/.dsh/task-board/ledger-v2.json",
+    "usageLedger": "~/.dsh/dsh-usage/usage-ledger.json"
+  },
+  "commands": {
+    "install": "npm i -g @deepseek-ai/dsh",
+    "web": "dsh web",
+    "webCustomPort": "dsh --profile web --port 8080 --no-open",
+    "headless": "dsh --profile headless \"task\"",
+    "acp": "dsh --profile acp",
+    "sdk": "dsh --profile sdk",
+    "dumpDefault": "dsh --profile web --dump-default-config",
+    "dumpComposed": "dsh --profile web --dump-config",
+    "pluginAdd": "dsh plugin --profile web add <npm-pkg>",
+    "pluginRemove": "dsh plugin --profile web remove <npm-pkg>",
+    "newProfileFromTemplate": "dsh --profile <new> --from-default-profile web",
+    "temporaryOverlay": "dsh --profile web --patch ./extra.yml",
+    "launcherHelp": "dsh --help",
+    "appHelp": "dsh --profile web --help",
+    "restartWeb": "kill $(lsof -tiTCP:3080 -sTCP:LISTEN); dsh web"
+  },
+  "webAppFlags": ["--host <host>", "--port <port>", "--no-open", "--trusted-host <authority...>"],
+  "webAppHasResumeFlag": false,
+  "profiles": {
+    "web": { "pluginEntriesMeasured": 152, "note": "client-* / ui-* 界面插件都在这一层" },
+    "headless": { "pluginEntriesMeasured": 87, "note": "一次性任务，最终答案 stdout" },
+    "acp": { "pluginEntriesMeasured": 86, "note": "Agent Client Protocol stdio" },
+    "sdk": { "note": "JSON-RPC stdio; sdk-minimal 是极简树" },
+    "tui": { "note": "社区提供 @deepseek-harness-tui/dsh-tui，非内置" }
+  },
+  "patchExamples": {
+    "disable": "- id: timer\n  disabled: true",
+    "configMerge": "- id: approval\n  config:\n    policy: never",
+    "insertPlugin": "- insert:\n    - id: ui-shortcuts\n      name: dsh-client-ui-shortcuts",
+    "skillDirs": "- id: skill-filesystem\n  config:\n    customSkillDirs:\n      - /Users/you/.claude/skills",
+    "hooksBridge": "- id: hooks-claude-code\n  name: '@deepseek-ai/dsh-hooks-claude-code'\n  config:\n    configPath: /Users/you/.dsh/hooks.json\n    defaultTimeoutMs: 15000"
+  },
+  "patchVerification": {
+    "command": "dsh --profile web --dump-config | grep -B2 -A6 'patched by'",
+    "expect": "a comment like: # == <bundle>, patched by <patch-file>"
+  },
+  "patchReload": {
+    "live": "watch patch files, changes take effect immediately (triggers front-end HMR)",
+    "startup": "apply once at boot; requires restart after edits"
+  },
+  "permissionModes": {
+    "env": "DSH_PERMISSION_MODE",
+    "default": "workspace-write",
+    "presets": {
+      "read-only": { "sandbox": "read-only", "approval": "ask" },
+      "workspace-write": { "sandbox": "workspace-write", "approval": "ask" },
+      "danger-full-access": { "sandbox": "danger-full-access", "approval": "never" }
+    },
+    "workspaceRoot": "process.cwd() — start dsh in the directory you want writable",
+    "selfSandboxBlocksDshHomeWrites": true
+  },
+  "pluginInstallPitfalls": [
+    {
+      "id": "pnpm-store-outside-workspace",
+      "symptom": "Failed to write cafs: Failed to create the parent directory at '~/Library/pnpm/store/v11/files/...': Operation not permitted; dsh: pnpm failed in profile directory ...",
+      "cause": "dsh's own file sandbox blocks writes outside the session workspace; pnpm's global store is outside",
+      "fix": "run dsh plugin add in the user's normal terminal, or point pnpm store-dir inside the workspace; do not retry blindly"
+    },
+    {
+      "id": "ERR_PNPM_IGNORED_BUILDS",
+      "symptom": "build scripts of cloudflared / cpu-features / node-pty / ssh2 blocked",
+      "cause": "pnpm >= 10 does not run third-party build/prepare scripts by default",
+      "fix": "add exact keys under allowBuilds in ~/.dsh/profiles/<name>/pnpm-workspace.yaml, then re-run"
+    },
+    {
+      "id": "isolated-linker-missing-subpackage",
+      "symptom": "Cannot find package '@linxin666/dsh-...' when starting dsh web",
+      "cause": "pnpm isolated linking nests some subpackages",
+      "fix": "set nodeLinker: hoisted (and autoInstallPeers: false) in the profile's pnpm-workspace.yaml, reinstall"
+    },
+    {
+      "id": "pnpm11-minimum-release-age",
+      "symptom": "a freshly published package resolves to an older version",
+      "cause": "pnpm 11 minimumReleaseAge gate",
+      "fix": "minimumReleaseAgeExclude: ['@scope/*'] in the profile's pnpm-workspace.yaml"
+    }
+  ],
+  "knownFailureModes": [
+    {
+      "id": "web-freeze",
+      "symptom": "dsh web tab freezes for minutes then recovers",
+      "evidence": "measured 2026-09-21: 62 client bundles, ~16.6MB uncompressed, 6 ESTABLISHED Chrome->3080 connections (HTTP/1.1 same-origin limit), server Send-Q up to ~7.9MB",
+      "cause": "many UI plugins + SSE long connections exhaust Chrome's 6-connection budget; HMR/restart re-downloads the bundle",
+      "mitigations": [
+        "avoid @linxin666/dsh-web-all; install only needed sub-plugins",
+        "target < 5MB client bundle and <= 3 SSE",
+        "do not open multiple dsh tabs",
+        "Cmd+Shift+R when stuck",
+        "consider patchReload: startup to avoid mid-session HMR"
+      ]
+    },
+    {
+      "id": "sidebar-preview-shadowed",
+      "symptom": "right sidebar shows code/blank instead of image/pdf preview",
+      "cause": "dsh-better-sidebar registers dsh-resource://file/** at extension priority, outranking the built-in text preview (fallback)",
+      "fix": "disable dsh-better-sidebar; built-in preview returns"
+    },
+    {
+      "id": "gui-node-version",
+      "symptom": "dsh works in terminal but a GUI/daemon reports it cannot verify the version, or dsh --version prints nothing",
+      "cause": "GUI PATH hits an old node (e.g. /usr/local/bin/node v16); dsh shim is #!/usr/bin/env node; pnpm/corepack spawned by dsh hits the same old node",
+      "fix": "wrap dsh with a launcher that execs an absolute Node 22 and unconditionally prepends that Node's bin dir to PATH"
+    },
+    {
+      "id": "tun-global-mode",
+      "symptom": "after enabling TUN, dsh API calls time out / reset",
+      "cause": "Clash GLOBAL mode ignores rules and sends DSH direct traffic overseas",
+      "fix": "TUN + rule mode; DOMAIN rules to DIRECT for api.deepseek.com and api.moonshot.cn; never use global mode"
+    },
+    {
+      "id": "tun-fake-ip-localhost",
+      "symptom": "http://localhost:3080 unreachable but http://127.0.0.1:3080 works under TUN",
+      "cause": "fake-ip resolves localhost to 198.18.x.x",
+      "fix": "add localhost to fake-ip-filter; verify with `dscacheutil -q host -a name localhost`"
+    }
+  ],
+  "agentDiscipline": [
+    "align on the goal before acting; ask what 'smooth' means and why the switch is happening",
+    "report progress in stages; stop before kill/restart/config writes",
+    "label verified facts vs inferences",
+    "persist multi-step work under ~/Projects/<name>/",
+    "assign explicit models to subagents",
+    "review third-party plugin code and npm scope before install",
+    "avoid full UI bundles; install only needed sub-plugins"
+  ],
+  "verifyChecklist": [
+    "node -v  # expect v22.x",
+    "which -a node dsh pnpm",
+    "dsh --version",
+    "dsh web --port 0 --no-open  # boot smoke test, Ctrl+C",
+    "curl -s -o /dev/null -w '%{http_code}\\n' http://127.0.0.1:3080  # 401 = alive",
+    "dscacheutil -q host -a name localhost  # no 198.18.x.x",
+    "dsh --profile web --dump-config | grep -c '^- id:'  # measured 152"
+  ],
+  "readOrder": [
+    "index.html §1-§4 (identity, model, install, cheatsheet)",
+    "index.html §9 agent section",
+    "~/.dsh/AGENTS.md",
+    "dsh.agent.md",
+    "~/.dsh/cordis.patch.yml (home patch example)",
+    "index.html §5-§7 (labs, migration, plugins)"
+  ]
+}

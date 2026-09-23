@@ -1,0 +1,53 @@
+---
+layout: archive
+title: "科研模板"
+title_en: "Templates"
+permalink: /templates/
+author_profile: true
+---
+
+<p class="lang-zh">这里放可复用的科研写作、实验与汇报模板。先从 RP（Research Proposal）两件套开始，后续会继续补充文献笔记、实验记录、组会记录、Rebuttal 等。</p>
+<p class="lang-en">Reusable templates for research writing, experiments, and presentations. Starting with the Research Proposal pair, with more to come.</p>
+
+<div class="highlight-grid">
+  <div class="highlight-card">
+    <strong data-i18n-zh="写作" data-i18n-en="Writing">写作</strong>
+    <span class="lang-zh">RP、论文、Rebuttal 等写作模板。</span>
+    <span class="lang-en">Templates for proposals, papers, rebuttals, and more.</span>
+  </div>
+  <div class="highlight-card">
+    <strong data-i18n-zh="实验" data-i18n-en="Experiments">实验</strong>
+    <span class="lang-zh">实验记录、数据管理、质控清单。</span>
+    <span class="lang-en">Experiment logs, data management, and QC checklists.</span>
+  </div>
+  <div class="highlight-card">
+    <strong data-i18n-zh="汇报" data-i18n-en="Meetings">汇报</strong>
+    <span class="lang-zh">组会记录、导师会议、进展汇报。</span>
+    <span class="lang-en">Group meetings, advisor meetings, and progress reports.</span>
+  </div>
+</div>
+
+<h2><span data-i18n-zh="全部模板" data-i18n-en="All Templates">全部模板</span></h2>
+
+<div class="blog-list">
+{% assign sorted_templates = site.templates | sort: "order" %}
+{% for item in sorted_templates %}
+  <article class="blog-item">
+    <span class="blog-date">{{ item.last_modified_at | default: item.date | date: "%Y-%m-%d" }}</span>
+    <div class="blog-body">
+      <h3><a href="{{ item.url | prepend: site.baseurl }}" {% if item.title_en %}data-i18n-zh="{{ item.title }}" data-i18n-en="{{ item.title_en }}"{% endif %}>{{ item.title }}</a></h3>
+      <div class="blog-tags">
+        {% if item.category %}<span class="blog-tag">{{ item.category }}</span>{% endif %}
+        {% for tag in item.tags %}<span class="blog-tag">{{ tag }}</span>{% endfor %}
+      </div>
+      <p class="blog-excerpt">
+        <span class="lang-zh">{{ item.excerpt_zh | default: item.excerpt | strip_html | truncate: 120 }}</span>
+        <span class="lang-en">{{ item.excerpt_en | default: item.excerpt | strip_html | truncate: 120 }}</span>
+      </p>
+    </div>
+  </article>
+{% endfor %}
+</div>
+
+<p class="lang-zh" style="font-size:0.9em;color:#666;">更多模板会陆续补充。如果你想要某个模板，可以直接告诉我。</p>
+<p class="lang-en" style="font-size:0.9em;color:#666;">More templates will be added over time. Let me know if you want a specific one.</p>

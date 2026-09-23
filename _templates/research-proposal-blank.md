@@ -1,62 +1,41 @@
 ---
 layout: single
-permalink: /rp-template/
-title: "科研 RP 写作模板"
-title_en: "Research Proposal Writing Template"
-author_profile: true
+title: "RP 空白骨架"
+title_en: "Research Proposal Blank Template"
+excerpt_zh: "可直接复制或下载的 Research Proposal 空白结构，覆盖从背景到附录的 11 个部分。"
+excerpt_en: "A copy-ready and downloadable blank structure covering 11 sections from background to appendix."
+category: "写作"
+tags: [RP, 模板, 空白模板]
+order: 2
 toc: true
 toc_label: "目录"
 toc_icon: "fas fa-file-alt"
+last_modified_at: 2026-09-23
+version: v1.0
+permalink: /templates/research-proposal-blank/
+author_profile: true
 ---
 
-<p class="lang-zh">这份模板整理自研究计划（Research Proposal, RP）的写作经验，用于帮助刚开始做研究的同学把想法整理成一份可讨论、可执行的 RP。本页只包含写作方法、结构与检查清单，不涉及任何未发表或内部研究内容。</p>
-<p class="lang-en">This template distills practical experience in writing research proposals. It helps students turn a rough idea into a discussable and executable proposal. This page contains only methodology, structure, and checklists; no unpublished or internal research content is included.</p>
+<p class="lang-zh">下面是可直接复制或下载的 RP 空白骨架。把【】里的内容替换成你的信息即可。配套的方法论见 <a href="/rp-template/">RP 写作指南</a>。</p>
+<p class="lang-en">Below is a copy-ready and downloadable RP blank skeleton. Replace the bracketed placeholders with your own content. The companion methodology guide is at <a href="/rp-template/">Research Proposal Guide</a>.</p>
 
-## 一、RP 要回答的四个问题
-
-| 问题 | 含义 | 对应章节 |
-|---|---|---|
-| **Why** | 为什么值得做 | 背景与问题 |
-| **What** | 做什么、不做什么 | 研究问题与假设 |
-| **How** | 怎么做、怎么验证 | 技术路线与实验设计 |
-| **What if** | 资源、时间、风险、产出 | 资源、时间、风险、产出 |
-
-## 二、推荐写作顺序
-
-<p class="lang-zh">不要从背景开始写。先逼自己写出「一句话问题」和「一句话洞察」，再决定要引用哪些文献。推荐顺序：</p>
-<p class="lang-en">Do not start with the literature. First write the one-sentence problem and the one-sentence insight, then decide what to cite. Suggested order:</p>
-
-1. 写 TL;DR 和核心科学问题（约 10 分钟）
-2. 写背景、gap、洞察、边界（约 15 分钟）
-3. 写假设表：陈述、操作化、指标、目标值、证伪条件（约 20 分钟）
-4. 写实验设计：被试、条件、baseline、指标（约 25 分钟）
-5. 写资源、时间、产出、风险（约 15 分钟）
-6. 写待讨论清单，并过一遍自检清单（约 5 分钟）
-
-## 三、一票否决项
-
-- 说不出「谁、在什么场景、付出什么代价」：问题不成立
-- 假设没有证伪条件，或指标不可测（如「体验更好」）：不是研究假设
-- 没有 baseline 或上限参考，只有「我们方法效果好」：结果不可信
-- 关键资源的获取路径和 fallback 都没写：计划不可执行
-- 声称「精度更高 / 更便宜」，但没有可比单位的数字
-- 本周没有任何可以开始的动作：还停留在愿望阶段
-
-## 四、空白模板
-
-<p class="lang-zh">下面是可直接复制的空白骨架。将【】中的占位内容替换为你的信息。</p>
-<p class="lang-en">The following is a copy-ready skeleton. Replace the bracketed placeholders with your own content.</p>
+<p>
+  <button class="btn btn--primary" onclick="rpCopy()">复制模板</button>
+  <button class="btn" onclick="rpDownload()">下载 .md</button>
+  <span id="rp-copy-status" style="margin-left:0.6em;font-size:0.85em;color:#666;"></span>
+</p>
 
 ```markdown
-
 ---
 title: "研究计划：【题目】"
 created: YYYY-MM-DD
 type: research-plan
 status: 草稿 v0.1
+revision: v0.1
 owner: 【姓名】
 deadline: 【关键截止日期】
 tags: [research-plan, RP, 【项目名】, 【关键词】]
+related: []
 ---
 
 # 研究计划：【题目】
@@ -153,8 +132,8 @@ tags: [research-plan, RP, 【项目名】, 【关键词】]
 
 ### 3.4 复用与新建
 
-- 可复用（代码/数据/设备/被试渠道）：
-- 需新建（算法/平台/标注规范）：
+- 可复用（代码 / 数据 / 设备 / 被试渠道）：
+- 需新建（算法 / 平台 / 标注规范）：
 - 最大技术不确定性：
 
 ### 3.5 与上位课题的映射
@@ -346,44 +325,40 @@ tags: [research-plan, RP, 【项目名】, 【关键词】]
 |---|---|---|
 |  | v0.1 | 初稿 |
 ```
+{: #rp-blank-source }
 
-## 五、提交导师前自检清单
-
-### 问题与价值
-- 能用 3 句话说清：问题、方案、贡献
-- 问题陈述里有具体的人、场景和代价
-- Gap 能用「是 / 否」判断有没有被解决
-- 主动写了「不做什么」，边界清楚
-
-### 假设与验证
-- 每条假设都有操作化定义、指标、目标值和证伪条件
-- 有 baseline、上限参考和消融
-- 指标单位统一，说明了测量方法与设备条件
-- 样本量有依据，不是拍脑袋
-- 有最小可行验证（MVP）计划
-
-### 执行与资源
-- 关键资源写明了申请路径、时间点和 fallback
-- 时间规划从目标截止日倒推，每阶段有可验收交付物
-- 识别了关键路径，并留了缓冲
-- 人力分工清楚
-- 伦理、知情同意、数据公开条款已考虑
-
-### 产出与风险
-- 论文目标 venue、档次认定、投稿窗口明确
-- 数据集 / 代码 / 专利 / demo 等产出有清单
-- 对应到毕业条件 / 项目考核 / 论文章节
-- 每条风险都有触发信号和预案
-
-### 文档与表达
-- 待讨论问题每题都有「我的默认选项」
-- 一图能讲清技术路线
-- 引用了具体文献 / 竞品，而不是空泛转述
-- 数字检查过数据管线，注意异常值
-- 删掉机器语言痕迹、破折号滥用和过多 emoji
-- 避免「随着……的发展」式套话开头
-
----
-
-<p class="lang-zh"><strong>公开边界说明：</strong>本页仅包含研究计划的通用写作方法与模板骨架，不含任何未发表、未公开或内部讨论中的研究细节。</p>
-<p class="lang-en"><strong>Public disclosure boundary:</strong> This page only contains generic proposal-writing methodology and a blank skeleton. No unpublished, non-public, or internal research details are included.</p>
+<script>
+function rpText() {
+  var el = document.querySelector('#rp-blank-source code');
+  return el ? el.innerText : '';
+}
+function rpCopy() {
+  var text = rpText();
+  var status = document.getElementById('rp-copy-status');
+  function ok() {
+    if (status) status.textContent = '已复制';
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(ok);
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    ok();
+  }
+}
+function rpDownload() {
+  var text = rpText();
+  var blob = new Blob([text], {type: 'text/markdown;charset=utf-8'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'RP研究计划-空白模板.md';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+}
+</script>

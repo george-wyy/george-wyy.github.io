@@ -16,4 +16,5 @@ main:
     url: /cv/
 
   - title: "科研模板"
+    title_en: "Templates"
     url: /rp-template/

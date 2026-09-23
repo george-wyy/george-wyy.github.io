@@ -84,8 +84,3 @@ author_profile: true
 - 数字检查过数据管线，注意异常值
 - 删掉机器语言痕迹、破折号滥用和过多 emoji
 - 避免「随着……的发展」式套话开头
-
-## 五、公开边界说明
-
-<p class="lang-zh">本页仅包含研究计划的通用写作方法与模板骨架，不涉及任何未发表、未公开或内部讨论中的研究细节。</p>
-<p class="lang-en">This page only contains generic proposal-writing methodology and templates. No unpublished, non-public, or internal research details are included.</p>

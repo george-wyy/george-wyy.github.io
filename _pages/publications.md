@@ -28,11 +28,11 @@ This page lists published papers, monographs, patents, and registered software. 
 
 <ul class="lang-zh">
   <li>已公开论文：{{ papers | size }}　|　专著：{{ books | size }}（参编）　|　专利：{{ patents | size }}　|　软件著作权：{{ software | size }}</li>
-  <li>已接收待刊：1（<em>Virtual Reality</em>, Springer）　|　在审 / 在投：3</li>
+  <li>已接收待刊：2（<em>Virtual Reality</em>, Springer；<em>Opto-Electronic Advances</em>）　|　在审 / 在投：2</li>
 </ul>
 <ul class="lang-en">
   <li>Published papers: {{ papers | size }}　|　Monograph: {{ books | size }} (contributing author)　|　Patents: {{ patents | size }}　|　Registered software: {{ software | size }}</li>
-  <li>Accepted / in press: 1 (<em>Virtual Reality</em>, Springer)　|　Under review / submitted: 3</li>
+  <li>Accepted / in press: 2 (<em>Virtual Reality</em>, Springer; <em>Opto-Electronic Advances</em>)　|　Under review / submitted: 2</li>
 </ul>
 
 ## <span data-i18n-zh="已接收 / 在审 / 在投" data-i18n-en="Accepted / Under Review / Submitted">已接收 / 在审 / 在投</span>
@@ -67,7 +67,7 @@ This page lists published papers, monographs, patents, and registered software. 
     <h4>Gaze-Driven Topological Phase-Transition Metasurfaces</h4>
     <div class="paper-tags">
       <span class="paper-tag paper-tag--journal">Opto-Electronic Advances</span>
-      <span class="paper-tag paper-tag--status paper-tag--reviewing" data-i18n-zh="共同一作 · 大修" data-i18n-en="Co-first author · Major Revision">共同一作 · 大修</span>
+      <span class="paper-tag paper-tag--status paper-tag--accepted" data-i18n-zh="共同一作（共 3 人，本人第 2）· 已接收（2026.10）" data-i18n-en="Co-first author (2nd of 3) · Accepted (Oct 2026)">共同一作（共 3 人，本人第 2）· 已接收（2026.10）</span>
     </div>
   </article>
 </div>

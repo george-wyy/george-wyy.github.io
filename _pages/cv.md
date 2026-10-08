@@ -203,18 +203,18 @@ redirect_from:
 
 完整列表详见 [论文成果](/publications/) 页面。
 
-**已接收待刊（1 篇）**
+**已接收待刊（2 篇）**
 
 <ol class="patent-list">
   <li><u>Wang, Y.</u>, Huang, W.-C., Fan, L.-H., Wang, Z.-T., &amp; Niu, Y.-F. SPMark: Improving Small-Target Text Selection with Smooth-Pursuit Gaze Interaction in Hybrid Paper–Digital Environments. <em>Virtual Reality</em>（Springer, SCI，中科院计算机 2 区），一作，<strong>2026 年 9 月接收，待刊</strong></li>
+  <li>Xiao, Q.<sup>†</sup>, <u>Wang, Y.</u><sup>†</sup>, Ma, Q.<sup>†</sup>, et al. Gaze-Driven Topological Phase-Transition Metasurfaces. <em>Opto-Electronic Advances</em>（SCI，中科院一区、JCR Q1），共同第一作者（3 位共同一作中第 2 位），<strong>2026 年 10 月接收，待刊（拟 2027 年 1 月在线发表）</strong></li>
 </ol>
 
-**在审 / 在投（3 篇）**
+**在审 / 在投（2 篇）**
 
 <ol class="patent-list">
   <li><u>Wang, Y.</u> et al. Gaze2Foot: Foot Primitives and Stabilization Mechanisms for Gaze-Foot Target Selection Across Postures. <em>ACM TOCHI</em>（CCF-A），一作，在审</li>
   <li><u>Wang, Y.</u> et al. Gaze Localizes, the Head Confirms: Staged Head–Eye Coordination for Hands-Free Selection in Dense AR. <em>IJHCI</em>（SCI），一作，在审</li>
-  <li>Gaze-Driven Topological Phase-Transition Metasurfaces. <em>Opto-Electronic Advances</em>，共同一作，大修</li>
 </ol>
 
 **代表性已发表论文**
@@ -240,18 +240,18 @@ redirect_from:
 
 See the [Publications](/publications/) page for the full list.
 
-**Accepted / in press (1)**
+**Accepted / in press (2)**
 
 <ol class="patent-list">
   <li><u>Wang, Y.</u>, Huang, W.-C., Fan, L.-H., Wang, Z.-T., &amp; Niu, Y.-F. SPMark: Improving Small-Target Text Selection with Smooth-Pursuit Gaze Interaction in Hybrid Paper–Digital Environments. <em>Virtual Reality</em> (Springer, SCI), first author, <strong>accepted September 2026, in press</strong></li>
+  <li>Xiao, Q.<sup>†</sup>, <u>Wang, Y.</u><sup>†</sup>, Ma, Q.<sup>†</sup>, et al. Gaze-Driven Topological Phase-Transition Metasurfaces. <em>Opto-Electronic Advances</em> (SCI; CAS Tier 1, JCR Q1), co-first author (2nd of 3 co-first authors), <strong>accepted October 2026, in press (online publication expected January 2027)</strong></li>
 </ol>
 
-**Under review / submitted (3)**
+**Under review / submitted (2)**
 
 <ol class="patent-list">
   <li><u>Wang, Y.</u> et al. Gaze2Foot: Foot Primitives and Stabilization Mechanisms for Gaze-Foot Target Selection Across Postures. <em>ACM TOCHI</em> (CCF-A), first author, under review</li>
   <li><u>Wang, Y.</u> et al. Gaze Localizes, the Head Confirms: Staged Head–Eye Coordination for Hands-Free Selection in Dense AR. <em>IJHCI</em> (SCI), first author, under review</li>
-  <li>Gaze-Driven Topological Phase-Transition Metasurfaces. <em>Opto-Electronic Advances</em>, co-first author, major revision</li>
 </ol>
 
 **Selected published papers**

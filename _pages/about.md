@@ -48,6 +48,11 @@ redirect_from:
   <h2 data-i18n-zh="最新动态" data-i18n-en="News">最新动态</h2>
   <ul class="news-list">
     <li>
+      <span class="news-date">2026.10</span>
+      <span class="lang-zh">合作论文 Gaze-Driven Topological Phase-Transition Metasurfaces 被 <em>Opto-Electronic Advances</em>（光电进展，中科院一区 TOP，IF 22.4）接收——本人为共同第一作者（3 位共同一作中第 2 位），参与理论分析与数值仿真、基于 HoloLens 的增强现实实验平台搭建，并参与论文撰写</span>
+      <span class="lang-en">Collaborative paper <em>Gaze-Driven Topological Phase-Transition Metasurfaces</em> accepted by <em>Opto-Electronic Advances</em> (CAS Tier 1 Top, IF 22.4) &mdash; co-first author (2nd of 3), contributed to the theoretical analysis and numerical simulations, the HoloLens-based mixed-reality experimental platform, and the manuscript writing</span>
+    </li>
+    <li>
       <span class="news-date">2026.09</span>
       <span class="lang-zh">SPMark 论文被 <em>Virtual Reality</em>（Springer）接收——混合纸-数字环境下的平滑追踪眼动小目标文本选择</span>
       <span class="lang-en">SPMark accepted by <em>Virtual Reality</em> (Springer) &mdash; small-target text selection with smooth-pursuit gaze interaction in hybrid paper&ndash;digital environments</span>
@@ -59,8 +64,8 @@ redirect_from:
     </li>
     <li>
       <span class="news-date">2026.08</span>
-      <span class="lang-zh">眼动驱动超表面合作稿（Gaze-Driven Topological Phase-Transition Metasurfaces）转投 Opto-Electronic Advances，大修中</span>
-      <span class="lang-en">Collaborative metasurface paper (Gaze-Driven Topological Phase-Transition Metasurfaces) resubmitted to Opto-Electronic Advances, major revision</span>
+      <span class="lang-zh">眼动驱动超表面合作稿（Gaze-Driven Topological Phase-Transition Metasurfaces）在 Opto-Electronic Advances 收到大修意见（该稿已于 2026.10 接收）</span>
+      <span class="lang-en">Collaborative metasurface paper (Gaze-Driven Topological Phase-Transition Metasurfaces) received a major-revision decision at Opto-Electronic Advances (the paper was accepted in Oct 2026)</span>
     </li>
     <li>
       <span class="news-date">2026.07</span>

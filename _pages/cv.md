@@ -210,11 +210,12 @@ redirect_from:
   <li>Xiao, Q.<sup>†</sup>, <u>Wang, Y.</u><sup>†</sup>, Ma, Q.<sup>†</sup>, et al. Gaze-Driven Topological Phase-Transition Metasurfaces. <em>Opto-Electronic Advances</em>（SCI，中科院一区、JCR Q1），共同第一作者（3 位共同一作中第 2 位），<strong>2026 年 10 月接收，待刊（拟 2027 年 1 月在线发表）</strong></li>
 </ol>
 
-**在审 / 在投（2 篇）**
+**在审 / 在投（3 篇）**
 
 <ol class="patent-list">
   <li><u>Wang, Y.</u> et al. Gaze2Foot: Foot Primitives and Stabilization Mechanisms for Gaze-Foot Target Selection Across Postures. <em>ACM TOCHI</em>（CCF-A），一作，在审</li>
   <li><u>Wang, Y.</u> et al. Gaze Localizes, the Head Confirms: Staged Head–Eye Coordination for Hands-Free Selection in Dense AR. <em>IJHCI</em>（SCI），一作，在审</li>
+  <li><u>Wang, Y.</u>, Cai, J.-L., Huang, W.-C., Fan, L.-H., Wang, Z.-T., Yang, Z.-X., &amp; Niu, Y.-F. DragCal: Unobtrusive Gaze Calibration from Mouse Dragging. <em>IJHCI</em>（SCI），一作，已投</li>
 </ol>
 
 **代表性已发表论文**
@@ -247,11 +248,12 @@ See the [Publications](/publications/) page for the full list.
   <li>Xiao, Q.<sup>†</sup>, <u>Wang, Y.</u><sup>†</sup>, Ma, Q.<sup>†</sup>, et al. Gaze-Driven Topological Phase-Transition Metasurfaces. <em>Opto-Electronic Advances</em> (SCI; CAS Tier 1, JCR Q1), co-first author (2nd of 3 co-first authors), <strong>accepted October 2026, in press (online publication expected January 2027)</strong></li>
 </ol>
 
-**Under review / submitted (2)**
+**Under review / submitted (3)**
 
 <ol class="patent-list">
   <li><u>Wang, Y.</u> et al. Gaze2Foot: Foot Primitives and Stabilization Mechanisms for Gaze-Foot Target Selection Across Postures. <em>ACM TOCHI</em> (CCF-A), first author, under review</li>
   <li><u>Wang, Y.</u> et al. Gaze Localizes, the Head Confirms: Staged Head–Eye Coordination for Hands-Free Selection in Dense AR. <em>IJHCI</em> (SCI), first author, under review</li>
+  <li><u>Wang, Y.</u>, Cai, J.-L., Huang, W.-C., Fan, L.-H., Wang, Z.-T., Yang, Z.-X., &amp; Niu, Y.-F. DragCal: Unobtrusive Gaze Calibration from Mouse Dragging. <em>IJHCI</em> (SCI), first author, submitted</li>
 </ol>
 
 **Selected published papers**

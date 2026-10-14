@@ -44,6 +44,13 @@ redirect_from:
   </div>
 </section>
 
+<section class="homepage-section homepage-section--projects">
+  <h2 data-i18n-zh="开源小工具" data-i18n-en="Open-source Projects">开源小工具</h2>
+  <h3><a href="/mic-pro-mac/">Mic Pro Mac</a></h3>
+  <p class="lang-zh">为 Insta360 Mic Pro 做的原生 macOS 小工具：电量与充电、侧边停靠、墨水屏壁纸、录音导出，以及本机 Agent CLI。<a href="/mic-pro-mac/">查看介绍与交互演示</a>。</p>
+  <p class="lang-en">An unofficial native macOS companion for Insta360 Mic Pro: battery and power status, an edge dock, e-ink wallpapers, recording export, and a local Agent CLI. <a href="/mic-pro-mac/">Explore the project</a>.</p>
+</section>
+
 <section class="homepage-section homepage-section--news">
   <h2 data-i18n-zh="最新动态" data-i18n-en="News">最新动态</h2>
   <ul class="news-list">

@@ -2,11 +2,11 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mic Pro Mac — 让 Mic Pro 成为你的桌面伙伴</title>
+<title>Mic Pro Mac — Vibe coding 与个人日志的语音搭子</title>
 <meta name="description" content="为 Insta360 Mic Pro 做的非官方原生 macOS 小工具。查看电量与充电、管理墨水屏图片、导出内录，并提供本机 Agent CLI。Swift / AppKit / MIT。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Crect width=%2740%27 height=%2740%27 rx=%2712%27 fill=%27%2322392f%27/%3E%3Ctext x=%2720%27 y=%2729%27 text-anchor=%27middle%27 font-size=%2728%27 fill=%27white%27%3Em%3C/text%3E%3C/svg%3E">
 <link rel="canonical" href="https://george-wyy.github.io/mic-pro-mac/">
-<meta property="og:title" content="Mic Pro Mac · 让 Mic Pro 成为你的桌面伙伴">
+<meta property="og:title" content="Mic Pro Mac · 想法说出来，生活留下来">
 <meta property="og:description" content="原生 macOS 小工具：设备状态、墨水屏、录音导出与本机 Agent 接口。">
 <meta property="og:image" content="https://george-wyy.github.io/assets/mic-pro-mac/cover.png">
 <meta property="og:url" content="https://george-wyy.github.io/mic-pro-mac/">
@@ -18,7 +18,7 @@
 <header class="page-header"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true">m</span> Mic Pro Mac</a><nav aria-label="页面导航"><a href="/">个人主页</a><a href="https://github.com/george-wyy/mic-pro-mac">GitHub</a></nav></header>
 <main>
 <section class="hero">
- <div class="hero-copy"><p class="intro">为 Insta360 Mic Pro 做的 Mac 小工具</p><h1>让小麦克风<br>成为你的<br>桌面伙伴。</h1><p class="lede">电量与充电、内录与壁纸，留在菜单栏和侧边停靠条。再给 Agent 一个可以调用的本机接口。</p><div class="actions"><a class="button primary" href="https://github.com/george-wyy/mic-pro-mac">查看源码</a><a class="button" href="https://github.com/george-wyy/mic-pro-mac/releases">下载开发预览版</a></div><p class="build-note">Swift / AppKit · MIT · 非官方项目</p></div>
+ <div class="hero-copy"><p class="intro">Vibe coding 与个人日志的语音搭子</p><h1>想法说出来，<br>生活留下来。</h1><p class="lede">Vibe coding 时，把想法说出来；离开桌面时，随手录下灵感。回到 Mac，查看状态、导出内录，再配合听写和转写工具整理。</p><div class="actions"><a class="button primary" href="https://github.com/george-wyy/mic-pro-mac">查看源码</a><a class="button" href="https://github.com/george-wyy/mic-pro-mac/releases">下载开发预览版</a></div><p class="build-note">Swift / AppKit · MIT · 非官方项目</p></div>
  <div class="demo-wrap" id="demo"><div class="demo-heading"><span>试试桌面上的小工具</span><span class="sample-pill">交互演示 · 示例数据</span></div>
  <div class="desktop-scene">
   <div class="menubar"><span>Mic Pro Mac</span><span id="menu-battery">⚡ 85%</span></div>
@@ -37,7 +37,7 @@
 }</pre></div><div class="command-pills"><button data-command="status" class="selected">status</button><button data-command="vibrate">vibrate</button><button data-command="recordings-list">recordings-list</button></div><p class="panel-note">本机 CLI，通过本地文件收发请求，没有网络监听。这里展示的是示例输出。</p></section>
  </div></div><div class="demo-footer"><span id="demo-caption">状态看得见，也知道读数是否新鲜。</span><span>网页版交互示意</span></div></div>
 </section>
-<section class="features"><article><span class="feature-icon">◉</span><h2>把真实状态带到桌面</h2><p>设备电量、供电、内录和电脑收音占用。状态读不到、断连或过期时，显示未知。</p></article><article><span class="feature-icon">▤</span><h2>把小屏和录音用起来</h2><p>自己的壁纸可以预览、备份、写入并校验。录音通过蓝牙或 USB 导出，保留设备原件。</p></article><article><span class="feature-icon">&gt;_</span><h2>让 Agent 有个实体入口</h2><p>查询状态、触发设备提示、导出内录。普通本机命令行，不需要开启一个网络服务。</p></article></section>
+<section class="features"><article><span class="feature-icon">◉</span><h2>Vibe coding，想法先说出来</h2><p>配合常用的听写工具，让语音输入走进编辑器。电量、充电和收音占用留在桌面一角，设备状态随时看得见。</p></article><article><span class="feature-icon">▤</span><h2>个人日志，灵感随身带走</h2><p>想法来了，先用内录留住。回到 Mac 导出录音，配合转写工具整理成个人日志；再给小屏换一张自己的图案。</p></article><article><span class="feature-icon">&gt;_</span><h2>让 Agent 有个实体入口</h2><p>查询状态、触发设备提示、导出内录。普通本机命令行，不需要开启一个网络服务。</p></article></section>
 <section class="film-section"><div><h2>先看一段演示。</h2><p>界面与功能流程的 25 秒演示，全部使用示例数据。真实设备功能的验证范围见下方。</p></div><video controls playsinline preload="none" poster="/assets/mic-pro-mac/cover.png"><source src="/assets/mic-pro-mac/demo.mp4" type="video/mp4"><track default kind="captions" srclang="zh" label="中文" src="/assets/mic-pro-mac/captions.vtt">你的浏览器暂不支持视频，可查看上方交互演示。</video></section>
 <section class="story"><div class="story-title"><h2>从“想看一眼电量”<br>做成一个开源小工具。</h2></div><div class="story-content"><p>Mac 的蓝牙面板能显示电量，但桌面上还缺少一个顺手的设备入口。我从公开的协议研究开始，写出 Swift 控制逻辑，再回到自己的 Mic Pro 上逐项验证。</p><p>充电状态做过插线、拔线、重插对照；壁纸写入前做完整备份，完成后读回校验。交互中也保留忙碌、未知和失败状态。</p><div class="verification"><h3>开发预览版的边界</h3><ul><li>核心功能在一台 Mic Pro TX、固件 2.0.2.4 上实机验证。</li><li>更多设备与固件仍需要测试；公开版提供显式设备配置。</li><li>供电标志不独立识别充电暂停；满电接线显示“已接电源”。</li><li>震动提示通过短暂切换降噪并恢复实现；没有独立马达或任意灯色控制。</li></ul></div></div></section>
 <section class="get-started"><div><h2>从源码开始。</h2><p>需要 macOS、Xcode Command Line Tools 和 Python 3。首次使用先配置自己的已配对设备。Codex 额度与实验性控制默认关闭。</p></div><div class="download-links"><a class="button primary" href="https://github.com/george-wyy/mic-pro-mac">GitHub · MIT 源码</a><a class="text-link" href="https://github.com/george-wyy/mic-pro-mac/releases">开发预览版与构建说明</a></div></section>

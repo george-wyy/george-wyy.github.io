@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mic Pro Mac — Vibe coding 与个人日志的语音搭子</title>
-<meta name="description" content="为 Insta360 Mic Pro 做的非官方原生 macOS 小工具。查看电量与充电、管理墨水屏图片、导出内录，并提供本机 Agent CLI。Swift / AppKit / MIT。">
+<meta name="description" content="为 Insta360 Mic Pro 做的非官方原生 macOS 小工具。独立安排输入输出、管理连接、查看电量、整理录音与小屏图案，并提供本机 Agent CLI。Swift / AppKit / MIT。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Crect width=%2740%27 height=%2740%27 rx=%2712%27 fill=%27%2322392f%27/%3E%3Ctext x=%2720%27 y=%2729%27 text-anchor=%27middle%27 font-size=%2728%27 fill=%27white%27%3Em%3C/text%3E%3C/svg%3E">
 <link rel="canonical" href="https://george-wyy.github.io/mic-pro-mac/">
 <meta property="og:title" content="Mic Pro Mac · 想法说出来，生活留下来">
@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://george-wyy.github.io/assets/mic-pro-mac/cover.png">
 <meta property="og:url" content="https://george-wyy.github.io/mic-pro-mac/">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/mic-pro-mac/landing.css?v=story-4">
+<link rel="stylesheet" href="/assets/mic-pro-mac/landing.css?v=story-4-final">
 
 </head>
 <body>
@@ -19,11 +19,11 @@
 <main>
 <section class="hero hero-motion">
 <div class="hero-copy"><p class="intro">Vibe coding · 个人日志 · 你的语音搭子</p><h1>想法说出来，生活留下来。</h1><p class="lede">一支麦克风，连接生活记录与 Vibe coding。让 Mic Pro 在 Mac 上更原生、更顺手，成为可以一直用的小工具。</p></div>
-<div class="hero-video"><video id="product-film" autoplay muted loop playsinline controls preload="metadata" poster="/assets/mic-pro-mac/cover.png?v=story-4"><source src="/assets/mic-pro-mac/demo.mp4?v=story-4" type="video/mp4"><track kind="captions" srclang="zh" label="中文" src="/assets/mic-pro-mac/captions.vtt?v=story-4"></video></div>
+<div class="hero-video"><video id="product-film" autoplay muted loop playsinline controls preload="metadata" poster="/assets/mic-pro-mac/cover.png?v=story-4-final"><source src="/assets/mic-pro-mac/demo.mp4?v=story-4-final" type="video/mp4"><track kind="captions" srclang="zh" label="中文" src="/assets/mic-pro-mac/captions.vtt?v=story-4-final"></video></div>
 <div class="hero-after"><div class="actions"><button class="button primary" id="film-sound">打开声音，听完整故事</button><a class="button" href="https://github.com/george-wyy/mic-pro-mac">查看开源项目</a></div><p class="build-note">真实软件操作 · ElevenLabs 配音 · 2 分 38 秒个人开发故事 · 含影石与腾讯会议官方素材</p></div>
 </section>
-<section class="features"><article><span class="feature-icon">◉</span><h2>Vibe coding，想法先说出来</h2><p>配合常用的听写工具，让语音输入走进编辑器。电量、充电和收音占用留在桌面一角，设备状态随时看得见。</p></article><article><span class="feature-icon">▤</span><h2>个人日志，灵感随身带走</h2><p>想法来了，先用内录留住。回到 Mac 导出录音，配合转写工具整理成个人日志；再给小屏换一张自己的图案。</p></article><article><span class="feature-icon">&gt;_</span><h2>让 Agent 有个实体入口</h2><p>查询状态、触发设备提示、导出内录。普通本机命令行，不需要开启一个网络服务。</p></article></section>
-<section class="native-gallery" aria-label="真实软件功能截图"><figure><a href="/assets/mic-pro-mac/native-recordings.png?v=story-4"><img loading="lazy" src="/assets/mic-pro-mac/native-recordings.png?v=story-4" alt="真实蓝牙录音目录和导出按钮，文件名已遮盖" width="800" height="1200"></a><figcaption>真实设备录音目录 · 点击查看大图</figcaption></figure><figure><a href="/assets/mic-pro-mac/native-wallpaper.png?v=story-4"><img loading="lazy" src="/assets/mic-pro-mac/native-wallpaper.png?v=story-4" alt="真实的六色墨水屏图片预览编辑器" width="1360" height="1104"></a><figcaption>原生壁纸预览 · 本次录制未改写设备图案</figcaption></figure></section>
+<section class="features"><article><span class="feature-icon">◉</span><h2>Vibe coding，想法先说出来</h2><p>输入用 Mic Pro，输出继续走耳机或电脑。配合常用听写工具，把需求说进编辑器；连接、设备状态与声音去向，在原生面板里顺手管理。</p></article><article><span class="feature-icon">▤</span><h2>个人日志，灵感随身带走</h2><p>想法来了，先用内录留住。回到 Mac 导出录音，配合转写工具整理成个人日志；再给小屏换一张自己的图案。</p></article><article><span class="feature-icon">&gt;_</span><h2>让 Agent 有个实体入口</h2><p>查询状态、触发设备提示、导出内录。普通本机命令行，不需要开启一个网络服务。</p></article></section>
+<section class="native-gallery" aria-label="真实软件功能截图"><figure><a href="/assets/mic-pro-mac/native-recordings.png?v=story-4-final"><img loading="lazy" src="/assets/mic-pro-mac/native-recordings.png?v=story-4-final" alt="真实蓝牙录音目录和导出按钮，文件名已遮盖" width="800" height="1200"></a><figcaption>真实设备录音目录 · 点击查看大图</figcaption></figure><figure><a href="/assets/mic-pro-mac/native-wallpaper.png?v=story-4-final"><img loading="lazy" src="/assets/mic-pro-mac/native-wallpaper.png?v=story-4-final" alt="真实的六色墨水屏图片预览编辑器" width="1360" height="1104"></a><figcaption>原生壁纸预览 · 本次录制未改写设备图案</figcaption></figure></section>
 <section class="story"><div class="story-title"><h2>从记录生活，<br>到接进我的 Mac 工作流。</h2></div><div class="story-content"><p>我一直想有一支能随身记录生活的录音笔，把对话与灵感留下来，让 Agent 更了解我的上下文。Mic Pro 的腾讯会议版本把录音接进腾讯会议录音笔，这条链路吸引我买下了它。</p><p>后来，我希望它也进入 Vibe coding 工作流。蓝牙收音已经能用，但我想独立安排输入和输出，顺手管理连接与设备状态，于是研究蓝牙与 USB 通信，做出这个原生 Mac 面板。腾讯会议的上传链路由设备与腾讯会议完成；这个工具负责 Mac 上的设备操作与本地录音管理。</p><div class="verification"><h3>开发预览版的边界</h3><ul><li>核心功能在一台 Mic Pro TX、固件 2.0.2.4 上实机验证。</li><li>更多设备与固件仍需要测试；公开版提供显式设备配置。</li><li>供电标志不独立识别充电暂停；满电接线显示“已接电源”。</li><li>震动提示通过短暂切换降噪并恢复实现；没有独立马达或任意灯色控制。</li></ul></div></div></section>
 <section class="get-started"><div><h2>从源码开始。</h2><p>需要 macOS、Xcode Command Line Tools 和 Python 3。首次使用先配置自己的已配对设备。Codex 额度与实验性控制默认关闭。</p></div><div class="download-links"><a class="button primary" href="https://github.com/george-wyy/mic-pro-mac">GitHub · MIT 源码</a><a class="text-link" href="https://github.com/george-wyy/mic-pro-mac/releases">开发预览版与构建说明</a></div></section>
 </main><footer><a href="/">王以俨的个人主页</a><p>非官方互操作项目。与 Insta360、腾讯或 OpenAI 无隶属关系。</p><a href="https://github.com/george-wyy/mic-pro-mac">Mic Pro Mac</a></footer>

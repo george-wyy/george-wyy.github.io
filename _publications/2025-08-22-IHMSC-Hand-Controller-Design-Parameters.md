@@ -4,6 +4,7 @@ title_en: "The Impact of Hand Controller Design Parameters on Operational Perfor
 collection: publications
 type: paper
 publication_kind: conference
+author_position: 3
 permalink: /publication/2025-hand-controller-design-parameters-ihmsc
 excerpt: '该研究考察手控器设计参数对操作绩效的影响。（注：第一作者 Yanyan Wang 与本人 Yiyan Wang 为不同作者）'
 excerpt_en: 'Investigates how hand controller design parameters shape operational performance. (Note: first author Yanyan Wang is a different person from Yiyan Wang.)'

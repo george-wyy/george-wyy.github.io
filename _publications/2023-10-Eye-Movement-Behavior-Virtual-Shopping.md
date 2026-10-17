@@ -4,6 +4,7 @@ title_en: "The Eye Movement Behavior of Goal-directed Intent and Exploratory Int
 collection: publications
 type: paper
 publication_kind: conference
+author_position: null
 permalink: /publication/2023-eye-movement-virtual-shopping
 excerpt: ''
 excerpt_en: 'This study examines eye movement patterns distinguishing goal-directed and exploratory intentions in virtual shopping environments.'

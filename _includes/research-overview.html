@@ -24,6 +24,21 @@
     <a class="metric-card" href="{{ '/publications/' | relative_url }}"><strong class="metric-value" data-metric="patents">{{ overview_disclosed | size }}</strong><span class="metric-label" data-i18n-zh="已公开 / 授权专利" data-i18n-en="Published / granted patents">已公开 / 授权专利</span><span class="metric-detail"><span data-i18n-zh="其中已授权" data-i18n-en="Granted">其中已授权</span> {{ overview_granted | size }}</span></a>
     <a class="metric-card" href="{{ '/projects/' | relative_url }}"><strong class="metric-value" data-metric="projects">{{ site.portfolio | size }}</strong><span class="metric-label" data-i18n-zh="项目与交互原型" data-i18n-en="Projects and prototypes">项目与交互原型</span><span class="metric-detail"><span data-i18n-zh="开源软件" data-i18n-en="Open-source tools">开源软件</span> {{ overview_software | size }} · <span data-i18n-zh="原型" data-i18n-en="Prototypes">原型</span> {{ overview_prototypes | size }}</span></a>
   </div>
+  <div class="publication-breakdown">
+    <h3 data-i18n-zh="已发表论文：类型与作者身份" data-i18n-en="Published papers by type and authorship">已发表论文：类型与作者身份</h3>
+    <table class="authorship-table">
+      <thead><tr><th data-i18n-zh="类型 / 合计" data-i18n-en="Type / total">类型 / 合计</th><th data-i18n-zh="第一作者" data-i18n-en="First">第一作者</th><th data-i18n-zh="共同一作" data-i18n-en="Co-first">共同一作</th><th data-i18n-zh="其他作者" data-i18n-en="Other">其他作者</th><th data-i18n-zh="待核" data-i18n-en="Unverified">待核</th></tr></thead>
+      <tbody>{% assign kinds = 'journal,conference' | split: ',' %}{% for kind in kinds %}
+        {% assign papers = overview_papers | where: 'publication_kind', kind %}
+        {% assign first = papers | where: 'author_position', 1 | where_exp: 'item', 'item.co_first != true' %}
+        {% assign cofirst = papers | where: 'co_first', true %}
+        {% assign other = papers | where_exp: 'item', 'item.author_position > 1' | where_exp: 'item', 'item.co_first != true' %}
+        {% assign unknown = papers | where_exp: 'item', 'item.author_position == nil' %}
+        <tr><th scope="row">{% if kind == 'journal' %}<span data-i18n-zh="期刊" data-i18n-en="Journal">期刊</span>{% else %}<span data-i18n-zh="会议" data-i18n-en="Conference">会议</span>{% endif %} <span class="type-total">{{ papers | size }}</span></th><td>{{ first | size }}</td><td>{{ cofirst | size }}</td><td>{{ other | size }}</td><td>{{ unknown | size }}</td></tr>
+      {% endfor %}</tbody>
+    </table>
+    <p class="overview-note" data-i18n-zh="作者身份按本人位次统计；1 篇会议论文的作者位次待核。上方 2 篇已接收论文均为期刊，单独统计。" data-i18n-en="Authorship reflects my position. One conference-paper author position remains unverified. The two accepted papers above are journal articles and counted separately.">作者身份按本人位次统计；1 篇会议论文的作者位次待核。上方 2 篇已接收论文均为期刊，单独统计。</p>
+  </div>
   <figure class="publication-distribution">
     <figcaption data-i18n-zh="论文状态分布" data-i18n-en="Publication pipeline">论文状态分布</figcaption>
     <div class="status-track" aria-hidden="true"><span class="status-segment status-segment--published" style="width:{{ n_published | times: 100.0 | divided_by: n_total }}%"></span><span class="status-segment status-segment--accepted" style="width:{{ n_accepted | times: 100.0 | divided_by: n_total }}%"></span><span class="status-segment status-segment--review" style="width:{{ n_review | times: 100.0 | divided_by: n_total }}%"></span><span class="status-segment status-segment--submitted" style="width:{{ n_submitted | times: 100.0 | divided_by: n_total }}%"></span></div>

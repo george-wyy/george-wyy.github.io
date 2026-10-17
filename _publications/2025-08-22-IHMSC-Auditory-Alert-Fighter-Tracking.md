@@ -4,6 +4,7 @@ title_en: "Study on the effectiveness of auditory alert information processing i
 collection: publications
 type: paper
 publication_kind: conference
+author_position: 3
 permalink: /publication/2025-auditory-alert-fighter-tracking-ihmsc
 excerpt: '该研究考察战斗机跟踪任务中听觉告警信息的处理效能。'
 excerpt_en: 'Investigates the effectiveness of auditory alert information processing during fighter jet tracking tasks.'

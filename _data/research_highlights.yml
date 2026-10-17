@@ -21,3 +21,35 @@
   topic_en: Interdisciplinary collaboration
   summary_zh: 参与理论分析、数值仿真与基于 HoloLens 的实验平台搭建。
   summary_en: Contributed to theoretical analysis, numerical simulations, and a HoloLens-based experimental platform.
+
+- id: "displays-2024-smooth-pursuit"
+  title_zh: "平滑追踪：目标尺寸与运动速度"
+  title_en: "Smooth pursuit: Target size and tracking speed"
+  topic_zh: "交互参数设计"
+  topic_en: "Interaction parameters"
+  summary_zh: "比较圆形与方形轨迹下的目标尺寸和追踪速度，为平滑追踪眼控界面提供设计建议。"
+  summary_en: "Investigating target size and tracking speed along circular and square trajectories to inform smooth-pursuit interface design."
+
+- id: "aei-2025-fisheye"
+  title_zh: "透视驱动的鱼眼视图"
+  title_en: "Perspective-driven fisheye views"
+  topic_zh: "视觉界面优化"
+  topic_en: "Visual interface design"
+  summary_zh: "研究透视驱动鱼眼视图的设计与优化，探索视觉呈现对注视交互性能的影响。"
+  summary_en: "Studying the design and optimization of perspective-driven fisheye views for gaze interaction."
+
+- id: "aei-2026-gaze-hand"
+  title_zh: "低精度眼动下的眼手级联交互"
+  title_en: "Gaze–hand interaction with low-precision tracking"
+  topic_zh: "多通道协同"
+  topic_en: "Multimodal coordination"
+  summary_zh: "研究眼动与手部输入的协同机制，探索低精度眼动条件下的鲁棒交互方案。"
+  summary_en: "Exploring coordination between gaze and hand input for robust interaction with low-precision eye tracking."
+
+- id: "compind-2026-take-a-look"
+  title_zh: "Take-A-Look：工业 VR 远距离交互"
+  title_en: "Take-A-Look: Distant interaction in industrial VR"
+  topic_zh: "工业虚拟现实"
+  topic_en: "Industrial virtual reality"
+  summary_zh: "探索工业虚拟现实中的自然手势交互，让用户操作远距离目标。"
+  summary_en: "Exploring natural gestures for distant-target interaction in industrial virtual reality."

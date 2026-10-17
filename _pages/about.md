@@ -23,7 +23,7 @@ redirect_from:
 
 <section class="module-panel featured-research">
   <div class="module-heading"><span class="module-symbol" aria-hidden="true">◎</span><h2 data-i18n-zh="代表研究" data-i18n-en="Research highlights">代表研究</h2></div>
-  <p class="module-lede" data-i18n-zh="从交互机制、应用设计到跨学科系统，展示三项代表工作。" data-i18n-en="Selected work spanning interaction mechanisms, application design, and interdisciplinary systems.">从交互机制、应用设计到跨学科系统，展示三项代表工作。</p>
+  <p class="module-lede" data-i18n-zh="从交互机制、应用设计到跨学科系统，展示七项代表工作。" data-i18n-en="Seven selected works spanning interaction mechanisms, application design, and interdisciplinary systems.">从交互机制、应用设计到跨学科系统，展示七项代表工作。</p>
   {% include research-highlights.html %}
 </section>
 
@@ -34,11 +34,12 @@ redirect_from:
 </section>
 
 <section class="module-panel homepage-news">
-  <div class="module-heading"><span class="module-symbol" aria-hidden="true">◷</span><h2 data-i18n-zh="近期动态" data-i18n-en="Recent updates">近期动态</h2></div>
+  <div class="module-heading"><span class="module-symbol" aria-hidden="true">◷</span><h2 data-i18n-zh="研究与成长时间轴" data-i18n-en="Research milestones">研究与成长时间轴</h2></div>
   <ul class="news-list">
     <li><span class="news-date">2026.10</span><span class="lang-zh">眼动驱动超表面合作论文被 <em>Opto-Electronic Advances</em> 接收，共同第一作者（3 位共同一作中第 2 位）。</span><span class="lang-en">Our paper on gaze-driven metasurfaces was accepted by <em>Opto-Electronic Advances</em>. Co-first author (second of three equal contributors).</span></li>
     <li><span class="news-date">2026.09</span><span class="lang-zh">SPMark 被 <em>Virtual Reality</em> 接收，研究混合纸与数字环境中的平滑追踪文本选择。</span><span class="lang-en">SPMark was accepted by <em>Virtual Reality</em>, studying smooth-pursuit text selection in hybrid paper–digital environments.</span></li>
     <li><span class="news-date">2026.09</span><span class="lang-zh">眼手级联交互合作论文发表于 <em>Advanced Engineering Informatics</em>。</span><span class="lang-en">Our work on gaze–hand cascaded interaction appeared in <em>Advanced Engineering Informatics</em>.</span></li>
     <li><span class="news-date">2026.08</span><span class="lang-zh">Take-A-Look 发表于 <em>Computers in Industry</em>，探索工业 VR 中的远距离目标交互。</span><span class="lang-en">Take-A-Look appeared in <em>Computers in Industry</em>, exploring distant-target interaction in industrial VR.</span></li>
+    {% for event in site.data.research_milestones %}<li><span class="news-date">{{ event.date }}</span><span class="lang-zh">{{ event.zh }}</span><span class="lang-en">{{ event.en }}</span></li>{% endfor %}
   </ul>
 </section>

@@ -4,6 +4,7 @@ title_en: "Does increasing takeover time budget improve driver takeover performa
 collection: publications
 type: paper
 publication_kind: conference
+author_position: 3
 permalink: /publication/2024-takeover-time-budget-ieem
 excerpt: '该研究考察在不同危险可见性场景下，延长接管时间预算是否能改善驾驶员的接管绩效。'
 excerpt_en: 'Examines whether a longer takeover time budget improves driver takeover performance across hazard visibility conditions.'

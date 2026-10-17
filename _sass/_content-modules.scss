@@ -171,3 +171,7 @@ html[data-theme="dark"] .academic-site.module-page { --module-canvas: #0b141e; -
   .research-project-section li:last-child { margin-bottom: 0; }
   .research-project-intro p { margin: 0; color: var(--text-2); }
 }
+
+.academic-site.module-page .patent-facts { display: grid; grid-template-columns: 100px minmax(0,1fr); gap: 8px 16px; margin: 16px 0 0; font-size: .85rem; }
+.academic-site.module-page .patent-facts dt { font-weight: 600; }
+.academic-site.module-page .patent-facts dd { margin: 0; color: var(--text-2); }

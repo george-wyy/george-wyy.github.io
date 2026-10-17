@@ -45,8 +45,13 @@
       [
         "教学部署与系统性用户评估仍属于后续工作。",
         "Teaching deployment and systematic user evaluation remain future work."
+      ],
+      [
+        "相关发明专利申请于 2026 年 10 月获受理，当前待公开。",
+        "The related invention patent application was accepted for filing in October 2026 and is awaiting publication."
       ]
-    ]
+    ],
+    "patent_id": "gaze-interface-generation"
   },
   {
     "id": "head-mounted-eye-tracker",

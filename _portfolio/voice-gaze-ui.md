@@ -11,6 +11,8 @@ project_order: 10
 featured: true
 module_layout: true
 source_available: false
+patent_status_zh: "相关专利已受理"
+patent_status_en: "Related patent application filed"
 status_zh: "交互原型迭代"
 status_en: "Interaction prototype in development"
 summary_zh: "用语音或文字描述需求，组合眼控交互方式生成网页界面，并通过试用反馈调整交互参数。"

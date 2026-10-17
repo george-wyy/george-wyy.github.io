@@ -3,6 +3,14 @@
   <div class="project-badges"><span class="project-stage" data-i18n-zh="{{ project_detail.stage }}" data-i18n-en="{{ project_detail.stage_en }}">{{ project_detail.stage }}</span><span data-i18n-zh="代码暂未公开" data-i18n-en="Code not public">代码暂未公开</span></div>
   <p data-i18n-zh="{{ project_detail.purpose | escape }}" data-i18n-en="{{ project_detail.purpose_en | escape }}">{{ project_detail.purpose }}</p>
 </section>
+{% if project_detail.patent_id %}
+{% assign related_patent = site.publications | where: 'patent_id', project_detail.patent_id | first %}
+<section class="module-panel research-project-section project-related-patent">
+  <h2 data-i18n-zh="关联专利" data-i18n-en="Related patent application">关联专利</h2>
+  <p><a href="{{ related_patent.url | relative_url }}" data-i18n-zh="{{ related_patent.title }}" data-i18n-en="{{ related_patent.title_en }}">{{ related_patent.title }}</a></p>
+  <dl class="patent-facts"><dt data-i18n-zh="状态" data-i18n-en="Status">状态</dt><dd data-i18n-zh="已受理 · 待公开" data-i18n-en="Filing accepted · Awaiting publication">已受理 · 待公开</dd><dt data-i18n-zh="申请号" data-i18n-en="Application number">申请号</dt><dd>{{ related_patent.application_number }}</dd><dt data-i18n-zh="申请日" data-i18n-en="Filing date">申请日</dt><dd>{{ related_patent.application_date }}</dd><dt data-i18n-zh="本人位次" data-i18n-en="My inventor position">本人位次</dt><dd data-i18n-zh="第二发明人" data-i18n-en="Second inventor">第二发明人</dd><dt data-i18n-zh="申请人" data-i18n-en="Applicant">申请人</dt><dd data-i18n-zh="东南大学" data-i18n-en="Southeast University">东南大学</dd></dl>
+</section>
+{% endif %}
 {% assign detail_sections = 'features,contributions,progress' | split: ',' %}
 {% for detail_section in detail_sections %}
 <section class="module-panel research-project-section">

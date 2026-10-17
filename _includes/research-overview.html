@@ -6,6 +6,7 @@
 {% assign overview_cofirst = overview_accepted | where: 'co_first', true %}
 {% assign overview_patents = site.publications | where: 'type', 'patent' %}
 {% assign overview_disclosed = overview_patents | where_exp: 'item', 'item.patent_status != "filed"' %}
+{% assign overview_pending = overview_patents | where: 'patent_status', 'filed' %}
 {% assign overview_granted = overview_patents | where: 'patent_status', 'granted' %}
 {% assign overview_review = site.data.cv.manuscripts | where: 'status', 'under_review' %}
 {% assign overview_submitted = site.data.cv.manuscripts | where: 'status', 'submitted' %}
@@ -27,7 +28,7 @@
   <div class="metrics-grid">
     <a class="metric-card" href="{{ '/publications/' | relative_url }}"><strong class="metric-value" data-metric="published">{{ n_published }}</strong><span class="metric-label" data-i18n-zh="已发表论文" data-i18n-en="Published papers">已发表论文</span><span class="metric-detail"><span data-i18n-zh="期刊" data-i18n-en="Journal">期刊</span> {{ overview_journals | size }} · <span data-i18n-zh="会议" data-i18n-en="Conference">会议</span> {{ overview_conferences | size }}</span></a>
     <a class="metric-card" href="{{ '/cv/#cv-papers' | relative_url }}"><strong class="metric-value" data-metric="accepted">{{ n_accepted }}</strong><span class="metric-label" data-i18n-zh="已接收待刊" data-i18n-en="Accepted / in press">已接收待刊</span><span class="metric-detail"><span data-i18n-zh="一作" data-i18n-en="First author">一作</span> {{ overview_first_accepted | size }} · <span data-i18n-zh="共同一作" data-i18n-en="Co-first">共同一作</span> {{ overview_cofirst | size }}</span></a>
-    <a class="metric-card" href="{{ '/publications/' | relative_url }}"><strong class="metric-value" data-metric="patents">{{ overview_disclosed | size }}</strong><span class="metric-label" data-i18n-zh="已公开 / 授权专利" data-i18n-en="Published / granted patents">已公开 / 授权专利</span><span class="metric-detail"><span data-i18n-zh="其中已授权" data-i18n-en="Granted">其中已授权</span> {{ overview_granted | size }}</span></a>
+    <a class="metric-card" href="{{ '/publications/' | relative_url }}"><strong class="metric-value" data-metric="patents">{{ overview_disclosed | size }}</strong><span class="metric-label" data-i18n-zh="已公开 / 授权专利" data-i18n-en="Published / granted patents">已公开 / 授权专利</span><span class="metric-detail"><span data-i18n-zh="其中已授权" data-i18n-en="Granted">其中已授权</span> {{ overview_granted | size }}<br><span data-i18n-zh="已受理待公开" data-i18n-en="Awaiting publication">已受理待公开</span> {{ overview_pending | size }}</span></a>
     <a class="metric-card" href="{{ '/projects/' | relative_url }}"><strong class="metric-value" data-metric="projects">{{ site.portfolio | size }}</strong><span class="metric-label" data-i18n-zh="项目与交互原型" data-i18n-en="Projects and prototypes">项目与交互原型</span><span class="metric-detail"><span data-i18n-zh="开源软件" data-i18n-en="Open-source tools">开源软件</span> {{ overview_software | size }} · <span data-i18n-zh="原型" data-i18n-en="Prototypes">原型</span> {{ overview_prototypes | size }}</span></a>
   </div>
   <div class="lead-authorship">

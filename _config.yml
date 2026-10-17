@@ -146,6 +146,11 @@ exclude:
   - node_modules
   - package.json
   - scripts
+  - docs
+  - markdown_generator
+  - talkmap.py
+  - talkmap.ipynb
+  - CONTRIBUTING.md
   - requirements-cv.txt
   - tmp
   - vendor
@@ -289,6 +294,7 @@ whitelist:
 
 
 # Archives
+# Tags remain metadata; archive pages are not published, so do not generate dead links.
 #  Type
 #  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)
 #  - Jekyll Archives plugin archive pages ~> type: jekyll-archives
@@ -299,10 +305,10 @@ whitelist:
 #  - <base_path/categories/my-awesome-category/index.html ~> path: /categories/
 #  - <base_path/my-awesome-category/index.html ~> path: /
 category_archive:
-  type: liquid
+  type: false
   path: /categories/
 tag_archive:
-  type: liquid
+  type: false
   path: /tags/
 # https://github.com/jekyll/jekyll-archives
 # jekyll-archives:

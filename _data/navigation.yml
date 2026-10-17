@@ -1,20 +1,16 @@
 main:
-  - title: "研究方向"
-    title_en: "Research"
-    url: /research/
-
-  - title: "论文成果"
-    title_en: "Publications"
-    url: /publications/
-
-  - title: "博客"
-    title_en: "Blog"
-    url: /blog/
-
-  - title: "简历"
-    title_en: "CV"
-    url: /cv/
-
-  - title: "科研模板"
-    title_en: "Templates"
-    url: /templates/
+- title: 研究方向
+  title_en: Research
+  url: /research/
+- title: 论文成果
+  title_en: Publications
+  url: /publications/
+- title: 项目
+  title_en: Projects
+  url: /projects/
+- title: 博客
+  title_en: Blog
+  url: /blog/
+- title: 简历
+  title_en: CV
+  url: /cv/

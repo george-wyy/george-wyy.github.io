@@ -1,21 +1,27 @@
 ---
-title: "MyLibrary-Plus：一个你真的会回头翻的本地论文库"
-title_en: "MyLibrary-Plus: A Local-First Paper Library You Actually Return To"
+title: MyLibrary-Plus
+title_en: MyLibrary-Plus
 date: 2026-09-21
-tags: [开源, 文献管理, 本地优先, 阅读工具]
-excerpt_zh: "文献管理器擅长把论文存进去，却不擅长让你再回来看。MyLibrary-Plus 用图优先的时间线和共享批注，把论文库重新变成一条会回访的信息流。"
-excerpt_en: "Reference managers are good at filing papers and bad at bringing you back. MyLibrary-Plus rebuilds the library as a figure-first timeline with shared annotations."
+tags:
+- 开源
+- 文献管理
+- 本地优先
+- 阅读工具
+excerpt_zh: 文献管理器擅长把论文存进去，却不擅长让你再回来看。MyLibrary-Plus 用图优先的时间线和共享批注，把论文库重新变成一条会回访的信息流。
+excerpt_en: Reference managers are good at filing papers and bad at bringing you back. MyLibrary-Plus rebuilds the
+  library as a figure-first timeline with shared annotations.
+collection: portfolio
+permalink: /projects/mylibrary-plus/
+project_id: mylibrary-plus
+project_kind: software
+project_order: 2
+featured: true
+period: '2026'
+summary_zh: 基于 MyLibrary 扩展的本地论文库，提供图优先时间线、阅读与批注。
+summary_en: A local paper library extending MyLibrary with a figure-first timeline, reading, and annotation.
+repository: https://github.com/george-wyy/MyLibrary-Plus
 ---
-
-<div style="margin:20px 0 28px;padding:20px 22px;border:1px solid #dbe2f5;border-radius:14px;background:#f6f8ff">
-  <div style="font-size:17px;font-weight:800;color:#161b29;margin-bottom:4px">MyLibrary-Plus · 一个你真的会回头翻的本地论文库</div>
-  <div style="font-size:14px;line-height:1.7;color:#5c667c;margin-bottom:14px">Fork 自 <a href="https://github.com/liusida/MyLibrary" style="color:#4d6bfe">liusida/MyLibrary</a>，在其之上加了图优先时间线与整层阅读批注；MIT 开源，数据全部留在本地。</div>
-  <div>
-    <a href="https://george-wyy.github.io/MyLibrary-Plus/zh/" style="display:inline-block;margin:0 8px 8px 0;padding:10px 18px;border-radius:9px;background:#4d6bfe;color:#ffffff;font-weight:700;text-decoration:none">中文落地页</a>
-    <a href="https://george-wyy.github.io/MyLibrary-Plus/" style="display:inline-block;margin:0 8px 8px 0;padding:10px 18px;border-radius:9px;background:#ffffff;color:#4d6bfe;border:1px solid #b9c6ff;font-weight:700;text-decoration:none">English landing page</a>
-    <a href="https://github.com/george-wyy/MyLibrary-Plus" style="display:inline-block;margin:0 8px 8px 0;padding:10px 18px;border-radius:9px;background:#161b29;color:#ffffff;font-weight:700;text-decoration:none">GitHub 仓库</a>
-  </div>
-</div>
+<p><a href="/projects/" data-i18n-zh="返回项目列表" data-i18n-en="All projects">返回项目列表</a></p>
 
 <div class="lang-zh" markdown="1">
 

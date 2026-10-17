@@ -1,0 +1,6 @@
+- title: DSH 配置与使用指南
+  title_en: DSH Configuration and Usage Guide
+  date: '2026-09-22'
+  url: /dsh/
+  summary_zh: DeepSeek Harness 的配置、插件、权限与使用排障记录。
+  summary_en: Notes on DeepSeek Harness configuration, plugins, permissions, and troubleshooting.

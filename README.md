@@ -55,3 +55,20 @@ On other systems, provide a TrueType Chinese font with `--cjk-font`. Both PDFs
 use the same data, including authorship and manuscript status. Keep accepted
 papers separate from published papers; do not infer DOIs or publication dates.
 The Chinese PDF retains the existing `/assets/Curriculum_Vitae.pdf` URL.
+
+
+## Content ownership
+
+- `/research/`: research questions and methods; links to related work.
+- `/publications/`: complete bibliography, with manuscript and patent statuses.
+- `/projects/`: all built software and interaction prototypes. Metadata lives in
+  `_portfolio/`; `featured: true` selects homepage summaries. `project_url`
+  points to a standalone project page when one already exists.
+- `/blog/`: research/development articles from `_posts/`, canonical technical
+  guides from `_data/guides.yml`, and an entry to the writing templates.
+- `/cv/`: selected academic history and outputs; it links to the full catalogs.
+- `/templates/`: existing reusable writing resources, linked from the blog.
+
+MyLibrary-Plus lives under projects. The DSH guide lives at `/dsh/`. Their former
+blog URLs and `/portfolio/` are redirects, excluded from the sitemap. Keep full
+content at one destination; reuse summaries and links for discovery.

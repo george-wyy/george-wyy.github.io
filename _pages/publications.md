@@ -21,17 +21,19 @@ Journal and conference papers, book contributions, patents, and software. Accept
 
 {% assign papers = site.publications | where: "type", "paper" | sort: "date" | reverse %}
 {% assign patents = site.publications | where: "type", "patent" | sort: "date" | reverse %}
+{% assign disclosed_patents = patents | where_exp: 'item', 'item.patent_status != "filed"' %}
+{% assign filed_patents = patents | where: 'patent_status', 'filed' %}
 {% assign software = site.publications | where: "type", "software" | sort: "date" | reverse %}
 {% assign books = site.publications | where: "type", "book" | sort: "date" | reverse %}
 
 ## <span data-i18n-zh="统计" data-i18n-en="Statistics">统计</span>
 
 <ul class="lang-zh">
-  <li>已公开论文：{{ papers | size }}　|　专著：{{ books | size }}（参编）　|　专利：{{ patents | size }}　|　软件著作权：{{ software | size }}</li>
+  <li>已公开论文：{{ papers | size }}　|　专著：{{ books | size }}（参编）　|　已公开或授权专利：{{ disclosed_patents | size }}；待公开申请：{{ filed_patents | size }}　|　软件著作权：{{ software | size }}</li>
   <li>已接收待刊：{{ site.data.cv.papers | where: "status", "accepted" | size }}　|　在审 / 已投：{{ site.data.cv.manuscripts | size }}</li>
 </ul>
 <ul class="lang-en">
-  <li>Published papers: {{ papers | size }}　|　Monograph: {{ books | size }} (contributing author)　|　Patents: {{ patents | size }}　|　Registered software: {{ software | size }}</li>
+  <li>Published papers: {{ papers | size }}　|　Monograph: {{ books | size }} (contributing author)　|　Published / granted patents: {{ disclosed_patents | size }}; pending publication: {{ filed_patents | size }}　|　Registered software: {{ software | size }}</li>
   <li>Accepted / in press: {{ site.data.cv.papers | where: "status", "accepted" | size }}　|　Under review / submitted: {{ site.data.cv.manuscripts | size }}</li>
 </ul>
 
@@ -84,11 +86,11 @@ Journal and conference papers, book contributions, patents, and software. Accept
 
 ## <span data-i18n-zh="发明专利与实用新型" data-i18n-en="Patents">发明专利与实用新型</span>
 
-<p class="lang-zh">以下专利均已公开或授权，可在国家知识产权局 / 万方数据检索核验。</p>
-<p class="lang-en">All patents below are published or granted, and can be verified via CNIPA / WanFang Data.</p>
+<p class="lang-zh">以下分别列出已公开或授权专利，以及已受理待公开的申请。</p>
+<p class="lang-en">Published patent applications and granted patents are listed below. Applications awaiting publication are listed separately.</p>
 
 <div class="publication-list">
-{% for post in patents %}
+{% for post in disclosed_patents %}
   <div class="pub-item">
     <span class="pub-year">{{ post.date | date: "%Y" }}</span>
     <div class="pub-body">
@@ -99,6 +101,12 @@ Journal and conference papers, book contributions, patents, and software. Accept
 {% endfor %}
 </div>
 
+
+### <span data-i18n-zh="已受理待公开" data-i18n-en="Applications Awaiting Publication">已受理待公开</span>
+
+{% for post in filed_patents %}
+<div class="cv-paper"><h3><a href="{{ post.url | relative_url }}" data-i18n-zh="{{ post.title | escape }}" data-i18n-en="{{ post.title_en | escape }}">{{ post.title }}</a></h3><p>{{ post.citation | strip_html }}</p></div>
+{% endfor %}
 
 ## <span data-i18n-zh="软件著作权" data-i18n-en="Registered Software">软件著作权</span>
 

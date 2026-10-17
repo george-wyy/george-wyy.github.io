@@ -1,0 +1,7 @@
+{% assign project = include.project %}
+{% assign project_url = project.project_url | default: project.url %}
+<article class="project-summary">
+  <h3><a href="{{ project_url | relative_url }}" data-i18n-zh="{{ project.title | escape }}" data-i18n-en="{{ project.title_en | default: project.title | escape }}">{{ project.title }}</a></h3>
+  <p data-i18n-zh="{{ project.summary_zh | escape }}" data-i18n-en="{{ project.summary_en | escape }}">{{ project.summary_zh }}</p>
+  <p class="project-summary__links"><a href="{{ project_url | relative_url }}" data-i18n-zh="项目介绍" data-i18n-en="Project details">项目介绍</a>{% if project.repository %} · <a href="{{ project.repository }}">GitHub</a>{% endif %}</p>
+</article>

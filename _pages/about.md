@@ -43,10 +43,10 @@ redirect_from:
 </section>
 
 <section class="homepage-section homepage-section--projects">
-  <h2 data-i18n-zh="开源项目" data-i18n-en="Open-source Projects">开源项目</h2>
-  <h3><a href="/mic-pro-mac/">Mic Pro Mac</a></h3>
-  <p class="lang-zh">Insta360 Mic Pro 的非官方 macOS 配套工具，支持电量查看、墨水屏壁纸与录音导出。<a href="/mic-pro-mac/">查看介绍与交互演示</a>。</p>
-  <p class="lang-en">An unofficial macOS companion for Insta360 Mic Pro, with battery status, e-ink wallpapers, and recording export. <a href="/mic-pro-mac/">Explore the project</a>.</p>
+  <h2 data-i18n-zh="精选项目" data-i18n-en="Selected Projects">精选项目</h2>
+  {% assign featured_projects = site.portfolio | where: 'featured', true | sort: 'project_order' %}
+  {% for project in featured_projects %}{% include project-summary.html project=project %}{% endfor %}
+  <p><a href="{{ '/projects/' | relative_url }}" data-i18n-zh="查看全部项目" data-i18n-en="View all projects">查看全部项目</a></p>
 </section>
 
 <section class="homepage-section homepage-section--news">

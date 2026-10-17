@@ -24,14 +24,5 @@ author_profile: true
   <li><strong>Eye-tracking systems</strong>: developing pupil detection, gaze calibration, and data analysis tools.</li>
 </ul>
 
-## <span data-i18n-zh="精选项目" data-i18n-en="Selected Projects">精选项目</span>
-
-{% for post in site.portfolio reversed limit:3 %}
-<div class="highlight-card" style="margin-bottom:1rem;">
-  <strong><a href="{{ post.url | prepend: site.baseurl }}" data-i18n-zh="{{ post.title }}" data-i18n-en="{{ post.title_en | default: post.title }}">{{ post.title }}</a></strong>
-  <span class="lang-zh">{{ post.excerpt | strip_html | truncate: 100 }}</span>
-  <span class="lang-en">{{ post.summary_en | default: post.excerpt_en | default: post.excerpt | strip_html | truncate: 100 }}</span>
-</div>
-{% endfor %}
-
-<p><a href="{{ '/publications/' | relative_url }}" data-i18n-zh="查看相关论文" data-i18n-en="See related publications">查看相关论文</a></p>
+<p class="lang-zh">交互系统与原型见<a href="{{ '/projects/#research-prototypes' | relative_url }}">项目页</a>；研究结果见<a href="{{ '/publications/' | relative_url }}">论文成果</a>。</p>
+<p class="lang-en">See <a href="{{ '/projects/#research-prototypes' | relative_url }}">projects</a> for systems and prototypes, and <a href="{{ '/publications/' | relative_url }}">publications</a> for research results.</p>

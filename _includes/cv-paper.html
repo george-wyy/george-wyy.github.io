@@ -1,0 +1,7 @@
+{% assign paper = include.paper %}
+<article class="cv-paper">
+  <h3>{% if paper.doi %}<a href="https://doi.org/{{ paper.doi }}">{% endif %}{{ paper.title | default: paper.title_zh | escape }}{% if paper.doi %}</a>{% endif %}</h3>
+  <p class="cv-paper__authors">{% for author in paper.authors %}{% assign compact_name = author | remove: '-' | remove: ' ' | downcase %}{% if compact_name == 'yiyanwang' or author == '王以俨' %}<strong>{{ author | escape }}</strong>{% else %}{{ author | escape }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+  <p><em>{{ paper.venue | escape }}</em>{% if paper.status == 'published' %}, {{ paper.year }}{% if paper.volume %}, {{ paper.volume }}{% endif %}{% if paper.issue %}({{ paper.issue }}){% endif %}{% if paper.article_number %}, {{ paper.article_number }}{% endif %}{% if paper.pages %}, {{ paper.pages }}{% endif %}{% endif %}.</p>
+  <p class="cv-paper__note"><span data-i18n-zh="{{ paper.role.zh | escape }}" data-i18n-en="{{ paper.role.en | escape }}">{{ paper.role.zh }}</span>{% if paper.status == 'accepted' %} · <span data-i18n-zh="已接收（{{ paper.accepted_date | date: '%Y.%m' }}），待刊" data-i18n-en="Accepted {{ paper.accepted_date | date: '%b %Y' }}; in press">已接收（{{ paper.accepted_date | date: '%Y.%m' }}），待刊</span>{% endif %}</p>
+</article>

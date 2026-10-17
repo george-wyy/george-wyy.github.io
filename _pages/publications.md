@@ -7,10 +7,10 @@ author_profile: true
 ---
 
 <p class="lang-zh">
-本页汇总已公开的期刊/会议论文、专著、发明专利与软件著作权。为遵循学术规范，未公开内容不在此展示。
+期刊与会议论文、专著参编、专利及软件著作权。已接收待刊与在审稿件单独列出。
 </p>
 <p class="lang-en">
-This page lists published papers, monographs, patents, and registered software. Unpublished work is intentionally omitted.
+Journal and conference papers, book contributions, patents, and software. Accepted papers and submitted manuscripts are listed separately.
 </p>
 
 <p>
@@ -28,57 +28,27 @@ This page lists published papers, monographs, patents, and registered software. 
 
 <ul class="lang-zh">
   <li>已公开论文：{{ papers | size }}　|　专著：{{ books | size }}（参编）　|　专利：{{ patents | size }}　|　软件著作权：{{ software | size }}</li>
-  <li>已接收待刊：2（<em>Virtual Reality</em>, Springer；<em>Opto-Electronic Advances</em>）　|　在审 / 在投：3</li>
+  <li>已接收待刊：{{ site.data.cv.papers | where: "status", "accepted" | size }}　|　在审 / 已投：{{ site.data.cv.manuscripts | size }}</li>
 </ul>
 <ul class="lang-en">
   <li>Published papers: {{ papers | size }}　|　Monograph: {{ books | size }} (contributing author)　|　Patents: {{ patents | size }}　|　Registered software: {{ software | size }}</li>
-  <li>Accepted / in press: 2 (<em>Virtual Reality</em>, Springer; <em>Opto-Electronic Advances</em>)　|　Under review / submitted: 3</li>
+  <li>Accepted / in press: {{ site.data.cv.papers | where: "status", "accepted" | size }}　|　Under review / submitted: {{ site.data.cv.manuscripts | size }}</li>
 </ul>
 
-## <span data-i18n-zh="已接收 / 在审 / 在投" data-i18n-en="Accepted / Under Review / Submitted">已接收 / 在审 / 在投</span>
+## <span data-i18n-zh="已接收待刊" data-i18n-en="Accepted / In Press">已接收待刊</span>
 
-<div class="paper-grid">
-  <article class="paper-card">
-    <p class="paper-meta">Virtual Reality</p>
-    <h4>SPMark: Improving Small-Target Text Selection with Smooth-Pursuit Gaze Interaction in Hybrid Paper&ndash;Digital Environments</h4>
-    <div class="paper-tags">
-      <span class="paper-tag paper-tag--journal">Virtual Reality (Springer)</span>
-      <span class="paper-tag paper-tag--status paper-tag--accepted" data-i18n-zh="一作 · 已接收（2026.09）" data-i18n-en="First author · Accepted (Sep 2026)">一作 · 已接收（2026.09）</span>
-    </div>
-  </article>
-  <article class="paper-card">
-    <p class="paper-meta">ACM TOCHI</p>
-    <h4>Gaze2Foot: Foot Primitives and Stabilization Mechanisms for Gaze-Foot Target Selection Across Postures</h4>
-    <div class="paper-tags">
-      <span class="paper-tag paper-tag--journal">ACM Transactions on Computer-Human Interaction</span>
-      <span class="paper-tag paper-tag--status paper-tag--reviewing" data-i18n-zh="一作 · 在审" data-i18n-en="First author · Under Review">一作 · 在审</span>
-    </div>
-  </article>
-  <article class="paper-card">
-    <p class="paper-meta">IJHCI</p>
-    <h4>Gaze Localizes, the Head Confirms: Staged Head&ndash;Eye Coordination for Hands-Free Selection in Dense AR</h4>
-    <div class="paper-tags">
-      <span class="paper-tag paper-tag--journal">International Journal of Human&ndash;Computer Interaction</span>
-      <span class="paper-tag paper-tag--status paper-tag--reviewing" data-i18n-zh="一作 · 在审" data-i18n-en="First author · Under Review">一作 · 在审</span>
-    </div>
-  </article>
-  <article class="paper-card">
-    <p class="paper-meta">Opto-Electronic Advances</p>
-    <h4>Gaze-Driven Topological Phase-Transition Metasurfaces</h4>
-    <div class="paper-tags">
-      <span class="paper-tag paper-tag--journal">Opto-Electronic Advances</span>
-      <span class="paper-tag paper-tag--status paper-tag--accepted" data-i18n-zh="共同一作（共 3 人，本人第 2）· 已接收（2026.10）" data-i18n-en="Co-first author (2nd of 3) · Accepted (Oct 2026)">共同一作（共 3 人，本人第 2）· 已接收（2026.10）</span>
-    </div>
-  </article>
-  <article class="paper-card">
-    <p class="paper-meta">IJHCI</p>
-    <h4>DragCal: Unobtrusive Gaze Calibration from Mouse Dragging</h4>
-    <div class="paper-tags">
-      <span class="paper-tag paper-tag--journal">International Journal of Human&ndash;Computer Interaction</span>
-      <span class="paper-tag paper-tag--status paper-tag--reviewing" data-i18n-zh="一作 · 已投（2026.10）" data-i18n-en="First author · Submitted (Oct 2026)">一作 · 已投（2026.10）</span>
-    </div>
-  </article>
-</div>
+{% assign accepted_papers = site.data.cv.papers | where: 'status', 'accepted' %}
+{% for paper in accepted_papers %}{% include cv-paper.html paper=paper %}{% endfor %}
+
+## <span data-i18n-zh="在审 / 已投" data-i18n-en="Under Review / Submitted">在审 / 已投</span>
+
+{% for paper in site.data.cv.manuscripts %}
+<article class="cv-paper">
+  <h3>{{ paper.title | escape }}</h3>
+  <p>{{ paper.venue | escape }}</p>
+  <p class="cv-paper__note"><span data-i18n-zh="第一作者" data-i18n-en="First author">第一作者</span> · {% if paper.status == 'submitted' %}<span data-i18n-zh="已投（2026.10）" data-i18n-en="Submitted (Oct 2026)">已投（2026.10）</span>{% else %}<span data-i18n-zh="在审" data-i18n-en="Under review">在审</span>{% endif %}</p>
+</article>
+{% endfor %}
 
 ## <span data-i18n-zh="期刊与会议论文" data-i18n-en="Journal and Conference Papers">期刊与会议论文</span>
 
@@ -129,8 +99,6 @@ This page lists published papers, monographs, patents, and registered software. 
 {% endfor %}
 </div>
 
-<p class="lang-zh">另有 2 项眼动追踪 / 眼控交互发明专利正在与代理修改中，尚未取得受理号。</p>
-<p class="lang-en">2 further eye-tracking invention patents are in revision with the patent agent and have not yet been assigned application numbers.</p>
 
 ## <span data-i18n-zh="软件著作权" data-i18n-en="Registered Software">软件著作权</span>
 

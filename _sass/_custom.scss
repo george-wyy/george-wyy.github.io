@@ -1587,3 +1587,42 @@ html[data-theme="dark"] .sidebar .author-card__meta::before {
     transform: none;
   }
 }
+
+/* Concise academic CV and publication summaries. */
+.cv-content { max-width: 78ch; }
+.cv-tools { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin: 1.2rem 0 2rem; }
+.cv-tools .btn { margin: 0; }
+.cv-updated, .cv-period, .cv-paper__note { color: var(--text-2); font-size: .88em; }
+.cv-entry { margin-bottom: 1.5rem; }
+.cv-entry p, .cv-paper p { margin: .25rem 0; }
+.cv-paper { margin: 1.25rem 0 1.6rem; overflow-wrap: anywhere; }
+.archive .cv-paper h3 { font-size: 1rem; line-height: 1.55; margin: 0 0 .35rem; }
+.cv-paper__authors { font-size: .88em; line-height: 1.6; }
+.cv-paper h3 a { color: var(--text-1); }
+.cv-paper h3 a:hover { color: var(--accent-500); }
+.homepage-section--papers .paper-card h3 { font-size: 1.08rem; line-height: 1.5; margin: .5rem 0; }
+.cv-content dd { margin: .3rem 0 1rem; }
+.cv-content dt { font-weight: 600; }
+@media (max-width: 600px) { .cv-tools { align-items: flex-start; } .cv-updated { width: 100%; } }
+
+/* Keep contacts visible despite legacy JavaScript adding an inline display:none. */
+.sidebar .author__urls {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: .35rem .9rem;
+  position: static;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  z-index: auto;
+}
+.sidebar .author__urls::before, .sidebar .author__urls::after { display: none; }
+.sidebar .author__urls li + li { margin-top: 0; }
+.sidebar .author-card__links-label { text-transform: none; letter-spacing: normal; }
+@media (max-width: 1023px) {
+  .sidebar .author-card__identity { grid-template-columns: 64px minmax(0, 1fr); align-items: center; }
+  .sidebar .author__avatar img { width: 64px; height: 64px; object-fit: cover; }
+  .sidebar .author-card__meta, .sidebar .author-card__links-label { display: none; }
+}

@@ -145,6 +145,8 @@ exclude:
   - log
   - node_modules
   - package.json
+  - scripts
+  - requirements-cv.txt
   - tmp
   - vendor
 keep_files:

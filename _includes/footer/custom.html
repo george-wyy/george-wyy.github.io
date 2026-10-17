@@ -51,6 +51,7 @@
     function setLanguage(lang) {
       var nextLang = lang === "en" ? "en" : "zh";
       document.documentElement.setAttribute("data-lang", nextLang);
+      document.documentElement.setAttribute("lang", nextLang === "zh" ? "zh-CN" : "en");
       localStorage.setItem("site-lang", nextLang);
 
       langButtons.forEach(function (btn) {

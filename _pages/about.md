@@ -2,7 +2,7 @@
 permalink: /
 title: "王以俨"
 title_en: "Yiyan Wang"
-excerpt: "About me"
+excerpt: "东南大学机械工程博士生，研究眼动交互与 AR/VR。Gaze interaction and AR/VR research at Southeast University."
 author_profile: true
 redirect_from: 
   - /about/
@@ -11,16 +11,14 @@ redirect_from:
 
 <section class="profile-hero profile-hero--immersive reveal-on-scroll">
   <div class="profile-hero__content">
-    <span class="profile-tagline">PhD Student · XR + Eye Tracking</span>
+    <span class="profile-tagline">PhD Student · Gaze Interaction &amp; XR</span>
     <div class="profile-hero__lede">
-      <p class="lang-zh">我目前就读于 <a class="hero-link" href="https://www.seu.edu.cn">东南大学</a> 机械工程学院设计科学系，导师为
-      <a class="hero-link" href="https://me.seu.edu.cn/nyf_31777/list.htm">牛亚峰老师</a>。研究方向聚焦于眼控交互、增强现实、虚拟现实与人机交互系统。</p>
-      <p class="lang-en">I am a PhD student in Design Science at the School of Mechanical Engineering, <a class="hero-link" href="https://www.seu.edu.cn">Southeast University</a>, supervised by
-      <a class="hero-link" href="https://me.seu.edu.cn/nyf_31777/list.htm">Prof. Yafeng Niu</a>. My research focuses on eye-controlled interaction, AR/VR, and human-computer interaction systems.</p>
+      <p class="lang-zh">我是东南大学机械工程学院的机械工程博士生，导师为<a class="hero-link" href="https://me.seu.edu.cn/nyf_31777/list.htm">牛亚峰教授</a>。我研究如何利用视线进行交互，关注 AR/VR 中的目标选择、多通道协同与用户体验。</p>
+      <p class="lang-en">I am a PhD student in Mechanical Engineering at <a class="hero-link" href="https://www.seu.edu.cn">Southeast University</a>, supervised by <a class="hero-link" href="https://me.seu.edu.cn/nyf_31777/list.htm">Prof. Yafeng Niu</a>. I study gaze interaction, with a focus on target selection, multimodal input, and user experience in AR/VR.</p>
     </div>
   </div>
   <div class="profile-hero__actions quick-links quick-links--hero" role="group" aria-label="Quick links">
-    <a class="quick-links__primary" href="/assets/Curriculum_Vitae.pdf" data-i18n-zh="简历（CV）" data-i18n-en="Curriculum Vitae">简历（CV）</a>
+    <a class="quick-links__primary" href="{{ '/cv/' | relative_url }}" data-i18n-zh="简历（CV）" data-i18n-en="Curriculum Vitae">简历（CV）</a>
     <a href="mailto:wangyiyan@seu.edu.cn">Email</a>
     <a href="https://github.com/george-wyy">GitHub</a>
     <a href="https://scholar.google.com/citations?user=Qu9RMQsAAAAJ">Google Scholar</a>
@@ -32,100 +30,50 @@ redirect_from:
   <h2 data-i18n-zh="研究兴趣" data-i18n-en="Research Interests">研究兴趣</h2>
   <div class="interest-grid">
     <ul class="lang-zh">
-      <li>眼控交互（Eye-Control Interaction）</li>
-      <li>AR/VR 场景中的可用性与交互效率优化</li>
-      <li>人机交互中的机器学习方法</li>
+      <li>凝视与平滑追踪交互</li>
+      <li>眼动与手、头等输入通道的协同</li>
+      <li>AR/VR 交互设计与用户研究</li>
     </ul>
     <ul class="lang-en">
-      <li>Eye-controlled interaction</li>
-      <li>Usability and interaction-efficiency optimization in AR/VR</li>
-      <li>Machine learning methods in HCI</li>
+      <li>Gaze and smooth-pursuit interaction</li>
+      <li>Coordination of gaze with hand and head input</li>
+      <li>Interaction design and user studies in AR/VR</li>
     </ul>
   </div>
 </section>
 
 <section class="homepage-section homepage-section--projects">
-  <h2 data-i18n-zh="开源小工具" data-i18n-en="Open-source Projects">开源小工具</h2>
+  <h2 data-i18n-zh="开源项目" data-i18n-en="Open-source Projects">开源项目</h2>
   <h3><a href="/mic-pro-mac/">Mic Pro Mac</a></h3>
-  <p class="lang-zh">为 Insta360 Mic Pro 做的原生 macOS 小工具：电量与充电、侧边停靠、墨水屏壁纸、录音导出，以及本机 Agent CLI。<a href="/mic-pro-mac/">查看介绍与交互演示</a>。</p>
-  <p class="lang-en">An unofficial native macOS companion for Insta360 Mic Pro: battery and power status, an edge dock, e-ink wallpapers, recording export, and a local Agent CLI. <a href="/mic-pro-mac/">Explore the project</a>.</p>
+  <p class="lang-zh">Insta360 Mic Pro 的非官方 macOS 配套工具，支持电量查看、墨水屏壁纸与录音导出。<a href="/mic-pro-mac/">查看介绍与交互演示</a>。</p>
+  <p class="lang-en">An unofficial macOS companion for Insta360 Mic Pro, with battery status, e-ink wallpapers, and recording export. <a href="/mic-pro-mac/">Explore the project</a>.</p>
 </section>
 
 <section class="homepage-section homepage-section--news">
   <h2 data-i18n-zh="最新动态" data-i18n-en="News">最新动态</h2>
   <ul class="news-list">
-    <li>
-      <span class="news-date">2026.10</span>
-      <span class="lang-zh">合作论文 Gaze-Driven Topological Phase-Transition Metasurfaces 被 <em>Opto-Electronic Advances</em>（光电进展，中科院一区 TOP，IF 22.4）接收——本人为共同第一作者（3 位共同一作中第 2 位），参与理论分析与数值仿真、基于 HoloLens 的增强现实实验平台搭建，并参与论文撰写</span>
-      <span class="lang-en">Collaborative paper <em>Gaze-Driven Topological Phase-Transition Metasurfaces</em> accepted by <em>Opto-Electronic Advances</em> (CAS Tier 1 Top, IF 22.4) &mdash; co-first author (2nd of 3), contributed to the theoretical analysis and numerical simulations, the HoloLens-based mixed-reality experimental platform, and the manuscript writing</span>
-    </li>
-    <li>
-      <span class="news-date">2026.09</span>
-      <span class="lang-zh">SPMark 论文被 <em>Virtual Reality</em>（Springer）接收——混合纸-数字环境下的平滑追踪眼动小目标文本选择</span>
-      <span class="lang-en">SPMark accepted by <em>Virtual Reality</em> (Springer) &mdash; small-target text selection with smooth-pursuit gaze interaction in hybrid paper&ndash;digital environments</span>
-    </li>
-    <li>
-      <span class="news-date">2026.08</span>
-      <span class="lang-zh">合作论文 Take-A-Look（工业 VR 自然手势远距离目标交互）发表于 Computers in Industry</span>
-      <span class="lang-en">Collaborative paper Take-A-Look (natural-gesture distant-target interaction in industrial VR) published in Computers in Industry</span>
-    </li>
-    <li>
-      <span class="news-date">2026.08</span>
-      <span class="lang-zh">眼动驱动超表面合作稿（Gaze-Driven Topological Phase-Transition Metasurfaces）在 Opto-Electronic Advances 收到大修意见（该稿已于 2026.10 接收）</span>
-      <span class="lang-en">Collaborative metasurface paper (Gaze-Driven Topological Phase-Transition Metasurfaces) received a major-revision decision at Opto-Electronic Advances (the paper was accepted in Oct 2026)</span>
-    </li>
-    <li>
-      <span class="news-date">2026.07</span>
-      <span class="lang-zh">眼-头级联选择论文转投 International Journal of Human–Computer Interaction (IJHCI)，审稿中</span>
-      <span class="lang-en">Eye-head cascaded selection paper resubmitted to the International Journal of Human–Computer Interaction (IJHCI), under review</span>
-    </li>
-    <li>
-      <span class="news-date">2026.05</span>
-      <span class="lang-zh">4 项眼动追踪相关发明专利（近眼AR注视深度消歧、隐式自适应校准、多模态大模型交互消歧、触觉运动幻觉感知确认）获国家知识产权局受理</span>
-      <span class="lang-en">4 eye-tracking invention patents (near-eye AR gaze-depth disambiguation, implicit adaptive calibration, multimodal-LLM interaction disambiguation, and tactile-motion-illusion perceptual confirmation) accepted by CNIPA</span>
-    </li>
-    <li>
-      <span class="news-date">2025.02</span>
-      <span class="lang-zh">综述论文"基于设计工效学的眼控交互范式设计研究现状与进展"被《包装工程》接收</span>
-      <span class="lang-en">Review paper on eye-control interaction paradigm design accepted by Packaging Engineering</span>
-    </li>
-    <li>
-      <span class="news-date">2025.01</span>
-      <span class="lang-zh">Fisheye expansion 论文发表于 Advanced Engineering Informatics</span>
-      <span class="lang-en">Fisheye expansion paper published in Advanced Engineering Informatics</span>
-    </li>
+    <li><span class="news-date">2026.10</span><span class="lang-zh">眼动驱动超表面合作论文被 <em>Opto-Electronic Advances</em> 接收，共同第一作者（3 位共同一作中第 2 位）。</span><span class="lang-en">Our paper on gaze-driven metasurfaces was accepted by <em>Opto-Electronic Advances</em>. Co-first author (second of three equal contributors).</span></li>
+    <li><span class="news-date">2026.09</span><span class="lang-zh">SPMark 被 <em>Virtual Reality</em> 接收，研究混合纸与数字环境中的平滑追踪文本选择。</span><span class="lang-en">SPMark was accepted by <em>Virtual Reality</em>, studying smooth-pursuit text selection in hybrid paper–digital environments.</span></li>
+    <li><span class="news-date">2026.09</span><span class="lang-zh">眼手级联交互合作论文发表于 <em>Advanced Engineering Informatics</em>。</span><span class="lang-en">Our work on gaze–hand cascaded interaction appeared in <em>Advanced Engineering Informatics</em>.</span></li>
+    <li><span class="news-date">2026.08</span><span class="lang-zh">Take-A-Look 发表于 <em>Computers in Industry</em>，探索工业 VR 中的远距离目标交互。</span><span class="lang-en">Take-A-Look appeared in <em>Computers in Industry</em>, exploring distant-target interaction in industrial VR.</span></li>
   </ul>
 </section>
 
 <section class="homepage-section homepage-section--papers">
   <h2 data-i18n-zh="近期论文" data-i18n-en="Recent Publications">近期论文</h2>
   <div class="paper-grid">
-  {% assign latest_papers = site.publications | where: "type", "paper" | sort: "date" | reverse %}
-  {% for post in latest_papers limit:3 %}
-    {% assign journal = post.venue | default: "" | strip %}
-    {% if journal == "" and post.citation %}
-      {% assign citation_text = post.citation | strip_html %}
-      {% assign citation_parts = citation_text | split: ". " %}
-      {% assign journal = citation_parts | last | strip %}
-      {% assign journal = journal | split: "【" | first | split: "[" | first | strip %}
-    {% endif %}
-    {% if journal == "" %}{% assign journal = "期刊/会议未标注" %}{% endif %}
-    <article class="paper-card reveal-on-scroll">
-      <p class="paper-meta">{{ post.date | date: "%Y-%m" }}</p>
-      <h4><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
-      <div class="paper-tags">
-        <span class="paper-tag paper-tag--journal">{{ journal | truncate: 30 }}</span>
-      </div>
-      {% if post.citation %}
-        <p>{{ post.citation | strip_html | truncate: 140 }}</p>
-      {% else %}
-        <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
-      {% endif %}
-      <a class="paper-link" href="{{ post.url | prepend: site.baseurl }}" data-i18n-zh="查看详情" data-i18n-en="View Details">查看详情</a>
+  {% assign recent_papers = site.data.cv.papers | slice: 0, 3 %}
+  {% for paper in recent_papers %}
+    <article class="paper-card">
+      <p class="paper-meta">{% if paper.status == 'accepted' %}{{ paper.accepted_date | date: "%Y-%m" }}{% else %}{{ paper.year }}{% endif %}</p>
+      <h3>{% if paper.doi %}<a href="https://doi.org/{{ paper.doi }}">{% endif %}{{ paper.title | default: paper.title_zh | escape }}{% if paper.doi %}</a>{% endif %}</h3>
+      <p><em>{{ paper.venue | escape }}</em></p>
+      <p data-i18n-zh="{{ paper.role.zh }}" data-i18n-en="{{ paper.role.en }}">{{ paper.role.zh }}</p>
+      {% if paper.status == 'accepted' %}<span class="paper-tag paper-tag--accepted" data-i18n-zh="已接收待刊" data-i18n-en="Accepted / In press">已接收待刊</span>{% else %}<span class="paper-tag" data-i18n-zh="已发表" data-i18n-en="Published">已发表</span>{% endif %}
     </article>
   {% endfor %}
   </div>
   <p style="text-align:center; margin-top:1.5rem;">
-    <a href="/publications/" data-i18n-zh="→ 查看全部论文" data-i18n-en="→ View all publications">→ 查看全部论文</a>
+    <a href="/publications/" data-i18n-zh="查看全部论文" data-i18n-en="View all publications">查看全部论文</a>
   </p>
 </section>

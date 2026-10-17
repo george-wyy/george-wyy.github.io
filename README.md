@@ -35,3 +35,23 @@ See more info at https://academicpages.github.io/
 There is one logistical issue with a ready-to-fork template theme like academic pages that makes it a little tricky to get bug fixes and updates to the core theme. If you fork this repository, customize it, then pull again, you'll probably get merge conflicts. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch. 
 
 To support this, all changes to the underlying code appear as a closed issue with the tag 'code change' -- get the list [here](https://github.com/academicpages/academicpages.github.io/issues?q=is%3Aclosed%20is%3Aissue%20label%3A%22code%20change%22%20). Each issue thread includes a comment linking to the single commit or a diff across multiple commits, so those with forked repositories can easily identify what they need to patch.
+
+## Updating the CV
+
+The public CV content lives in `_data/cv.json`. The homepage's recent papers,
+accepted/submitted sections on `/publications/`, and `/cv/` read this file.
+Only copy public-facing fields from the separately maintained academic record;
+do not copy internal notes or personal identifiers. Published papers and patents
+in `_publications/` remain the complete bibliography.
+
+After editing the data, regenerate both PDF downloads (Python 3 + ReportLab):
+
+```sh
+python3 -m pip install -r requirements-cv.txt
+python3 scripts/build_cv.py --cjk-font '/System/Library/Fonts/STHeiti Light.ttc'
+```
+
+On other systems, provide a TrueType Chinese font with `--cjk-font`. Both PDFs
+use the same data, including authorship and manuscript status. Keep accepted
+papers separate from published papers; do not infer DOIs or publication dates.
+The Chinese PDF retains the existing `/assets/Curriculum_Vitae.pdf` URL.

@@ -1,0 +1,432 @@
+{
+  "updated": "2026-10-17",
+  "name": {
+    "zh": "王以俨",
+    "en": "Yiyan Wang"
+  },
+  "email": "wangyiyan@seu.edu.cn",
+  "intro": {
+    "zh": "东南大学机械工程学院机械工程博士生，研究眼动交互与 AR/VR 中的目标选择、交互设计及用户体验。导师：牛亚峰教授。",
+    "en": "PhD student in Mechanical Engineering at Southeast University, supervised by Prof. Yafeng Niu. My research examines gaze interaction, target selection, and user experience in AR/VR."
+  },
+  "education": [
+    {
+      "institution": {
+        "zh": "东南大学",
+        "en": "Southeast University"
+      },
+      "degree": {
+        "zh": "机械工程博士（在读）",
+        "en": "PhD in Mechanical Engineering (in progress)"
+      },
+      "period": {
+        "zh": "2024.09 - 至今",
+        "en": "Sep 2024 - Present"
+      }
+    },
+    {
+      "institution": {
+        "zh": "东南大学",
+        "en": "Southeast University"
+      },
+      "degree": {
+        "zh": "设计学硕士",
+        "en": "MS in Design Science"
+      },
+      "period": {
+        "zh": "2021.09 - 2024.06",
+        "en": "Sep 2021 - Jun 2024"
+      }
+    },
+    {
+      "institution": {
+        "zh": "中国农业大学",
+        "en": "China Agricultural University"
+      },
+      "degree": {
+        "zh": "工业设计学士",
+        "en": "BS in Industrial Design"
+      },
+      "period": {
+        "zh": "2017.08 - 2021.06",
+        "en": "Aug 2017 - Jun 2021"
+      },
+      "detail": {
+        "zh": "GPA 3.9/4.0，专业排名 1/36；另修数据科学与大数据技术双学位。",
+        "en": "GPA 3.9/4.0, ranked 1/36; additional degree in Data Science and Big Data Technology."
+      }
+    }
+  ],
+  "experience": [
+    {
+      "title": {
+        "zh": "眼控交互研究",
+        "en": "Gaze interaction research"
+      },
+      "period": {
+        "zh": "2021 - 至今",
+        "en": "2021 - Present"
+      },
+      "description": {
+        "zh": "设计并评估凝视、眨眼、平滑追踪及多通道交互方法；使用 HoloLens 2、Unity 与眼动设备搭建实验系统。",
+        "en": "Design and evaluate gaze, blink, smooth-pursuit, and multimodal interaction methods; build experimental systems with HoloLens 2, Unity, and eye trackers."
+      }
+    },
+    {
+      "title": {
+        "zh": "眼控装备系统视触觉交互机制研究",
+        "en": "Visual-haptic interaction in gaze-controlled systems"
+      },
+      "period": {
+        "zh": "2023 - 2025；2026.06 验收",
+        "en": "2023 - 2025; completed Jun 2026"
+      },
+      "description": {
+        "zh": "教育部联合基金项目技术负责人，负责技术路线、实验设计与系统实现。",
+        "en": "Technical lead on a Ministry of Education Joint Fund project, responsible for technical planning, experimental design, and system implementation."
+      }
+    },
+    {
+      "title": {
+        "zh": "头戴式眼动追踪系统",
+        "en": "Head-mounted eye-tracking system"
+      },
+      "period": {
+        "zh": "2025 - 至今",
+        "en": "2025 - Present"
+      },
+      "description": {
+        "zh": "负责硬件与算法开发，涵盖近红外瞳孔检测、注视校准、数据采集与分析工具。",
+        "en": "Lead hardware and algorithm development for infrared pupil detection, gaze calibration, and data collection and analysis tools."
+      }
+    }
+  ],
+  "projects": [
+    {
+      "title": {
+        "zh": "Mic Pro Mac",
+        "en": "Mic Pro Mac"
+      },
+      "period": "2026",
+      "description": {
+        "zh": "Insta360 Mic Pro 的非官方 macOS 配套工具，支持电量查看、墨水屏壁纸与录音导出。",
+        "en": "An unofficial macOS companion for Insta360 Mic Pro, with battery status, e-ink wallpapers, and recording export."
+      },
+      "url": "https://george-wyy.github.io/mic-pro-mac/"
+    },
+    {
+      "title": {
+        "zh": "VR 月球基地任务仿真",
+        "en": "VR lunar-base mission simulation"
+      },
+      "period": "2022 - 2023",
+      "description": {
+        "zh": "技术负责人；开发舱外维修和月表采样场景，并指导团队完成 VR 交互开发。",
+        "en": "Technical lead; developed maintenance and lunar-sampling scenarios and guided the team in VR interaction development."
+      }
+    },
+    {
+      "title": {
+        "zh": "眼控注意力训练游戏",
+        "en": "Gaze-based attention-training games"
+      },
+      "period": "2020 - 2021",
+      "description": {
+        "zh": "本科毕业设计；结合凝视与平滑追踪设计游戏，并在儿童康复训练中心开展可用性测试。",
+        "en": "Undergraduate thesis; designed gaze and smooth-pursuit games and conducted usability testing at a children’s rehabilitation center."
+      }
+    }
+  ],
+  "skills": [
+    {
+      "title": {
+        "zh": "眼动与 XR",
+        "en": "Eye tracking and XR"
+      },
+      "description": {
+        "zh": "Tobii、Pupil Labs、HoloLens 2、Unity、MRTK3",
+        "en": "Tobii, Pupil Labs, HoloLens 2, Unity, MRTK3"
+      }
+    },
+    {
+      "title": {
+        "zh": "编程与分析",
+        "en": "Programming and analysis"
+      },
+      "description": {
+        "zh": "Python（PyTorch、OpenCV）、C#、R；实验设计、统计分析与可用性评估",
+        "en": "Python (PyTorch, OpenCV), C#, R; experimental design, statistical analysis, usability evaluation"
+      }
+    }
+  ],
+  "awards": [
+    {
+      "zh": "东南大学优秀硕士学位论文（2025）",
+      "en": "Outstanding Master’s Thesis, Southeast University (2025)"
+    },
+    {
+      "zh": "国家奖学金（2019、2020）",
+      "en": "National Scholarship (2019, 2020)"
+    }
+  ],
+  "book": {
+    "zh": "参编牛亚峰著《眼控交互范式设计》（科学出版社，2025），撰写第一章并参与技术统稿。ISBN 978-7-03-083699-1。",
+    "en": "Contributed Chapter 1 and technical editing to Eye-Control Interaction Paradigm Design, by Yafeng Niu (Science Press, 2025). ISBN 978-7-03-083699-1."
+  },
+  "papers": [
+    {
+      "id": "oea-metasurface",
+      "title": "Gaze-Driven Topological Phase-Transition Metasurfaces",
+      "title_zh": "眼动驱动拓扑相变超表面研究",
+      "venue": "Opto-Electronic Advances",
+      "authors": [
+        "Qiang Xiao",
+        "Yi Yan Wang",
+        "Qian Ma",
+        "Yu Ming Ning",
+        "Lin Han Fan",
+        "Shan Wen Luo",
+        "Long Chen",
+        "Da Yu Cai",
+        "Jing Cheng Zhang",
+        "Wei Chi Huang",
+        "Zhu Tao Wang",
+        "Jian Wei You",
+        "Ya Feng Niu",
+        "Tie Jun Cui",
+        "Din Ping Tsai"
+      ],
+      "author_position": 2,
+      "status": "accepted",
+      "role": {
+        "zh": "共同第一作者（3 位共同一作中第 2 位）",
+        "en": "Co-first author (second of three equal contributors)"
+      },
+      "accepted_date": "2026-10-08",
+      "year": 2026
+    },
+    {
+      "id": "vr-spmark",
+      "title": "SPMark: Improving Small-Target Text Selection with Smooth-Pursuit Gaze Interaction in Hybrid Paper–Digital Environments",
+      "title_zh": "混合数字纸文本标绘平滑追踪眼触控交互研究",
+      "venue": "Virtual Reality (Springer)",
+      "year": 2026,
+      "doi": null,
+      "authors": [
+        "Yiyan Wang",
+        "Weichi Huang",
+        "Linhan Fan",
+        "Zhutao Wang",
+        "Yafeng Niu"
+      ],
+      "author_position": 1,
+      "status": "accepted",
+      "role": {
+        "zh": "第一作者",
+        "en": "First author"
+      },
+      "accepted_date": "2026-09-08"
+    },
+    {
+      "id": "aei-2026-gaze-hand",
+      "title": "Exploring coordination in Gaze-Hand cascaded Interaction: Designing robust solutions for Low-Precision eye tracking",
+      "title_zh": "低精度眼动下眼手级联交互的协同机制与鲁棒方案设计",
+      "venue": "Advanced Engineering Informatics",
+      "year": 2026,
+      "doi": "10.1016/j.aei.2026.104766",
+      "volume": "74",
+      "article_number": "104766",
+      "authors": [
+        "Jingze Tian",
+        "Yiyan Wang",
+        "Jinchun Wu",
+        "Can Liu",
+        "Yafeng Niu"
+      ],
+      "author_position": 2,
+      "status": "published",
+      "role": {
+        "zh": "第二作者",
+        "en": "Second author"
+      }
+    },
+    {
+      "id": "compind-2026-take-a-look",
+      "title": "Take-A-Look: Enabling intuitive distant target interactions in industrial virtual reality applications via natural gestures",
+      "title_zh": "工业虚拟现实中基于自然手势的远距离目标交互方法",
+      "venue": "Computers in Industry",
+      "year": 2026,
+      "doi": "10.1016/j.compind.2026.104545",
+      "volume": "181",
+      "article_number": "104545",
+      "authors": [
+        "Wei-Chi Huang",
+        "Zhuo-Heng Song",
+        "Yi-Yan Wang",
+        "Lin-Han Fan",
+        "Ya-Feng Niu"
+      ],
+      "author_position": 3,
+      "status": "published",
+      "role": {
+        "zh": "第三作者",
+        "en": "Third author"
+      }
+    },
+    {
+      "id": "baozhuang-2025-review",
+      "title_zh": "基于设计工效学的眼控交互范式设计研究现状与进展",
+      "venue": "包装工程",
+      "year": 2025,
+      "doi": null,
+      "volume": "46",
+      "issue": "4",
+      "pages": "20-35",
+      "authors": [
+        "牛亚峰",
+        "王以俨",
+        "黄炜驰",
+        "范林涵"
+      ],
+      "author_position": 2,
+      "status": "published",
+      "role": {
+        "zh": "第二作者兼通信作者",
+        "en": "Second and corresponding author"
+      }
+    },
+    {
+      "id": "aei-2025-fisheye",
+      "title": "Enhancing gaze interaction performance: Design and optimization of perspective-driven fisheye view",
+      "title_zh": "透视驱动鱼眼视图的注视交互性能优化",
+      "venue": "Advanced Engineering Informatics",
+      "year": 2025,
+      "doi": "10.1016/j.aei.2025.103365",
+      "volume": "65",
+      "article_number": "103365",
+      "authors": [
+        "Wei-Chi Huang",
+        "Yi-Yan Wang",
+        "Lin-Han Fan",
+        "Sha-Tong Yang",
+        "Ya-Feng Niu"
+      ],
+      "author_position": 2,
+      "status": "published",
+      "role": {
+        "zh": "第二作者",
+        "en": "Second author"
+      }
+    },
+    {
+      "id": "aei-2024-blink",
+      "title": "Research on a spatial–temporal characterisation of blink-triggered eye control interactions",
+      "title_zh": "眨眼触发眼控交互的时空特性研究",
+      "venue": "Advanced Engineering Informatics",
+      "year": 2024,
+      "doi": "10.1016/j.aei.2023.102297",
+      "volume": "59",
+      "article_number": "102297",
+      "authors": [
+        "Yi-Yan Wang",
+        "Jing-Ze Tian",
+        "Lang Xiao",
+        "Jia-Xin He",
+        "Ya-Feng Niu"
+      ],
+      "author_position": 1,
+      "status": "published",
+      "role": {
+        "zh": "第一作者",
+        "en": "First author"
+      }
+    },
+    {
+      "id": "displays-2024-smooth-pursuit",
+      "title": "Design recommendations of target size and tracking speed under circular and square trajectories for smooth pursuit with Euclidean algorithm in eye-control system",
+      "title_zh": "眼控系统平滑追踪的目标尺寸与运动速度设计建议",
+      "venue": "Displays",
+      "year": 2024,
+      "doi": "10.1016/j.displa.2023.102608",
+      "volume": "81",
+      "article_number": "102608",
+      "authors": [
+        "Yi-yan Wang",
+        "Wen Cheng",
+        "Jing-ze Tian",
+        "Wei-chi Huang",
+        "Ya-feng Niu",
+        "Wen-jun Yang",
+        "Cheng-qi Xue"
+      ],
+      "author_position": 1,
+      "status": "published",
+      "role": {
+        "zh": "第一作者",
+        "en": "First author"
+      }
+    }
+  ],
+  "manuscripts": [
+    {
+      "id": "tochi-gaze2foot",
+      "title_zh": "眼足协同目标选择研究",
+      "venue": "ACM Transactions on Computer-Human Interaction",
+      "authors": [
+        "Yiyan Wang",
+        "Jiaxin He",
+        "Jingze Tian",
+        "Weichi Huang",
+        "Linhan Fan",
+        "Zhutao Wang",
+        "Rui Chen",
+        "Yafeng Niu"
+      ],
+      "title": "Gaze2Foot: Foot Primitives and Stabilization Mechanisms for Gaze-Foot Target Selection Across Postures",
+      "status": "under_review",
+      "role": {
+        "zh": "第一作者",
+        "en": "First author"
+      }
+    },
+    {
+      "id": "ijhci-gaze2head",
+      "title": "Gaze Localizes, the Head Confirms: Staged Head–Eye Coordination for Hands-Free Selection in Dense AR",
+      "title_zh": "眼头协同免手目标选择研究",
+      "venue": "International Journal of Human-Computer Interaction",
+      "authors": [
+        "Yiyan Wang",
+        "Haobin Chen",
+        "Weichi Huang",
+        "Linhan Fan",
+        "Zhutao Wang",
+        "Yafeng Niu"
+      ],
+      "status": "under_review",
+      "role": {
+        "zh": "第一作者",
+        "en": "First author"
+      }
+    },
+    {
+      "id": "ijhci-dragcal",
+      "title": "DragCal: Unobtrusive Gaze Calibration from Mouse Dragging",
+      "title_zh": "鼠标拖拽驱动的无干扰眼动标定",
+      "venue": "International Journal of Human–Computer Interaction (Taylor & Francis)",
+      "authors": [
+        "Yiyan Wang",
+        "Jielin Cai",
+        "Weichi Huang",
+        "Linhan Fan",
+        "Zhutao Wang",
+        "Zixin Yang",
+        "Yafeng Niu"
+      ],
+      "status": "submitted",
+      "role": {
+        "zh": "第一作者",
+        "en": "First author"
+      }
+    }
+  ]
+}

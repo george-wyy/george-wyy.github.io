@@ -5,7 +5,7 @@ collection: "portfolio"
 permalink: "/projects/gaze-calibration-schemes/"
 project_id: "gaze-calibration-schemes"
 project_kind: "software"
-project_order: 3
+project_order: 4
 featured: true
 period: "2026"
 summary_zh: "复现 8 种已发表眼动标定监督方案及 1 个变体，附合成数据示例、测试与实现偏差说明。"

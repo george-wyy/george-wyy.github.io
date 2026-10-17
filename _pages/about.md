@@ -27,9 +27,15 @@ redirect_from:
   {% include research-highlights.html %}
 </section>
 
+<section class="module-panel homepage-research-systems">
+  <div class="module-heading"><span class="module-symbol" aria-hidden="true">⌘</span><h2 data-i18n-zh="研究系统与原型" data-i18n-en="Research systems and prototypes">研究系统与原型</h2><a class="module-more" href="{{ '/projects/#research-systems' | relative_url }}" data-i18n-zh="项目详情" data-i18n-en="Explore projects">项目详情</a></div>
+  {% assign research_systems = site.portfolio | where: 'research_system', true | sort: 'project_order' %}
+  <div class="project-catalog project-catalog--featured">{% for project in research_systems %}{% include project-summary.html project=project %}{% endfor %}</div>
+</section>
+
 <section class="module-panel homepage-projects">
   <div class="module-heading"><span class="module-symbol" aria-hidden="true">⌘</span><h2 data-i18n-zh="从研究到工具" data-i18n-en="From research to tools">从研究到工具</h2><a class="module-more" href="{{ '/projects/' | relative_url }}" data-i18n-zh="全部项目" data-i18n-en="All projects">全部项目</a></div>
-  {% assign featured_projects = site.portfolio | where: 'featured', true | sort: 'project_order' %}
+  {% assign featured_projects = site.portfolio | where: 'featured', true | where: 'project_kind', 'software' | sort: 'project_order' %}
   <div class="project-catalog project-catalog--featured">{% for project in featured_projects %}{% include project-summary.html project=project %}{% endfor %}</div>
 </section>
 

@@ -9,10 +9,16 @@ author_profile: true
 <p class="lang-zh">我开发的软件工具与交互原型。配置教程和研究方法笔记见<a href="{{ '/blog/' | relative_url }}">博客</a>。</p>
 <p class="lang-en">Software tools and interaction prototypes I have built. See the <a href="{{ '/blog/' | relative_url }}">blog</a> for setup guides and research notes.</p>
 
+<h2 id="research-systems" data-i18n-zh="研究系统与原型" data-i18n-en="Research Systems and Prototypes">研究系统与原型</h2>
+<p class="lang-zh">围绕眼控界面、眼动追踪与测试设备开展的研发项目。各项目页展示功能、本人贡献与当前进展，代码暂未公开。</p>
+<p class="lang-en">Ongoing research on gaze interfaces, eye tracking, and testing equipment. Each page describes functionality, my contribution, and current progress. Code is not public.</p>
+{% assign research_systems = site.portfolio | where: 'research_system', true | sort: 'project_order' %}
+<div class="project-catalog project-catalog--research">{% for project in research_systems %}{% include project-summary.html project=project %}{% endfor %}</div>
+
 <h2 id="software" data-i18n-zh="开源软件" data-i18n-en="Open-source Software">开源软件</h2>
 {% assign software_projects = site.portfolio | where: 'project_kind', 'software' | sort: 'project_order' %}
 <div class="project-catalog project-catalog--software">{% for project in software_projects %}{% include project-summary.html project=project %}{% endfor %}</div>
 
-<h2 id="research-prototypes" data-i18n-zh="研究与交互原型" data-i18n-en="Research and Interaction Prototypes">研究与交互原型</h2>
-{% assign prototypes = site.portfolio | where: 'project_kind', 'prototype' | sort: 'project_order' %}
+<h2 id="research-prototypes" data-i18n-zh="其他交互原型" data-i18n-en="Other Interaction Prototypes">其他交互原型</h2>
+{% assign prototypes = site.portfolio | where: 'project_kind', 'prototype' | where_exp: 'item', 'item.research_system != true' | sort: 'project_order' %}
 <div class="project-catalog">{% for project in prototypes %}{% include project-summary.html project=project %}{% endfor %}</div>

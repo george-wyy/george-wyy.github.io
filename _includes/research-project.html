@@ -1,0 +1,13 @@
+{% assign project_detail = site.data.research_projects | where: 'id', page.project_id | first %}
+<section class="module-panel research-project-intro">
+  <div class="project-badges"><span class="project-stage" data-i18n-zh="{{ project_detail.stage }}" data-i18n-en="{{ project_detail.stage_en }}">{{ project_detail.stage }}</span><span data-i18n-zh="代码暂未公开" data-i18n-en="Code not public">代码暂未公开</span></div>
+  <p data-i18n-zh="{{ project_detail.purpose | escape }}" data-i18n-en="{{ project_detail.purpose_en | escape }}">{{ project_detail.purpose }}</p>
+</section>
+{% assign detail_sections = 'features,contributions,progress' | split: ',' %}
+{% for detail_section in detail_sections %}
+<section class="module-panel research-project-section">
+  {% case detail_section %}{% when 'features' %}<h2 data-i18n-zh="主要功能" data-i18n-en="What it does">主要功能</h2>{% when 'contributions' %}<h2 data-i18n-zh="我的贡献" data-i18n-en="My contribution">我的贡献</h2>{% when 'progress' %}<h2 data-i18n-zh="当前进展" data-i18n-en="Current progress">当前进展</h2>{% endcase %}
+  <ul>{% for detail_item in project_detail[detail_section] %}<li data-i18n-zh="{{ detail_item[0] | escape }}" data-i18n-en="{{ detail_item[1] | escape }}">{{ detail_item[0] }}</li>{% endfor %}</ul>
+</section>
+{% endfor %}
+<p><a href="{{ '/projects/#research-systems' | relative_url }}" data-i18n-zh="返回研究系统与原型" data-i18n-en="Back to research systems and prototypes">返回研究系统与原型</a></p>

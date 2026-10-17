@@ -1,0 +1,149 @@
+[
+  {
+    "id": "voice-gaze-ui",
+    "title": "语音生成眼控界面",
+    "title_en": "Voice-driven gaze interfaces",
+    "stage": "交互原型迭代",
+    "stage_en": "Interaction prototype in development",
+    "summary": "用语音或文字描述需求，组合眼控交互方式生成网页界面，并通过试用反馈调整交互参数。",
+    "summary_en": "Generates gaze-operable web interfaces from voice or text requests, combining interaction techniques and refining parameters through user feedback.",
+    "purpose": "探索如何把眼控交互知识转化为可组合的界面组件，服务于交互演示、教学和原型试用。",
+    "purpose_en": "Explores how gaze-interaction knowledge can become composable interface components for demonstrations, teaching, and prototype trials.",
+    "features": [
+      [
+        "自然语言生成界面，选择并配置眼控交互方式。",
+        "Generate interfaces from natural language and configure gaze interaction techniques."
+      ],
+      [
+        "接入眼动设备数据，也支持鼠标模拟与轨迹回放。",
+        "Use live eye-tracker data, mouse simulation, or recorded gaze playback."
+      ],
+      [
+        "记录交互过程，辅助调试、试用反馈和后续分析。",
+        "Record interaction sessions for debugging, feedback, and later analysis."
+      ]
+    ],
+    "contributions": [
+      [
+        "设计眼控交互组件、参数表达及界面生成流程。",
+        "Designed gaze-interaction components, parameter representations, and the interface-generation workflow."
+      ],
+      [
+        "实现原型界面、输入接入、轨迹录制与回放工具。",
+        "Implemented the prototype interface, input integration, and gaze recording and playback tools."
+      ]
+    ],
+    "progress": [
+      [
+        "已建立界面生成原型、交互示例及会话记录模块。",
+        "Built an interface-generation prototype, interaction examples, and session-recording modules."
+      ],
+      [
+        "当前继续改进组件表达、生成界面质量和眼控使用体验。",
+        "Iterating on component expressiveness, generated layouts, and gaze usability."
+      ],
+      [
+        "教学部署与系统性用户评估仍属于后续工作。",
+        "Teaching deployment and systematic user evaluation remain future work."
+      ]
+    ]
+  },
+  {
+    "id": "head-mounted-eye-tracker",
+    "title": "头戴式眼动追踪系统",
+    "title_en": "Head-mounted eye-tracking system",
+    "stage": "算法与系统研发",
+    "stage_en": "Algorithm and system development",
+    "summary": "围绕近红外眼部成像、瞳孔检测与注视校准，开发头戴式眼动追踪的采集、算法和评估工具。",
+    "summary_en": "Develops acquisition, algorithms, and evaluation tools for head-mounted eye tracking, covering infrared eye imaging, pupil detection, and gaze calibration.",
+    "purpose": "构建可调整的眼动研究平台，连接硬件、视觉算法与数据分析流程，为后续交互研究提供基础。",
+    "purpose_en": "Builds an adaptable research platform connecting hardware, vision algorithms, and data analysis for gaze-interaction research.",
+    "features": [
+      [
+        "采集近红外眼部图像，支撑瞳孔检测与追踪算法开发。",
+        "Capture infrared eye imagery for pupil detection and tracking development."
+      ],
+      [
+        "组织模型训练、推理、误差分析与结果可视化流程。",
+        "Support model training, inference, error analysis, and result visualization."
+      ],
+      [
+        "开展注视校准及数据采集工具的开发与集成。",
+        "Develop and integrate gaze-calibration and data-acquisition tools."
+      ]
+    ],
+    "contributions": [
+      [
+        "负责硬件与算法研发，将采集需求转化为实验和系统实现。",
+        "Lead hardware and algorithm development, translating acquisition requirements into experiments and system implementation."
+      ],
+      [
+        "构建瞳孔检测基线、训练评估脚本与结果分析工具。",
+        "Built pupil-detection baselines, training and evaluation scripts, and result-analysis tools."
+      ]
+    ],
+    "progress": [
+      [
+        "已积累训练、推理与评估脚本，以及多轮算法可视化和失败案例分析。",
+        "Developed training, inference, and evaluation scripts, with multiple rounds of visual inspection and failure analysis."
+      ],
+      [
+        "持续改进不同成像条件下的检测稳定性，并推进采集与校准流程集成。",
+        "Continuing to improve detection robustness across imaging conditions and integrate acquisition and calibration workflows."
+      ],
+      [
+        "目前为研发中的研究系统，尚不作为完成性能验证的通用眼动产品。",
+        "An ongoing research system; general-purpose product performance has not been established."
+      ]
+    ]
+  },
+  {
+    "id": "dexterous-eye-rig",
+    "title": "可编程人工眼台架",
+    "title_en": "Programmable artificial-eye rig",
+    "stage": "固件与仿真原型",
+    "stage_en": "Firmware and simulation prototype",
+    "summary": "通过可控眼球转动与眼睑动作，探索用于眼动设备调试和重复测试的人工眼台架。",
+    "summary_en": "Explores a programmable artificial-eye rig with controlled eye and eyelid movements for eye-tracker debugging and repeatable engineering tests.",
+    "purpose": "为眼动设备研发提供可编程测试对象，减少调试时对真人眼部运动的依赖。机构基于 Will Cogley 的 EyeMech 项目扩展。",
+    "purpose_en": "Provides a programmable test object for eye-tracker development, reducing reliance on human eye movements during debugging. The mechanism builds on Will Cogley’s EyeMech project.",
+    "features": [
+      [
+        "控制眼球水平、垂直转动与眼睑动作，切换不同调试模式。",
+        "Control horizontal and vertical eye rotation and eyelid movement across debugging modes."
+      ],
+      [
+        "通过固件、仿真和网页控制界面检查控制链路与状态。",
+        "Inspect the control pipeline and status through firmware, simulation, and a web console."
+      ],
+      [
+        "面向后续可编程轨迹与重复测试流程预留扩展。",
+        "Prepare for programmable trajectories and repeatable test workflows."
+      ]
+    ],
+    "contributions": [
+      [
+        "结合眼动设备测试需求设计台架路线、控制方案与硬件选型。",
+        "Defined the rig approach, control architecture, and hardware choices around eye-tracker testing needs."
+      ],
+      [
+        "在既有机构基础上开发控制固件、状态反馈、仿真与网页调试工具。",
+        "Developed control firmware, status feedback, simulation, and web debugging tools around an existing mechanism."
+      ]
+    ],
+    "progress": [
+      [
+        "已有控制固件与仿真原型，并建立网页控制界面。",
+        "Control firmware and simulation prototypes are available, along with a web console."
+      ],
+      [
+        "实物集成、可重复性评估和外部反馈测量仍需推进。",
+        "Physical integration, repeatability assessment, and external feedback measurement remain in progress."
+      ],
+      [
+        "现阶段定位为工程调试原型；舵机指令角不作为眼球角度真值。",
+        "Currently an engineering-debugging prototype; commanded servo angles are not treated as ground-truth eye angles."
+      ]
+    ]
+  }
+]

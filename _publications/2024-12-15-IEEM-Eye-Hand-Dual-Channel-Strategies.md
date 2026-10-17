@@ -3,6 +3,7 @@ title: "The design and experimental study of eye-hand integrated dual-channel in
 title_en: "The design and experimental study of eye-hand integrated dual-channel interaction strategies"
 collection: publications
 type: paper
+publication_kind: conference
 permalink: /publication/2024-eye-hand-dual-channel-strategies-ieem
 excerpt: '该研究设计并实验验证了眼手融合的双通道交互策略。'
 excerpt_en: 'Designs and experimentally evaluates integrated eye-hand dual-channel interaction strategies.'

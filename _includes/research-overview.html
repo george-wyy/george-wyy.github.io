@@ -1,0 +1,33 @@
+{% assign overview_papers = site.publications | where: 'type', 'paper' %}
+{% assign overview_journals = overview_papers | where: 'publication_kind', 'journal' %}
+{% assign overview_conferences = overview_papers | where: 'publication_kind', 'conference' %}
+{% assign overview_accepted = site.data.cv.papers | where: 'status', 'accepted' %}
+{% assign overview_first_accepted = overview_accepted | where: 'author_position', 1 %}
+{% assign overview_cofirst = overview_accepted | where: 'co_first', true %}
+{% assign overview_patents = site.publications | where: 'type', 'patent' %}
+{% assign overview_disclosed = overview_patents | where_exp: 'item', 'item.patent_status != "filed"' %}
+{% assign overview_granted = overview_patents | where: 'patent_status', 'granted' %}
+{% assign overview_review = site.data.cv.manuscripts | where: 'status', 'under_review' %}
+{% assign overview_submitted = site.data.cv.manuscripts | where: 'status', 'submitted' %}
+{% assign overview_software = site.portfolio | where: 'project_kind', 'software' %}
+{% assign overview_prototypes = site.portfolio | where: 'project_kind', 'prototype' %}
+{% assign n_published = overview_papers | size %}
+{% assign n_accepted = overview_accepted | size %}
+{% assign n_review = overview_review | size %}
+{% assign n_submitted = overview_submitted | size %}
+{% assign n_total = n_published | plus: n_accepted | plus: n_review | plus: n_submitted | at_least: 1 %}
+<section class="module-panel research-overview" aria-labelledby="overview-title">
+  <div class="module-heading"><span class="module-symbol" aria-hidden="true">▦</span><h2 id="overview-title" data-i18n-zh="成果概览" data-i18n-en="Research at a glance">成果概览</h2></div>
+  <div class="metrics-grid">
+    <a class="metric-card" href="{{ '/publications/' | relative_url }}"><strong class="metric-value" data-metric="published">{{ n_published }}</strong><span class="metric-label" data-i18n-zh="已发表论文" data-i18n-en="Published papers">已发表论文</span><span class="metric-detail"><span data-i18n-zh="期刊" data-i18n-en="Journal">期刊</span> {{ overview_journals | size }} · <span data-i18n-zh="会议" data-i18n-en="Conference">会议</span> {{ overview_conferences | size }}</span></a>
+    <a class="metric-card" href="{{ '/cv/#cv-papers' | relative_url }}"><strong class="metric-value" data-metric="accepted">{{ n_accepted }}</strong><span class="metric-label" data-i18n-zh="已接收待刊" data-i18n-en="Accepted / in press">已接收待刊</span><span class="metric-detail"><span data-i18n-zh="一作" data-i18n-en="First author">一作</span> {{ overview_first_accepted | size }} · <span data-i18n-zh="共同一作" data-i18n-en="Co-first">共同一作</span> {{ overview_cofirst | size }}</span></a>
+    <a class="metric-card" href="{{ '/publications/' | relative_url }}"><strong class="metric-value" data-metric="patents">{{ overview_disclosed | size }}</strong><span class="metric-label" data-i18n-zh="已公开 / 授权专利" data-i18n-en="Published / granted patents">已公开 / 授权专利</span><span class="metric-detail"><span data-i18n-zh="其中已授权" data-i18n-en="Granted">其中已授权</span> {{ overview_granted | size }}</span></a>
+    <a class="metric-card" href="{{ '/projects/' | relative_url }}"><strong class="metric-value" data-metric="projects">{{ site.portfolio | size }}</strong><span class="metric-label" data-i18n-zh="项目与交互原型" data-i18n-en="Projects and prototypes">项目与交互原型</span><span class="metric-detail"><span data-i18n-zh="开源软件" data-i18n-en="Open-source tools">开源软件</span> {{ overview_software | size }} · <span data-i18n-zh="原型" data-i18n-en="Prototypes">原型</span> {{ overview_prototypes | size }}</span></a>
+  </div>
+  <figure class="publication-distribution">
+    <figcaption data-i18n-zh="论文状态分布" data-i18n-en="Publication pipeline">论文状态分布</figcaption>
+    <div class="status-track" aria-hidden="true"><span class="status-segment status-segment--published" style="width:{{ n_published | times: 100.0 | divided_by: n_total }}%"></span><span class="status-segment status-segment--accepted" style="width:{{ n_accepted | times: 100.0 | divided_by: n_total }}%"></span><span class="status-segment status-segment--review" style="width:{{ n_review | times: 100.0 | divided_by: n_total }}%"></span><span class="status-segment status-segment--submitted" style="width:{{ n_submitted | times: 100.0 | divided_by: n_total }}%"></span></div>
+    <ul class="status-legend"><li><i class="status-dot status-segment--published" aria-hidden="true"></i><span data-i18n-zh="已发表" data-i18n-en="Published">已发表</span><strong>{{ n_published }}</strong></li><li><i class="status-dot status-segment--accepted" aria-hidden="true"></i><span data-i18n-zh="已接收" data-i18n-en="Accepted">已接收</span><strong>{{ n_accepted }}</strong></li><li><i class="status-dot status-segment--review" aria-hidden="true"></i><span data-i18n-zh="在审" data-i18n-en="Under review">在审</span><strong>{{ n_review }}</strong></li><li><i class="status-dot status-segment--submitted" aria-hidden="true"></i><span data-i18n-zh="已投" data-i18n-en="Submitted">已投</span><strong>{{ n_submitted }}</strong></li></ul>
+  </figure>
+  <p class="overview-note" data-i18n-zh="按本站完整目录自动汇总，含合作成果；已接收与在审稿件不计入已发表论文。" data-i18n-en="Calculated from the full site catalog, including collaborations. Accepted and submitted manuscripts are not counted as published papers.">按本站完整目录自动汇总，含合作成果；已接收与在审稿件不计入已发表论文。</p>
+</section>

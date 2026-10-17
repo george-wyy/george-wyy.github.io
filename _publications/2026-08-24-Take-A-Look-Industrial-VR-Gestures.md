@@ -3,6 +3,8 @@ title: "Take-A-Look: Enabling intuitive distant target interactions in industria
 title_en: "Take-A-Look: Enabling intuitive distant target interactions in industrial virtual reality applications via natural gestures"
 collection: publications
 type: paper
+publication_kind: journal
+author_position: 3
 permalink: /publication/2026-take-a-look-industrial-vr-gestures
 excerpt: '该研究提出 Take-A-Look 自然手势交互方法，解决工业虚拟现实场景中远距离目标的选择与操作问题。'
 excerpt_en: 'Proposes Take-A-Look, a natural-gesture technique for intuitive distant-target interaction in industrial virtual reality applications.'

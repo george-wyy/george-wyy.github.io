@@ -3,6 +3,8 @@ title: "Visual perception and user experience optimization: Exploring interactio
 title_en: "Visual perception and user experience optimization: Exploring interaction design through static-triggered smooth pursuit systems"
 collection: publications
 type: paper
+publication_kind: journal
+author_position: 5
 permalink: /publication/2025-static-triggered-smooth-pursuit-displays
 excerpt: '该研究探索静态触发平滑追踪系统的交互设计，从视知觉与用户体验角度提出优化策略。'
 excerpt_en: 'Explores interaction design for static-triggered smooth pursuit systems, optimizing visual perception and user experience.'

@@ -3,6 +3,7 @@ title: "Efficacy of Visual Alarm Information Processing in Fighter Tracking Task
 title_en: "Efficacy of Visual Alarm Information Processing in Fighter Tracking Tasks: Effects of Alarm Quantity and Time Pressure"
 collection: publications
 type: paper
+publication_kind: conference
 permalink: /publication/2025-visual-alarm-fighter-tracking-ihmsc
 excerpt: '该研究考察告警数量与时间压力对战斗机跟踪任务中视觉告警信息处理效能的影响。'
 excerpt_en: 'Examines how alarm quantity and time pressure affect visual alarm information processing in fighter tracking tasks.'

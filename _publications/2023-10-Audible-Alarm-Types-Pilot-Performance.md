@@ -3,6 +3,7 @@ title: "The Effectiveness of Audible Alarm Types and Presentation Rates on Pilot
 title_en: "The Effectiveness of Audible Alarm Types and Presentation Rates on Pilot Performance in Beyond Visual Range Combat Scenarios"
 collection: publications
 type: paper
+publication_kind: conference
 permalink: /publication/2023-audible-alarm-pilot-performance
 excerpt: ''
 excerpt_en: 'This study evaluates how audible alarm types and presentation rates affect pilot performance in beyond-visual-range combat scenarios.'

@@ -1,0 +1,12 @@
+<div class="research-highlights{% if include.compact %} research-highlights--compact{% endif %}">
+{% for highlight in site.data.research_highlights %}
+  {% assign paper = site.data.cv.papers | where: 'id', highlight.id | first %}
+  <article class="research-feature{% if highlight.featured %} research-feature--lead{% endif %}">
+    <div class="feature-meta"><span data-i18n-zh="{{ highlight.topic_zh }}" data-i18n-en="{{ highlight.topic_en }}">{{ highlight.topic_zh }}</span><span class="feature-status{% if paper.status == 'accepted' %} feature-status--accepted{% endif %}"{% if paper.status == 'accepted' %} data-i18n-zh="已接收待刊" data-i18n-en="Accepted / in press"{% else %} data-i18n-zh="已发表" data-i18n-en="Published"{% endif %}>{% if paper.status == 'accepted' %}已接收待刊{% else %}已发表{% endif %}</span></div>
+    <h3 data-i18n-zh="{{ highlight.title_zh }}" data-i18n-en="{{ highlight.title_en }}">{{ highlight.title_zh }}</h3>
+    <p data-i18n-zh="{{ highlight.summary_zh }}" data-i18n-en="{{ highlight.summary_en }}">{{ highlight.summary_zh }}</p>
+    <div class="feature-credit"><strong>{{ paper.venue }}</strong><span data-i18n-zh="{{ paper.role.zh }}" data-i18n-en="{{ paper.role.en }}">{{ paper.role.zh }}</span></div>
+    {% unless include.compact %}<details class="feature-details"><summary data-i18n-zh="论文与作者信息" data-i18n-en="Paper and authors">论文与作者信息</summary>{% include cv-paper.html paper=paper %}</details>{% endunless %}
+  </article>
+{% endfor %}
+</div>

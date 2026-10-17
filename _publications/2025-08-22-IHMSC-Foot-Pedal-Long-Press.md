@@ -3,6 +3,7 @@ title: "An Ergonomic Study on Long-Press Performance of Foot Pedals in Human-Mac
 title_en: "An Ergonomic Study on Long-Press Performance of Foot Pedals in Human-Machine Interaction Applications"
 collection: publications
 type: paper
+publication_kind: conference
 permalink: /publication/2025-foot-pedal-long-press-ihmsc
 excerpt: '该研究以工效学方法考察人机交互中脚踏板长按操作的绩效表现。'
 excerpt_en: 'An ergonomic study of long-press performance with foot pedals in human-machine interaction.'

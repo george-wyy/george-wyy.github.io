@@ -1,0 +1,23 @@
+- id: vr-spmark
+  title_zh: SPMark：混合纸与数字环境中的文本选择
+  title_en: 'SPMark: Text selection across paper and digital environments'
+  topic_zh: 平滑追踪交互
+  topic_en: Smooth-pursuit interaction
+  summary_zh: 将平滑追踪用于小目标文本选择，研究纸面内容与数字标绘之间的交互。
+  summary_en: Using smooth-pursuit gaze for small-target text selection in hybrid paper–digital environments.
+  featured: true
+- id: aei-2024-blink
+  title_zh: 眨眼触发的眼控交互
+  title_en: Blink-triggered gaze interaction
+  topic_zh: 交互机制与评估
+  topic_en: Interaction and evaluation
+  summary_zh: 研究眨眼触发交互的时空特性，为眼控界面的参数设计提供依据。
+  summary_en: Studying the spatial and temporal characteristics of blink-triggered interaction to inform interface
+    design.
+- id: oea-metasurface
+  title_zh: 眼动驱动拓扑相变超表面
+  title_en: Gaze-driven metasurfaces
+  topic_zh: 跨学科协作
+  topic_en: Interdisciplinary collaboration
+  summary_zh: 参与理论分析、数值仿真与基于 HoloLens 的实验平台搭建。
+  summary_en: Contributed to theoretical analysis, numerical simulations, and a HoloLens-based experimental platform.

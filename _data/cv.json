@@ -203,7 +203,8 @@
         "en": "Co-first author (second of three equal contributors)"
       },
       "accepted_date": "2026-10-08",
-      "year": 2026
+      "year": 2026,
+      "co_first": true
     },
     {
       "id": "vr-spmark",

@@ -3,6 +3,7 @@ title: "Research on the Effect of Visual Warming Information Presentation on Att
 title_en: "Research on the Effect of Visual Warming Information Presentation on Attention in Fighter Tracking Task"
 collection: publications
 type: paper
+publication_kind: conference
 permalink: /publication/2023-visual-warming-fighter-tracking
 excerpt: ''
 excerpt_en: 'This study examines how visual warning information presentation affects pilot attention allocation during fighter tracking tasks.'

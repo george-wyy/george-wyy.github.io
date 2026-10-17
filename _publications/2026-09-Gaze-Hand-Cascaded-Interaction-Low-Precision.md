@@ -3,6 +3,8 @@ title: "Exploring coordination in Gaze-Hand cascaded Interaction: Designing robu
 title_en: "Exploring coordination in Gaze-Hand cascaded Interaction: Designing robust solutions for Low-Precision eye tracking"
 collection: publications
 type: paper
+publication_kind: journal
+author_position: 2
 permalink: /publication/2026-gaze-hand-cascaded-low-precision
 excerpt: '该研究探索眼-手级联交互中的协调机制，面向低精度眼动追踪设计鲁棒的交互方案。'
 excerpt_en: 'Explores coordination in gaze-hand cascaded interaction and designs robust techniques that tolerate low-precision eye tracking.'

@@ -3,6 +3,8 @@ title: "Enhancing gaze interaction performance: Design and optimization of persp
 title_en: "Enhancing gaze interaction performance: Design and optimization of perspective-driven fisheye view"
 collection: publications
 type: paper
+publication_kind: journal
+author_position: 2
 permalink: /publication/2025-enhancing-gaze-interaction-fisheye-dynamic-trigger
 excerpt: '该研究提出透视驱动的鱼眼视图设计与优化方法，以提升凝视交互在复杂界面中的选择效率与准确率。'
 excerpt_en: 'Proposes and optimizes a perspective-driven fisheye view to improve accuracy and efficiency in gaze-based target selection.'

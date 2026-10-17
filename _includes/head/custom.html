@@ -2,6 +2,27 @@
 
 <!-- start custom head snippets -->
 
+<script>
+  // Apply saved display preferences before rendering the page content.
+  (function () {
+    try {
+      var root = document.documentElement;
+      var theme = localStorage.getItem("site-theme");
+      var lang = localStorage.getItem("site-lang");
+      if (theme !== "light" && theme !== "dark") {
+        theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      if (lang !== "zh" && lang !== "en") {
+        lang = (navigator.language || "").toLowerCase().indexOf("zh") === 0 ? "zh" : "en";
+      }
+      root.setAttribute("data-theme", theme);
+      root.setAttribute("data-lang", lang);
+      root.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
+    } catch (error) { /* The page still renders when local storage is unavailable. */ }
+  }());
+</script>
+
+
 <link rel="icon" type="image/png" href="{{ '/images/myPhoto.png' | relative_url }}">
 <link rel="apple-touch-icon" href="{{ '/images/myPhoto.png' | relative_url }}">
 <meta name="msapplication-TileColor" content="#000000">

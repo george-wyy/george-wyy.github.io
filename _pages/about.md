@@ -45,7 +45,7 @@ redirect_from:
 <section class="homepage-section homepage-section--projects">
   <h2 data-i18n-zh="精选项目" data-i18n-en="Selected Projects">精选项目</h2>
   {% assign featured_projects = site.portfolio | where: 'featured', true | sort: 'project_order' %}
-  {% for project in featured_projects %}{% include project-summary.html project=project %}{% endfor %}
+  <div class="project-catalog project-catalog--featured">{% for project in featured_projects %}{% include project-summary.html project=project %}{% endfor %}</div>
   <p><a href="{{ '/projects/' | relative_url }}" data-i18n-zh="查看全部项目" data-i18n-en="View all projects">查看全部项目</a></p>
 </section>
 

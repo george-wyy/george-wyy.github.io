@@ -11,8 +11,8 @@ author_profile: true
 
 <h2 id="software" data-i18n-zh="开源软件" data-i18n-en="Open-source Software">开源软件</h2>
 {% assign software_projects = site.portfolio | where: 'project_kind', 'software' | sort: 'project_order' %}
-{% for project in software_projects %}{% include project-summary.html project=project %}{% endfor %}
+<div class="project-catalog project-catalog--software">{% for project in software_projects %}{% include project-summary.html project=project %}{% endfor %}</div>
 
 <h2 id="research-prototypes" data-i18n-zh="研究与交互原型" data-i18n-en="Research and Interaction Prototypes">研究与交互原型</h2>
 {% assign prototypes = site.portfolio | where: 'project_kind', 'prototype' | sort: 'project_order' %}
-{% for project in prototypes %}{% include project-summary.html project=project %}{% endfor %}
+<div class="project-catalog">{% for project in prototypes %}{% include project-summary.html project=project %}{% endfor %}</div>

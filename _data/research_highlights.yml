@@ -45,11 +45,3 @@
   topic_en: "Multimodal coordination"
   summary_zh: "研究眼动与手部输入的协同机制，探索低精度眼动条件下的鲁棒交互方案。"
   summary_en: "Exploring coordination between gaze and hand input for robust interaction with low-precision eye tracking."
-
-- id: "compind-2026-take-a-look"
-  title_zh: "Take-A-Look：工业 VR 远距离交互"
-  title_en: "Take-A-Look: Distant interaction in industrial VR"
-  topic_zh: "工业虚拟现实"
-  topic_en: "Industrial virtual reality"
-  summary_zh: "探索工业虚拟现实中的自然手势交互，让用户操作远距离目标。"
-  summary_en: "Exploring natural gestures for distant-target interaction in industrial virtual reality."

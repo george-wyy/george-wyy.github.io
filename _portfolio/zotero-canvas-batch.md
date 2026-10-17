@@ -1,6 +1,6 @@
 ---
-title: "zotero-canvas-banch"
-title_en: "zotero-canvas-banch"
+title: "zotero-canvas-batch"
+title_en: "zotero-canvas-batch"
 collection: "portfolio"
 permalink: "/projects/zotero-canvas-batch/"
 project_id: "zotero-canvas-batch"

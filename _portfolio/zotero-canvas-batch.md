@@ -1,6 +1,6 @@
 ---
-title: "论文解读与知识图谱"
-title_en: "Paper insights and knowledge maps"
+title: "zotero-canvas-banch"
+title_en: "zotero-canvas-banch"
 collection: "portfolio"
 permalink: "/projects/zotero-canvas-batch/"
 project_id: "zotero-canvas-batch"

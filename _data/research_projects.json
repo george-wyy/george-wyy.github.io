@@ -1,11 +1,11 @@
 [
   {
     "id": "voice-gaze-ui",
-    "title": "语音生成眼控界面",
-    "title_en": "Voice-driven gaze interfaces",
+    "title": "自然语言驱动的眼控界面生成",
+    "title_en": "Natural language-driven gaze interface generation",
     "stage": "交互原型迭代",
     "stage_en": "Interaction prototype in development",
-    "summary": "用语音或文字描述需求，组合眼控交互方式生成网页界面，并通过试用反馈调整交互参数。",
+    "summary": "用自然语言（文字或语音）描述需求，组合眼控交互方式生成网页界面，并通过试用反馈调整交互参数。",
     "summary_en": "Generates gaze-operable web interfaces from voice or text requests, combining interaction techniques and refining parameters through user feedback.",
     "purpose": "探索如何把眼控交互知识转化为可组合的界面组件，服务于交互演示、教学和原型试用。",
     "purpose_en": "Explores how gaze-interaction knowledge can become composable interface components for demonstrations, teaching, and prototype trials.",

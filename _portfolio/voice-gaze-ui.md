@@ -1,7 +1,7 @@
 ---
 layout: "archive"
-title: "语音生成眼控界面"
-title_en: "Voice-driven gaze interfaces"
+title: "自然语言驱动的眼控界面生成"
+title_en: "Natural language-driven gaze interface generation"
 collection: "portfolio"
 permalink: "/projects/voice-gaze-ui/"
 project_id: "voice-gaze-ui"
@@ -15,7 +15,7 @@ patent_status_zh: "相关专利已受理"
 patent_status_en: "Related patent application filed"
 status_zh: "交互原型迭代"
 status_en: "Interaction prototype in development"
-summary_zh: "用语音或文字描述需求，组合眼控交互方式生成网页界面，并通过试用反馈调整交互参数。"
+summary_zh: "用自然语言（文字或语音）描述需求，组合眼控交互方式生成网页界面，并通过试用反馈调整交互参数。"
 summary_en: "Generates gaze-operable web interfaces from voice or text requests, combining interaction techniques and refining parameters through user feedback."
 ---
 

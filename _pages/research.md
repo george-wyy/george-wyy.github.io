@@ -13,7 +13,7 @@ author_profile: true
 
 <ul class="lang-zh">
   <li><strong>凝视与平滑追踪</strong>：研究目标尺寸、运动速度与触发方式对选择表现的影响。</li>
-  <li><strong>多通道协同</strong>：结合视线与手、头等输入，改善目标定位与确认。</li>
+  <li><strong>多通道协同</strong>：结合视线与手、头等输入，改善目校准位与确认。</li>
   <li><strong>AR/VR 交互</strong>：搭建交互原型，通过用户实验评估效率、准确率与使用体验。</li>
   <li><strong>眼动追踪系统</strong>：开发瞳孔检测、注视校准与数据分析工具。</li>
 </ul>

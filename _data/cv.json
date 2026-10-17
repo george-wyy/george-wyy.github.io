@@ -412,7 +412,7 @@
     {
       "id": "ijhci-dragcal",
       "title": "DragCal: Unobtrusive Gaze Calibration from Mouse Dragging",
-      "title_zh": "鼠标拖拽驱动的无干扰眼动标定",
+      "title_zh": "鼠标拖拽驱动的无干扰眼动校准",
       "venue": "International Journal of Human–Computer Interaction (Taylor & Francis)",
       "authors": [
         "Yiyan Wang",

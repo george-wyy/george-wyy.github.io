@@ -1,0 +1,191 @@
+% Academic CV (English) -- Yiyan Wang
+% Build: xelatex cv_en.tex (run twice)
+% Data source: _data/cv.json + _publications/*.md (homepage repo), checked 2026-11-04
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1.6cm,top=1.3cm,bottom=1.3cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{LibertinusSerif}[Extension=.otf,UprightFont=*-Regular,BoldFont=*-Semibold,ItalicFont=*-Italic,BoldItalicFont=*-SemiboldItalic]
+\setsansfont{LibertinusSans}[Extension=.otf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic]
+\newfontfamily\cjk{Songti SC}
+\usepackage{xcolor}
+\definecolor{accent}{HTML}{1F4E79}
+\definecolor{muted}{HTML}{555555}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fontawesome5}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\linespread{1.0}
+
+\titleformat{\section}{\sffamily\large\bfseries\color{accent}}{}{0pt}{}[\vspace{-0.6ex}{\color{accent}\rule{\linewidth}{0.5pt}}]
+\titlespacing*{\section}{0pt}{1.1ex}{0.7ex}
+
+\setlist[itemize]{leftmargin=1.1em,itemsep=0ex,parsep=0ex,topsep=0.2ex,label=\textbullet}
+\setlist[enumerate]{leftmargin=2.2em,itemsep=0.2ex,parsep=0ex,topsep=0.2ex}
+
+% \entry{Left bold}{Right date}{Second line}
+\newcommand{\entry}[3]{%
+  \textbf{#1}\hfill{\color{muted}#2}\\
+  {\itshape #3}\par\vspace{0.2ex}}
+\newcommand{\me}{\textbf{Y.-Y.~Wang}}
+\newcommand{\status}[1]{{\color{accent}[#1]}}
+
+\begin{document}
+
+% ---------------- Header ----------------
+{\sffamily\Huge\bfseries Yiyan Wang}\hspace{0.6em}{\Large\cjk 王以俨}\par
+\vspace{0.6ex}
+{\large PhD Candidate in Mechanical Engineering, Southeast University, China}\hfill{\footnotesize\color{muted}Updated Nov 2026}\par
+\vspace{0.8ex}
+{\footnotesize
+\faEnvelope\ \href{mailto:wangyiyan@seu.edu.cn}{wangyiyan@seu.edu.cn}\quad
+\faGlobe\ \href{https://george-wyy.github.io}{george-wyy.github.io}\quad
+\faGraduationCap\ \href{https://scholar.google.com/citations?user=Qu9RMQsAAAAJ}{Google Scholar}\quad
+\faOrcid\ \href{https://orcid.org/0009-0002-0787-0730}{0009-0002-0787-0730}\quad
+\faGithub\ \href{https://github.com/george-wyy}{george-wyy}}
+
+% ---------------- Interests ----------------
+\section{Research Interests}
+Gaze-based interaction in AR/VR; eye--hand coordination and its computational (resource-rational) modeling;
+head-mounted eye tracking, gaze calibration, and implicit recalibration from natural behavior;
+target selection and multimodal (gaze + hand / head / foot) input.
+
+% ---------------- Education ----------------
+\section{Education}
+\entry{Southeast University, Nanjing, China}{Sep 2024 -- present (expected Jun 2028)}
+{PhD in Mechanical Engineering (Professional Doctorate) \quad Advisor: Prof.\ Yafeng Niu}
+\entry{Southeast University, Nanjing, China}{Sep 2021 -- Jun 2024}
+{MS in Design Science \quad Outstanding Master's Thesis Award, Southeast University (2025)}
+\entry{China Agricultural University, Beijing, China}{Aug 2017 -- Jun 2021}
+{BS in Industrial Design; second degree in Data Science and Big Data Technology \quad GPA 3.9/4.0, ranked 1/36}
+
+% ---------------- Research experience ----------------
+\section{Research Experience}
+\entry{Head-mounted binocular eye-tracking platform}{2025 -- present}{Lead developer (hardware and algorithms)}
+\begin{itemize}
+  \item Built a low-cost head-mounted binocular eye tracker end to end: 3D-printed frame, near-infrared eye cameras, scene camera, and real-time pipeline.
+  \item Developed NIR pupil detection, gaze calibration (including mirror-based camera extrinsic calibration), binocular vergence depth, and multi-camera data collection tools.
+  \item Using the platform to study eye--hand coordination and model-driven implicit calibration (PhD thesis).
+\end{itemize}
+\entry{Gaze interaction techniques for AR/VR}{2021 -- present}{First-author and co-author studies with Prof.\ Yafeng Niu's group}
+\begin{itemize}
+  \item Designed and evaluated gaze, blink, smooth-pursuit, gaze--head, gaze--foot, and gaze--hand selection techniques through controlled user studies (HoloLens~2, Unity, Tobii, Pupil Labs).
+  \item Unobtrusive gaze calibration from mouse dragging (DragCal), with per-user eye--hand lag analysis.
+\end{itemize}
+\entry{Visual--haptic interaction mechanisms in gaze-controlled systems}{2023 -- Jun 2026 (completed)}{Technical lead, Ministry of Education Joint Fund project}
+\begin{itemize}
+  \item Led the technical roadmap, experimental design, and test-system implementation; the project passed final acceptance testing in 2026.
+\end{itemize}
+
+% ---------------- Publications ----------------
+\section{Publications}
+{\small\color{muted} \me\ = me; $^{*}$ = equal contribution; $^{\dagger}$ = corresponding author.}
+
+\textbf{Journal articles}
+\begin{enumerate}[label={[J\arabic*]}]
+  \item Q.~Xiao$^{*}$, \me$^{*}$, Q.~Ma$^{*}$, et al., T.-J.~Cui, D.-P.~Tsai.
+    Gaze-driven topological phase-transition metasurfaces.
+    \textit{Opto-Electronic Advances}, 2026. \status{Accepted}
+  \item \me, W.-C.~Huang, L.-H.~Fan, Z.-T.~Wang, Y.-F.~Niu.
+    SPMark: Improving small-target text selection with smooth-pursuit gaze interaction in hybrid paper--digital environments.
+    \textit{Virtual Reality} (Springer), 2026. \status{Accepted}
+  \item J.-Z.~Tian, \me, J.-C.~Wu, C.~Liu, Y.-F.~Niu.
+    Exploring coordination in gaze--hand cascaded interaction: Designing robust solutions for low-precision eye tracking.
+    \textit{Advanced Engineering Informatics}, 74, 104766, 2026.
+  \item W.-C.~Huang, Z.-H.~Song, \me, L.-H.~Fan, Y.-F.~Niu.
+    Take-A-Look: Enabling intuitive distant target interactions in industrial virtual reality applications via natural gestures.
+    \textit{Computers in Industry}, 181, 104545, 2026.
+  \item Y.-F.~Niu, Y.~Feng, X.~Li, W.-C.~Huang, \me, L.-H.~Fan.
+    Visual perception and user experience optimization: Exploring interaction design through static-triggered smooth pursuit systems.
+    \textit{Displays}, 90, 103121, 2025.
+  \item W.-C.~Huang, \me, L.-H.~Fan, S.-T.~Yang, Y.-F.~Niu.
+    Enhancing gaze interaction performance: Design and optimization of perspective-driven fisheye view.
+    \textit{Advanced Engineering Informatics}, 65, 103365, 2025.
+  \item Y.-F.~Niu, \me$^{\dagger}$, W.-C.~Huang, L.-H.~Fan.
+    Research status and progress of gaze interaction paradigm design based on design ergonomics (in Chinese).
+    \textit{Packaging Engineering}, 46(4), 20--35, 2025.
+  \item Y.-F.~Niu, R.~Chen, \me, X.-Y.~Yao, Y.~Feng.
+    Research on click enhancement strategy of hand--eye dual-channel human--computer interaction system: Trade-off between sensing area and area cursor.
+    \textit{Advanced Engineering Informatics}, 62, 102880, 2024.
+  \item \me, J.-Z.~Tian, L.~Xiao, J.-X.~He, Y.-F.~Niu.
+    Research on a spatial--temporal characterisation of blink-triggered eye control interactions.
+    \textit{Advanced Engineering Informatics}, 59, 102297, 2024.
+  \item \me, W.~Cheng, J.-Z.~Tian, W.-C.~Huang, Y.-F.~Niu, W.-J.~Yang, C.-Q.~Xue.
+    Design recommendations of target size and tracking speed under circular and square trajectories for smooth pursuit with Euclidean algorithm in eye-control system.
+    \textit{Displays}, 81, 102608, 2024.
+\end{enumerate}
+
+\textbf{Manuscripts under review}
+\begin{enumerate}[label={[M\arabic*]}]
+  \item \me, J.-X.~He, J.-Z.~Tian, W.-C.~Huang, L.-H.~Fan, Z.-T.~Wang, R.~Chen, Y.-F.~Niu.
+    Gaze2Foot: Foot primitives and stabilization mechanisms for gaze--foot target selection across postures.
+    \textit{ACM Transactions on Computer-Human Interaction}. \status{Under review}
+  \item \me, H.-B.~Chen, W.-C.~Huang, L.-H.~Fan, Z.-T.~Wang, Y.-F.~Niu.
+    Gaze localizes, the head confirms: Staged head--eye coordination for hands-free selection in dense AR.
+    \textit{International Journal of Human--Computer Interaction}. \status{Under review}
+  \item \me, J.-L.~Cai, W.-C.~Huang, L.-H.~Fan, Z.-T.~Wang, Z.-X.~Yang, Y.-F.~Niu.
+    DragCal: Unobtrusive gaze calibration from mouse dragging.
+    \textit{International Journal of Human--Computer Interaction}. \status{Submitted}
+  \item \me, J.-S.~Lv, W.-C.~Huang, L.-H.~Fan, Z.-T.~Wang, Z.-X.~Yang, Y.-F.~Niu.
+    Spatiotemporal evidence fusion and state-space analysis for multi-target gaze interaction: Coordinating trajectory geometry, spatial layout, and temporal confirmation.
+    \textit{Reliability Engineering \& System Safety}. \status{Under review}
+\end{enumerate}
+
+\textbf{Conference papers} {\small\color{muted}(co-author)}
+\begin{enumerate}[label={[C\arabic*]}]
+  \item H.-B.~Chen, W.-C.~Huang, \me, J.~Liu, Y.-F.~Niu.
+    The design and experimental study of eye--hand integrated dual-channel interaction strategies. \textit{IEEE IEEM}, 2024.
+  \item M.-J.~Li, W.-C.~Huang, \me, Z.-J.~Han, Y.-F.~Niu.
+    Does increasing takeover time budget improve driver takeover performance in different hazard visibility scenarios? \textit{IEEE IEEM}, 2024.
+  \item M.-L.~Wu, Y.-N.~Li, \me, J.-Z.~Tian, W.-J.~Yang, Y.-F.~Niu.
+    The effectiveness of audible alarm types and presentation rates on pilot performance in beyond visual range combat scenarios. \textit{IEEE SMC}, 2023.
+  \item[] {\small\color{muted} Plus 8 further co-authored papers at IEEE IHMSC (2025, $\times$4), IEEE IEEM (2023), M2VIP (2023), CIE50 (2023), and AHFE IHSI (2023); full list at george-wyy.github.io.}
+\end{enumerate}
+
+\textbf{Book chapter}
+\begin{itemize}
+  \item Chapter 1 and technical editing, in Y.-F.~Niu, \textit{Eye-Control Interaction Paradigm Design} (in Chinese). Science Press, 2025. ISBN 978-7-03-083699-1.
+\end{itemize}
+
+% ---------------- Patents ----------------
+\section{Patent Applications (Chinese invention patents, pending)}
+{\small\color{muted} Applicant: Southeast University. All applications published; inventor rank in brackets.}
+\begin{itemize}
+  \item Implicit adaptive gaze calibration for near-eye AR devices based on hand--eye coordination priors. CN122431533A, 2026. [2nd]
+  \item Gaze-depth ambiguity resolution for near-eye AR devices. CN122369009A, 2026. [2nd]
+  \item Multimodal LLM interaction disambiguation based on gaze-intent pattern classification. CN122286538A, 2026. [2nd]
+  \item Cross-modal perceptual-confirmation interaction based on tactile motion illusion. CN122526419A, 2026. [2nd]
+  \item Hybrid gaze--smooth-pursuit eye-touch small-target selection method and device. CN119045661A, 2024. [2nd]
+  \item Smooth-pursuit-based hybrid digital-paper text annotation system and method. CN119045660A, 2024. [2nd]
+  \item Error-reverse-guided gaze interaction method and system. CN121349306A, 2026. [3rd]
+  \item DMA-based multi-channel ultrasonic transducer phased-array driving method. CN121763911A, 2026. [4th]
+\end{itemize}
+{\small One further application as 2nd inventor accepted in Oct 2026, pending publication.}\par
+{\small Earlier: eye-movement password input (CN116755544A, 2023, with AVIC); three agricultural-machinery patents from undergraduate work (one invention, two utility models; granted).}
+
+% ---------------- Teaching / service ----------------
+\section{Teaching, Mentoring, and Service}
+\begin{itemize}
+  \item \textbf{Guest instructor}, eye-control interaction module, \textit{Intelligent Human--Computer Interaction}, Southeast University, 2026 (lectures, demos, and hands-on lab sessions).
+  \item \textbf{Mentoring}: guided junior master's students in the lab on study design and paper writing.
+  \item \textbf{Reviewer}: \textit{Displays} (Elsevier).
+  \item \textbf{Presentation}: Doctoral and Master's Forum on Design Ergonomics, Chinese Ergonomics Society, Sep 2026.
+\end{itemize}
+
+% ---------------- Awards ----------------
+\section{Honors and Awards}
+Outstanding Master's Thesis, Southeast University (2025) \quad$\cdot$\quad National Scholarship, China (2019, 2020)
+
+% ---------------- Skills ----------------
+\section{Skills}
+\begin{itemize}
+  \item \textbf{Eye tracking and XR}: Tobii, Pupil Labs, custom head-mounted trackers; HoloLens~2, Unity, MRTK3.
+  \item \textbf{Programming and analysis}: Python (PyTorch, OpenCV), C\#, R; experimental design, statistical modeling, usability evaluation.
+  \item \textbf{Hardware}: camera calibration, NIR illumination, 3D printing and CAD for wearable prototypes.
+  \item \textbf{Languages}: Chinese (native), English (working proficiency).
+\end{itemize}
+
+
+\end{document}

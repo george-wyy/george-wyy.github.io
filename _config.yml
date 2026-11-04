@@ -146,6 +146,7 @@ exclude:
   - node_modules
   - package.json
   - scripts
+  - cv-latex
   - docs
   - markdown_generator
   - talkmap.py

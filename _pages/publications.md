@@ -121,3 +121,7 @@ Journal and conference papers, book contributions, patents, and software. Accept
   </div>
 {% endfor %}
 </div>
+
+## <span data-i18n-zh="学术服务" data-i18n-en="Academic Service">学术服务</span>
+
+{% include academic-service.html %}

@@ -24,7 +24,7 @@ redirect_from:
     </div>
   </section>
   {% include research-overview.html %}
-  <nav class="cv-section-nav" aria-label="CV sections"><a href="#cv-education" data-i18n-zh="教育经历" data-i18n-en="Education">教育经历</a><a href="#cv-experience" data-i18n-zh="研究经历" data-i18n-en="Research Experience">研究经历</a><a href="#cv-papers" data-i18n-zh="代表性论文" data-i18n-en="Selected Publications">代表性论文</a><a href="#cv-projects" data-i18n-zh="精选项目" data-i18n-en="Selected Projects">精选项目</a><a href="#cv-honors" data-i18n-zh="荣誉" data-i18n-en="Honors">荣誉</a></nav>
+  <nav class="cv-section-nav" aria-label="CV sections"><a href="#cv-education" data-i18n-zh="教育经历" data-i18n-en="Education">教育经历</a><a href="#cv-experience" data-i18n-zh="研究经历" data-i18n-en="Research Experience">研究经历</a><a href="#cv-papers" data-i18n-zh="代表性论文" data-i18n-en="Selected Publications">代表性论文</a><a href="#cv-service" data-i18n-zh="学术服务" data-i18n-en="Academic Service">学术服务</a><a href="#cv-projects" data-i18n-zh="精选项目" data-i18n-en="Selected Projects">精选项目</a><a href="#cv-honors" data-i18n-zh="荣誉" data-i18n-en="Honors">荣誉</a></nav>
 
   <section class="module-panel cv-panel cv-panel--education">
   <h2 id="cv-education" data-i18n-zh="教育经历" data-i18n-en="Education">教育经历</h2>
@@ -81,6 +81,11 @@ redirect_from:
   {% endfor %}
 
   </details>
+  </section>
+
+  <section class="module-panel cv-panel cv-panel--service">
+  <h2 id="cv-service" data-i18n-zh="学术服务" data-i18n-en="Academic Service">学术服务</h2>
+  {% include academic-service.html %}
   </section>
 
   <section class="module-panel cv-panel cv-panel--book">

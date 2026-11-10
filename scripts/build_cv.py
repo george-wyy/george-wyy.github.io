@@ -61,6 +61,10 @@ def build(language, font_path=None):
     for item in data['awards']:flow.append(p(text(item), small))
     section('专著参编', 'Book Contribution')
     flow.append(p(text(data['book']),small))
+    if data.get('service'):
+        section('学术服务', 'Academic Service')
+        for item in data['service']:
+            flow.append(p(text(item), small))
     flow.append(PageBreak())
     flow.append(p('代表性论文' if language == 'zh' else 'Selected Publications', heading))
     flow.append(p('完整论文与专利列表：<link href="https://george-wyy.github.io/publications/" color="#16608b">george-wyy.github.io/publications/</link>' if language == 'zh' else 'Full list of papers and patents: <link href="https://george-wyy.github.io/publications/" color="#16608b">george-wyy.github.io/publications/</link>',small))
@@ -73,7 +77,11 @@ def build(language, font_path=None):
             date=item['accepted_date'][:7]
             group.append(p(('已接收（'+date+'），待刊。') if language=='zh' else 'Accepted '+date+'; in press.',small))
         elif item.get('doi'):
-            doi=item['doi'];group.append(p(f'<link href="https://doi.org/{escape(doi)}" color="#16608b">doi:{escape(doi)}</link>',small))
+            doi=item['doi']
+            published=''
+            if item.get('published_date'):
+                published=('发表于 '+item['published_date']+'。') if language=='zh' else 'Published '+item['published_date']+'. '
+            group.append(p(published+f'<link href="https://doi.org/{escape(doi)}" color="#16608b">doi:{escape(doi)}</link>',small))
         flow.extend([KeepTogether(group),Spacer(1,4)])
     for item in data['papers']:
         if item['status']=='accepted':paper(item)

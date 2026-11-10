@@ -1,12 +1,16 @@
 % Academic CV (English) -- Yiyan Wang
 % Build: xelatex cv_en.tex (run twice)
-% Data source: _data/cv.json + _publications/*.md (homepage repo), checked 2026-11-04
+% Data source: _data/cv.json + _publications/*.md (homepage repo), checked 2026-11-10
 \documentclass[10pt,a4paper]{article}
 \usepackage[margin=1.6cm,top=1.3cm,bottom=1.3cm]{geometry}
 \usepackage{fontspec}
 \setmainfont{LibertinusSerif}[Extension=.otf,UprightFont=*-Regular,BoldFont=*-Semibold,ItalicFont=*-Italic,BoldItalicFont=*-SemiboldItalic]
 \setsansfont{LibertinusSans}[Extension=.otf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic]
-\newfontfamily\cjk{Songti SC}
+\IfFontExistsTF{Songti SC}{%
+  \newfontfamily\cjk{Songti SC}%
+}{%
+  \newfontfamily\cjk{WenQuanYi Micro Hei}%
+}
 \usepackage{xcolor}
 \definecolor{accent}{HTML}{1F4E79}
 \definecolor{muted}{HTML}{555555}
@@ -37,7 +41,7 @@
 % ---------------- Header ----------------
 {\sffamily\Huge\bfseries Yiyan Wang}\hspace{0.6em}{\Large\cjk 王以俨}\par
 \vspace{0.6ex}
-{\large PhD Candidate in Mechanical Engineering, Southeast University, China}\hfill{\footnotesize\color{muted}Updated Nov 2026}\par
+{\large PhD Candidate in Mechanical Engineering, Southeast University, China}\hfill{\footnotesize\color{muted}Updated 10 Nov 2026}\par
 \vspace{0.8ex}
 {\footnotesize
 \faEnvelope\ \href{mailto:wangyiyan@seu.edu.cn}{wangyiyan@seu.edu.cn}\quad
@@ -48,7 +52,9 @@
 
 % ---------------- Interests ----------------
 \section{Research Interests}
-Gaze-based interaction in AR/VR; eye--hand coordination and its computational (resource-rational) modeling;
+Gaze-based interaction in AR/VR; gaze distance and depth ambiguity in near-eye target selection;
+intent understanding from gaze, distinguishing selection, exploration, and confirmation;
+eye--hand coordination and its computational (resource-rational) modeling;
 head-mounted eye tracking, gaze calibration, and implicit recalibration from natural behavior;
 target selection and multimodal (gaze + hand / head / foot) input.
 
@@ -90,7 +96,8 @@ target selection and multimodal (gaze + hand / head / foot) input.
     \textit{Opto-Electronic Advances}, 2026. \status{Accepted}
   \item \me, W.-C.~Huang, L.-H.~Fan, Z.-T.~Wang, Y.-F.~Niu.
     SPMark: Improving small-target text selection with smooth-pursuit gaze interaction in hybrid paper--digital environments.
-    \textit{Virtual Reality} (Springer), 2026. \status{Accepted}
+    \textit{Virtual Reality} (Springer), 2026.
+    \href{https://doi.org/10.1007/s10055-026-01497-x}{doi:10.1007/s10055-026-01497-x}
   \item J.-Z.~Tian, \me, J.-C.~Wu, C.~Liu, Y.-F.~Niu.
     Exploring coordination in gaze--hand cascaded interaction: Designing robust solutions for low-precision eye tracking.
     \textit{Advanced Engineering Informatics}, 74, 104766, 2026.
@@ -170,7 +177,7 @@ target selection and multimodal (gaze + hand / head / foot) input.
 \begin{itemize}
   \item \textbf{Guest instructor}, eye-control interaction module, \textit{Intelligent Human--Computer Interaction}, Southeast University, 2026 (lectures, demos, and hands-on lab sessions).
   \item \textbf{Mentoring}: guided junior master's students in the lab on study design and paper writing.
-  \item \textbf{Reviewer}: \textit{Displays} (Elsevier).
+  \item \textbf{Reviewer}: \textit{Displays} (Elsevier), 2025--2026; \textit{International Journal of Industrial Ergonomics}, 2026; \textit{International Journal of Human--Computer Interaction}, 2026.
   \item \textbf{Presentation}: Doctoral and Master's Forum on Design Ergonomics, Chinese Ergonomics Society, Sep 2026.
 \end{itemize}
 

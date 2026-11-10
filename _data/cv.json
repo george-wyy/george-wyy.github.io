@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-04",
+  "updated": "2026-11-10",
   "name": {
     "zh": "王以俨",
     "en": "Yiyan Wang"
   },
   "email": "wangyiyan@seu.edu.cn",
   "intro": {
-    "zh": "东南大学机械工程学院机械工程博士生，研究眼动交互与 AR/VR 中的目标选择、交互设计及用户体验。导师：牛亚峰教授。",
-    "en": "PhD student in Mechanical Engineering at Southeast University, supervised by Prof. Yafeng Niu. My research examines gaze interaction, target selection, and user experience in AR/VR."
+    "zh": "东南大学机械工程学院机械工程博士生，研究眼动交互、凝视距离与深度、意图理解，以及 AR/VR 中的目标选择与用户体验。导师：牛亚峰教授。",
+    "en": "PhD student in Mechanical Engineering at Southeast University, supervised by Prof. Yafeng Niu. My research examines gaze interaction, gaze distance and depth, intent understanding, and target selection in AR/VR."
   },
   "education": [
     {
@@ -169,6 +169,20 @@
       "en": "National Scholarship (2019, 2020)"
     }
   ],
+  "service": [
+    {
+      "zh": "审稿人，Displays（Elsevier，2025–2026）",
+      "en": "Reviewer, Displays (Elsevier, 2025–2026)"
+    },
+    {
+      "zh": "审稿人，International Journal of Industrial Ergonomics（2026）",
+      "en": "Reviewer, International Journal of Industrial Ergonomics (2026)"
+    },
+    {
+      "zh": "审稿人，International Journal of Human–Computer Interaction（2026）",
+      "en": "Reviewer, International Journal of Human–Computer Interaction (2026)"
+    }
+  ],
   "book": {
     "zh": "参编牛亚峰著《眼控交互范式设计》（科学出版社，2025），撰写第一章并参与技术统稿。ISBN 978-7-03-083699-1。",
     "en": "Contributed Chapter 1 and technical editing to Eye-Control Interaction Paradigm Design, by Yafeng Niu (Science Press, 2025). ISBN 978-7-03-083699-1."
@@ -212,7 +226,7 @@
       "title_zh": "混合数字纸文本标绘平滑追踪眼触控交互研究",
       "venue": "Virtual Reality (Springer)",
       "year": 2026,
-      "doi": null,
+      "doi": "10.1007/s10055-026-01497-x",
       "authors": [
         "Yiyan Wang",
         "Weichi Huang",
@@ -221,12 +235,13 @@
         "Yafeng Niu"
       ],
       "author_position": 1,
-      "status": "accepted",
+      "status": "published",
       "role": {
         "zh": "第一作者",
         "en": "First author"
       },
-      "accepted_date": "2026-09-08"
+      "accepted_date": "2026-09-08",
+      "published_date": "2026-10-11"
     },
     {
       "id": "aei-2026-gaze-hand",

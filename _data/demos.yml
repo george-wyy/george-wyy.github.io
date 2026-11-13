@@ -1,0 +1,14 @@
+- id: medieval-trading
+  title: 中世纪商人
+  title_en: Medieval Trading
+  summary_zh: 在城堡中寻找资源，随着市场价格变化调整选择。体验 Tomov 等（2019）的学习与决策任务，并比较四种算法的选择。
+  summary_en: Explore castle rooms and adapt to changing resource prices. Try Tomov et al. (2019)'s learning and decision task and compare four algorithms.
+  play_url: /demos/mtrl-task.html
+  models_url: /demos/mtrl-models.html
+- id: sr-castle
+  title: 城堡任务：奖励变了 vs 路变了
+  title_en: "Castle task: changing rewards and routes"
+  summary_zh: 学会城堡的路线后，面对奖励或通路变化重新选择。体验 Momennejad 等（2017）的任务，比较基于模型、后继表征与无模型三种策略。
+  summary_en: Learn castle routes, then choose again after rewards or routes change. Try Momennejad et al. (2017)'s task and compare model-based, successor representation, and model-free strategies.
+  play_url: /demos/sr-castle.html
+  models_url: /demos/sr-castle.html#models

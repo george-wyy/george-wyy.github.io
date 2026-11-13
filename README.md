@@ -61,9 +61,12 @@ The Chinese PDF retains the existing `/assets/Curriculum_Vitae.pdf` URL.
 
 - `/research/`: research questions and methods; links to related work.
 - `/publications/`: complete bibliography, with manuscript and patent statuses.
-- `/projects/`: all built software and interaction prototypes. Metadata lives in
-  `_portfolio/`; `featured: true` selects homepage summaries. `project_url`
-  points to a standalone project page when one already exists.
+- `/projects/`: software tools, interactive demos, and research prototypes, with
+  section links at the top. Software and prototype metadata lives in
+  `_portfolio/`; `featured: true` selects homepage tool summaries. `project_url`
+  points to a standalone project page when one already exists. Playable demos
+  are listed in `_data/demos.yml`; add an entry there to extend the catalog.
+  Keep demo listings on the projects page; the homepage does not list games.
 - `/blog/`: research/development articles from `_posts/`, canonical technical
   guides from `_data/guides.yml`, and an entry to the writing templates.
 - `/cv/`: selected academic history and outputs; it links to the full catalogs.

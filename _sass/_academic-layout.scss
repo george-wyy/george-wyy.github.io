@@ -160,8 +160,10 @@ html[data-theme="dark"] .academic-site { @include academic-dark; }
   .btn, .page__content .btn { color: var(--text-1) !important; border: 1px solid var(--line) !important; }
   .btn:hover { background: var(--line); color: var(--text-1) !important; }
   .cv-updated { width: 100%; margin-top: 3px; font-size: .78rem; color: var(--text-2); }
-  .cv-section-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 15px 0; margin: 0 0 2rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .cv-section-nav a { font-size: .82rem; text-decoration: none; }
+  .cv-section-nav, .project-section-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 15px 0; margin: 0 0 2rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .cv-section-nav a, .project-section-nav a { font-size: .82rem; text-decoration: none; }
+  .project-section-nav a { padding: 8px 0; }
+  #software, #demos, #research-systems, #research-prototypes { scroll-margin-top: 100px; }
   .cv-entry { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 22px; margin: 0 0 1.6rem; }
   .cv-entry h3 { margin: 0 0 .35rem; font-size: 1rem; }
   .cv-entry p { margin: 0 0 .4rem; font-size: .93rem; }
@@ -185,7 +187,7 @@ html[data-theme="dark"] .academic-site { @include academic-dark; }
 @media (min-width: 1040px) {
   .academic-site #main.main-shell--with-sidebar { display: grid; grid-template-columns: 208px minmax(0, 800px); gap: 64px; align-items: start; }
   .academic-site #main.main-shell--with-sidebar > .sidebar { position: sticky; top: 112px; margin: 0; }
-  .academic-site .project-catalog--software, .academic-site .project-catalog--featured { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+  .academic-site .project-catalog--software, .academic-site .project-catalog--featured, .academic-site .project-catalog--demos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
 }
 @media (max-width: 1039px) {
   .academic-site #main.main-shell--with-sidebar { display: block; }

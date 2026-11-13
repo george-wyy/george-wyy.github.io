@@ -6,19 +6,44 @@ permalink: /projects/
 author_profile: true
 ---
 
-<p class="lang-zh">我开发的软件工具与交互原型。配置教程和研究方法笔记见<a href="{{ '/blog/' | relative_url }}">博客</a>。</p>
-<p class="lang-en">Software tools and interaction prototypes I have built. See the <a href="{{ '/blog/' | relative_url }}">blog</a> for setup guides and research notes.</p>
+<p class="lang-zh">我开发的软件工具、可以直接在浏览器里体验的 demo，以及研究中的交互原型。配置教程和研究方法笔记见<a href="{{ '/blog/' | relative_url }}">博客</a>。</p>
+<p class="lang-en">Software tools I have built, demos to try in your browser, and research prototypes. See the <a href="{{ '/blog/' | relative_url }}">blog</a> for setup guides and research notes.</p>
 
-<h2 id="research-systems" data-i18n-zh="研究系统与原型" data-i18n-en="Research Systems and Prototypes">研究系统与原型</h2>
-<p class="lang-zh">围绕眼控界面、眼动追踪与测试设备开展的研发项目。各项目页展示功能、本人贡献与当前进展，代码暂未公开。</p>
-<p class="lang-en">Ongoing research on gaze interfaces, eye tracking, and testing equipment. Each page describes functionality, my contribution, and current progress. Code is not public.</p>
-{% assign research_systems = site.portfolio | where: 'research_system', true | sort: 'project_order' %}
-<div class="project-catalog project-catalog--research">{% for project in research_systems %}{% include project-summary.html project=project %}{% endfor %}</div>
+<nav class="project-section-nav" aria-label="项目分类">
+  <a href="#software" data-i18n-zh="软件工具" data-i18n-en="Software tools">软件工具</a>
+  <a href="#demos" data-i18n-zh="交互试玩" data-i18n-en="Interactive demos">交互试玩</a>
+  <a href="#research-prototypes" data-i18n-zh="研究原型" data-i18n-en="Research prototypes">研究原型</a>
+</nav>
 
-<h2 id="software" data-i18n-zh="开源软件" data-i18n-en="Open-source Software">开源软件</h2>
-{% assign software_projects = site.portfolio | where: 'project_kind', 'software' | sort: 'project_order' %}
-<div class="project-catalog project-catalog--software">{% for project in software_projects %}{% include project-summary.html project=project %}{% endfor %}</div>
+<section id="software">
+  <h2 data-i18n-zh="软件工具" data-i18n-en="Software tools">软件工具</h2>
+  <p class="lang-zh">用于文献阅读、眼动研究和日常工作的软件，提供项目介绍、使用说明和代码入口。</p>
+  <p class="lang-en">Software for reading, eye-tracking research, and everyday work, with project details, guides, and source code.</p>
+  {% assign software_projects = site.portfolio | where: 'project_kind', 'software' | sort: 'project_order' %}
+  <div class="project-catalog project-catalog--software">{% for project in software_projects %}{% include project-summary.html project=project %}{% endfor %}</div>
+</section>
 
-<h2 id="research-prototypes" data-i18n-zh="其他交互原型" data-i18n-en="Other Interaction Prototypes">其他交互原型</h2>
-{% assign prototypes = site.portfolio | where: 'project_kind', 'prototype' | where_exp: 'item', 'item.research_system != true' | sort: 'project_order' %}
-<div class="project-catalog">{% for project in prototypes %}{% include project-summary.html project=project %}{% endfor %}</div>
+<section id="demos">
+  <h2 data-i18n-zh="交互试玩" data-i18n-en="Interactive demos">交互试玩</h2>
+  <p class="lang-zh">直接在浏览器里动手体验学习与决策任务，再对照算法理解背后的机制。</p>
+  <p class="lang-en">Try learning and decision tasks in your browser, then explore the algorithms behind them.</p>
+  <div class="project-catalog project-catalog--demos">
+    {% for demo in site.data.demos %}
+    <article class="project-summary" id="demo-{{ demo.id }}">
+      <h3><a href="{{ demo.play_url | relative_url }}" data-i18n-zh="{{ demo.title | escape }}" data-i18n-en="{{ demo.title_en | escape }}">{{ demo.title }}</a></h3>
+      <p data-i18n-zh="{{ demo.summary_zh | escape }}" data-i18n-en="{{ demo.summary_en | escape }}">{{ demo.summary_zh }}</p>
+      <p class="project-summary__links"><a href="{{ demo.play_url | relative_url }}" data-i18n-zh="开始试玩" data-i18n-en="Play demo">开始试玩</a>{% if demo.models_url %} · <a href="{{ demo.models_url | relative_url }}" data-i18n-zh="看看算法怎么算" data-i18n-en="Explore the algorithms">看看算法怎么算</a>{% endif %}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="research-systems">
+  <h2 id="research-prototypes" data-i18n-zh="研究原型" data-i18n-en="Research prototypes">研究原型</h2>
+  <p class="lang-zh">围绕眼控界面、眼动追踪与测试设备开展的研发项目，以及其他交互探索。各项目页说明功能、本人贡献与当前进展。</p>
+  <p class="lang-en">Research on gaze interfaces, eye tracking, testing equipment, and other interaction concepts. Each project describes functionality, my contribution, and current progress.</p>
+  {% assign research_systems = site.portfolio | where: 'research_system', true | sort: 'project_order' %}
+  <div class="project-catalog project-catalog--research">{% for project in research_systems %}{% include project-summary.html project=project %}{% endfor %}</div>
+  {% assign prototypes = site.portfolio | where: 'project_kind', 'prototype' | where_exp: 'item', 'item.research_system != true' | sort: 'project_order' %}
+  <div class="project-catalog">{% for project in prototypes %}{% include project-summary.html project=project %}{% endfor %}</div>
+</section>

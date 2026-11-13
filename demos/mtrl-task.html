@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中世纪商人 · 试玩</title>
+<style>
+:root{--fg:#f2f2f2;--dim:#a8a8a8;--line:#ffffff2a;--accent:#7b5bd6;--good:#4cc38a;--bad:#e0806a}
+*{box-sizing:border-box}
+body{margin:0;background:#000;color:var(--fg);font:16px/1.6 -apple-system,"PingFang SC",system-ui,sans-serif;min-height:100vh}
+main{max-width:860px;margin:0 auto;padding:18px 16px 60px;position:relative}
+.page{background:#111;border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+h1{font-size:22px;margin:0 0 6px}
+.dim{color:var(--dim)}
+.btn{font:inherit;font-size:14px;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:#1d1d1d;color:var(--fg);cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.res{display:inline-flex;align-items:center;gap:6px}
+.ic{font-size:1.25em}
+/* the trial screens: black, like the original */
+.stage{position:relative;min-height:470px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.corner{position:absolute;top:0;font-size:13px;line-height:1.5}
+.corner.l{left:0}.corner.r{right:0;text-align:right}
+.mini-door{display:inline-block;width:34px;height:48px;border-radius:6px 6px 2px 2px;vertical-align:middle}
+.prices{font-size:40px;font-weight:700;line-height:1.5;text-align:left}
+.prices .ic{font-size:44px;margin-left:10px}
+.doors{display:flex;gap:28px;justify-content:center}
+.door{width:150px;height:230px;border-radius:70px 70px 6px 6px;border:10px solid transparent;position:relative;cursor:pointer;box-shadow:inset 0 0 0 4px #0005}
+.door::after{content:"";position:absolute;right:16px;top:52%;width:12px;height:12px;border-radius:50%;background:#e8c35a}
+.door.picked{border-color:#fff}
+.num{text-align:center;font-size:22px;margin-bottom:6px}
+.loot{font-size:34px;line-height:1.7;text-align:left}
+.earn{margin-top:12px;font-size:16px;text-align:center}
+.earn b{font-size:28px;color:var(--good)}
+.earn b.neg{color:var(--bad)}
+.foot{margin-top:18px;text-align:center;color:var(--dim);font-size:13px}
+.q{margin:14px 0 4px;font-weight:600}
+label.opt{display:block;padding:3px 0;cursor:pointer}
+.err{color:var(--bad);margin-top:8px}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+td,th{padding:5px 8px;border-bottom:1px solid var(--line);text-align:left}
+tr.you td{background:#7b5bd640}
+.tag{display:inline-block;font-size:12px;padding:0 7px;border-radius:999px;border:1px solid var(--line);margin-left:4px;color:var(--dim)}
+.box{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:12px;background:#161616}
+.warn{border-color:#e0a23a88;background:#e0a23a14}
+svg text{fill:var(--dim);font-size:11px}
+select{font:inherit;font-size:14px;background:#1d1d1d;color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:4px 6px}
+</style>
+</head>
+<body>
+<main><div id="app"></div><p class="dim" id="telemetry-status" role="status" style="font-size:13px;margin-top:20px">记录功能为可选项；不影响游戏运行。</p></main>
+<script src="mtrl-telemetry-config.js" defer></script>
+<script src="mtrl-telemetry.js" defer></script>
+<script>
+// Rebuilt from the authors' task (github.com/tomov/MTRL, exp/usfa_v1_*): 13 rooms, rooms 5–13 hold resources that never
+// change, a price screen before each day, a reminder of today's prices (top left) and of the door you came through (top
+// right), a one-second highlight after each choice, a comprehension check, and a random assignment of the three
+// feature dimensions to wood / stone / iron for each player. Door pictures are drawn here (the originals are photos).
+const NEXT = { 1: [2, 3, 4], 2: [5, 6, 7], 3: [8, 9, 10], 4: [11, 12, 13] };
+const PHIS = {
+  "实验 1": { 5: [0, 10, 0], 6: [100, 0, 0], 7: [70, 70, 70], 8: [90, 0, 0], 9: [100, 100, 0], 10: [0, 90, 0], 11: [0, 0, 10], 12: [0, 100, 60], 13: [10, 0, 0] },
+  "实验 2": { 5: [10, 20, 90], 6: [100, 0, 20], 7: [70, 70, 170], 8: [90, 0, 40], 9: [150, 150, 0], 10: [0, 90, 30], 11: [30, 10, 50], 12: [0, 100, 160], 13: [20, 10, 100] },
+  "实验 3 / 4": { 5: [0, 10, 0], 6: [100, 0, 0], 7: [40, 40, 130], 8: [90, 0, 0], 9: [100, 100, 0], 10: [0, 90, 0], 11: [0, 0, 10], 12: [0, 100, 60], 13: [10, 0, 0] },
+};
+const TRAIN = [[1, -1, 0], [-1, 1, 0], [1, -2, 0], [-2, 1, 0]];
+const TEST = [1, 1, 1];
+const PRED = { 7: "基于模型", 11: "无模型", 9: "UVFA", 12: "SF&GPI" };
+const RES = [["🪵", "木头"], ["🪨", "石头"], ["⛓️", "铁"]];
+// one look per door, keyed by the room it leads to (as the original used door1…door13 pictures)
+const DOOR = { 2: ["#7a4a24", "#4e2d13"], 3: ["#3d6c8f", "#22435c"], 4: ["#8f2f43", "#5a1828"], 5: ["#6b6b2a", "#3f3f12"], 6: ["#2f7a5c", "#174836"],
+  7: ["#7b3f8f", "#4a2157"], 8: ["#8f6a2f", "#5a3f15"], 9: ["#2f5f8f", "#173a5a"], 10: ["#8f4a2f", "#5a2a15"], 11: ["#4f4f4f", "#2a2a2a"],
+  12: ["#2f8f86", "#155a54"], 13: ["#8f2f6f", "#5a1545"] };
+const doorBg = (k) => `background:repeating-linear-gradient(90deg,${DOOR[k][0]} 0 22px,${DOOR[k][1]} 22px 26px)`;
+const app = document.getElementById("app");
+let S = null;
+
+const shuffle = (a) => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const dot = (a, b) => a.reduce((s, v, i) => s + v * b[i], 0);
+const money = (v) => `${v < 0 ? "$-" : "$"}${Math.abs(v)}`;
+const render = (html) => { app.innerHTML = html; };
+// Telemetry is optional even when its script is missing or broken.
+function track(method, ...args) {
+  try { window.MtrlTelemetry?.[method]?.(...args); } catch (_) {}
+}
+
+// ---------- setup and instructions ----------
+function intro() {
+  S = null;
+  render(`<div class="page">
+    <h1>中世纪商人（Medieval Trading）</h1>
+    <p class="dim">Tomov 等（2019）实验任务的复刻：规则、房间、资源和价格按原实验；门的图片是画的，原实验用的是照片。原实验在 Mechanical Turk 上做，没有时间限制，每个人做一种设定、101 天。</p>
+    <div class="row">设定：<select id="cfg">${Object.keys(PHIS).map((k) => `<option${k === "实验 3 / 4" ? " selected" : ""}>${k}</option>`).join("")}</select>
+      训练天数：<select id="len"><option value="25" selected>100 天（原版）</option><option value="10">40 天</option><option value="5">20 天（只为看流程）</option></select></div>
+    <div class="box"><label>昵称（可选）：<input id="nickname" maxlength="40" autocomplete="off" placeholder="不填写也可以玩"></label>
+      <label class="opt"><input id="upload-consent" type="checkbox">允许上传本次试玩记录</label>
+      <p class="dim" style="font-size:13px;margin:6px 0">勾选后，将向 Supabase 保存匿名浏览器编号、可选昵称、访问与开始事件、实验设定、每轮选择与反应时间、收益和最终回答，仅供站点维护者查看分析。不填写真实姓名等个人信息。匿名编号保存在本浏览器；清除站点数据可重置。未勾选则不上传。网络或记录服务不可用时，游戏照常运行。</p></div>
+    <div class="row"><button class="btn primary" id="go">开始</button></div></div>`);
+  app.querySelector("#go").addEventListener("click", () => {
+    const cfg = app.querySelector("#cfg").value;
+    const per = Number(app.querySelector("#len").value);
+    const consent = app.querySelector("#upload-consent").checked;
+    const nickname = app.querySelector("#nickname").value;
+    const fid = shuffle([0, 1, 2]);   // which feature dimension is wood / stone / iron, random per player
+    const phi = Object.fromEntries(Object.entries(PHIS[cfg]).map(([s, v]) => [s, fid.map((j) => v[j])]));
+    const train = shuffle(TRAIN.flatMap((w) => Array(per).fill(w))).map((w) => ({ w: fid.map((j) => w[j]), w0: w }));
+    S = { cfg, phi, fid, days: [...train, { w: fid.map((j) => TEST[j]), w0: TEST, test: true }], d: 0, log: [], fails: 0 };
+    instructions();
+    track("begin", { consent, nickname, settings: { cfg, training_days: per * 4, fid: fid.slice() } });
+  });
+}
+
+function instructions() {
+  const ex = [100, 90, 0];
+  render(`<div class="page"><h1>说明</h1>
+    <p>想象你是一个商人，在一座中世纪城堡里搜寻资源去卖。资源有三种：${RES.map(([i, n]) => `<span class="res"><span class="ic">${i}</span>${n}</span>`).join("、")}，价格各不相同。</p>
+    <p>有些资源卖不出去，还得花钱处理掉——这种资源的价格显示为负数。每天开始时，你会看到当天的市场价，例如：${RES.map(([i], k) => `<span class="res"><span class="ic">${i}</span>${money([1, -1, 0][k])}</span>`).join("　")}。这表示每单位木头赚 $1，每单位石头亏 $1，铁不赚不亏。</p>
+    <p>按空格键进城堡。城堡里有许多房间，有的房间有门通向别的房间：用数字键 <b>1、2、3</b> 选门进入下一个房间。左上角会一直显示今天的价格，右上角显示你是从哪扇门进来的。只能往前走，不能回头。</p>
+    <p>有的房间里有资源，可以按今天的价格卖掉（或处理掉）。例如房间里有 ${ex.map((v, k) => `${v} ${RES[k][1]}`).join("、")}：你赚 $1×100 + $-1×90 + $0×0 = <b>$10</b>。按空格卖掉资源，开始下一天。</p>
+    <p>目标：每天都找到当天最赚钱的房间。你总是从同一个房间出发；城堡的布局不会变，同一扇门永远通向同一个房间；有资源的房间里，资源数量也永远不变。</p>
+    <p>一共 ${S.days.length} 天。原实验的奖金是随机抽一天的收益（按美分计），所以每一天都要认真。</p>
+    <div class="row"><button class="btn primary" id="next">继续</button></div></div>`);
+  app.querySelector("#next").addEventListener("click", check);
+}
+
+function check() {
+  const qs = [
+    ["你的任务是什么？", ["在城堡里打恶龙", "卖资源，尽量多赚钱", "建一座城堡", "不知道"], 1],
+    ["一共有多少天（轮）？", ["1", "10", String(S.days.length), "1001"], 2],
+    ["今天木头卖 $1，石头 $0，铁 $-2（每单位铁亏 $2）。你找到 100 木头、50 石头、10 铁。你赚多少？", ["$100", "$-100", "$50", "$80"], 3],
+  ];
+  render(`<div class="page"><h1>开始前先回答几个问题</h1>
+    ${qs.map(([q, opts], i) => `<div class="q">${q}</div>${opts.map((o, j) => `<label class="opt"><input type="radio" name="q${i}" value="${j}"> ${o}</label>`).join("")}`).join("")}
+    <p class="dim">全部答对才能开始（原实验也是这样）。</p>
+    <div class="row"><button class="btn primary" id="ok">检查答案</button></div><div class="err" id="err"></div></div>`);
+  app.querySelector("#ok").addEventListener("click", () => {
+    const right = qs.every(([, , a], i) => app.querySelector(`input[name=q${i}]:checked`)?.value === String(a));
+    if (right) { S.room = 1; pricePage(); return; }
+    S.fails += 1;
+    app.querySelector("#err").textContent = "有答错的，再看一下说明。";
+    setTimeout(instructions, 1200);
+  });
+}
+
+// ---------- one day ----------
+const day = () => S.days[S.d];
+const priceLines = (w, size) => RES.map(([i], k) => `<div style="font-size:${size}">${money(w[k])} / <span class="ic">${i}</span></div>`).join("");
+
+function pricePage() {
+  S.mode = "price"; S.room = 1; S.path = [1]; S.came = null; S.t0 = 0; S.rts = [];
+  render(`<div class="stage"><div class="dim" style="margin-bottom:8px">今天的市场价：</div>
+    <div class="prices">${priceLines(day().w, "40px")}</div>
+    <div class="foot">按空格进入城堡。还剩 ${S.days.length - S.d} 天。</div></div>`);
+}
+
+function corners() {
+  const came = S.came ? `<div class="mini-door" style="${doorBg(S.came)}"></div>` : "";
+  return `<div class="corner l">${priceLines(day().w, "14px")}</div><div class="corner r">${came}</div>`;
+}
+
+function roomPage() {
+  S.mode = "room"; S.t0 = performance.now();
+  const kids = NEXT[S.room];
+  render(`<div class="stage">${corners()}
+    <div class="doors">${kids.map((k, i) => `<div><div class="num">${i + 1}</div><div class="door" data-i="${i}" style="${doorBg(k)}"></div></div>`).join("")}</div>
+    <div class="foot">用数字键 1、2、3 选门（也可以点门）。按空格卖掉资源、开始下一天。还剩 ${S.days.length - S.d} 天。</div></div>`);
+  app.querySelectorAll(".door").forEach((d) => d.addEventListener("click", () => choose(Number(d.dataset.i))));
+}
+
+function choose(i) {
+  if (S.mode !== "room") return;
+  S.mode = "wait";
+  S.rts.push(Math.round(performance.now() - S.t0));
+  app.querySelectorAll(".door")[i].classList.add("picked");
+  const next = NEXT[S.room][i];
+  setTimeout(() => {
+    S.came = next; S.room = next; S.path.push(next);
+    if (NEXT[next]) roomPage(); else lootPage();
+  }, 1000);
+}
+
+function lootPage() {
+  S.mode = "loot";
+  const phi = S.phi[S.room], w = day().w, r = dot(phi, w);
+  S.reward = r;
+  render(`<div class="stage">${corners()}
+    <div class="loot">${RES.map(([i], k) => `<div>${phi[k]} &emsp;<span class="ic">${i}</span></div>`).join("")}</div>
+    <div class="earn">你赚了 ${RES.map(([i], k) => `${phi[k]} <span class="ic">${i}</span> × ${money(w[k])}`).join(" + ")} = <b class="${r < 0 ? "neg" : ""}">${money(r)}</b></div>
+    <div class="foot">按空格卖掉资源，开始下一天。还剩 ${S.days.length - S.d} 天。</div></div>`);
+}
+
+function endDay() {
+  S.log.push({ room: S.room, r: S.reward, w0: day().w0, test: Boolean(day().test), rt: S.rts.slice() });
+  S.d += 1;
+  if (S.d >= S.days.length) notesQuestion();
+  else pricePage();
+  track("round", S.d, { ...S.log[S.d - 1], fails: S.fails });
+}
+
+document.addEventListener("keydown", (e) => {
+  if (!S) return;
+  if (e.key === " ") {
+    if (S.mode === "price") { e.preventDefault(); roomPage(); }
+    else if (S.mode === "loot") { e.preventDefault(); endDay(); }
+  } else if (S.mode === "room" && ["1", "2", "3"].includes(e.key)) choose(Number(e.key) - 1);
+});
+
+// ---------- the end ----------
+function notesQuestion() {
+  S.mode = "end";
+  render(`<div class="page"><h1>最后一个问题</h1>
+    <p>做任务时你有没有记笔记，或者用了别的辅助记忆的办法（比如纸笔）来记哪个房间有什么？（原实验也问了这一句，回答不影响报酬。）</p>
+    <div class="row"><button class="btn" data-a="有">有</button><button class="btn" data-a="没有">没有</button><button class="btn" data-a="不想说">不想说</button></div></div>`);
+  app.querySelectorAll("[data-a]").forEach((b) => b.addEventListener("click", () => { S.notes = b.dataset.a; result(); }));
+}
+
+function result() {
+  const train = S.log.filter((x) => !x.test), test = S.log.find((x) => x.test);
+  const avg = train.reduce((a, x) => a + x.r, 0) / train.length;
+  const kept = avg > 0;
+  // the best room for each day's prices, to see how well the castle was learned
+  const rooms = Object.keys(S.phi).map(Number);
+  const bestFor = (w) => rooms.reduce((b, s) => (dot(S.phi[s], w) > dot(S.phi[b], w) ? s : b), rooms[0]);
+  const hit = train.map((x, i) => x.room === bestFor(S.days[i].w));
+  const block = Math.max(5, Math.round(train.length / 10));
+  const curve = [];
+  for (let i = 0; i < hit.length; i += block) { const part = hit.slice(i, i + block); curve.push(part.filter(Boolean).length / part.length); }
+  const W = 560, H = 120;
+  const pts = curve.map((v, i) => `${30 + i * (W - 40) / Math.max(1, curve.length - 1)},${H - 20 - v * (H - 35)}`).join(" ");
+  const lastHit = hit.slice(-block).filter(Boolean).length / Math.min(block, hit.length);
+  const testRoom = test.room;
+  const testVal = dot(S.phi[testRoom], S.days[S.days.length - 1].w);
+  const why = {
+    7: "这是新价格下真正最值钱的房间。要选到它，得记住每个房间的资源、用新价格重新算一遍——这叫“基于模型”的做法。",
+    12: "它是训练时一条熟路的终点（在一类价格下是最好的房间）。SF&GPI 的说法是：把练熟的几条路线拿出来，用新价格各估一次，挑最好的一条，不重新规划整个城堡。",
+    6: "它是训练时另一条熟路的终点（在另一类价格下是最好的房间）。也是在复用旧路线，但不是旧路线里新价格下最好的那条——实验 4 专门看了选 6 的人。",
+    9: "训练时它从来不好（它的两种资源在训练价格里总是一正一负）。UVFA 的说法是：顺着“这两种资源都值钱”往外推，同时忽略了训练时从不计价的第三种资源。",
+    11: "训练时它平均不赚不亏，是最“安全”的房间。无模型学习只看过去平均拿到多少，完全不看今天的价格。",
+  }[testRoom];
+  const others = "这个房间不在四个模型的预测里。论文的图（Choice at test）把 9 个房间被选的比例都画了出来，和随机水平 1/9 比：只有被选得明显多于随机的房间，才拿来支持或反对某个模型。";
+  const rows = rooms.map((s) => `<tr class="${s === testRoom ? "you" : ""}"><td>${s}</td><td>${RES.map(([i], k) => `${S.phi[s][k]}${i}`).join(" ")}</td>
+    <td>${train.filter((x) => x.room === s).length}</td><td>${dot(S.phi[s], S.days[S.days.length - 1].w)}</td>
+    <td>${PRED[s] ? `<span class="tag">${PRED[s]}</span>` : ""}${s === testRoom ? '<span class="tag">你</span>' : ""}</td></tr>`).join("");
+  render(`<div class="page"><h1>结束 · ${S.cfg} 的设定</h1>
+    <div class="box ${kept ? "" : "warn"}"><b>按论文的标准，你${kept ? "会被纳入分析" : "会被排除"}。</b>
+      训练 ${train.length} 天平均每天 ${money(Math.round(avg))}${kept ? "，大于 0" : "，不大于 0"}。
+      ${kept ? "" : "论文发现训练收益呈两个峰：一群人学会了城堡，一群人基本在乱选（每个实验约 40%）。乱选的人在测试那天去哪里说明不了什么，所以只分析训练平均收益大于 0 的人。你最后一天的选择按论文标准不计入。"}</div>
+    <div class="box"><b>你学会城堡了吗？</b> 每 ${block} 天里选到当天最赚钱房间的比例：
+      <svg viewBox="0 0 ${W} ${H}" width="100%"><line x1="30" x2="${W - 10}" y1="${H - 20}" y2="${H - 20}" stroke="#555"/><line x1="30" x2="${W - 10}" y1="15" y2="15" stroke="#333"/>
+      <text x="2" y="${H - 17}">0%</text><text x="2" y="18">100%</text><polyline points="${pts}" fill="none" stroke="#7b5bd6" stroke-width="2.5"/>
+      <text x="30" y="${H - 4}">开始</text><text x="${W - 50}" y="${H - 4}">训练结束</text></svg>
+      <div class="dim">最后 ${block} 天的命中率 ${Math.round(lastHit * 100)}%。100 天里每种价格出现 25 次，最赚钱的房间其实只有两个（价格一类时是一个、另一类时是另一个），所以多数人靠反复走同两条路记住了，而不是记住全部 9 个房间。这正是 SF&GPI 的出发点。</div></div>
+    <div class="box"><b>最后一天（价格 [1,1,1]）你去了房间 ${testRoom}，值 ${money(testVal)}。</b>
+      <p>${PRED[testRoom] ? `这个房间是“${PRED[testRoom]}”预测的去处。${why}` : others}</p>
+      <p class="dim">注意：一个人选一次，不能说明这个人“是”哪种策略——你也可能是忘了、猜的。论文的结论来自一群人的分布：例如实验 4 分析的 303 人里，81 人去了 12，46 人去了 7，比较的是这些比例。</p></div>
+    <div class="box"><b>城堡揭晓</b>（这一局资源维度随机对应到 ${RES.map(([i, n]) => n).join("/")}，所以和论文表 1 的顺序可能不同）
+      <div style="overflow-x:auto"><table><tr><th>房间</th><th>资源</th><th>训练中去过几次</th><th>新价格下的值</th><th></th></tr>${rows}</table></div></div>
+    <div class="row"><button class="btn" id="again">再玩一次</button><a class="btn" href="mtrl-models.html" target="_blank" rel="noopener" style="text-decoration:none">四个算法各自怎么算 →</a><span class="dim">你回答的“记笔记”：${S.notes}</span></div></div>`);
+  app.querySelector("#again").addEventListener("click", intro);
+  track("complete", { cfg: S.cfg, fid: S.fid.slice(), fails: S.fails, notes: S.notes,
+    average_reward: avg, included_by_paper_rule: kept, log: S.log.slice() });
+}
+
+intro();
+</script>
+</body>
+</html>

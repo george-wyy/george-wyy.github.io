@@ -39,6 +39,16 @@ redirect_from:
   <div class="project-catalog project-catalog--featured">{% for project in featured_projects %}{% include project-summary.html project=project %}{% endfor %}</div>
 </section>
 
+<section class="module-panel homepage-demos">
+  <div class="module-heading"><span class="module-symbol" aria-hidden="true">◇</span><h2 data-i18n-zh="交互试玩" data-i18n-en="Interactive demos">交互试玩</h2></div>
+  <h3 data-i18n-zh="中世纪商人" data-i18n-en="Medieval Trading">中世纪商人</h3>
+  <p data-i18n-zh="在城堡里探索房间、收集资源，随着市场价格变化调整选择。体验 Tomov 等（2019）的学习与决策任务，再看看四种算法如何做出选择。" data-i18n-en="Explore castle rooms, collect resources, and adapt your choices as market prices change. Try a recreation of Tomov et al. (2019)'s learning and decision task, then explore how four algorithms make their choices.">在城堡里探索房间、收集资源，随着市场价格变化调整选择。体验 Tomov 等（2019）的学习与决策任务，再看看四种算法如何做出选择。</p>
+  <div class="hero-actions"><a class="btn hero-action-primary" href="{{ '/demos/mtrl-task.html' | relative_url }}" data-i18n-zh="开始试玩" data-i18n-en="Play demo">开始试玩</a><a href="{{ '/demos/mtrl-models.html' | relative_url }}" data-i18n-zh="看看算法怎么算" data-i18n-en="Explore the algorithms">看看算法怎么算</a></div>
+  <h3 data-i18n-zh="城堡任务：奖励变了 vs 路变了" data-i18n-en="Castle task: changing rewards and routes">城堡任务：奖励变了 vs 路变了</h3>
+  <p data-i18n-zh="先学会城堡的路线，再体验奖励或通路变化后的重新选择。试玩 Momennejad 等（2017）的任务，并比较基于模型、后继表征和无模型三种策略。" data-i18n-en="Learn the castle routes, then choose again after rewards or routes change. Try a recreation of Momennejad et al. (2017)'s task and compare model-based, successor representation, and model-free strategies.">先学会城堡的路线，再体验奖励或通路变化后的重新选择。试玩 Momennejad 等（2017）的任务，并比较基于模型、后继表征和无模型三种策略。</p>
+  <div class="hero-actions"><a class="btn hero-action-primary" href="{{ '/demos/sr-castle.html' | relative_url }}" data-i18n-zh="开始试玩" data-i18n-en="Play demo">开始试玩</a><a href="{{ '/demos/sr-castle.html#models' | relative_url }}" data-i18n-zh="看看算法怎么算" data-i18n-en="Explore the algorithms">看看算法怎么算</a></div>
+</section>
+
 <section class="module-panel homepage-news">
   <div class="module-heading"><span class="module-symbol" aria-hidden="true">◷</span><h2 data-i18n-zh="研究与成长时间轴" data-i18n-en="Research milestones">研究与成长时间轴</h2></div>
   <ul class="news-list">

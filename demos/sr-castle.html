@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>城堡任务 · 试玩</title>
+<style>
+:root{--fg:#f2f2f2;--dim:#a8a8a8;--line:#ffffff2a;--accent:#7b5bd6;--good:#4cc38a;--bad:#e0806a;--warn:#e0a23a;--chg:#f0a646}
+*{box-sizing:border-box}
+body{margin:0;background:#000;color:var(--fg);font:16px/1.6 -apple-system,"PingFang SC",system-ui,sans-serif;min-height:100vh}
+main{max-width:900px;margin:0 auto;padding:18px 16px 60px}
+.page{background:#111;border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+h1{font-size:22px;margin:0 0 6px}
+h2{font-size:17px;margin:18px 0 6px}
+.dim{color:var(--dim)}
+.tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.tabs button{font:inherit;font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:#161616;color:var(--dim);cursor:pointer}
+.tabs button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn{font:inherit;font-size:14px;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:#1d1d1d;color:var(--fg);cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.box{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:12px;background:#161616}
+.warn{border-color:#e0a23a88;background:#e0a23a14}
+.tip{border-color:#7b5bd688;background:#7b5bd61a}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+td,th{padding:5px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--dim);font-weight:500}
+.tw{overflow-x:auto}
+select{font:inherit;font-size:14px;background:#1d1d1d;color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:4px 6px}
+input[type=range]{width:160px;accent-color:var(--accent)}
+code,.mono{font-family:ui-monospace,Menlo,monospace;font-size:13px}
+/* play: the light screens of Supplementary Figure 2 */
+.frame{width:100%;max-width:760px;margin:0 auto;aspect-ratio:4/3;max-height:72vh;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.scr{position:relative;width:100%;height:100%}
+.obj{position:absolute;transform:translate(-50%,-50%)}
+.pick{cursor:pointer;transition:transform .1s}
+.pick:hover{transform:translate(-50%,-50%) scale(1.06)}
+.chosen{outline:4px solid #222;outline-offset:3px;border-radius:4px}
+.castle-pic svg{display:block;border:2px solid #fff;box-shadow:0 1px 4px #0003}
+.gatepic svg{display:block}
+.circ{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.sq{width:60px;height:60px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.door svg{display:block;background:#fff;box-shadow:0 1px 3px #0003}
+.door.shut{cursor:not-allowed}
+.hint{color:#555;font-size:14px;white-space:nowrap}
+.reward{text-align:center;color:#222;font-size:30px;white-space:nowrap}
+.coins{display:flex;gap:6px;justify-content:center;min-height:30px;margin-bottom:8px;flex-wrap:wrap;max-width:360px}
+.coins i{width:28px;height:28px;border-radius:50%;background:#f2d21b}
+.hud{display:flex;justify-content:space-between;font-size:13px;color:var(--dim);margin-top:8px;max-width:760px;margin-left:auto;margin-right:auto}
+.bar{height:6px;background:#222;border-radius:3px;margin:6px auto 0;overflow:hidden;max-width:760px}
+.bar>i{display:block;height:100%;background:var(--accent)}
+.q{margin:12px 0 4px;font-weight:600}
+label.opt{display:block;padding:2px 0;cursor:pointer}
+/* models */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:12px}
+.card{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#161616}
+.card h3{margin:0 0 4px;font-size:15px}
+.card .pick{font-size:15px;margin-top:6px}
+.card .calc{font-size:13px;color:var(--dim);margin-top:6px;line-height:1.7}
+.good{color:var(--good)}.bad{color:var(--bad)}.chg{color:var(--chg)}
+.graphs{display:flex;gap:10px;flex-wrap:wrap}
+.graphs figure{margin:0;flex:1 1 240px}
+.graphs figcaption{font-size:13px;color:var(--dim);text-align:center}
+svg{max-width:100%;height:auto}
+svg text{font-size:12px}
+.pbar{display:flex;align-items:center;gap:8px;font-size:13px;margin:3px 0}
+.pbar .t{width:84px;color:var(--dim)}
+.pbar .b{flex:1;height:12px;background:#222;border-radius:3px;position:relative;overflow:hidden}
+.pbar .b i{position:absolute;left:0;top:0;bottom:0;background:var(--accent)}
+.pbar .b u{position:absolute;top:-2px;bottom:-2px;width:3px;background:#e0806a}
+.pbar .v{width:44px;text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:560px){.page{padding:14px}.castle-pic svg{width:150px;height:auto}.gatepic svg{width:64px;height:auto}.circ{width:48px;height:48px}.sq{width:46px;height:46px}}
+</style>
+</head>
+<body>
+<main><div class="page">
+<h1>城堡任务：奖励变了 vs 路变了</h1>
+<div class="dim">Momennejad 等（2017）实验 2 的任务，按论文方法部分和补充图 2 重做：画面、房间位置、门、按空格拿分都照原文；原文用的是照片，这里是手画的。每一局分三段：学路线、只在城堡里面重新走、最后从门口选一次。</div>
+<div class="tabs" id="tabs"><button data-t="play" class="on">▶ 试玩</button><button data-t="models">◇ 三种算法怎么算</button><button data-t="exp1">实验 1（被动看图）怎么算</button></div>
+<div id="app"></div>
+</div><p class="dim" id="telemetry-status" role="status" style="font-size:13px;margin-top:20px">记录功能为可选项；不影响游戏运行。</p></main>
+<script src="sr-castle-telemetry-config.js" defer></script>
+<script src="mtrl-telemetry.js" defer></script>
+<script>
+function track(method, ...args) {
+  try { window.GameTelemetry?.[method]?.(...args); } catch (_) {}
+}
+// ---- task structure (Figure 6; Methods "Task 2"; Supplementary Figure 2) -------------------------------------------
+// State 1 = outside the castle, two gates (always both open). States 2, 3 = circle rooms, three doors each, two open.
+// States 4, 5, 6 = square rooms with a reward. Door position (top/middle/bottom) = the square room's position.
+const STD = { 2: [4, 5], 3: [5, 6] };
+const CONDS = {
+  reward:     { name: "奖励重估", R1: { 4: 15, 5: 0, 6: 30 }, A1: STD, R2: { 4: 45, 5: 0, 6: 30 }, A2: STD,
+                change: "房间 4 的奖励从 $15 变成 $45", starts2: [4, 4, 4, 5, 5, 5, 6, 6, 6] },
+  transition: { name: "转移重估", R1: { 4: 15, 5: 0, 6: 30 }, A1: STD, R2: { 4: 15, 5: 0, 6: 30 }, A2: { 2: [5, 6], 3: [4, 5] },
+                change: "开着的门变了：圆厅 2 现在通 5、6，圆厅 3 通 4、5（奖励不变）", starts2: [2, 2, 2, 3, 3, 3, 4, 5, 6] },
+  policy:     { name: "策略重估", R1: { 4: 0, 5: 15, 6: 30 }, A1: STD, R2: { 4: 45, 5: 15, 6: 30 }, A2: STD,
+                change: "房间 4 的奖励从 $0 变成 $45（于是圆厅 2 里该走的门变了）", starts2: [4, 4, 4, 5, 5, 5, 6, 6, 6] },
+  control:    { name: "对照", R1: { 4: 15, 5: 0, 6: 30 }, A1: STD, R2: { 4: 15, 5: 0, 6: 45 }, A2: STD,
+                change: "房间 6 的奖励从 $30 变成 $45（最好的路线没变）", starts2: [4, 4, 4, 5, 5, 5, 6, 6, 6] },
+};
+const ORDER = ["reward", "transition", "policy", "control"];
+// Figure 7 (n = 88), read off the bars — approximate
+const HUMAN2 = { reward: 0.66, transition: 0.47, policy: 0.50, control: 0.08 };
+
+const $ = (s, r = document) => r.querySelector(s);
+const h = (tag, attrs = {}, ...kids) => {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") e.className = v; else if (k === "style") e.style.cssText = v;
+    else if (k.startsWith("on")) e.addEventListener(k.slice(2), v); else if (v != null) e.setAttribute(k, v);
+  }
+  for (const k of kids.flat()) if (k != null) e.append(k.nodeType ? k : document.createTextNode(String(k)));
+  return e;
+};
+const shuffle = (a) => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const best = (A, R, s) => A[s].reduce((x, y) => (R[y] > R[x] ? y : x));         // the better terminal from s
+const val = (A, R, s) => R[best(A, R, s)];
+
+// ---- the three learners, at the end of each phase (as in the paper's Methods) ---------------------------------------
+// MB: knows which doors are open (A) and the rewards (R), re-plans at the gate.
+// SR: from the gate it cached which room follows each gate under the phase-1 route (M); R is updated, M for the gate is
+//     not, because nobody stands at the gate in phase 2.
+// MF: cached the gate values themselves in phase 1.
+function predict(c) {
+  const t1 = { 2: best(c.A1, c.R1, 2), 3: best(c.A1, c.R1, 3) };
+  return {
+    t1,
+    MB: { 2: val(c.A2, c.R2, 2), 3: val(c.A2, c.R2, 3), via: { 2: best(c.A2, c.R2, 2), 3: best(c.A2, c.R2, 3) } },
+    SR: { 2: c.R2[t1[2]], 3: c.R2[t1[3]], via: t1 },
+    MF: { 2: c.R1[t1[2]], 3: c.R1[t1[3]], via: t1 },
+  };
+}
+// ε-greedy at the gate (equation 6, N = 2): P(gate to 2)
+const pTwo = (q, eps) => (q[2] > q[3] ? 1 - eps / 2 : q[2] < q[3] ? eps / 2 : 0.5);
+
+// ---- graph drawing -------------------------------------------------------------------------------------------------
+function graph(A, R, { changed = {}, start = [1, 2, 3, 4, 5, 6], hi = {} } = {}) {
+  const P = { 1: [150, 26], 2: [70, 96], 3: [230, 96], 4: [50, 176], 5: [150, 176], 6: [250, 176] };
+  const ns = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(ns, "svg");
+  svg.setAttribute("viewBox", "0 0 300 222");
+  const add = (tag, at, text) => { const e = document.createElementNS(ns, tag); for (const k in at) e.setAttribute(k, at[k]); if (text != null) e.textContent = text; svg.append(e); return e; };
+  add("defs", {}).innerHTML = '<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="#bbb"/></marker><marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="#f0a646"/></marker><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="#7b5bd6"/></marker>';
+  const edge = (a, b, kind) => {
+    const [x1, y1] = P[a], [x2, y2] = P[b];
+    const d = Math.hypot(x2 - x1, y2 - y1), ux = (x2 - x1) / d, uy = (y2 - y1) / d;
+    const col = kind === "hi" ? "#7b5bd6" : kind === "chg" ? "#f0a646" : "#bbb";
+    add("line", { x1: x1 + ux * 15, y1: y1 + uy * 15, x2: x2 - ux * 16, y2: y2 - uy * 16, stroke: col, "stroke-width": kind ? 3 : 2, "marker-end": `url(#${kind === "hi" ? "ah" : kind === "chg" ? "ac" : "ar"})` });
+  };
+  edge(1, 2, hi[1] === 2 ? "hi" : ""); edge(1, 3, hi[1] === 3 ? "hi" : "");
+  for (const s of [2, 3]) for (const t of A[s]) edge(s, t, hi[s] === t ? "hi" : changed.edges?.[s] ? "chg" : "");
+  for (const n of [1, 2, 3, 4, 5, 6]) {
+    const [x, y] = P[n];
+    const on = start.includes(n);
+    add("circle", { cx: x, cy: y, r: 14, fill: n === 1 ? "#4cae4c" : n < 4 ? "#3a8fc1" : "#c9605a", stroke: on ? "#fff" : "#555", "stroke-width": on ? 2 : 1, opacity: on ? 1 : .55 });
+    add("text", { x, y: y + 4, "text-anchor": "middle", fill: "#fff", style: "font-size:13px;font-weight:700" }, n);
+    if (n >= 4) add("text", { x, y: y + 34, "text-anchor": "middle", fill: changed.r?.[n] ? "#f0a646" : "#ddd", style: "font-size:13px;font-weight:600" }, `$${R[n]}`);
+  }
+  return svg;
+}
+function phaseGraphs(c) {
+  const ch = { r: {}, edges: {} };
+  for (const n of [4, 5, 6]) if (c.R1[n] !== c.R2[n]) ch.r[n] = true;
+  for (const s of [2, 3]) if (String(c.A1[s]) !== String(c.A2[s])) ch.edges[s] = true;
+  return h("div", { class: "graphs" },
+    h("figure", {}, graph(c.A1, c.R1), h("figcaption", {}, "阶段 1 学到的（白圈 = 这一段会从这里出发）")),
+    h("figure", {}, graph(c.A2, c.R2, { changed: ch, start: c.starts2 }), h("figcaption", {}, "阶段 2：橙色是变了的地方；只从白圈出发，不会站在门口 1")));
+}
+
+// ---- tabs ----------------------------------------------------------------------------------------------------------
+const app = $("#app");
+const TABS = { play: renderPlayIntro, models: renderModels, exp1: renderExp1 };
+function show(t) {
+  if (collectKeyHandler) { document.removeEventListener("keydown", collectKeyHandler); collectKeyHandler = null; }
+  document.querySelectorAll("#tabs button").forEach((b) => b.classList.toggle("on", b.dataset.t === t));
+  app.replaceChildren();
+  TABS[t]();
+  if (location.hash.slice(1) !== t) history.replaceState(null, "", t === "play" ? location.pathname : `#${t}`);
+}
+$("#tabs").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) show(b.dataset.t); });
+
+// ================================ play ==============================================================================
+// Screens follow Supplementary Figure 2: a light screen showing only where you are now. Outside the castle: a castle
+// picture with two entrances below it (left entrance → the circle room on the left of the screen). Inside: the circle
+// rooms sit at the left / right edge, the square rooms in a column in the middle (top / middle / bottom); you see your
+// avatar on the room you are in. A circle room has three doors — above it, toward the middle, below it — leading to the
+// top / middle / bottom square; open doors are drawn open. In a square room you press the space bar and get "N Points!".
+// Not in the paper, so chosen here: the avatar, the drawings (the originals are photos), timings, the wording of the
+// instructions and the nine comprehension questions, and 17 (of the "at least 14") phase-1 trials from the gate.
+const SCREEN_BG = "#f8f6e4";
+const SQUARE_COLS = ["#ef6a3a", "#8a1a8f", "#f7b6c8", "#3a7bd5", "#e8c228", "#4caf7a", "#7a5230", "#20a4a8"];
+const CIRCLE_COLS = ["#a01f24", "#1f8f4e", "#2d5fa8", "#c0761b", "#6b3fa0", "#2a2a2a"];
+const CASTLES = [
+  { wall: "#b9b2a3", roof: "#5b6f8f", sky: "#bfe0f5", ground: "#6ea05a", door: "#6b4a2b" },
+  { wall: "#d8c7a0", roof: "#9b3b30", sky: "#f6d7b0", ground: "#8bb06a", door: "#3e3a35" },
+  { wall: "#8f9aa3", roof: "#2f4a3a", sky: "#d6e4ee", ground: "#5d8a6a", door: "#7a2f22" },
+  { wall: "#c9a98c", roof: "#3c3f6b", sky: "#e7dff3", ground: "#7a9b55", door: "#4a3a6a" },
+];
+const AVATAR = '<svg viewBox="0 0 40 40" width="40" height="40"><ellipse cx="20" cy="24" rx="13" ry="12" fill="#9bbf3a" stroke="#3b4a12" stroke-width="2"/><path d="M8 18 Q20 2 32 18 Z" fill="#7d8a96" stroke="#2c3238" stroke-width="2"/><circle cx="15" cy="24" r="3.4" fill="#fff"/><circle cx="25" cy="24" r="3.4" fill="#fff"/><circle cx="15.6" cy="24.4" r="1.6"/><circle cx="25.6" cy="24.4" r="1.6"/><path d="M15 31 Q20 34 25 31" stroke="#3b4a12" stroke-width="2" fill="none"/><path d="M31 10 l6 -6" stroke="#5aa0d8" stroke-width="3"/></svg>';
+const doorSvg = (open) => open
+  ? '<svg viewBox="0 0 40 56" width="40" height="56"><rect x="3" y="3" width="34" height="50" fill="#fff" stroke="#c8202a" stroke-width="3"/><path d="M5 5 L22 10 L22 52 L5 51 Z" fill="#d9262f"/><circle cx="19" cy="31" r="1.8" fill="#fff"/></svg>'
+  : '<svg viewBox="0 0 40 56" width="40" height="56"><rect x="3" y="3" width="34" height="50" fill="#d9262f" stroke="#a5161e" stroke-width="3"/><circle cx="30" cy="30" r="2.2" fill="#fff"/></svg>';
+const castleSvg = (c) => `<svg viewBox="0 0 220 130" width="220" height="130"><rect width="220" height="130" fill="${c.sky}"/><rect y="104" width="220" height="26" fill="${c.ground}"/>
+  <rect x="40" y="52" width="140" height="56" fill="${c.wall}"/><rect x="28" y="30" width="30" height="78" fill="${c.wall}"/><rect x="162" y="30" width="30" height="78" fill="${c.wall}"/><rect x="92" y="22" width="36" height="86" fill="${c.wall}"/>
+  <path d="M24 31 L43 6 L62 31Z M158 31 L177 6 L196 31Z M88 23 L110 0 L132 23Z" fill="${c.roof}"/>
+  <path d="M100 108 v-22 a10 10 0 0 1 20 0 v22z" fill="${c.door}"/><rect x="38" y="48" width="8" height="12" fill="#333"/><rect x="174" y="48" width="8" height="12" fill="#333"/><rect x="106" y="40" width="8" height="12" fill="#333"/></svg>`;
+const gateSvg = (c) => `<svg viewBox="0 0 90 110" width="90" height="110"><rect width="90" height="110" fill="#9c8f7c"/><g fill="#857a69"><rect x="2" y="4" width="26" height="14"/><rect x="32" y="4" width="26" height="14"/><rect x="62" y="4" width="26" height="14"/><rect x="2" y="60" width="12" height="14"/><rect x="76" y="60" width="12" height="14"/></g>
+  <path d="M16 110 V52 a29 29 0 0 1 58 0 V110 Z" fill="#2b2118"/><path d="M22 110 V54 a23 23 0 0 1 46 0 V110 Z" fill="${c.door}"/><path d="M45 31 V110" stroke="#1f160e" stroke-width="2"/><circle cx="52" cy="78" r="2.5" fill="#d8b04a"/></svg>`;
+
+let game = null;
+let collectKeyHandler = null;
+const QUIZ = [
+  ["每个回合开始时，你会在哪里？", ["总在城堡外面", "可能在城堡外面，也可能直接在某个房间里"], 1],
+  ["城堡外面有几个入口？", ["两个", "三个"], 0],
+  ["从左边的入口进去，会到哪里？", ["左边的圆形房间", "随机一个房间"], 0],
+  ["圆形房间里有几扇门？", ["三扇，但只有两扇开着", "两扇"], 0],
+  ["圆形房间上方的那扇门通向哪里？", ["屏幕上方的方形房间", "随机一个方形房间"], 0],
+  ["在方形房间里怎么拿到分数？", ["按空格键", "什么都不用做"], 0],
+  ["在同一局里，房间的颜色和位置会变吗？", ["不会，一局之内固定", "每个回合都会变"], 0],
+  ["进入新的一局以后，上一局学到的有用吗？", ["没用，是一座新城堡", "有用，规则一样"], 0],
+  ["你的奖金取决于什么？", ["一共拿到的分数", "走得快不快"], 0],
+];
+
+function renderPlayIntro() {
+  if (game?.running) return renderTrial();
+  const nickname = h("input", { id: "nickname", maxlength: 40, autocomplete: "off", placeholder: "不填写也可以玩" });
+  const consent = h("input", { id: "upload-consent", type: "checkbox" });
+  const pick = h("select", { id: "play-mode", "aria-label": "试玩模式" }, h("option", { value: "all" }, "四局都玩（论文做法，顺序随机，约 10–15 分钟）"),
+    h("option", { value: "one-random" }, "只玩一局：随机抽一种（不告诉你是哪种）"),
+    h("option", { value: "one-known" }, "只玩一局：自己指定条件"));
+  const which = h("select", { id: "condition", "aria-label": "实验条件", style: "display:none" }, ...ORDER.map((k) => h("option", { value: k }, CONDS[k].name)));
+  pick.addEventListener("change", () => { which.style.display = pick.value === "one-known" ? "" : "none"; });
+  const keys = () => (pick.value === "all" ? shuffle(ORDER) : [pick.value === "one-known" ? which.value : ORDER[Math.floor(Math.random() * 4)]]);
+  app.append(
+    h("div", { class: "box" },
+      h("b", {}, "说明（被试看到的大意）"),
+      h("ul", { style: "margin:6px 0 0;padding-left:20px" },
+        h("li", {}, "你要操控一个小人在城堡里走，收集分数。分数越多，奖金越多。"),
+        h("li", {}, "有时你在城堡外面：从左、右两个入口选一个进去，左入口通往左边的圆形房间，右入口通往右边的。"),
+        h("li", {}, "圆形房间有三扇门：上方、朝中间、下方，每次只有两扇开着。上方的门通往屏幕上方的方形房间，朝中间的门通往中间的，下方的通往下方的。"),
+        h("li", {}, "在方形房间里按空格键，拿到这个房间的分数。"),
+        h("li", {}, "有的回合不从城堡外面开始，而是直接把你放进某个房间。"),
+        h("li", {}, "一共四局，每局是一座新城堡：房间的颜色和位置都重新安排，一局之内固定。"))),
+    h("div", { class: "box", style: "font-size:14px" }, "论文里画面上显示的是“15 Points!”这样的分数，图 6 里写成 $，两者是同一个数。这里是学习试玩，不发放奖金。"),
+    h("div", { class: "box", style: "font-size:14px" },
+      h("label", { for: "nickname" }, "昵称（可选）：", nickname),
+      h("label", { class: "opt" }, consent, "允许上传本次试玩记录"),
+      h("p", { class: "dim", style: "margin:6px 0" }, "勾选并通过理解题后，将向 Supabase 保存匿名浏览器编号、可选昵称、实验条件、每轮路径与反应时间、分数和最终选择，仅供站点维护者查看分析。请勿填写真实姓名等个人信息。匿名编号保存在本浏览器；清除站点数据可重置。未勾选则不上传；后台或网络不可用时，游戏照常运行。")),
+    h("div", { class: "row" }, pick, which, h("button", { class: "btn primary", onclick: () => renderQuiz(keys(), { consent: consent.checked, nickname: nickname.value, mode: pick.value }) }, "开始（先做 9 道理解题）")));
+}
+
+function renderQuiz(keys, options = {}) {
+  let quizFails = 0;
+  const form = h("div");
+  QUIZ.forEach(([q, opts], i) => form.append(h("div", { class: "q" }, `${i + 1}. ${q}`),
+    ...opts.map((o, j) => h("label", { class: "opt" }, h("input", { type: "radio", name: `q${i}`, value: j }), " ", o))));
+  const err = h("div", { class: "bad", style: "margin-top:8px" });
+  app.replaceChildren(
+    h("div", { class: "dim", style: "font-size:13px" }, "论文要求 9 道理解题全对才能开始，但没有公布题目。下面 9 道是按论文对任务的描述补写的。"),
+    form, err,
+    h("div", { class: "row" },
+      h("button", { class: "btn primary", onclick: () => {
+        const wrong = QUIZ.map(([, , a], i) => (Number(form.querySelector(`input[name=q${i}]:checked`)?.value) === a ? 0 : i + 1)).filter(Boolean);
+        if (wrong.length) { quizFails += 1; err.textContent = `第 ${wrong.join("、")} 题不对。论文的做法是全对才能开始，请再看一遍说明。`; return; }
+        startGame(keys, { ...options, quizFails });
+      } }, "提交"),
+      h("button", { class: "btn", onclick: () => { app.replaceChildren(); renderPlayIntro(); } }, "回到说明")));
+}
+
+function makeBlock(key, n) {
+  const c = CONDS[key];
+  const terms = shuffle([4, 5, 6]);                        // top / middle / bottom square
+  const pos = {}; terms.forEach((t, i) => (pos[t] = i));
+  const leftIs = Math.random() < 0.5 ? 2 : 3;              // which circle room is on the left
+  const sq = shuffle(SQUARE_COLS), ci = shuffle(CIRCLE_COLS);
+  const color = { 2: ci[0], 3: ci[1], 4: sq[0], 5: sq[1], 6: sq[2] };
+  const p1 = shuffle([...Array(17).fill(1), ...Array(8).fill(2), ...Array(8).fill(3), 4, 4, 5, 5, 6, 6]);
+  const trials = [...p1.map((s) => ({ ph: 1, s })), ...shuffle(c.starts2).map((s) => ({ ph: 2, s })), { ph: 3, s: 1 }];
+  return { key, c, pos, leftIs, color, castle: CASTLES[n % CASTLES.length], trials, i: 0, log: [], earned: 0 };
+}
+function startGame(keys, options = {}) {
+  const order = shuffle([0, 1, 2, 3]);
+  game = { running: true, blocks: keys.map((k, i) => makeBlock(k, order[i])), b: 0, total: 0, path: null, completed: 0 };
+  renderTrial();
+  track("begin", { consent: options.consent, nickname: options.nickname, settings: {
+    game_version: "sr-castle-1", mode: options.mode, quiz_fails: options.quizFails || 0,
+    blocks: game.blocks.map(B => ({ condition: B.key, positions: B.pos, left_room: B.leftIs, colors: B.color, trials: B.trials }))
+  } });
+}
+const blk = () => game.blocks[game.b];
+
+// where each state sits on the screen (percent of the stage), Supplementary Figure 2b
+function spot(B, s) {
+  if (s === 2 || s === 3) return [s === B.leftIs ? 12 : 88, 50];
+  return [50, [17, 50, 83][B.pos[s]]];
+}
+function screen(B, tr, extra) {
+  const ph = { 1: "阶段 1 · 学习", 2: "阶段 2 · 重新学习", 3: "阶段 3 · 测试" }[tr.ph];
+  const st = h("div", { class: "scr", style: `background:${SCREEN_BG}` });
+  const bar = h("div", { class: "hud" }, h("span", {}, `第 ${game.b + 1}/${game.blocks.length} 局 · ${ph}`), h("span", {}, `本局 ${B.earned} 分`));
+  app.replaceChildren(h("div", { class: "frame" }, st), bar, h("div", { class: "bar" }, h("i", { style: `width:${(B.i / B.trials.length) * 100}%` })));
+  if (extra) app.append(h("div", { class: "dim", style: "font-size:13px;margin-top:6px" }, extra));
+  return st;
+}
+const place = (el, x, y) => { el.style.left = `${x}%`; el.style.top = `${y}%`; return el; };
+
+function renderTrial() {
+  if (collectKeyHandler) { document.removeEventListener("keydown", collectKeyHandler); collectKeyHandler = null; }
+  const B = blk();
+  const tr = B.trials[B.i];
+  if (!game.path) game.path = { start: tr.s, at: tr.s, moves: [], rt: [] };
+  const choiceStarted = performance.now();
+  const at = game.path.at;
+  const A = tr.ph === 1 ? B.c.A1 : B.c.A2;
+  const R = tr.ph === 1 ? B.c.R1 : B.c.R2;
+  const st = screen(B, tr, tr.ph === 3 && at === 1 ? "测试回合：只记录你在城堡外选哪个入口。" : null);
+  const lock = () => st.querySelectorAll(".pick").forEach((d) => (d.style.pointerEvents = "none"));
+  if (at === 1) {
+    st.append(place(h("div", { class: "obj castle-pic" }), 50, 30));
+    st.lastChild.innerHTML = castleSvg(B.castle);
+    for (const [side, x] of [["l", 22], ["r", 78]]) {
+      const room = side === "l" ? B.leftIs : 5 - B.leftIs;
+      const g = place(h("div", { class: "obj pick gatepic", title: side === "l" ? "左入口" : "右入口" }), x, 72);
+      g.innerHTML = gateSvg(B.castle);
+      g.addEventListener("click", () => { g.classList.add("chosen"); lock(); setTimeout(() => go(room), 1000); });
+      st.append(g);
+    }
+  } else if (at === 2 || at === 3) {
+    const [x, y] = spot(B, at);
+    const inward = x < 50 ? 1 : -1;
+    st.append(place(h("div", { class: "obj circ", style: `background:${B.color[at]}` }), x, y));
+    st.lastChild.innerHTML = AVATAR;
+    for (const t of [4, 5, 6]) {
+      const p = B.pos[t];
+      const open = A[at].includes(t);
+      const [dx, dy] = p === 0 ? [x, y - 17] : p === 2 ? [x, y + 17] : [x + inward * 10, y];
+      const d = place(h("div", { class: `obj door${open ? " pick" : " shut"}`, title: open ? "开着" : "关着" }), dx, dy);
+      d.innerHTML = doorSvg(open);
+      if (open) d.addEventListener("click", () => { d.classList.add("chosen"); lock(); setTimeout(() => go(t), 1000); });
+      st.append(d);
+    }
+  } else {
+    const [x, y] = spot(B, at);
+    st.append(place(h("div", { class: "obj sq", style: `background:${B.color[at]}` }), x, y));
+    st.lastChild.innerHTML = AVATAR;
+    const hint = place(h("div", { class: "obj hint" }, "按空格键（或点一下方块）"), 50, y > 60 ? y - 15 : y + 15);
+    st.append(hint);
+    let done = false;
+    const collect = () => {
+      if (done) return; done = true;
+      document.removeEventListener("keydown", onKey);
+      collectKeyHandler = null;
+      game.path.collect_rt_ms = Math.round(performance.now() - choiceStarted);
+      game.path.reward = R[at];
+      B.earned += R[at]; game.total += R[at];
+      const s2 = screen(B, tr);
+      const coins = h("div", { class: "coins" }, ...Array.from({ length: Math.round(R[at] / 5) }, () => h("i")));
+      s2.append(place(h("div", { class: "obj reward" }, coins, h("div", {}, `${R[at]} Points!`)), 50, 30));
+      setTimeout(nextTrial, 1500);
+    };
+    const onKey = (e) => { if (e.code === "Space") { e.preventDefault(); collect(); } };
+    document.addEventListener("keydown", onKey);
+    collectKeyHandler = onKey;
+    st.querySelector(".sq").addEventListener("click", collect);
+  }
+  function go(to) {
+    game.path.rt.push(Math.round(performance.now() - choiceStarted));
+    game.path.moves.push([at, to]);
+    if (tr.ph === 3) return finishBlock(to);
+    game.path.at = to;
+    renderTrial();
+  }
+}
+function nextTrial() {
+  const B = blk();
+  const record = { block: game.b + 1, condition: B.key, trial: B.i + 1, ph: B.trials[B.i].ph, ...game.path };
+  B.log.push(record);
+  game.completed += 1;
+  game.path = null;
+  B.i += 1;
+  if (B.i === 39 || B.trials[B.i].ph === 3) phaseBreak(B, "这一阶段结束了。");
+  else renderTrial();
+  track("round", game.completed, record);
+}
+function phaseBreak(B, text) {
+  const st = screen(B, B.trials[B.i]);
+  st.append(place(h("div", { class: "obj", style: "text-align:center;color:#333;font-size:18px" }, text, h("br"), h("button", { class: "btn primary", style: "margin-top:12px", onclick: renderTrial }, "继续")), 50, 50));
+}
+
+function finishBlock(testRoom) {
+  const B = blk();
+  B.test = testRoom;
+  const c = B.c;
+  const p1 = B.log.filter((l) => l.ph === 1);
+  const gate = p1.filter((l) => l.start === 1).map((l) => l.moves[0][1]);
+  B.pref1 = gate[gate.length - 1];
+  const right = { 1: 3, 2: best(c.A1, c.R1, 2), 3: best(c.A1, c.R1, 3) };
+  B.excluded = [1, 2, 3].filter((s) => {
+    const acts = p1.flatMap((l) => l.moves.filter(([a]) => a === s).map(([, b]) => b)).slice(-4);
+    return acts.filter((a) => a === right[s]).length < 3;
+  });
+  B.switched = B.pref1 === 3 && testRoom === 2;
+  const record = { block: game.b + 1, condition: B.key, trial: B.i + 1, ph: 3,
+    ...game.path, at: testRoom, reward: 0, test_room: testRoom, pref1: B.pref1,
+    excluded_states: B.excluded.slice(), switched: B.switched };
+  B.log.push(record);
+  game.completed += 1;
+  game.path = null;
+  game.b += 1;
+  if (game.b < game.blocks.length) {
+    const st = screen(blk(), blk().trials[0]);
+    st.append(place(h("div", { class: "obj", style: "text-align:center;color:#333;font-size:18px" }, `第 ${game.b} 局结束。下一局是一座新城堡。`, h("br"),
+      h("button", { class: "btn primary", style: "margin-top:12px", onclick: renderTrial }, "下一局")), 50, 50));
+  } else {
+    game.running = false;
+    renderResults();
+  }
+  track("round", game.completed, record);
+  if (!game.running) track("complete", { game_version: "sr-castle-1", total_score: game.total,
+    blocks: game.blocks.map(B => ({ condition: B.key, earned: B.earned, test_room: B.test,
+      pref1: B.pref1, excluded_states: B.excluded.slice(), switched: B.switched })),
+    log: game.blocks.flatMap(B => B.log) });
+}
+
+function renderResults() {
+  const rows = game.blocks.map((B) => {
+    const p = predict(B.c);
+    const should = p.MB[2] > p.MB[3];
+    return h("tr", {},
+      h("td", {}, B.c.name),
+      h("td", {}, B.pref1 === 3 ? "去 3（对）" : B.pref1 === 2 ? "去 2" : "—"),
+      h("td", {}, B.test === 2 ? "去 2" : "去 3"),
+      h("td", {}, should ? "该换到 2" : "不该换"),
+      h("td", {}, B.excluded.length ? h("span", { class: "bad" }, `会被排除（状态 ${B.excluded.join("、")} 最后 4 次没选对 3 次）`) : B.switched ? h("b", { class: should ? "good" : "bad" }, "换了") : h("span", { class: should ? "bad" : "good" }, "没换")),
+      h("td", {}, `${Math.round(HUMAN2[B.key] * 100)}%`));
+  });
+  app.replaceChildren(
+    h("h2", {}, `一共拿到 ${game.total} 分`),
+    h("div", { class: "dim", style: "font-size:13px" }, "下表里的状态编号是论文图 6 的编号：1 是城堡外面，2 是阶段 1 里差一点的那间圆形房间，3 是好的那间。"),
+    h("div", { class: "tw" }, h("table", {}, h("thead", {}, h("tr", {}, ...["条件", "阶段 1 最后在城堡外", "测试时", "该不该换", "你", "论文里换了的人"].map((t) => h("th", {}, t)))), h("tbody", {}, rows))),
+    h("div", { class: "box tip" }, h("b", {}, "怎么看："),
+      " “换了”指阶段 1 最后一次在城堡外走 3，测试时改走 2，这就是论文的重估分数（1 = 换了）。论文的预测是：奖励重估最容易换；转移重估和策略重估同样难换，哪怕策略重估里变的其实是奖励。最后一列是图 7 的柱高，读图得到的近似值。"),
+    h("h2", {}, "每局变了什么"),
+    ...game.blocks.map((B) => h("div", { class: "box" }, h("b", {}, B.c.name), h("span", { class: "dim" }, "：" + B.c.change), phaseGraphs(B.c), modelLine(B.c))),
+    h("div", { class: "row" }, h("button", { class: "btn primary", onclick: () => { game = null; app.replaceChildren(); renderPlayIntro(); } }, "再玩一次"), h("button", { class: "btn", onclick: () => show("models") }, "看三种算法怎么算 →")));
+}
+function modelLine(c) {
+  const p = predict(c);
+  const say = (q) => (q[2] > q[3] ? "选 2" : q[2] < q[3] ? "选 3" : "分不出");
+  return h("div", { class: "dim", style: "font-size:13px;margin-top:6px" },
+    `基于模型：入口 2 后最多 ${p.MB[2]}、入口 3 后最多 ${p.MB[3]} → ${say(p.MB)}；SR：记得 2 后面是房间 ${p.SR.via[2]}（现在 ${p.SR[2]}）、3 后面是房间 ${p.SR.via[3]}（${p.SR[3]}）→ ${say(p.SR)}；无模型：还是阶段 1 的 ${p.MF[2]} 对 ${p.MF[3]} → ${say(p.MF)}`);
+}
+
+// ================================ models ============================================================================
+let mState = { key: "reward", eps: 0.42, w: 0.47 };
+function renderModels() {
+  const sel = h("select", {}, ...ORDER.map((k) => h("option", { value: k, selected: k === mState.key ? "" : null }, CONDS[k].name)));
+  sel.addEventListener("change", () => { mState.key = sel.value; draw(); });
+  const out = h("div");
+  const eps = h("input", { type: "range", min: 0, max: 0.5, step: 0.01, value: mState.eps });
+  const w = h("input", { type: "range", min: 0, max: 1, step: 0.01, value: mState.w });
+  const epsV = h("span", { class: "mono" }), wV = h("span", { class: "mono" });
+  eps.addEventListener("input", () => { mState.eps = +eps.value; draw(); });
+  w.addEventListener("input", () => { mState.w = +w.value; draw(); });
+  app.append(
+    h("div", { class: "dim" }, "不用玩任务也能看。挑一种条件，看三种学习者在测试时站在门口各自怎么算。论文的建模也只看每个阶段学完以后的状态，不模拟一步步的学习。"),
+    h("div", { class: "row" }, h("span", {}, "条件"), sel),
+    out,
+    h("h2", {}, "混合模型：两个学习者各出一个选择概率，按权重相加"),
+    h("div", { class: "dim", style: "font-size:13px" }, "选择规则是 ε-贪心：门口两扇门，以 1 − ε/2 的概率选算出来更好的那扇（公式 6）。混合模型的概率 = w × 基于模型 + (1 − w) × SR。"),
+    h("div", { class: "row" }, h("span", {}, "ε"), eps, epsV, h("span", { style: "margin-left:12px" }, "w（基于模型的权重）"), w, wV,
+      h("button", { class: "btn", onclick: () => { mState.eps = 0.42; mState.w = 0.47; eps.value = 0.42; w.value = 0.47; draw(); } }, "贴近图 8")),
+    h("div", { id: "bars" }),
+    h("div", { class: "box", style: "font-size:13px" }, h("b", {}, "说明："),
+      " 论文没写出拟合到的 ε 和 w。“贴近图 8”的 ε = 0.42、w = 0.47 是我从图 8 混合模型的柱高（奖励约 0.79、对照约 0.21、转移和策略约 0.48）反推的；纯模型那两列的柱高（0.75 / 0.25）对应 ε = 0.5，也就是方法部分允许的上限（阶段 1 结束时选对的概率至少 0.75）。人的数据是图 7 的柱高，读图近似。"));
+  function draw() {
+    epsV.textContent = mState.eps.toFixed(2); wV.textContent = mState.w.toFixed(2);
+    const c = CONDS[mState.key];
+    const p = predict(c);
+    const say = (q) => (q[2] > q[3] ? h("b", { class: "good" }, "换到门 2") : q[2] < q[3] ? h("b", {}, "还是门 3") : h("b", {}, "分不出"));
+    const should = p.MB[2] > p.MB[3];
+    out.replaceChildren(
+      h("div", { class: "box" }, h("b", {}, c.name), h("span", { class: "dim" }, "：" + c.change), phaseGraphs(c),
+        h("div", { style: "font-size:14px" }, "测试时正确答案：", should ? h("b", { class: "good" }, "门 2（换）") : h("b", {}, "门 3（不换）"))),
+      h("div", { class: "grid" },
+        h("div", { class: "card" }, h("h3", {}, "基于模型（MB）"),
+          h("div", { class: "dim", style: "font-size:13px" }, "存一步一步的地图：哪扇门开着（T）、每间房多少钱（R）。到门口时现场往下推。"),
+          h("figure", { style: "margin:6px 0" }, graph(c.A2, c.R2, { hi: { 1: should ? 2 : 3, 2: p.MB.via[2], 3: p.MB.via[3] } })),
+          h("div", { class: "calc" }, `门 2 → 圆厅 2 → 开着的门通 ${c.A2[2].join("、")} → 最多 $${p.MB[2]}`, h("br"), `门 3 → 圆厅 3 → 开着的门通 ${c.A2[3].join("、")} → 最多 $${p.MB[3]}`),
+          h("div", { class: "pick" }, "判断：", say(p.MB))),
+        h("div", { class: "card" }, h("h3", {}, "后继表征（SR）"),
+          h("div", { class: "dim", style: "font-size:13px" }, "存的是“从这扇门进去，以后会到哪些房间”（M），加上每间房多少钱（R）。到门口时只做一次乘加。"),
+          h("figure", { style: "margin:6px 0" }, graph(c.A1, c.R2, { hi: { 1: p.SR[2] > p.SR[3] ? 2 : 3, 2: p.t1[2], 3: p.t1[3] } })),
+          h("div", { class: "calc" },
+            `M(门 2) 记的是阶段 1 的路线：2 → ${p.t1[2]}；R(${p.t1[2]}) 现在 = $${p.SR[2]}`, h("br"),
+            `M(门 3) 记的是：3 → ${p.t1[3]}；R(${p.t1[3]}) 现在 = $${p.SR[3]}`, h("br"),
+            h("span", { class: "chg" }, mState.key === "transition" ? "阶段 2 里圆厅的门变了，SR 在圆厅里会更新，可门口那一行 M 要从门口走过才会更新，而阶段 2 从不从门口出发。" :
+              mState.key === "policy" ? "R(4) 已经更新成 $45，可门口那一行 M 里，门 2 后面记的还是房间 5（阶段 1 在圆厅 2 走的是 5），所以 $45 根本不在它的账上。" :
+              mState.key === "reward" ? "门 2 后面记的正好是房间 4，R(4) 一更新，门 2 的值马上跟着变。" : "门 3 后面记的是房间 6，R(6) 涨了，门 3 更好，不用换。")),
+          h("div", { class: "pick" }, "判断：", say(p.SR))),
+        h("div", { class: "card" }, h("h3", {}, "无模型（MF）"),
+          h("div", { class: "dim", style: "font-size:13px" }, "直接存“门 2 值多少、门 3 值多少”。只有从门口走过、拿到钱，这两个数才会变。"),
+          h("div", { class: "calc" }, `Q(门 2) = $${p.MF[2]}（阶段 1 学到的）`, h("br"), `Q(门 3) = $${p.MF[3]}`, h("br"), "阶段 2 没从门口出发过，这两个数一点没动。"),
+          h("div", { class: "pick" }, "判断：", say(p.MF)))));
+    const bars = $("#bars");
+    const rows = ORDER.map((k) => {
+      const q = predict(CONDS[k]);
+      const mb = pTwo(q.MB, mState.eps), sr = pTwo(q.SR, mState.eps);
+      return { k, mb, sr, hy: mState.w * mb + (1 - mState.w) * sr };
+    });
+    const pb = (label, v, human) => h("div", { class: "pbar" }, h("span", { class: "t" }, label), h("span", { class: "b" }, h("i", { style: `width:${v * 100}%` }), human != null ? h("u", { style: `left:calc(${human * 100}% - 1px)` }) : null), h("span", { class: "v" }, v.toFixed(2)));
+    bars.replaceChildren(h("div", { class: "grid" }, ...rows.map((r) => h("div", { class: "card", style: r.k === mState.key ? "border-color:#7b5bd6" : "" },
+      h("h3", {}, CONDS[r.k].name), h("div", { class: "dim", style: "font-size:12px" }, `测试时选门 2 的概率；红线 = 人（${Math.round(HUMAN2[r.k] * 100)}%）`),
+      pb("纯基于模型", r.mb, HUMAN2[r.k]), pb("纯 SR", r.sr, HUMAN2[r.k]), pb("混合", r.hy, HUMAN2[r.k])))));
+  }
+  draw();
+}
+
+// ================================ experiment 1 ======================================================================
+// Figure 3: chains 1→3→5 and 2→4→6, $10 at 5 and $1 at 6. Phase 2 starts at the middle states only.
+// Ratings (Methods): Rating = b·V(2)/(V(1)+V(2)); revaluation score = rating after − rating before, signed toward the new best.
+const E1 = {
+  reward:     { name: "奖励重估", T1: { 3: 5, 4: 6 }, R1: { 5: 10, 6: 1 }, T2: { 3: 5, 4: 6 }, R2: { 5: 1, 6: 10 }, change: "5 和 6 的奖励互换" },
+  transition: { name: "转移重估", T1: { 3: 5, 4: 6 }, R1: { 5: 10, 6: 1 }, T2: { 3: 6, 4: 5 }, R2: { 5: 10, 6: 1 }, change: "3 改通 6、4 改通 5（奖励不变）" },
+  control:    { name: "对照", T1: { 3: 5, 4: 6 }, R1: { 5: 10, 6: 1 }, T2: { 3: 5, 4: 6 }, R2: { 5: 10, 6: 1 }, change: "什么都不变" },
+};
+const HUMAN1 = { reward: 0.52, transition: 0.45, control: 0.02 };   // Figure 4A, read off the bars
+function renderExp1() {
+  const mid = { 1: 3, 2: 4 };
+  const rating = (v1, v2) => v2 / (v1 + v2);
+  const rows = Object.entries(E1).map(([k, c]) => {
+    const mb = { 1: c.R2[c.T2[3]], 2: c.R2[c.T2[4]] };
+    const sr = { 1: c.R2[c.T1[3]], 2: c.R2[c.T1[4]] };       // M(1) still says 1→3→(old end)
+    const before = rating(c.R1[c.T1[3]], c.R1[c.T1[4]]);
+    const sign = mb[2] > mb[1] ? 1 : -1;                        // toward the newly better start (control: keep 1)
+    const s = (v) => (k === "control" ? -(rating(v[1], v[2]) - before) : sign * (rating(v[1], v[2]) - before));
+    return h("tr", {}, h("td", {}, c.name), h("td", {}, c.change),
+      h("td", {}, `V(1)=${mb[1]}，V(2)=${mb[2]}`), h("td", {}, `V(1)=${sr[1]}，V(2)=${sr[2]}`),
+      h("td", { class: "mono" }, `${s(mb).toFixed(2)}b`), h("td", { class: "mono" }, `${s(sr).toFixed(2)}b`), h("td", {}, `约 ${HUMAN1[k]}`));
+  });
+  app.append(
+    h("div", { class: "dim" }, "实验 1 不用选路，被试只是一张张看图片（每个状态一张），最后在一条连续刻度上评“哪个起点更好”。起点 1 → 中间 3 → 终点 5（$10），起点 2 → 中间 4 → 终点 6（$1）。阶段 2 只从中间 3、4 出发。"),
+    h("div", { class: "tw" }, h("table", {},
+      h("thead", {}, h("tr", {}, ...["条件", "阶段 2 改了什么", "基于模型算出的起点价值", "SR 算出的", "MB 的重估分数", "SR 的重估分数", "人（图 4A）"].map((t) => h("th", {}, t)))),
+      h("tbody", {}, rows))),
+    h("div", { class: "box tip", style: "font-size:14px" },
+      "评分 = b × V(2) / (V(1) + V(2))，b 是自由参数；重估分数 = 阶段 3 的评分 − 阶段 1 的评分，往新的更好起点那边为正。阶段 1 时 V(1) = 10、V(2) = 1，评分是 b/11 ≈ 0.09b。",
+      h("br"), h("br"),
+      "转移重估里，SR 的 M(1) 还记着“1 → 3 → 5”，而 R(5) 没变，所以它算出的起点价值和阶段 1 一模一样，重估分数是 0。基于模型的学习者知道 3 现在通 6，算出来和奖励重估一样。人在两者之间：转移重估的分数（约 0.45）比奖励重估（约 0.52）低，但远高于对照，所以论文用混合模型来解释（图 5）。"),
+    h("div", { class: "box", style: "font-size:13px" }, "人的数字是读图 4A 的柱高，近似值。论文报告的检验：奖励 > 转移 t(57) = 2.89，p < 0.01；转移 > 对照 t(57) = 9.05，p < 0.001；对照与 0 无差别 t(57) = 1.2，p = 0.22。"));
+}
+
+show(TABS[location.hash.slice(1)] ? location.hash.slice(1) : "play");
+</script>
+</body>
+</html>

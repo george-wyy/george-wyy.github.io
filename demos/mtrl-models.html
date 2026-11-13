@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>四个算法怎么选</title>
+<style>
+:root{color-scheme:dark;--fg:#eef1f2;--dim:#a3adb2;--line:#ffffff22;--card:#171c1f;--accent:#7b5bd6;--good:#4cc38a;--bad:#e0806a;--warn:#e0a23a;
+  --c1:#e8a33d;--c2:#5aa9e6;--c3:#b07fe0}
+*{box-sizing:border-box}
+body{margin:0;background:#0d1113;color:var(--fg);font:15px/1.65 -apple-system,"PingFang SC",system-ui,sans-serif}
+main{max-width:1080px;margin:0 auto;padding:18px 16px 70px}
+h1{font-size:22px;margin:4px 0 2px}
+h2{font-size:17px;margin:26px 0 8px}
+a{color:#8fd0ff}
+.dim{color:var(--dim)}
+.small{font-size:13px}
+.bar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);margin-top:12px}
+.bar label{display:inline-flex;align-items:center;gap:6px}
+select,button{font:inherit;font-size:13.5px;background:#222a2e;color:var(--fg);border:1px solid var(--line);border-radius:7px;padding:4px 10px;cursor:pointer}
+button:hover{border-color:#ffffff55}
+button.on{background:var(--accent);border-color:var(--accent)}
+input[type=range]{width:120px;accent-color:var(--accent)}
+.w{font-variant-numeric:tabular-nums;min-width:2.6em;display:inline-block;text-align:right;font-weight:600}
+.r1{color:var(--c1)}.r2{color:var(--c2)}.r3{color:var(--c3)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+@media (max-width:760px){.grid{grid-template-columns:1fr}input[type=range]{width:90px}}
+.model{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:12px 14px 14px;position:relative}
+.model h3{margin:0;font-size:16px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.model h3 .pick{margin-left:auto;font-size:14px;padding:1px 10px;border-radius:999px;background:#ffffff14}
+.model .knows{margin:6px 0 8px;font-size:13.5px;color:var(--dim)}
+.rows{display:grid;grid-template-columns:58px minmax(0,1fr) 58px;gap:3px 8px;align-items:center;font-size:13px;font-variant-numeric:tabular-nums}
+.rows .nm{color:var(--dim)}
+.rows .nm.off{opacity:.35;text-decoration:line-through}
+.track{position:relative;height:14px;background:#ffffff08;border-radius:4px}
+.track i{position:absolute;top:0;bottom:0;border-radius:4px;background:#7b8a91}
+.track .zero{position:absolute;top:-2px;bottom:-2px;width:1px;background:#ffffff40}
+.rows .v{text-align:right}
+.rows .best i{background:var(--good)}
+.rows .best + .v,.rows .v.best{color:var(--good);font-weight:600}
+.rows .skip{grid-column:2 / 4;font-size:12px;color:var(--dim);opacity:.6}
+.calc{margin-top:8px;font-size:12.5px;color:var(--dim);border-top:1px dashed var(--line);padding-top:6px}
+.calc b{color:var(--fg);font-weight:600}
+.note{border:1px solid #e0a23a66;background:#e0a23a12;border-radius:10px;padding:10px 13px;margin-top:12px;font-size:14px}
+table{border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums;width:100%}
+th,td{padding:4px 8px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+td.hi{color:var(--good);font-weight:600}
+.wrap{overflow-x:auto}
+.seq{display:flex;flex-wrap:wrap;gap:2px;margin:8px 0 4px}
+.seq i{width:9px;height:14px;border-radius:2px;opacity:.25}
+.seq i.seen{opacity:1}
+.seq i.now{outline:2px solid #fff}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--dim)}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.human{margin-top:10px;font-size:13.5px}
+.human b{color:var(--good)}
+</style>
+</head>
+<body>
+<main>
+<h1>四个算法怎么选</h1>
+<div class="dim">Tomov、Schulz、Gershman：Multi-Task Reinforcement Learning in Humans（2019）。不用先玩任务，直接拖动价格，看四种策略各自算了什么、选了哪间。
+<a href="mtrl-task.html" target="_blank" rel="noopener">试玩任务</a></div>
+
+<div class="bar" id="controls">
+  <label>实验 <select id="exp"><option>实验 1</option><option>实验 2</option><option selected>实验 3–4</option></select></label>
+  <span><span class="r1">①</span> 价格 <input id="w0" type="range" min="-2" max="2" step="0.5"><span class="w r1" id="w0v"></span></span>
+  <span><span class="r2">②</span> 价格 <input id="w1" type="range" min="-2" max="2" step="0.5"><span class="w r2" id="w1v"></span></span>
+  <span><span class="r3">③</span> 价格 <input id="w2" type="range" min="-2" max="2" step="0.5"><span class="w r3" id="w2v"></span></span>
+  <span id="presets"></span>
+</div>
+
+<div class="note" id="tip"></div>
+
+<div class="grid" id="models"></div>
+<div class="human" id="human"></div>
+
+<h2>训练过程：如果在第 t 轮之后就来考试</h2>
+<div class="dim small">训练共 100 轮，四种价格各 25 轮，顺序随机。拖动 t，上面四个模型只用前 t 轮的经验来答题。t = 100 就是论文里的第 101 轮测试。</div>
+<div class="bar">
+  <label>t = <input id="t" type="range" min="0" max="100" step="1" style="width:260px"><span class="w" id="tv"></span></label>
+  <button id="shuffle" type="button">换一个训练顺序</button>
+</div>
+<div class="seq" id="seq"></div>
+<div class="legend" id="seqlegend"></div>
+
+<h2>房间里有什么（表 1）</h2>
+<div class="dim small">只有 9 个终点房间（5–13）有资源，数量在整个实验里不变。走法固定：开始 → 房间 2/3/4 → 各自通向 3 个终点（2 → 5、6、7；3 → 8、9、10；4 → 11、12、13）。</div>
+<div class="wrap"><table id="rooms"></table></div>
+
+<h2>这页怎么算的</h2>
+<div class="dim small">
+<p>论文的预测（各图 B）是让四个学习程序在任务里各跑 100 次得到的；完整实现在作者的补充材料和 github.com/tomov/MTRL。这一页用的是按正文描述的“学完以后”的理想版本，只为说清每种策略看什么、算什么：</p>
+<ul>
+<li><b>基于模型</b>：知道全部 9 个房间里有什么，用今天的价格逐个算 φ(s)·w，挑最大的。</li>
+<li><b>无模型</b>：不看今天的价格，只记每个房间在训练里平均挣多少（假设每间都试过足够多次），挑平均最高的。</li>
+<li><b>UVFA</b>：学一个把价格也当输入的价值函数 Q(s, w)。这里用最简单的线性版：每个房间学一个系数向量 θ(s)，让 θ(s)·w 拟合训练中的收益，取最小范数解。训练里第三种资源的价格一直是 0，所以 θ 的第三位学不到，只能是 0。</li>
+<li><b>SF&amp;GPI</b>：训练中每种价格都练出一条最优路线；每条路线记住它的后继特征 ψ（走到底能拿到多少①②③）。考试时只把这几条路线用新价格算 ψ·w，挑最大的。折扣 γ 对每条路线都一样（都是两步），比较时可以略去。</li>
+</ul>
+</div>
+</main>
+
+<script>
+const PHIS = {
+  "实验 1": { 5: [0, 10, 0], 6: [100, 0, 0], 7: [70, 70, 70], 8: [90, 0, 0], 9: [100, 100, 0], 10: [0, 90, 0], 11: [0, 0, 10], 12: [0, 100, 60], 13: [10, 0, 0] },
+  "实验 2": { 5: [10, 20, 90], 6: [100, 0, 20], 7: [70, 70, 170], 8: [90, 0, 40], 9: [150, 150, 0], 10: [0, 90, 30], 11: [30, 10, 50], 12: [0, 100, 160], 13: [20, 10, 100] },
+  "实验 3–4": { 5: [0, 10, 0], 6: [100, 0, 0], 7: [40, 40, 130], 8: [90, 0, 0], 9: [100, 100, 0], 10: [0, 90, 0], 11: [0, 0, 10], 12: [0, 100, 60], 13: [10, 0, 0] },
+};
+// test-trial choices reported in the paper (participants kept after exclusion)
+const HUMAN = {
+  "实验 1": "实验 1：保留的 132 人里，33 人选 7（基于模型），26 人选 12（SF&amp;GPI），两者没有显著差别。",
+  "实验 2": "实验 2：保留的 96 人里，<b>30 人选 12</b>，只有 7 人选 7。",
+  "实验 3–4": "实验 3：保留的 113 人里，<b>32 人选 12</b>，8 人选 7。实验 4（预注册，303 人）：<b>81 人选 12</b>，51 人选 6，46 人选 7。",
+};
+const TRAIN = [[1, -1, 0], [-1, 1, 0], [1, -2, 0], [-2, 1, 0]];
+const TCOL = ["#e8a33d", "#5aa9e6", "#c8742a", "#2f6fa6"];
+const ROOMS = [5, 6, 7, 8, 9, 10, 11, 12, 13];
+const PATH = { 5: 2, 6: 2, 7: 2, 8: 3, 9: 3, 10: 3, 11: 4, 12: 4, 13: 4 };
+const $ = (id) => document.getElementById(id);
+const dot = (a, b) => a.reduce((s, x, i) => s + x * b[i], 0);
+const fmt = (x) => (Math.abs(x) < 1e-9 ? "0" : Number.isInteger(+x.toFixed(2)) ? String(Math.round(x)) : x.toFixed(1));
+const vec = (v) => `[${v.map(fmt).join(", ")}]`;
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+
+let seed = 7;
+function sequence() {
+  let s = seed >>> 0;
+  const rand = () => { s = (s + 0x6D2B79F5) >>> 0; let t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  const seq = TRAIN.flatMap((_, k) => Array(25).fill(k));
+  for (let i = seq.length - 1; i > 0; i -= 1) { const j = Math.floor(rand() * (i + 1)); [seq[i], seq[j]] = [seq[j], seq[i]]; }
+  return seq;
+}
+let SEQ = sequence();
+const state = { exp: "实验 3–4", w: [1, 1, 1], t: 100 };
+
+// projection of v onto the span of the training prices seen so far (minimum-norm least squares)
+function project(v, basis) {
+  const q = [];
+  for (const b of basis) {
+    let u = b.slice();
+    for (const e of q) { const c = dot(u, e); u = u.map((x, i) => x - c * e[i]); }
+    const n = Math.hypot(...u);
+    if (n > 1e-9) q.push(u.map((x) => x / n));
+  }
+  return q.reduce((acc, e) => { const c = dot(v, e); return acc.map((x, i) => x + c * e[i]); }, [0, 0, 0]);
+}
+
+function models() {
+  const phi = PHIS[state.exp], w = state.w;
+  const seen = SEQ.slice(0, state.t);
+  const tasks = [...new Set(seen)].sort();
+  const argmax = (vals) => { const m = Math.max(...Object.values(vals)); return Object.keys(vals).filter((k) => Math.abs(vals[k] - m) < 1e-9).map(Number); };
+
+  const mb = {}; ROOMS.forEach((r) => { mb[r] = dot(phi[r], w); });
+
+  const mf = {};
+  if (seen.length) ROOMS.forEach((r) => { mf[r] = seen.reduce((s, k) => s + dot(phi[r], TRAIN[k]), 0) / seen.length; });
+
+  const theta = {}, uv = {};
+  if (seen.length) ROOMS.forEach((r) => { theta[r] = project(phi[r], tasks.map((k) => TRAIN[k])); uv[r] = dot(theta[r], w); });
+
+  const routes = new Map();   // room -> training prices it is the best route for
+  for (const k of tasks) {
+    const vals = {}; ROOMS.forEach((r) => { vals[r] = dot(phi[r], TRAIN[k]); });
+    for (const r of argmax(vals)) routes.set(r, [...(routes.get(r) || []), k]);
+  }
+  const sf = {}; routes.forEach((_, r) => { sf[r] = dot(phi[r], w); });
+
+  return [
+    { name: "基于模型", tag: "model-based", vals: mb, pick: argmax(mb),
+      knows: "知道全部 9 个房间里有什么、怎么走过去。用今天的价格把每一间都算一遍。",
+      calc: (r) => `φ(${r})·w = ${vec(phi[r])}·${vec(w)} = <b>${fmt(mb[r])}</b>` },
+    { name: "无模型", tag: "model-free", vals: mf, pick: seen.length ? argmax(mf) : [],
+      knows: "不看今天的价格，只记得每个房间在训练里平均挣多少。训练价格一正一负来回换，大多数房间平均下来都在亏。",
+      calc: (r) => `训练 ${seen.length} 轮的平均收益 = <b>${fmt(mf[r])}</b>`, empty: "还没训练，没有经验可用。" },
+    { name: "UVFA", tag: "通用价值函数逼近器", vals: uv, pick: seen.length ? argmax(uv) : [],
+      knows: "学了一个“价格 → 价值”的函数，可以往新价格上外推。但训练里 <span class=r3>③</span> 的价格一直是 0，它学不到 ③ 值多少，只能当作 0。",
+      calc: (r) => `学到的 θ(${r}) = ${vec(theta[r])}（真实 ${vec(phi[r])}）；θ·w = <b>${fmt(uv[r])}</b>`, empty: "还没训练，没有经验可用。" },
+    { name: "SF&GPI", tag: "后继特征 + 广义策略改进", vals: sf, pick: routes.size ? argmax(sf) : [], only: [...routes.keys()],
+      knows: `只考虑训练中练熟的路线：${[...routes.entries()].map(([r, ks]) => `去 ${r}（价格 ${ks.map((k) => vec(TRAIN[k])).join("、")} 时最优）`).join("；") || "还没有"}。每条路线记得走到底能拿到多少 ①②③（ψ，<b>包括 ③</b>），用今天的价格重算。`,
+      calc: (r) => `ψ(去 ${r}) = ${vec(phi[r])}；ψ·w = <b>${fmt(sf[r])}</b>`, empty: "还没练出任何路线。" },
+  ];
+}
+
+function bars(m) {
+  const box = el("div", "rows");
+  const all = ROOMS.map((r) => m.vals[r]).filter((v) => v != null);
+  if (!all.length) { box.append(el("div", "skip", m.empty)); return box; }
+  const lo = Math.min(0, ...all), hi = Math.max(0, ...all), span = hi - lo || 1;
+  for (const r of ROOMS) {
+    const v = m.vals[r];
+    const considered = v != null;
+    box.append(el("div", "nm" + (considered ? "" : " off"), `房间 ${r}`));
+    if (!considered) { box.append(el("div", "skip", "不在练熟的路线上，不考虑")); continue; }
+    const track = el("div", "track" + (m.pick.includes(r) ? " best" : ""));
+    const bar = el("i");
+    const a = (Math.min(0, v) - lo) / span, b = (Math.max(0, v) - lo) / span;
+    bar.style.left = `${a * 100}%`; bar.style.width = `${Math.max(0.6, (b - a) * 100)}%`;
+    const zero = el("span", "zero"); zero.style.left = `${(-lo / span) * 100}%`;
+    track.append(bar, zero);
+    track.title = m.calc(r).replace(/<[^>]+>/g, "");
+    box.append(track, el("div", "v" + (m.pick.includes(r) ? " best" : ""), fmt(v)));
+  }
+  return box;
+}
+
+function render() {
+  ["w0", "w1", "w2"].forEach((id, i) => { $(id).value = state.w[i]; $(id + "v").textContent = fmt(state.w[i]); });
+  $("t").value = state.t; $("tv").textContent = state.t;
+  const grid = $("models"); grid.replaceChildren();
+  for (const m of models()) {
+    const card = el("section", "model");
+    const h = el("h3", "", `${m.name} <span class="dim small">${m.tag}</span>`);
+    const tied = m.pick.length > 1 && m.pick.length === Object.values(m.vals).filter((v) => v != null).length;
+    h.append(el("span", "pick", tied ? "分不出" : m.pick.length ? `选 ${m.pick.join(" / ")}` : "—"));
+    if (tied) m.knows += "（现在所有房间算出来一样，它没有偏好。）";
+    card.append(h, el("div", "knows", m.knows), bars(m));
+    if (m.pick.length && !tied) card.append(el("div", "calc", m.calc(m.pick[0])));
+    grid.append(card);
+  }
+  const isTest = state.w.join() === "1,1,1" && state.t === 100;
+  $("human").innerHTML = isTest ? `<span class="dim">论文里的人：</span>${HUMAN[state.exp]}` : `<span class="dim">把价格设回 [1, 1, 1]、t 拉到 100，就是论文的第 101 轮，可以对照人的选择。</span>`;
+  const ms = models(), sfm = ms[3], uvm = ms[2];
+  $("tip").innerHTML = isTest
+    ? `容易混的一点：<b>忽略 ③ 的是 UVFA，不是 SF&amp;GPI。</b>SF&amp;GPI 记得“去 12”能拿到 ${vec(PHIS[state.exp][12])}，其中 ③ 正是 12 打败 6 的原因（${fmt(sfm.vals[12])} 对 ${fmt(sfm.vals[6] ?? 0)}）。它不选 7，是因为 7 不在任何一条练熟的路线上，它根本没去算。UVFA 学不到 ③，只按 ①② 外推，于是选了 ${uvm.pick.join("/")}。`
+    : `试试：把 ③ 的价格拉到 0 或负数，看 SF&amp;GPI 从 12 换成 6；把 t 拉到很小，看只练过一种价格时它只有一条路线可选。`;
+  // the training sequence
+  const seq = $("seq"); seq.replaceChildren();
+  SEQ.forEach((k, i) => { const c = el("i", i < state.t ? "seen" : ""); if (i === state.t - 1) c.classList.add("now"); c.style.background = TCOL[k]; c.title = `第 ${i + 1} 轮：${vec(TRAIN[k])}`; seq.append(c); });
+  $("seqlegend").innerHTML = TRAIN.map((w, k) => `<span><i style="background:${TCOL[k]}"></i>${vec(w)}</span>`).join("");
+  // rooms
+  const phi = PHIS[state.exp];
+  const rows = [`<tr><th>房间</th><th>经过</th><th class=r1>①</th><th class=r2>②</th><th class=r3>③</th><th>今天值（φ·w）</th>${TRAIN.map((w) => `<th class="dim">${vec(w)}</th>`).join("")}</tr>`];
+  const today = ROOMS.map((r) => dot(phi[r], state.w)), best = Math.max(...today);
+  ROOMS.forEach((r, i) => {
+    const tr = TRAIN.map((w) => { const v = dot(phi[r], w); const m = Math.max(...ROOMS.map((q) => dot(phi[q], w))); return `<td class="${v === m ? "hi" : ""}">${fmt(v)}</td>`; }).join("");
+    rows.push(`<tr><td>${r}</td><td class="dim">${PATH[r]}</td>${phi[r].map((x) => `<td>${x}</td>`).join("")}<td class="${today[i] === best ? "hi" : ""}">${fmt(today[i])}</td>${tr}</tr>`);
+  });
+  $("rooms").innerHTML = rows.join("");
+}
+
+const presets = [["测试 [1,1,1]", [1, 1, 1]], ...TRAIN.map((w) => [`训练 ${vec(w)}`, w])];
+presets.forEach(([label, w]) => {
+  const b = el("button", "", label); b.type = "button";
+  b.addEventListener("click", () => { state.w = w.slice(); render(); });
+  $("presets").append(b, document.createTextNode(" "));
+});
+["w0", "w1", "w2"].forEach((id, i) => $(id).addEventListener("input", (e) => { state.w[i] = Number(e.target.value); render(); }));
+$("exp").addEventListener("change", (e) => { state.exp = e.target.value; render(); });
+$("t").addEventListener("input", (e) => { state.t = Number(e.target.value); render(); });
+$("shuffle").addEventListener("click", () => { seed += 1; SEQ = sequence(); render(); });
+render();
+</script>
+</body>
+</html>

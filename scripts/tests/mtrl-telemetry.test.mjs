@@ -127,11 +127,16 @@ function playGame(telemetry) {
     performance: { now: () => 1 }, setTimeout: fn => fn() });
   vm.runInContext(gameScript, context);
   fields['#go'].click();
-  // Run all 20 training days and final test with actual game functions.
-  vm.runInContext(`for (let i = 0; i < 21; i++) {
-    S.room = 1; pricePage(); roomPage(); choose(0); choose(1); endDay();
+  // Complete the game through the new tap controls; repeated collection is ignored.
+  vm.runInContext('S.room = 1; pricePage();', context);
+  for (let i = 0; i < 21; i++) {
+    fields['#enter-castle'].click();
+    vm.runInContext('choose(0); choose(1);', context);
+    const collect = fields['#collect-loot'].click;
+    collect(); collect();
+    assert.equal(vm.runInContext('S.log.length', context), i + 1);
   }
-  S.notes = '没有'; result();`, context);
+  vm.runInContext("S.notes = '没有'; result();", context);
   assert.match(app.innerHTML, /结束/);
   assert.equal(vm.runInContext('S.log.length', context), 21);
   fields['#again'].click(); assert.match(app.innerHTML, /开始/);

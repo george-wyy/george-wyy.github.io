@@ -54,3 +54,9 @@ delete from public.mtrl_events where created_at < now() - interval '90 days';
 - 本地构建后的真实浏览器完成 20 个训练日加 1 个测试日；管理员查询确认 visit 1 条、start 1 条、round 21 条、complete 1 条，complete.payload.log 长度 21。
 - 保留两类明确标记的合成测试数据：`nickname = 'connection-test'`（payload.test=true）和 `nickname = 'connection-browser-test'`。分析真实访客时排除这些昵称；未删除测试记录。
 - 12 项本地故障和完整游戏测试通过。GitHub Pages 公网部署及公网访问尚待发布后验证。
+
+## 触屏操作更新（2026-11-13）
+
+进城与收取收益新增可点按按钮，选门使用有名称的原生按钮；保留空格与数字键。三扇门随屏幕宽度缩放，表单控件和点击区域适配手机。重复结算同一试次会被忽略。start/complete 的 payload 用 ui_version=touch-1 区分这版界面；记录仍按完成试次上传，过程无状态提示。
+
+在 320px/390px 竖屏、844px 横屏和电脑宽度的浏览器中验证了布局及点按下一天；未做真实 iOS/Android 设备测试。

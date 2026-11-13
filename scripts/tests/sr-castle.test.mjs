@@ -122,6 +122,17 @@ test('switching to model tabs removes hidden collection shortcuts and preserves 
   vm.runInContext("show('play')", h.context); assert.equal(h.document.events.keydown.size, 1);
   assert.equal(h.finish().completed, 49);
 });
+test('repeated taps cannot duplicate a route choice or collection', () => {
+  const h = setup(); h.start(['reward']);
+  vm.runInContext('game.blocks[0].trials[0] = {ph:1,s:1}; game.path = null; renderTrial();', h.context);
+  const gate = h.app.querySelector('.gatepic'); gate.click(); gate.click();
+  assert.equal(vm.runInContext('game.path.moves.length', h.context), 1);
+  const door = h.app.querySelector('.door.pick'); door.click(); door.click();
+  assert.equal(vm.runInContext('game.path.moves.length', h.context), 2);
+  const square = h.app.querySelector('.sq'); square.click(); square.click();
+  assert.equal(vm.runInContext('game.completed', h.context), 1);
+  assert.equal(h.finish().completed, 49);
+});
 let failed = 0;
 for (const { name, fn } of cases) { try { await fn(); console.log('PASS', name); } catch (e) { failed++; console.error('FAIL', name, e); } }
 console.log(`${cases.length - failed}/${cases.length} passed`); process.exitCode = failed ? 1 : 0;

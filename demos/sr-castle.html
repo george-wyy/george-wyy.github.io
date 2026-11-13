@@ -16,7 +16,7 @@ h2{font-size:17px;margin:18px 0 6px}
 .tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
 .tabs button{font:inherit;font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:#161616;color:var(--dim);cursor:pointer}
 .tabs button.on{background:var(--accent);border-color:var(--accent);color:#fff}
-.btn{font:inherit;font-size:14px;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:#1d1d1d;color:var(--fg);cursor:pointer}
+.btn{font:inherit;font-size:16px;min-height:44px;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:#1d1d1d;color:var(--fg);cursor:pointer;touch-action:manipulation}
 .btn.primary{background:var(--accent);border-color:var(--accent)}
 .btn:disabled{opacity:.4;cursor:default}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
@@ -27,14 +27,19 @@ table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:ta
 td,th{padding:5px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
 th{color:var(--dim);font-weight:500}
 .tw{overflow-x:auto}
-select{font:inherit;font-size:14px;background:#1d1d1d;color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:4px 6px}
+select{font:inherit;font-size:16px;min-height:44px;min-width:0;max-width:100%;background:#1d1d1d;color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:4px 6px}
+input[type=text],input:not([type]){font:inherit;font-size:16px;max-width:100%}
 input[type=range]{width:160px;accent-color:var(--accent)}
 code,.mono{font-family:ui-monospace,Menlo,monospace;font-size:13px}
 /* play: the light screens of Supplementary Figure 2 */
-.frame{width:100%;max-width:760px;margin:0 auto;aspect-ratio:4/3;max-height:72vh;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.frame{width:100%;max-width:760px;min-height:240px;margin:0 auto;aspect-ratio:4/3;max-height:72vh;border:1px solid var(--line);border-radius:6px;overflow:hidden}
 .scr{position:relative;width:100%;height:100%}
 .obj{position:absolute;transform:translate(-50%,-50%)}
 .pick{cursor:pointer;transition:transform .1s}
+.gatepic,.door,.sq{padding:0;border:0;font:inherit;line-height:normal;touch-action:manipulation}
+.gatepic,.door{background:transparent}
+.door{width:48px;height:64px;display:flex;align-items:center;justify-content:center}
+.pick:focus-visible,.btn:focus-visible{outline:3px solid #7b5bd6;outline-offset:4px}
 .pick:hover{transform:translate(-50%,-50%) scale(1.06)}
 .chosen{outline:4px solid #222;outline-offset:3px;border-radius:4px}
 .castle-pic svg{display:block;border:2px solid #fff;box-shadow:0 1px 4px #0003}
@@ -43,7 +48,7 @@ code,.mono{font-family:ui-monospace,Menlo,monospace;font-size:13px}
 .sq{width:60px;height:60px;display:flex;align-items:center;justify-content:center;cursor:pointer}
 .door svg{display:block;background:#fff;box-shadow:0 1px 3px #0003}
 .door.shut{cursor:not-allowed}
-.hint{color:#555;font-size:14px;white-space:nowrap}
+.hint{color:#555;font-size:14px;max-width:calc(100% - 16px);width:max-content;text-align:center}
 .reward{text-align:center;color:#222;font-size:30px;white-space:nowrap}
 .coins{display:flex;gap:6px;justify-content:center;min-height:30px;margin-bottom:8px;flex-wrap:wrap;max-width:360px}
 .coins i{width:28px;height:28px;border-radius:50%;background:#f2d21b}
@@ -51,7 +56,7 @@ code,.mono{font-family:ui-monospace,Menlo,monospace;font-size:13px}
 .bar{height:6px;background:#222;border-radius:3px;margin:6px auto 0;overflow:hidden;max-width:760px}
 .bar>i{display:block;height:100%;background:var(--accent)}
 .q{margin:12px 0 4px;font-weight:600}
-label.opt{display:block;padding:2px 0;cursor:pointer}
+label.opt{display:block;min-height:44px;padding:10px 0;cursor:pointer;touch-action:manipulation}
 /* models */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:12px}
 .card{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#161616}
@@ -70,7 +75,8 @@ svg text{font-size:12px}
 .pbar .b i{position:absolute;left:0;top:0;bottom:0;background:var(--accent)}
 .pbar .b u{position:absolute;top:-2px;bottom:-2px;width:3px;background:#e0806a}
 .pbar .v{width:44px;text-align:right;font-variant-numeric:tabular-nums}
-@media (max-width:560px){.page{padding:14px}.castle-pic svg{width:150px;height:auto}.gatepic svg{width:64px;height:auto}.circ{width:48px;height:48px}.sq{width:46px;height:46px}}
+@media (max-width:560px){main{padding:12px 12px 32px}.page{padding:14px}.row>select{flex:1 1 240px}.tabs button{min-height:44px}.castle-pic svg{width:150px;height:auto}.gatepic svg{width:64px;height:auto}.circ{width:48px;height:48px}.sq{width:48px;height:48px}}
+@media(hover:none){.pick:hover{transform:translate(-50%,-50%)}}
 </style>
 </head>
 <body>
@@ -217,7 +223,7 @@ const QUIZ = [
   ["从左边的入口进去，会到哪里？", ["左边的圆形房间", "随机一个房间"], 0],
   ["圆形房间里有几扇门？", ["三扇，但只有两扇开着", "两扇"], 0],
   ["圆形房间上方的那扇门通向哪里？", ["屏幕上方的方形房间", "随机一个方形房间"], 0],
-  ["在方形房间里怎么拿到分数？", ["按空格键", "什么都不用做"], 0],
+  ["在方形房间里怎么拿到分数？", ["点击方块或按空格键", "什么都不用做"], 0],
   ["在同一局里，房间的颜色和位置会变吗？", ["不会，一局之内固定", "每个回合都会变"], 0],
   ["进入新的一局以后，上一局学到的有用吗？", ["没用，是一座新城堡", "有用，规则一样"], 0],
   ["你的奖金取决于什么？", ["一共拿到的分数", "走得快不快"], 0],
@@ -240,7 +246,7 @@ function renderPlayIntro() {
         h("li", {}, "你要操控一个小人在城堡里走，收集分数。分数越多，奖金越多。"),
         h("li", {}, "有时你在城堡外面：从左、右两个入口选一个进去，左入口通往左边的圆形房间，右入口通往右边的。"),
         h("li", {}, "圆形房间有三扇门：上方、朝中间、下方，每次只有两扇开着。上方的门通往屏幕上方的方形房间，朝中间的门通往中间的，下方的通往下方的。"),
-        h("li", {}, "在方形房间里按空格键，拿到这个房间的分数。"),
+        h("li", {}, "点击入口和开着的门来选路；在方形房间里点击方块，或按空格键，拿到分数。手机上全程可以点按操作。"),
         h("li", {}, "有的回合不从城堡外面开始，而是直接把你放进某个房间。"),
         h("li", {}, "一共四局，每局是一座新城堡：房间的颜色和位置都重新安排，一局之内固定。"))),
     h("div", { class: "box", style: "font-size:14px" }, "论文里画面上显示的是“15 Points!”这样的分数，图 6 里写成 $，两者是同一个数。这里是学习试玩，不发放奖金。"),
@@ -285,7 +291,7 @@ function startGame(keys, options = {}) {
   game = { running: true, blocks: keys.map((k, i) => makeBlock(k, order[i])), b: 0, total: 0, path: null, completed: 0 };
   renderTrial();
   track("begin", { consent: options.consent, nickname: options.nickname, settings: {
-    game_version: "sr-castle-1", mode: options.mode, quiz_fails: options.quizFails || 0,
+    game_version: "sr-castle-1", ui_version: "touch-1", mode: options.mode, quiz_fails: options.quizFails || 0,
     blocks: game.blocks.map(B => ({ condition: B.key, positions: B.pos, left_room: B.leftIs, colors: B.color, trials: B.trials }))
   } });
 }
@@ -316,15 +322,20 @@ function renderTrial() {
   const A = tr.ph === 1 ? B.c.A1 : B.c.A2;
   const R = tr.ph === 1 ? B.c.R1 : B.c.R2;
   const st = screen(B, tr, tr.ph === 3 && at === 1 ? "测试回合：只记录你在城堡外选哪个入口。" : null);
-  const lock = () => st.querySelectorAll(".pick").forEach((d) => (d.style.pointerEvents = "none"));
+  let moving = false;
+  const lock = () => st.querySelectorAll(".pick").forEach((d) => { d.style.pointerEvents = "none"; d.disabled = true; });
+  const takeDoor = (element, to) => {
+    if (moving) return;
+    moving = true; element.classList.add("chosen"); lock(); setTimeout(() => go(to), 1000);
+  };
   if (at === 1) {
     st.append(place(h("div", { class: "obj castle-pic" }), 50, 30));
     st.lastChild.innerHTML = castleSvg(B.castle);
     for (const [side, x] of [["l", 22], ["r", 78]]) {
       const room = side === "l" ? B.leftIs : 5 - B.leftIs;
-      const g = place(h("div", { class: "obj pick gatepic", title: side === "l" ? "左入口" : "右入口" }), x, 72);
+      const g = place(h("button", { type: "button", class: "obj pick gatepic", "aria-label": side === "l" ? "左入口" : "右入口", title: side === "l" ? "左入口" : "右入口" }), x, 72);
       g.innerHTML = gateSvg(B.castle);
-      g.addEventListener("click", () => { g.classList.add("chosen"); lock(); setTimeout(() => go(room), 1000); });
+      g.addEventListener("click", () => takeDoor(g, room));
       st.append(g);
     }
   } else if (at === 2 || at === 3) {
@@ -336,16 +347,22 @@ function renderTrial() {
       const p = B.pos[t];
       const open = A[at].includes(t);
       const [dx, dy] = p === 0 ? [x, y - 17] : p === 2 ? [x, y + 17] : [x + inward * 10, y];
-      const d = place(h("div", { class: `obj door${open ? " pick" : " shut"}`, title: open ? "开着" : "关着" }), dx, dy);
+      const label = ["上门", "中门", "下门"][p];
+      const d = place(h("button", { type: "button", class: `obj door${open ? " pick" : " shut"}`, title: open ? "开着" : "关着", "aria-label": `${label}，${open ? "开着" : "关着"}`, disabled: open ? null : "" }), dx, dy);
+      // Keep tap targets apart when rotating or resizing, without restarting the trial.
+      if (p === 0) d.style.top = "calc(50% - max(17%, 68px))";
+      else if (p === 2) d.style.top = "calc(50% + max(17%, 68px))";
+      else d.style.left = `calc(${x}% ${inward > 0 ? "+" : "-"} max(10%, 64px))`;
       d.innerHTML = doorSvg(open);
-      if (open) d.addEventListener("click", () => { d.classList.add("chosen"); lock(); setTimeout(() => go(t), 1000); });
+      if (open) d.addEventListener("click", () => takeDoor(d, t));
       st.append(d);
     }
   } else {
     const [x, y] = spot(B, at);
-    st.append(place(h("div", { class: "obj sq", style: `background:${B.color[at]}` }), x, y));
+    st.append(place(h("button", { type: "button", class: "obj sq", "aria-label": "领取房间分数", style: `background:${B.color[at]}` }), x, y));
     st.lastChild.innerHTML = AVATAR;
-    const hint = place(h("div", { class: "obj hint" }, "按空格键（或点一下方块）"), 50, y > 60 ? y - 15 : y + 15);
+    const hint = place(h("div", { class: "obj hint" }, "点击方块领取分数（也可按空格）"), 50, y > 60 ? y - 15 : y + 15);
+    hint.style.top = `calc(${y}% ${y > 60 ? "-" : "+"} max(15%, 60px))`;
     st.append(hint);
     let done = false;
     const collect = () => {
@@ -418,7 +435,7 @@ function finishBlock(testRoom) {
     renderResults();
   }
   track("round", game.completed, record);
-  if (!game.running) track("complete", { game_version: "sr-castle-1", total_score: game.total,
+  if (!game.running) track("complete", { game_version: "sr-castle-1", ui_version: "touch-1", total_score: game.total,
     blocks: game.blocks.map(B => ({ condition: B.key, earned: B.earned, test_room: B.test,
       pref1: B.pref1, excluded_states: B.excluded.slice(), switched: B.switched })),
     log: game.blocks.flatMap(B => B.log) });

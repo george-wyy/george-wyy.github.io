@@ -12,20 +12,22 @@ main{max-width:860px;margin:0 auto;padding:18px 16px 60px;position:relative}
 .page{background:#111;border:1px solid var(--line);border-radius:12px;padding:20px 22px}
 h1{font-size:22px;margin:0 0 6px}
 .dim{color:var(--dim)}
-.btn{font:inherit;font-size:14px;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:#1d1d1d;color:var(--fg);cursor:pointer}
+.btn{font:inherit;font-size:16px;min-height:44px;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:#1d1d1d;color:var(--fg);cursor:pointer;touch-action:manipulation}
 .btn.primary{background:var(--accent);border-color:var(--accent)}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
 .res{display:inline-flex;align-items:center;gap:6px}
 .ic{font-size:1.25em}
 /* the trial screens: black, like the original */
 .stage{position:relative;min-height:470px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.room-stage,.loot-stage{padding-top:100px;justify-content:flex-start}
 .corner{position:absolute;top:0;font-size:13px;line-height:1.5}
 .corner.l{left:0}.corner.r{right:0;text-align:right}
 .mini-door{display:inline-block;width:34px;height:48px;border-radius:6px 6px 2px 2px;vertical-align:middle}
 .prices{font-size:40px;font-weight:700;line-height:1.5;text-align:left}
 .prices .ic{font-size:44px;margin-left:10px}
-.doors{display:flex;gap:28px;justify-content:center}
-.door{width:150px;height:230px;border-radius:70px 70px 6px 6px;border:10px solid transparent;position:relative;cursor:pointer;box-shadow:inset 0 0 0 4px #0005}
+.doors{display:grid;grid-template-columns:repeat(3,minmax(0,150px));gap:clamp(8px,3vw,28px);width:100%;max-width:506px;justify-content:center}
+.door{display:block;width:100%;aspect-ratio:15/23;padding:0;border-radius:50% 50% 6px 6px;border:clamp(5px,1.5vw,10px) solid transparent;position:relative;cursor:pointer;box-shadow:inset 0 0 0 4px #0005;touch-action:manipulation}
+.door:focus-visible,.btn:focus-visible{outline:3px solid var(--good);outline-offset:4px}
 .door::after{content:"";position:absolute;right:16px;top:52%;width:12px;height:12px;border-radius:50%;background:#e8c35a}
 .door.picked{border-color:#fff}
 .num{text-align:center;font-size:22px;margin-bottom:6px}
@@ -35,7 +37,7 @@ h1{font-size:22px;margin:0 0 6px}
 .earn b.neg{color:var(--bad)}
 .foot{margin-top:18px;text-align:center;color:var(--dim);font-size:13px}
 .q{margin:14px 0 4px;font-weight:600}
-label.opt{display:block;padding:3px 0;cursor:pointer}
+label.opt{display:block;min-height:44px;padding:10px 0;cursor:pointer;touch-action:manipulation}
 .err{color:var(--bad);margin-top:8px}
 table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
 td,th{padding:5px 8px;border-bottom:1px solid var(--line);text-align:left}
@@ -44,7 +46,9 @@ tr.you td{background:#7b5bd640}
 .box{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:12px;background:#161616}
 .warn{border-color:#e0a23a88;background:#e0a23a14}
 svg text{fill:var(--dim);font-size:11px}
-select{font:inherit;font-size:14px;background:#1d1d1d;color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:4px 6px}
+select{font:inherit;font-size:16px;min-height:44px;max-width:100%;background:#1d1d1d;color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:4px 6px}
+input[type=text],input:not([type]){font:inherit;font-size:16px;max-width:100%}
+@media(max-width:560px){main{padding:12px 12px 32px}.page{padding:16px}.stage{min-height:430px}.doors{gap:10px}.door::after{right:8px;width:8px;height:8px}.row{gap:10px}h1{font-size:20px}}
 </style>
 </head>
 <body>
@@ -105,7 +109,7 @@ function intro() {
     const train = shuffle(TRAIN.flatMap((w) => Array(per).fill(w))).map((w) => ({ w: fid.map((j) => w[j]), w0: w }));
     S = { cfg, phi, fid, days: [...train, { w: fid.map((j) => TEST[j]), w0: TEST, test: true }], d: 0, log: [], fails: 0 };
     instructions();
-    track("begin", { consent, nickname, settings: { cfg, training_days: per * 4, fid: fid.slice() } });
+    track("begin", { consent, nickname, settings: { cfg, training_days: per * 4, fid: fid.slice(), ui_version: "touch-1" } });
   });
 }
 
@@ -114,8 +118,8 @@ function instructions() {
   render(`<div class="page"><h1>说明</h1>
     <p>想象你是一个商人，在一座中世纪城堡里搜寻资源去卖。资源有三种：${RES.map(([i, n]) => `<span class="res"><span class="ic">${i}</span>${n}</span>`).join("、")}，价格各不相同。</p>
     <p>有些资源卖不出去，还得花钱处理掉——这种资源的价格显示为负数。每天开始时，你会看到当天的市场价，例如：${RES.map(([i], k) => `<span class="res"><span class="ic">${i}</span>${money([1, -1, 0][k])}</span>`).join("　")}。这表示每单位木头赚 $1，每单位石头亏 $1，铁不赚不亏。</p>
-    <p>按空格键进城堡。城堡里有许多房间，有的房间有门通向别的房间：用数字键 <b>1、2、3</b> 选门进入下一个房间。左上角会一直显示今天的价格，右上角显示你是从哪扇门进来的。只能往前走，不能回头。</p>
-    <p>有的房间里有资源，可以按今天的价格卖掉（或处理掉）。例如房间里有 ${ex.map((v, k) => `${v} ${RES[k][1]}`).join("、")}：你赚 $1×100 + $-1×90 + $0×0 = <b>$10</b>。按空格卖掉资源，开始下一天。</p>
+    <p>点击“进入城堡”开始，也可以按空格键。城堡里有许多房间：点击门，或用数字键 <b>1、2、3</b> 选门进入下一个房间。左上角会一直显示今天的价格，右上角显示你是从哪扇门进来的。只能往前走，不能回头。</p>
+    <p>有的房间里有资源，可以按今天的价格卖掉（或处理掉）。例如房间里有 ${ex.map((v, k) => `${v} ${RES[k][1]}`).join("、")}：你赚 $1×100 + $-1×90 + $0×0 = <b>$10</b>。点击“收取收益，下一天”或按空格卖掉资源。</p>
     <p>目标：每天都找到当天最赚钱的房间。你总是从同一个房间出发；城堡的布局不会变，同一扇门永远通向同一个房间；有资源的房间里，资源数量也永远不变。</p>
     <p>一共 ${S.days.length} 天。原实验的奖金是随机抽一天的收益（按美分计），所以每一天都要认真。</p>
     <div class="row"><button class="btn primary" id="next">继续</button></div></div>`);
@@ -149,7 +153,9 @@ function pricePage() {
   S.mode = "price"; S.room = 1; S.path = [1]; S.came = null; S.t0 = 0; S.rts = [];
   render(`<div class="stage"><div class="dim" style="margin-bottom:8px">今天的市场价：</div>
     <div class="prices">${priceLines(day().w, "40px")}</div>
-    <div class="foot">按空格进入城堡。还剩 ${S.days.length - S.d} 天。</div></div>`);
+    <div class="row"><button class="btn primary" id="enter-castle" type="button">进入城堡</button></div>
+    <div class="foot">点击按钮或按空格进入城堡。还剩 ${S.days.length - S.d} 天。</div></div>`);
+  app.querySelector("#enter-castle").addEventListener("click", () => { if (S.mode === "price") roomPage(); });
 }
 
 function corners() {
@@ -160,9 +166,9 @@ function corners() {
 function roomPage() {
   S.mode = "room"; S.t0 = performance.now();
   const kids = NEXT[S.room];
-  render(`<div class="stage">${corners()}
-    <div class="doors">${kids.map((k, i) => `<div><div class="num">${i + 1}</div><div class="door" data-i="${i}" style="${doorBg(k)}"></div></div>`).join("")}</div>
-    <div class="foot">用数字键 1、2、3 选门（也可以点门）。按空格卖掉资源、开始下一天。还剩 ${S.days.length - S.d} 天。</div></div>`);
+  render(`<div class="stage room-stage">${corners()}
+    <div class="doors">${kids.map((k, i) => `<div><div class="num">${i + 1}</div><button type="button" class="door" data-i="${i}" aria-label="进入第 ${i + 1} 扇门" style="${doorBg(k)}"></button></div>`).join("")}</div>
+    <div class="foot">点击门，或用数字键 1、2、3 选择。还剩 ${S.days.length - S.d} 天。</div></div>`);
   app.querySelectorAll(".door").forEach((d) => d.addEventListener("click", () => choose(Number(d.dataset.i))));
 }
 
@@ -182,13 +188,17 @@ function lootPage() {
   S.mode = "loot";
   const phi = S.phi[S.room], w = day().w, r = dot(phi, w);
   S.reward = r;
-  render(`<div class="stage">${corners()}
+  render(`<div class="stage loot-stage">${corners()}
     <div class="loot">${RES.map(([i], k) => `<div>${phi[k]} &emsp;<span class="ic">${i}</span></div>`).join("")}</div>
     <div class="earn">你赚了 ${RES.map(([i], k) => `${phi[k]} <span class="ic">${i}</span> × ${money(w[k])}`).join(" + ")} = <b class="${r < 0 ? "neg" : ""}">${money(r)}</b></div>
-    <div class="foot">按空格卖掉资源，开始下一天。还剩 ${S.days.length - S.d} 天。</div></div>`);
+    <div class="row"><button class="btn primary" id="collect-loot" type="button">${S.d === S.days.length - 1 ? "收取收益，查看结果" : "收取收益，下一天"}</button></div>
+    <div class="foot">也可以按空格收取收益。还剩 ${S.days.length - S.d} 天。</div></div>`);
+  app.querySelector("#collect-loot").addEventListener("click", endDay);
 }
 
 function endDay() {
+  if (S.mode !== "loot") return;
+  S.mode = "advance";
   S.log.push({ room: S.room, r: S.reward, w0: day().w0, test: Boolean(day().test), rt: S.rts.slice() });
   S.d += 1;
   if (S.d >= S.days.length) notesQuestion();
@@ -256,7 +266,7 @@ function result() {
       <div style="overflow-x:auto"><table><tr><th>房间</th><th>资源</th><th>训练中去过几次</th><th>新价格下的值</th><th></th></tr>${rows}</table></div></div>
     <div class="row"><button class="btn" id="again">再玩一次</button><a class="btn" href="mtrl-models.html" target="_blank" rel="noopener" style="text-decoration:none">四个算法各自怎么算 →</a><span class="dim">你回答的“记笔记”：${S.notes}</span></div></div>`);
   app.querySelector("#again").addEventListener("click", intro);
-  track("complete", { cfg: S.cfg, fid: S.fid.slice(), fails: S.fails, notes: S.notes,
+  track("complete", { cfg: S.cfg, fid: S.fid.slice(), fails: S.fails, notes: S.notes, ui_version: "touch-1",
     average_reward: avg, included_by_paper_rule: kept, log: S.log.slice() });
 }
 
